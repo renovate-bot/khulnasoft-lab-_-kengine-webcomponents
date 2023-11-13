@@ -1,0 +1,45 @@
+@import "./InvisibleTextStyles.css";
+
+:host(:not([hidden])) {
+	display: inline-block;
+	width: 100%;
+}
+
+.kengine-card-root {
+	width: 100%;
+	height: 100%;
+	color: var(--sapGroup_TitleTextColor);
+	background: var(--sapTile_Background);
+	box-shadow: var(--_kengine_card_box_shadow);
+	border-radius: var(--_kengine_card_border-radius);
+	border: var(--_kengine_card_border);
+	overflow: hidden;
+	font-family: "72override", var(--sapFontFamily);
+	font-size: var(--sapFontSize);
+	box-sizing: border-box;
+}
+
+.kengine-card-root.kengine-card--interactive:hover {
+	box-shadow: var(--_kengine_card_hover_box_shadow);
+}
+
+.kengine-card-root.kengine-card--interactive:active {
+	box-shadow: var(--_kengine_card_box_shadow);
+}
+
+/* Card with no content */
+.kengine-card-root.kengine-card--nocontent {
+	height: auto;
+}
+
+.kengine-card-root.kengine-card--nocontent .kengine-card-header-root  {
+	border-bottom: none;
+}
+
+.kengine-card--nocontent ::slotted([kengine-card-header]) {
+	--_kengine_card_header_focus_bottom_radius: var(--_kengine_card_header_focus_radius);
+}
+
+.kengine-card-root .kengine-card-header-root {
+	border-bottom: var(--_kengine_card_header_border);
+}

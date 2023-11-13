@@ -1,0 +1,16 @@
+@import "../base/SliderBase-parameters.css";
+
+:root {
+	--_kengine_slider_inner_height: 0.375rem;
+	--_kengine_slider_progress_border: solid 0.0625rem var(--sapField_BorderColor);
+	--_kengine_slider_progress_border_radius: 0.375rem;
+	--_kengine_range_slider_handle_background: transparent;
+	--_kengine_slider_handle_hover_background: var(--sapButton_Hover_Background);
+	--_kengine_slider_handle_border: solid 0.125rem var(--sapField_BorderColor);
+	--_kengine_slider_handle_height: 1.65rem;
+	--_kengine_slider_handle_width: 1.65rem;
+	--_kengine_slider_handle_top: -0.75rem;
+	--_kengine_slider_progress_background: var(--sapSelectedColor);
+	--_kengine_slider_tickmark_top: -0.2525rem;
+	--_kengine_slider_handle_margin_left: -.9375rem;
+}

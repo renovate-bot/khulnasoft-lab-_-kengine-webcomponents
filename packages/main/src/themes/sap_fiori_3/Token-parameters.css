@@ -1,0 +1,6 @@
+@import "../base/Token-parameters.css";
+
+:root {
+	--_kengine_token_focus_outline_width: 0.0625rem;
+	--_kengine_token_text_color: var(--sapTextColor);
+}

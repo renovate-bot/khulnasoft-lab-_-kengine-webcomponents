@@ -1,0 +1,159 @@
+@import "./InvisibleTextStyles.css";
+
+.kengine-card-header {
+	position: relative;
+	display: flex;
+	align-items: center;
+	padding: var(--_kengine_card_header_padding);
+	outline: none;
+}
+
+:host([subtitleText]) .kengine-card-header {
+	align-items: flex-start;
+}
+
+.kengine-card-header.kengine-card-header-ff:not(.kengine-card-header-hide-focus):focus-within:before {
+	outline: none;
+	content: "";
+	position: absolute;
+	border: var(--_kengine_card_header_focus_border);
+	pointer-events: none;
+	top: var(--_kengine_card_header_focus_offset);
+	left: var(--_kengine_card_header_focus_offset);
+	right: var(--_kengine_card_header_focus_offset);
+	bottom: var(--_kengine_card_header_focus_offset);
+	border-top-left-radius: var(--_kengine_card_header_focus_radius);
+	border-top-right-radius: var(--_kengine_card_header_focus_radius);
+	border-bottom-left-radius: var(--_kengine_card_header_focus_bottom_radius);
+	border-bottom-right-radius: var(--_kengine_card_header_focus_bottom_radius);
+}
+
+/* cannot be combined with the above style, because :has selector breaks the whole style if FF */
+.kengine-card-header:not(.kengine-card-header-ff):not(.kengine-card-header-hide-focus):has(.kengine-card-header-focusable-element:focus):before {
+	outline: none;
+	content: "";
+	position: absolute;
+	border: var(--_kengine_card_header_focus_border);
+	pointer-events: none;
+	top: var(--_kengine_card_header_focus_offset);
+	left: var(--_kengine_card_header_focus_offset);
+	right: var(--_kengine_card_header_focus_offset);
+	bottom: var(--_kengine_card_header_focus_offset);
+	border-top-left-radius: var(--_kengine_card_header_focus_radius);
+	border-top-right-radius: var(--_kengine_card_header_focus_radius);
+	border-bottom-left-radius: var(--_kengine_card_header_focus_bottom_radius);
+	border-bottom-right-radius: var(--_kengine_card_header_focus_bottom_radius);
+}
+
+.kengine-card-header-focusable-element {
+	outline: none;
+}
+
+.kengine-card-header-focusable-element {
+	display: inherit;
+	align-items: inherit;
+	flex: 1;
+}
+
+.kengine-card-header.kengine-card-header--interactive:hover {
+	cursor: pointer;
+	background: var(--_kengine_card_header_hover_bg);
+}
+
+.kengine-card-header.kengine-card-header--active,
+.kengine-card-header.kengine-card-header--interactive:active {
+	background: var(--_kengine_card_header_active_bg);
+}
+
+.kengine-card-header .kengine-card-header-text {
+	flex: 1;
+	pointer-events: none;
+}
+
+.kengine-card-header-first-line {
+	display: flex;
+	flex-flow: row;
+	justify-content: space-between;
+}
+
+.kengine-card-header-status {
+	flex: none;
+}
+
+.kengine-card-header .kengine-card-header-avatar {
+	height: 3rem;
+	width: 3rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-inline-end: .75rem;
+	pointer-events: none;
+	align-self: flex-start;
+}
+
+::slotted([kengine-icon]) {
+	width: 1.5rem;
+	height: 1.5rem;
+	color: var(--sapTile_IconColor);
+}
+
+::slotted(img[slot="avatar"]) {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+
+.kengine-card-header .kengine-card-header-status {
+	display: inline-block;
+	font-family: "72override", var(--sapFontFamily);
+	font-size: var(--sapFontSmallSize);
+	color: var(--sapTile_TextColor);
+	text-align: left;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	vertical-align: middle;
+	margin-inline-start: 1rem;
+	margin-block-start: 0.125rem;
+}
+
+.kengine-card-header .kengine-card-header-text .kengine-card-header-title {
+	font-family: var(--_kengine_card_header_title_font_family);
+	font-size: var(--_kengine_card_header_title_font_size);
+	font-weight: var(--_kengine_card_header_title_font_weight);
+	color: var(--sapTile_TitleTextColor);
+	max-height: 3.5rem;
+	align-self: flex-end;
+}
+
+.kengine-card-header .kengine-card-header-text .kengine-card-header-subtitle {
+	font-family: "72override", var(--sapFontFamily);
+	font-size: var(--sapFontSize);
+	font-weight: normal;
+	color: var(--sapTile_TextColor);
+	margin-top: var(--_kengine_card_header_subtitle_margin_top);
+	max-height: 2.1rem;
+}
+
+.kengine-card-header .kengine-card-header-text .kengine-card-header-title,
+.kengine-card-header .kengine-card-header-text .kengine-card-header-subtitle {
+	text-align: start;
+	text-overflow: ellipsis;
+	white-space: normal;
+	word-wrap: break-word;
+	overflow: hidden;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	display: -webkit-box;
+	max-width: 100%;
+}
+
+.kengine-card-header .kengine-card-header-text .kengine-card-header-title {
+	-webkit-line-clamp: 3;
+}
+
+.kengine-card-header-action {
+	display: flex;
+	padding-inline-start: 1rem;
+	align-self: flex-start;
+}

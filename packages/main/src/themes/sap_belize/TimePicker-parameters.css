@@ -1,0 +1,5 @@
+@import "../base/TimePicker-parameters.css";
+
+:root {
+	--_kengine_time_picker_border: 0.0625rem solid transparent;
+}

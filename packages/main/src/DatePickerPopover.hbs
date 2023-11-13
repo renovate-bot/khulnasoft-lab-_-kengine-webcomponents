@@ -1,0 +1,61 @@
+<kengine-responsive-popover
+	id="{{_id}}-responsive-popover"
+	allow-target-overlap
+	placement-type="Bottom"
+	horizontal-align="Left"
+	hide-arrow
+	?_hide-header={{_shouldHideHeader}}
+	@keydown="{{_onkeydown}}"
+	@kengine-after-close="{{onResponsivePopoverAfterClose}}"
+>
+	{{#if showHeader}}
+		{{> header}}
+	{{/if}}
+
+	{{> content}}
+
+	{{#if showFooter}}
+		{{> footer}}
+	{{/if}}
+</kengine-responsive-popover>
+
+{{#*inline "header"}}
+	<div slot="header" class="kengine-responsive-popover-header">
+		<div class="row">
+			<span>{{_headerTitleText}}</span>
+			<kengine-button
+				class="kengine-responsive-popover-close-btn"
+				icon="decline"
+				design="Transparent"
+				@click="{{closePicker}}"
+			>
+			</kengine-button>
+		</div>
+	</div>
+{{/inline}}
+
+{{#*inline "content"}}
+	<kengine-calendar
+		id="{{_id}}-calendar"
+		primary-calendar-type="{{_primaryCalendarType}}"
+		secondary-calendar-type="{{secondaryCalendarType}}"
+		format-pattern="{{_formatPattern}}"
+		timestamp="{{_calendarTimestamp}}"
+		.selectionMode="{{_calendarSelectionMode}}"
+		.minDate="{{minDate}}"
+		.maxDate="{{maxDate}}"
+		@kengine-selected-dates-change="{{onSelectedDatesChange}}"
+		@kengine-show-month-press="{{onHeaderShowMonthPress}}"
+		@kengine-show-year-press="{{onHeaderShowYearPress}}"
+		?hide-week-numbers="{{hideWeekNumbers}}"
+		._currentPicker="{{_calendarCurrentPicker}}"
+		._pickersMode="{{_calendarPickersMode}}"
+	>
+		{{#each _calendarSelectedDates}}
+			<kengine-date value="{{this}}"></kengine-date>
+		{{/each}}
+	</kengine-calendar>
+{{/inline}}
+
+{{#*inline "footer"}}{{/inline}}
+

@@ -1,0 +1,196 @@
+import KENGINEElement from "@kengine/webcomponents-base/dist/KENGINEElement.js";
+import customElement from "@kengine/webcomponents-base/dist/decorators/customElement.js";
+import property from "@kengine/webcomponents-base/dist/decorators/property.js";
+import slot from "@kengine/webcomponents-base/dist/decorators/slot.js";
+import Integer from "@kengine/webcomponents-base/dist/types/Integer.js";
+import type Menu from "./Menu.js";
+
+/**
+ * @class
+ *
+ * <h3 class="comment-api-title">Overview</h3>
+ *
+ * <code>kengine-menu-item</code> is the item to use inside a <code>kengine-menu</code>.
+ * An arbitrary hierarchy structure can be represented by recursively nesting menu items.
+ *
+ * <h3>Usage</h3>
+ *
+ * <code>kengine-menu-item</code> is an abstract element, representing a node in a <code>kengine-menu</code>. The menu itself is rendered as a list,
+ * and each <code>kengine-menu-item</code> is represented by a list item (<code>kengine-li</code>) in that list. Therefore, you should only use
+ * <code>kengine-menu-item</code> directly in your apps. The <code>kengine-li</code> list item is internal for the list, and not intended for public use.
+ *
+ * <h3>ES6 Module Import</h3>
+ *
+ * <code>import "@kengine/webcomponents/dist/MenuItem.js";</code>
+ *
+ * @constructor
+ * @author KHULNASOFT SE
+ * @alias sap.ui.webc.main.MenuItem
+ * @extends sap.ui.webc.base.KENGINEElement
+ * @abstract
+ * @tagname kengine-menu-item
+ * @implements sap.ui.webc.main.IMenuItem
+ * @since 1.3.0
+ * @public
+ */
+@customElement("kengine-menu-item")
+class MenuItem extends KENGINEElement {
+	/**
+	 * Defines the text of the tree item.
+	 *
+	 * @name sap.ui.webc.main.MenuItem.prototype.text
+	 * @type {string}
+	 * @defaultValue ""
+	 * @public
+	 */
+	@property()
+	text!: string;
+
+	/**
+	 * Defines the <code>additionalText</code>, displayed in the end of the menu item.
+	 * <b>Note:</b> The additional text would not be displayed if the item has a submenu.
+	 *
+	 * @name sap.ui.webc.main.MenuItem.prototype.additionalText
+	 * @type {string}
+	 * @public
+	 * @since 1.8.0
+	 */
+	@property()
+	additionalText!: string;
+
+	/**
+	 * Defines the icon to be displayed as graphical element within the component.
+	 * The KHULNASOFT-icons font provides numerous options.
+	 * <br><br>
+	 <b>* Example:</b>
+	 * See all the available icons in the <kengine-link target="_blank" href="https://sdk.kengine.org/test-resources/sap/m/demokit/iconExplorer/webapp/index.html">Icon Explorer</kengine-link>.
+	 *
+	 * @name sap.ui.webc.main.MenuItem.prototype.icon
+	 * @type {string}
+	 * @defaultvalue ""
+	 * @public
+	 */
+	@property()
+	icon!: string;
+
+	/**
+	 * Defines whether a visual separator should be rendered before the item.
+	 *
+	 * @name sap.ui.webc.main.MenuItem.prototype.startsSection
+	 * @type {boolean}
+	 * @defaultvalue false
+	 * @public
+	 */
+	@property({ type: Boolean })
+	startsSection!: boolean;
+
+	/**
+	 * Defines whether <code>kengine-menu-item</code> is in disabled state.
+	 * <br><br>
+	 * <b>Note:</b> A disabled <code>kengine-menu-item</code> is noninteractive.
+	 *
+	 * @name sap.ui.webc.main.MenuItem.prototype.disabled
+	 * @type {boolean}
+	 * @defaultvalue false
+	 * @public
+	 */
+	@property({ type: Boolean })
+	disabled!: boolean;
+
+	/**
+	 * Defines the delay in milliseconds, after which the busy indicator will be displayed inside the corresponding kengine-menu popover.
+	 *
+	 * Note: If set to <code>true</code> a <code>kengine-busy-indicator</code> component will be displayed into the related one to the current <code>kengine-menu-item</code> sub-menu popover.
+	 *
+	 * @name sap.ui.webc.main.MenuItem.prototype.busy
+	 * @type {boolean}
+	 * @defaultvalue false
+	 * @public
+	 * @since 1.13.0
+	 */
+	@property({ type: Boolean })
+	busy!: boolean;
+
+	/**
+	 * Defines the delay in milliseconds, after which the busy indicator will be displayed inside the corresponding kengine-menu popover.
+	 *
+	 * @name sap.ui.webc.main.MenuItem.prototype.busyDelay
+	 * @type {sap.ui.webc.base.types.Integer}
+	 * @defaultValue 1000
+	 * @public
+	 * @since 1.13.0
+	 */
+	@property({ validator: Integer, defaultValue: 1000 })
+	busyDelay!: number;
+
+	/**
+	 * Defines the accessible ARIA name of the component.
+	 *
+	 * @name sap.ui.webc.main.MenuItem.prototype.accessibleName
+	 * @type {string}
+	 * @defaultvalue ""
+	 * @public
+	 * @since 1.7.0
+	 */
+	@property()
+	accessibleName!: string;
+
+	/**
+	 * Indicates whether any of the element siblings have children items.
+	 */
+	@property({ type: Boolean, noAttribute: true })
+	_siblingsWithChildren!: boolean;
+
+	/**
+	 * Indicates whether any of the element siblings have icon.
+	 */
+	@property({ type: Boolean, noAttribute: true })
+	_siblingsWithIcon!: boolean;
+
+	/**
+	 * Defines whether the submenu closing must be prevented
+	 */
+	@property({ type: Boolean, noAttribute: true })
+	_preventSubMenuClose!: boolean;
+
+	/**
+	 * Stores Menu object with submenu items
+	 */
+	@property({ type: Object, defaultValue: undefined })
+	_subMenu?: Menu;
+
+	/**
+	 * Defines the items of this component.
+	 *
+	 * @name sap.ui.webc.main.MenuItem.prototype.default
+	 * @type {sap.ui.webc.main.IMenuItem[]}
+	 * @slot items
+	 * @public
+	 */
+	@slot({ "default": true, type: HTMLElement, invalidateOnChildChange: true })
+	items!: Array<MenuItem>;
+
+	get hasSubmenu() {
+		return !!(this.items.length || this.busy);
+	}
+
+	get hasDummyIcon() {
+		return this._siblingsWithIcon && !this.icon;
+	}
+
+	get subMenuOpened() {
+		return !!this._subMenu;
+	}
+
+	get _additionalText() {
+		return this.hasSubmenu ? "" : this.additionalText;
+	}
+
+	get ariaLabelledByText() {
+		return `${this.text} ${this.accessibleName}`.trim();
+	}
+}
+
+MenuItem.define();
+
+export default MenuItem;

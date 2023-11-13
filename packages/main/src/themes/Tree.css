@@ -1,0 +1,11 @@
+@import "./InvisibleTextStyles.css";
+
+:host(:not([hidden])) {
+	display: block;
+	width: 100%;
+}
+
+.kengine-tree-root {
+	height: 100%;
+	width: 100%;
+}

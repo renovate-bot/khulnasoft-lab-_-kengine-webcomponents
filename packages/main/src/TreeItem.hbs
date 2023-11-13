@@ -1,0 +1,12 @@
+{{>include "./TreeItemBase.hbs"}}
+
+{{#*inline "listItemContent"}}
+	<div class="kengine-li-text-wrapper">
+		{{#if _showTitle}}
+			<div part="title" class="kengine-li-title">{{text}}</div>
+		{{/if}}
+	</div>
+	{{#if additionalText}}
+		<span part="additional-text" class="kengine-li-additional-text">{{additionalText}}</span>
+	{{/if}}
+{{/inline}}

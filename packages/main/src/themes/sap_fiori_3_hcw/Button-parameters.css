@@ -1,0 +1,9 @@
+@import "../base/Button-parameters.css";
+
+:root {
+	--_kengine_button_focused_border: 0.125rem dotted var(--sapContent_FocusColor);
+	--_kengine_button_focused_border_radius: 0.25rem;
+	--_kengine_button_focus_width: 1px;
+	--_kengine_button_text_shadow: none;
+	--_kengine_button_emphasized_outline: 0.125rem dotted var(--sapContent_FocusColor);
+}

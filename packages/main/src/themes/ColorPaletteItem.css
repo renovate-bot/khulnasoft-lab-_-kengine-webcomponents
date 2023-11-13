@@ -1,0 +1,107 @@
+:host(:not([hidden])) {
+	height: var(--_kengine_color-palette-item-height);
+	width: var(--_kengine_color-palette-item-height);
+	border: 1px solid var(--sapContent_ForegroundBorderColor);
+	border-radius: var(--_kengine_color-palette-item-outer-border-radius);
+	display: inline-block;
+	margin: var(--_kengine_color-palette-item-margin);
+	box-sizing: border-box;
+}
+
+:host(:not([_disabled]):hover) {
+	height: var(--_kengine_color-palette-item-hover-height);
+	width: var(--_kengine_color-palette-item-hover-height);
+	margin: var(--_kengine_color-palette-item-hover-margin);
+	border-radius: var(--_kengine_color-palette-item-hover-outer-border-radius);
+}
+
+:host(:not([hidden])[phone]) {
+	height: 2.75rem;
+	width: 2.75rem;
+	border: 1px solid var(--sapContent_ForegroundBorderColor);
+	border-radius: 0.25rem;
+	display: inline-block;
+	margin: 0.375rem;
+}
+
+.kengine-cp-item {
+	position: relative;
+	box-sizing: border-box;
+	border-radius: var(--_kengine_color-palette-item-inner-border-radius);
+	width: 100%;
+	height: 100%;
+}
+
+:host(:not([_disabled]):not([phone]):hover) .kengine-cp-item {
+	border-radius: var(--_kengine_color-palette-item-hover-inner-border-radius);
+}
+
+:host(:not([_disabled])[phone]) .kengine-cp-item {
+	border-radius: 0.1875rem;
+}
+
+.kengine-cp-item:hover:not(:focus) {
+	border: 1px solid var(--sapGroup_ContentBackground);
+	border-radius: var(--_kengine_color-palette-item-hover-inner-border-radius);
+	box-sizing: border-box;
+}
+
+:host(:not([_disabled]):not([phone])) .kengine-cp-item:focus{
+	outline: none;
+}
+
+:host(:not([_disabled]):not([phone]):focus) .kengine-cp-item {
+	pointer-events: none;
+}
+
+:host(:not([_disabled]):not([phone])) .kengine-cp-item:focus:not(:hover)::before {
+	content: "";
+	box-sizing: border-box;
+	position: absolute;
+	left: var(--_kengine_color-palette-item-before-focus-offset);
+	top: var(--_kengine_color-palette-item-before-focus-offset);
+	right: var(--_kengine_color-palette-item-before-focus-offset);
+	bottom: var(--_kengine_color-palette-item-before-focus-offset);
+	border: var(--_kengine_color-palette-item-before-focus-color);
+	border-radius: var(--_kengine_color-palette-item-before-focus-border-radius);
+	pointer-events: none;
+}
+
+:host(:not([_disabled])) .kengine-cp-item:focus:not(:hover)::after {
+	content: "";
+	box-sizing: border-box;
+	position: absolute;
+	left: var(--_kengine_color-palette-item-after-focus-offset);
+	top: var(--_kengine_color-palette-item-after-focus-offset);
+	right: var(--_kengine_color-palette-item-after-focus-offset);
+	bottom: var(--_kengine_color-palette-item-after-focus-offset);
+	border: var(--_kengine_color-palette-item-after-focus-color);
+	border-radius: var(--_kengine_color-palette-item-after-focus-border-radius);
+	pointer-events: none;
+}
+
+:host(:not([_disabled]):not([phone]):hover:focus) .kengine-cp-item:focus:not(:hover)::before {
+	content: "";
+	box-sizing: border-box;
+	position: absolute;
+	left: var(--_kengine_color-palette-item-before-focus-hover-offset);
+	top: var(--_kengine_color-palette-item-before-focus-hover-offset);
+	right: var(--_kengine_color-palette-item-before-focus-hover-offset);
+	bottom: var(--_kengine_color-palette-item-before-focus-hover-offset);
+	border: var(--_kengine_color-palette-item-before-focus-color);
+	border-radius: var(--_kengine_color-palette-item-before-focus-border-radius);
+	pointer-events: none;
+}
+
+:host(:not([_disabled]):not([phone]):hover:focus) .kengine-cp-item:focus:not(:hover)::after {
+	content: "";
+	box-sizing: border-box;
+	position: absolute;
+	left: var(--_kengine_color-palette-item-after-focus-hover-offset);
+	top: var(--_kengine_color-palette-item-after-focus-hover-offset);
+	right: var(--_kengine_color-palette-item-after-focus-hover-offset);
+	bottom: var(--_kengine_color-palette-item-after-focus-hover-offset);
+	border: var(--_kengine_color-palette-item-after-focus-color);
+	border-radius: var(--_kengine_color-palette-item-after-focus-border-radius);
+	pointer-events: none;
+}

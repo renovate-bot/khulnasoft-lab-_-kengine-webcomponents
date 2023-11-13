@@ -1,0 +1,32 @@
+<kengine-li-custom
+	id="{{this._id}}-li"
+	class="{{this.overflowClasses}}"
+	type="{{this.overflowState}}"
+	aria-disabled="{{this.effectiveDisabled}}"
+	aria-selected="{{this.effectiveSelected}}"
+	._realTab="{{this}}"
+	style="{{this._style}}"
+>
+	<div class="kengine-tab-overflow-itemContent-wrapper">
+		<div class="kengine-tab-overflow-itemContent">
+			{{#if this.semanticIconName}}
+				<kengine-icon class="{{this.semanticIconClasses}}" name="{{this.semanticIconName}}"></kengine-icon>
+			{{/if}}
+			{{#if this.icon}}
+				<kengine-icon name="{{this.icon}}"></kengine-icon>
+			{{/if}}
+			{{this.text}}
+			{{#if this.additionalText}}
+				({{this.additionalText}})
+			{{/if}}
+			{{#if this._designDescription}}
+				<div id="{{this._id}}-designDescription" class="kengine-hidden-text">
+					{{this._designDescription}}
+				</div>
+			{{/if}}
+		</div>
+	</div>
+</kengine-li-custom>
+{{#each subTabs}}
+	{{overflowPresentation}}
+{{/each}}

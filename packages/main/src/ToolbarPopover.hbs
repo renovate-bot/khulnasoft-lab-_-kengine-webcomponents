@@ -1,0 +1,14 @@
+<kengine-popover
+	class="kengine-overflow-popover"
+	placement-type="Bottom"
+	horizontal-align="Right"
+	@kengine-after-close="{{onOverflowPopoverClosed}}"
+	@kengine-after-open="{{onOverflowPopoverOpened}}"
+	hide-arrow
+>
+	<div class="kengine-overflow-list {{classes.overflow}}">
+		{{#each overflowItems}}
+			{{this.toolbarPopoverTemplate}}
+		{{/each}}
+	</div>
+</kengine-popover>

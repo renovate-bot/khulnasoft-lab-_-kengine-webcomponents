@@ -1,0 +1,43 @@
+<div
+	id="{{this._id}}"
+	class="kengine-time-picker-root"
+>
+	<kengine-input
+			id="{{_id}}-inner"
+			value="{{value}}"
+			placeholder="{{_placeholder}}"
+			?disabled="{{disabled}}"
+			?readonly="{{readonly}}"
+			value-state="{{valueState}}"
+			._inputAccInfo="{{accInfo}}"
+			data-sap-focus-ref
+			@click="{{_handleInputClick}}"
+			@kengine-change="{{_handleInputChange}}"
+			@kengine-input="{{_handleInputLiveChange}}"
+			@focusin="{{_onfocusin}}"
+			@input="{{_oninput}}"
+			class="kengine-time-picker-input"
+			@keydown="{{_onkeydown}}"
+	>
+
+	{{#if valueStateMessage.length}}
+		<slot
+			name="valueStateMessage"
+			slot="valueStateMessage"
+		></slot>
+	{{/if}}
+
+	{{#unless readonly}}
+		<kengine-icon
+			slot="icon"
+			name="{{openIconName}}"
+			tabindex="-1"
+			show-tooltip
+			@click="{{togglePicker}}"
+			input-icon
+			?pressed="{{_isPickerOpen}}"
+			class="kengine-time-picker-input-icon-button"
+		></kengine-icon>
+	{{/unless}}
+	</kengine-input>
+</div>

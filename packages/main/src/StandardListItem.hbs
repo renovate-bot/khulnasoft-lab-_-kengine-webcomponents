@@ -1,0 +1,50 @@
+{{>include "./ListItem.hbs"}}
+
+{{#*inline "listItemContent"}}
+	<div class="kengine-li-text-wrapper">
+		<span part="title" class="kengine-li-title"><slot></slot></span>
+		{{#if description}}
+			<div class="kengine-li-description-info-wrapper">
+				<span part="description" class="kengine-li-desc">{{description}}</span>
+
+				{{#if additionalText}}
+					<span part="additional-text" class="kengine-li-additional-text">{{additionalText}}</span>
+				{{/if}}
+			</div>
+		{{/if}}
+		{{#unless typeActive}}
+			<span class="kengine-hidden-text">{{type}}</span>
+		{{/unless}}
+	</div>
+	{{#unless description}}
+		{{#if additionalText}}
+			<span part="additional-text" class="kengine-li-additional-text">{{additionalText}}</span>
+		{{/if}}
+	{{/unless}}
+{{/inline}}
+
+{{#*inline "imageBegin"}}
+	{{#if hasImageContent}}
+		<div class="kengine-li-imgContent" >
+			<slot name="imageContent"></slot>
+		</div>
+	{{else}}
+		{{#if displayImage}}
+			<kengine-avatar shape="Square" class="kengine-li-img">
+				<img src="{{image}}" class="kengine-li-img-inner" />
+			</kengine-avatar>
+		{{/if}}
+	{{/if}}
+{{/inline}}
+
+{{#*inline "iconBegin"}}
+	{{#if displayIconBegin}}
+		<kengine-icon part="icon" name="{{icon}}" class="kengine-li-icon" accessible-role="presentation" aria-hidden="true"></kengine-icon>
+	{{/if}}
+{{/inline}}
+
+{{#*inline "iconEnd"}}
+	{{#if displayIconEnd}}
+		<kengine-icon part="icon" name="{{icon}}" class="kengine-li-icon" accessible-role="presentation" aria-hidden="true"></kengine-icon>
+	{{/if}}
+{{/inline}}

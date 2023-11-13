@@ -1,0 +1,80 @@
+<div class="kengine-multi-combobox-root kengine-input-focusable-element"
+>
+	<span id="kengine-multi-combobox-hiddenText-nMore" class="kengine-hidden-text">{{_tokensCountText}}</span>
+
+	{{#if hasValueState}}
+		<span id="kengine-multi-combobox-valueStateDesc" class="kengine-hidden-text">{{ariaValueStateHiddenText}}</span>
+	{{/if}}
+
+	<kengine-tokenizer slot="_beginContent"
+		show-more
+		prevent-popover-open
+		class="kengine-multi-combobox-tokenizer"
+		?disabled="{{disabled}}"
+		@kengine-show-more-items-press="{{_showFilteredItems}}"
+		.morePopoverOpener={{morePopoverOpener}}
+		.popoverMinWidth={{_inputWidth}}
+		@kengine-token-delete="{{_tokenDelete}}"
+		@kengine-before-more-popover-open="{{handleBeforeTokenizerPopoverOpen}}"
+		@focusout="{{_tokenizerFocusOut}}"
+		@focusin="{{_tokenizerFocusIn}}"
+		@click={{_click}}
+		@paste={{_handlePaste}}
+		@keydown="{{_onTokenizerKeydown}}"
+		?expanded="{{_tokenizerExpanded}}"
+	>
+		{{#each items}}
+			{{#if this.selected}}
+				<kengine-token
+					?readonly="{{../readonly}}"
+					class="kengine-multi-combobox-token"
+					data-kengine-id="{{this._id}}"
+					part="token-{{@index}}"
+					text="{{this.text}}"
+				>
+				</kengine-token>
+			{{/if}}
+		{{/each}}
+	</kengine-tokenizer>
+
+	<input id="kengine-multi-combobox-input"
+		.value="{{value}}"
+		inner-input
+		placeholder={{_getPlaceholder}}
+		?disabled={{disabled}}
+		?readonly={{readonly}}
+		value-state="{{valueState}}"
+		@input="{{_inputLiveChange}}"
+		@change={{_inputChange}}
+		@keydown="{{_onkeydown}}"
+		@click={{_click}}
+		@focusin={{inputFocusIn}}
+		@focusout={{inputFocusOut}}
+		@paste={{_handlePaste}}
+		role="combobox"
+		aria-haspopup="listbox"
+		aria-expanded="{{open}}"
+		aria-autocomplete="both"
+		aria-describedby="{{ariaDescribedByText}}"
+		aria-required="{{required}}"
+		aria-label="{{ariaLabelText}}"
+		data-sap-focus-ref
+	/>
+
+	{{#if icon}}
+		<slot name="icon"></slot>
+	{{/if}}
+
+	{{#unless readonly}}
+		<kengine-icon name="slim-arrow-down"
+			input-icon
+			slot="icon"
+			tabindex="-1"
+			@click="{{togglePopoverByDropdownIcon}}"
+			@mousedown="{{_onIconMousedown}}"
+			@focusin="{{_forwardFocusToInner}}"
+			?pressed="{{open}}"
+			accessible-name="{{_iconAccessibleNameText}}"
+		></kengine-icon>
+	{{/unless}}
+</div>

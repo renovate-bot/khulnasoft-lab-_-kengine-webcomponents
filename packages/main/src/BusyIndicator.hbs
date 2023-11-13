@@ -1,0 +1,32 @@
+<div class="{{classes.root}}">
+	{{#if _isBusy}}
+		<div
+			class="kengine-busy-indicator-busy-area"
+			title="{{ariaTitle}}"
+			tabindex="0"
+			role="progressbar"
+			aria-valuemin="0"
+			aria-valuemax="100"
+			aria-valuetext="Busy"
+			aria-labelledby="{{labelId}}"
+			data-sap-focus-ref
+		>
+			<div class="kengine-busy-indicator-circles-wrapper">
+				<div class="kengine-busy-indicator-circle circle-animation-0"></div>
+				<div class="kengine-busy-indicator-circle circle-animation-1"></div>
+				<div class="kengine-busy-indicator-circle circle-animation-2"></div>
+			</div>
+			{{#if text}}
+				<kengine-label id="{{_id}}-label" class="kengine-busy-indicator-text" wrapping-type="Normal">
+					{{text}}
+				</kengine-label>
+			{{/if}}
+		</div>
+	{{/if}}
+
+	<slot></slot>
+
+	{{#if _isBusy}}
+		<span data-kengine-focus-redirect tabindex="0" @focusin="{{_redirectFocus}}"></span>
+	{{/if}}
+</div>

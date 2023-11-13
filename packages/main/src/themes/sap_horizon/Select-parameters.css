@@ -1,0 +1,5 @@
+@import "../base/Select-parameters.css";
+
+:root {
+	--_kengine_select_hover_icon_left_border: none;
+}

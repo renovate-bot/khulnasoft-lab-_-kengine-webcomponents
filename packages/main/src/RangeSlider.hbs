@@ -1,0 +1,77 @@
+{{>include "./SliderBase.hbs"}}
+
+{{#*inline "handlesAriaText"}}
+	<span id="{{_id}}-startHandleDesc" class="kengine-hidden-text">{{_ariaHandlesText.startHandleText}}</span>
+	<span id="{{_id}}-endHandleDesc" class="kengine-hidden-text">{{_ariaHandlesText.endHandleText}}</span>
+{{/inline}}
+
+{{#*inline "progressBar"}}
+	<div
+		class="kengine-slider-progress-container"
+		part="progress-container"
+	>
+		<div class="kengine-slider-progress"
+			part="progress-bar"
+			style="{{styles.progress}}"
+			@focusin="{{_onfocusin}}"
+			@focusout="{{_onfocusout}}"
+			role="slider"
+			tabindex="{{_tabIndex}}"
+			aria-orientation="horizontal"
+			aria-valuemin="{{min}}"
+			aria-valuemax="{{max}}"
+			aria-valuenow="{{_ariaValueNow}}"
+			aria-valuetext="From {{startValue}} to {{endValue}}"
+			aria-labelledby="{{_ariaLabelledByProgressBarRefs}}"
+			aria-disabled="{{_ariaDisabled}}"
+		></div>
+	</div>
+{{/inline}}
+
+{{#*inline "handles"}}
+	<div class="kengine-slider-handle kengine-slider-handle--start"
+		part="handle"
+		style="{{styles.startHandle}}"
+		@focusin="{{_onfocusin}}"
+		@focusout="{{_onfocusout}}"
+		role="slider"
+		tabindex="{{_tabIndex}}"
+		aria-orientation="horizontal"
+		aria-valuemin="{{min}}"
+		aria-valuemax="{{max}}"
+		aria-valuenow="{{startValue}}"
+		aria-labelledby="{{_ariaLabelledByStartHandleRefs}}"
+		aria-disabled="{{_ariaDisabled}}"
+	>
+		<kengine-icon name="direction-arrows" slider-icon></kengine-icon>
+
+		{{#if showTooltip}}
+			<div class="kengine-slider-tooltip kengine-slider-tooltip--start" style="{{styles.tooltip}}">
+				<span class="kengine-slider-tooltip-value">{{tooltipStartValue}}</span>
+			</div>
+		{{/if}}
+	</div>
+
+	<div class="kengine-slider-handle kengine-slider-handle--end"
+		part="handle"
+		style="{{styles.endHandle}}"
+		@focusin="{{_onfocusin}}"
+		@focusout="{{_onfocusout}}"
+		role="slider"
+		tabindex="{{_tabIndex}}"
+		aria-orientation="horizontal"
+		aria-valuemin="{{min}}"
+		aria-valuemax="{{max}}"
+		aria-valuenow="{{endValue}}"
+		aria-labelledby="{{_ariaLabelledByEndHandleRefs}}"
+		aria-disabled="{{_ariaDisabled}}"
+	>
+		<kengine-icon name="direction-arrows" slider-icon></kengine-icon>
+
+		{{#if showTooltip}}
+			<div class="kengine-slider-tooltip kengine-slider-tooltip--end" style="{{styles.tooltip}}">
+				<span class="kengine-slider-tooltip-value">{{tooltipEndValue}}</span>
+			</div>
+		{{/if}}
+	</div>
+{{/inline}}

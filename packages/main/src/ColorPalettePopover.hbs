@@ -1,0 +1,31 @@
+<kengine-responsive-popover
+	hide-arrow
+	content-only-on-desktop
+	placement-type="Bottom"
+>
+	<div slot="header" class="kengine-cp-header">
+		<kengine-title
+			class="kengine-cp-title"
+		>{{_colorPaletteTitle}}</kengine-title>
+	</div>
+	<div>
+		<kengine-color-palette
+			?show-more-colors="{{this.showMoreColors}}"
+			?show-recent-colors="{{this.showRecentColors}}"
+			?show-default-color="{{this.showDefaultColor}}"
+			default-color="{{this.defaultColor}}"
+			popup-mode
+			@kengine-item-click="{{onSelectedColor}}"
+		>
+			{{#each colorPaletteColors}}
+				<slot name="{{this._individualSlot}}"></slot>
+			{{/each}}
+		</kengine-color-palette>
+	</div>
+	<div slot="footer" class="kengine-cp-footer">
+		<kengine-button
+			design="Transparent"
+			@click="{{closePopover}}"
+		>{{_cancelButtonLabel}}</kengine-button>
+	</div>
+</kengine-responsive-popover>

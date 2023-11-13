@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Inputs Alignment</title>
+
+
+	<script src="../../bundle.esm.js" type="module"></script>
+
+	<script>// delete Document.prototype.adoptedStyleSheets;</script>
+<link rel="stylesheet" type="text/css" href="./styles/InputsAlignment.css">
+</head>
+
+<body class="inputsalignment1auto">
+	<h2>The way the components will be rendered out of the box</h2>
+	<kengine-input placeholder="I am kengine-input" value-state="Error"></kengine-input>
+
+	<kengine-input placeholder="I am kengine-input" show-suggestions>
+		<kengine-icon slot="icon" name="message-error"></kengine-icon>
+		<kengine-li>Cozy</kengine-li>
+		<kengine-li>Compact</kengine-li>
+		<kengine-li>Condensed</kengine-li>
+	</kengine-input>
+
+	<kengine-date-picker></kengine-date-picker>
+
+	<kengine-select >
+		<kengine-option>short option</kengine-option>
+		<kengine-option selected>kengine-select: average long option</kengine-option>
+		<kengine-option>very very very very very long option</kengine-option>
+	</kengine-select>
+
+	<kengine-multi-combobox placeholder="I am multi cbx">
+		<kengine-mcb-item text="Compact"></kengine-mcb-item>
+	</kengine-multi-combobox>
+
+	<kengine-multi-combobox placeholder="I am muli cbx">
+		<kengine-mcb-item text="Compact"></kengine-mcb-item>
+	</kengine-multi-combobox>
+
+	<kengine-combobox placeholder="I am combobox">
+		<kengine-cb-item text="Active"></kengine-cb-item>
+		<kengine-cb-item text="Active"></kengine-cb-item>
+		<kengine-cb-item text="Active"></kengine-cb-item>
+		<kengine-cb-item text="Long sentence Long sentence Long sentence"></kengine-cb-item>
+		<kengine-cb-item text="Some word"></kengine-cb-item>
+	</kengine-combobox>
+	<hr>
+	<h2>Explicitly width:auto set</h2>
+	<section>
+		<kengine-input class="inputsalignment2auto" placeholder="I am kengine-input" value-state="Error"></kengine-input>
+
+		<kengine-input class="inputsalignment2auto" placeholder="I am kengine-input">
+			<kengine-icon slot="icon" name="message-error"></kengine-icon>
+		</kengine-input>
+
+		<kengine-date-picker class="inputsalignment2auto"></kengine-date-picker>
+
+		<kengine-select class="inputsalignment2auto">
+			<kengine-option>short option</kengine-option>
+			<kengine-option selected>average long option</kengine-option>
+			<kengine-option>very very very very very long option</kengine-option>
+		</kengine-select>
+
+		<kengine-multi-combobox class="inputsalignment2auto" value="com">
+			<kengine-mcb-item text="Compact"></kengine-mcb-item>
+		</kengine-multi-combobox>
+
+		<kengine-multi-combobox class="inputsalignment2auto" value="com">
+			<kengine-mcb-item text="Compact"></kengine-mcb-item>
+		</kengine-multi-combobox>
+	</section>
+
+	<hr>
+	<h2>Explicitly width:100% set</h2>
+	<section>
+		<kengine-input class="inputsalignment3auto" placeholder="I am kengine-input">
+			<kengine-icon slot="icon" name="message-error"></kengine-icon>
+		</kengine-input>
+
+		<kengine-date-picker class="inputsalignment3auto"></kengine-date-picker>
+
+		<kengine-select class="inputsalignment3auto">
+			<kengine-option>short option</kengine-option>
+			<kengine-option selected>average long option</kengine-option>
+			<kengine-option>very very very very very long option</kengine-option>
+		</kengine-select>
+
+		<kengine-multi-combobox class="inputsalignment3auto">
+			<kengine-mcb-item text="Compact"></kengine-mcb-item>
+		</kengine-multi-combobox>
+
+		<kengine-multi-combobox class="inputsalignment3auto">
+			<kengine-mcb-item text="Compact"></kengine-mcb-item>
+		</kengine-multi-combobox>
+	</section>
+
+	<hr>
+	<div id="content"></div>
+
+	<script>
+		var reducer = function(accumulator, tag) {
+			return accumulator + "<br><" + tag + " style='width: 320px'></" + tag + ">" + "<br>";
+		}
+		var markup = ["", "kengine-input", "kengine-select", "kengine-multi-combobox", "kengine-date-picker", "kengine-textarea"].reduce(reducer);
+
+		content.innerHTML = markup
+			+ "<br>"
+			+ "<hr>"
+			+ "<br>"
+			+ "<kengine-select>"
+				+ "<kengine-option>Hello</kengine-option>"
+				+ "<kengine-option>World</kengine-option>"
+				+ "<kengine-option>KENGINE</kengine-option>"
+				+ "<kengine-option>Components</kengine-option>"
+				+ "</kengine-select>"
+
+				+ "<br>"
+				+ "<br>"
+
+				+ "<kengine-multi-combobox>"
+					+ "<kengine-mcb-item text=\"Compact\"></kengine-mcb-item>"
+					+ "</kengine-multi-combobox>";
+	</script>
+</body>
+
+
+</html>

@@ -1,0 +1,47 @@
+<nav class="kengine-breadcrumbs-root"
+	aria-label="{{_accessibleNameText}}">
+
+	<ol @focusin="{{_onfocusin}}"
+		@keydown="{{_onkeydown}}"
+		@keyup="{{_onkeyup}}">
+
+		<li class="kengine-breadcrumbs-dropdown-arrow-link-wrapper" ?hidden="{{_isOverflowEmpty}}">
+			<kengine-link @kengine-click="{{_openRespPopover}}"
+				accessible-role="button"
+				aria-label="{{_dropdownArrowAccessibleNameText}}"
+				aria-haspopup="{{_ariaHasPopup}}">
+				<kengine-icon name="slim-arrow-down" title="{{_dropdownArrowAccessibleNameText}}"></kengine-icon>
+			</kengine-link>
+		</li>
+
+		{{#each _linksData}}
+		<li class="kengine-breadcrumbs-link-wrapper"
+			id="{{this._id}}-link-wrapper">
+
+			<kengine-link @kengine-click="{{../_onLinkPress}}"
+				href="{{this.href}}"
+				target="{{this.target}}"
+				id="{{this._id}}-link"
+				accessible-name="{{this._accessibleNameText}}"
+				data-kengine-stable="{{this.stableDomRef}}">
+				{{this.innerText}}
+			</kengine-link>
+		</li>
+		{{/each}}
+
+		{{#if _endsWithCurrentLocationLabel}}
+			<li class="kengine-breadcrumbs-current-location" @click="{{../_onLabelPress}}">
+
+				<span aria-current="page"
+					aria-label="{{_currentLocationAccName}}"
+					role="link"
+					id="{{this._id}}-labelWrapper">
+
+					<kengine-label>
+						{{_currentLocationText}}
+					</kengine-label>
+				</span>
+			</li>
+		{{/if}}
+	</ol>
+</nav>

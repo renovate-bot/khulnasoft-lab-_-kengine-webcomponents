@@ -1,0 +1,55 @@
+<div
+	class="kengine-split-button-root"
+	role="group"
+	tabindex={{_tabIndex}}
+	aria-labelledby="{{_id}}-invisibleTextDefault {{_id}}-invisibleText"
+	@focusout={{_onFocusOut}}
+	@focusin={{_onFocusIn}}
+	@keydown={{_onKeyDown}}
+	@keyup={{_onKeyUp}}
+>
+
+	<kengine-button
+		class="kengine-split-text-button"
+		design="{{design}}"
+		dir={{effectiveDir}}
+		icon="{{_textButtonIcon}}"
+		tabindex="-1"
+		?disabled="{{disabled}}"
+		?active="{{_textButtonActive}}"
+		@click="{{_fireClick}}"
+		@touchstart={{_textButtonPress}}
+		@mousedown={{_textButtonPress}}
+		@mouseup={{_textButtonRelease}}
+		@focusin={{_setTabIndexValue}}
+		@focusout={{_onFocusOut}}
+	>
+		{{#if isTextButton}}
+			<slot></slot>
+		{{/if}}
+	</kengine-button>
+
+	<div
+		class="kengine-split-arrow-button-wrapper"
+		dir={{effectiveDir}}
+	>
+		<kengine-button
+			class="kengine-split-arrow-button"
+			design="{{design}}"
+			icon="slim-arrow-down"
+			tabindex="-1"
+			?disabled="{{disabled}}"
+			?active="{{_arrowButtonActive}}"
+			aria-expanded="{{accessibilityInfo.ariaExpanded}}"
+			aria-haspopup="{{accessibilityInfo.ariaHaspopup}}"
+			@click="{{_fireArrowClick}}"
+			@focusin={{_setTabIndexValue}}
+			@focusout={{_onFocusOut}}
+		>
+		</kengine-button>
+	</div>
+
+	<span id="{{_id}}-invisibleText" class="kengine-hidden-text">{{accessibilityInfo.description}} {{accessibilityInfo.keyboardHint}} {{accessibleName}}</span>
+	<span id="{{_id}}-invisibleTextDefault" class="kengine-hidden-text">{{textButtonAccText}}</span>
+
+</div>

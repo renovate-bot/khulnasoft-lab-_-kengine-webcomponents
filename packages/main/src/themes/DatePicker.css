@@ -1,0 +1,53 @@
+@import "./InvisibleTextStyles.css";
+@import "./InputIcon.css";
+@import "./InputSharedStyles.css";
+
+:host(:not([hidden])) {
+	display: inline-block;
+	line-height: normal;
+	letter-spacing: normal;
+	word-spacing: normal;
+	height: var(--_kengine_input_height);
+	border-radius: var(--_kengine_input_border_radius);
+}
+
+:host {
+	min-width: calc(var(--_kengine_input_min_width) + var(--_kengine_input_icon_width));
+	color: var(--sapField_TextColor);
+	background-color: var(--sapField_Background);
+	border-radius: var(--_kengine-datepicker_border_radius);
+	margin: var(--_kengine_input_margin_top_bottom) 0;
+}
+
+:host(:not([disabled]):not([readonly]):active) {
+	background: var(--_kengine-datepicker-hover-background);
+}
+
+:host(:not([disabled]):not([readonly]):hover) {
+	background: var(--_kengine-datepicker-hover-background);
+}
+
+.kengine-date-picker-root {
+	border-radius: inherit;
+	height: inherit;
+	line-height: inherit;
+	letter-spacing: inherit;
+	word-spacing: inherit;
+}
+
+:host .kengine-date-picker-input {
+	width: 100%;
+	min-width: 12.5625rem;
+	color: inherit;
+	background-color: inherit;
+	border-radius: inherit;
+	height: inherit;
+	line-height: inherit;
+	letter-spacing: inherit;
+	word-spacing: inherit;
+	margin: inherit;
+}
+
+:host(:not([disabled]):not([readonly])) .kengine-date-picker-input[focused] {
+	background-color: var(--_kengine-datepicker-hover-background);
+}

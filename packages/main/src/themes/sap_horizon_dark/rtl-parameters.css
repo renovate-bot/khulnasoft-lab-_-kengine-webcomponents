@@ -1,0 +1,6 @@
+@import "../base/rtl-parameters.css";
+
+[dir="rtl"] {
+	--_kengine_segmented_btn_item_border_left: 0.0625rem;
+	--_kengine_segmented_btn_item_border_right: 0.0625rem;
+}

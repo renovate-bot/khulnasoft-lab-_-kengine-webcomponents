@@ -1,0 +1,491 @@
+import KENGINEElement from "@kengine/webcomponents-base/dist/KENGINEElement.js";
+import customElement from "@kengine/webcomponents-base/dist/decorators/customElement.js";
+import property from "@kengine/webcomponents-base/dist/decorators/property.js";
+import slot from "@kengine/webcomponents-base/dist/decorators/slot.js";
+import event from "@kengine/webcomponents-base/dist/decorators/event.js";
+import litRender from "@kengine/webcomponents-base/dist/renderer/LitRenderer.js";
+import { getI18nBundle } from "@kengine/webcomponents-base/dist/i18nBundle.js";
+import type I18nBundle from "@kengine/webcomponents-base/dist/i18nBundle.js";
+import type { ITabbable } from "@kengine/webcomponents-base/dist/delegate/ItemNavigation.js";
+import ResizeHandler from "@kengine/webcomponents-base/dist/delegate/ResizeHandler.js";
+import type { ResizeObserverCallback } from "@kengine/webcomponents-base/dist/delegate/ResizeHandler.js";
+import { renderFinished } from "@kengine/webcomponents-base/dist/Render.js";
+import { isEnter, isSpace } from "@kengine/webcomponents-base/dist/Keys.js";
+// Template
+import AvatarTemplate from "./generated/templates/AvatarTemplate.lit.js";
+
+import { AVATAR_TOOLTIP } from "./generated/i18n/i18n-defaults.js";
+
+// Styles
+import AvatarCss from "./generated/themes/Avatar.css.js";
+
+import Icon from "./Icon.js";
+import AvatarSize from "./types/AvatarSize.js";
+import AvatarShape from "./types/AvatarShape.js";
+import AvatarColorScheme from "./types/AvatarColorScheme.js";
+
+// Icon
+import "@kengine/webcomponents-icons/dist/employee.js";
+import "@kengine/webcomponents-icons/dist/alert.js";
+
+/**
+ * @class
+ *
+ * <h3 class="comment-api-title">Overview</h3>
+ *
+ * An image-like component that has different display options for representing images and icons
+ * in different shapes and sizes, depending on the use case.
+ *
+ * The shape can be circular or square. There are several predefined sizes, as well as an option to
+ * set a custom size.
+ *
+ * <br><br>
+ * <h3>Keyboard Handling</h3>
+ *
+ * <ul>
+ * <li>[SPACE, ENTER, RETURN] - Fires the <code>click</code> event if the <code>interactive</code> property is set to true.</li>
+ * <li>[SHIFT] - If [SPACE] is pressed, pressing [SHIFT] releases the component without triggering the click event.</li>
+ * </ul>
+ * <br><br>
+ *
+ * <h3>ES6 Module Import</h3>
+ *
+ * <code>import "@kengine/webcomponents/dist/Avatar.js";</code>
+ *
+ * @constructor
+ * @author KHULNASOFT SE
+ * @alias sap.ui.webc.main.Avatar
+ * @extends sap.ui.webc.base.KENGINEElement
+ * @tagname kengine-avatar
+ * @since 1.0.0-rc.6
+ * @implements sap.ui.webc.main.IAvatar
+ * @public
+ */
+@customElement({
+	tag: "kengine-avatar",
+	languageAware: true,
+	renderer: litRender,
+	styles: AvatarCss,
+	template: AvatarTemplate,
+	dependencies: [Icon],
+})
+/**
+* Fired on mouseup, space and enter if avatar is interactive
+* <b>Note:</b> The event will not be fired if the <code>disabled</code>
+* property is set to <code>true</code>.
+* @event
+* @private
+* @since 1.0.0-rc.11
+*/
+@event("click")
+class Avatar extends KENGINEElement implements ITabbable {
+	/**
+	 * Defines whether the component is disabled.
+	 * A disabled component can't be pressed or
+	 * focused, and it is not in the tab chain.
+	 *
+	 * @type {boolean}
+	 * @name sap.ui.webc.main.Avatar.prototype.disabled
+	 * @defaultvalue false
+	 * @public
+	 */
+	@property({ type: Boolean })
+	disabled!: boolean;
+
+	/**
+	 * Defines if the avatar is interactive (focusable and pressable).
+	 * <b>Note:</b> This property won't have effect if the <code>disabled</code>
+	 * property is set to <code>true</code>.
+	 * @type {boolean}
+	 * @name sap.ui.webc.main.Avatar.prototype.interactive
+	 * @defaultValue false
+	 * @public
+	 */
+	@property({ type: Boolean })
+	interactive!: boolean;
+
+	/**
+	 * Indicates if the elements is on focus
+	 * @private
+	 */
+	@property({ type: Boolean })
+	focused!: boolean;
+
+	/**
+	 * Indicates if the elements is pressed
+	 * @private
+	 */
+	@property({ type: Boolean })
+	pressed!: boolean;
+
+	/**
+	 * Defines the name of the KENGINE Icon, that will be displayed.
+	 * <br>
+	 * <b>Note:</b> If <code>image</code> slot is provided, the property will be ignored.
+	 * <br>
+	 * <b>Note:</b> You should import the desired icon first, then use its name as "icon".
+	 * <br><br>
+	 * import "@kengine/webcomponents-icons/dist/{icon_name}.js"
+	 * <br>
+	 * <pre>&lt;kengine-avatar icon="employee"></pre>
+	 * <br>
+	 * <b>Note:</b> If no icon or an empty one is provided, by default the "employee" icon should be displayed.
+	 *
+	 * See all the available icons in the <kengine-link target="_blank" href="https://sdk.kengine.org/test-resources/sap/m/demokit/iconExplorer/webapp/index.html">Icon Explorer</kengine-link>.
+	 * @type {string}
+	 * @name sap.ui.webc.main.Avatar.prototype.icon
+	 * @defaultvalue ""
+	 * @public
+	 */
+	@property()
+	icon!: string;
+
+	/**
+	 * Defines the name of the fallback icon, which should be displayed in the following cases:
+	 * <ul>
+	 * 	<li>If the initials are not valid (more than 3 letters, unsupported languages or empty initials).</li>
+	 * 	<li>If there are three initials and they do not fit in the shape (e.g. WWW for some of the sizes).</li>
+	 * 	<li>If the image src is wrong.</li>
+	 * </ul>
+	 *
+	 * <br>
+	 * <b>Note:</b> If not set, a default fallback icon "employee" is displayed.
+	 * <br>
+	 * <b>Note:</b> You should import the desired icon first, then use its name as "fallback-icon".
+	 * <br><br>
+	 * import "@kengine/webcomponents-icons/dist/{icon_name}.js"
+	 * <br>
+	 * <pre>&lt;kengine-avatar fallback-icon="alert"></pre>
+	 * <br>
+	 *
+	 * See all the available icons in the <kengine-link target="_blank" href="https://sdk.kengine.org/test-resources/sap/m/demokit/iconExplorer/webapp/index.html">Icon Explorer</kengine-link>.
+	 * @type {string}
+	 * @name sap.ui.webc.main.Avatar.prototype.fallbackIcon
+	 * @defaultvalue ""
+	 * @public
+	 */
+	@property()
+	fallbackIcon!: string;
+
+	/**
+	 * Defines the displayed initials.
+	 * <br>
+	 * Up to three Latin letters can be displayed as initials.
+	 *
+	 * @type {string}
+	 * @name sap.ui.webc.main.Avatar.prototype.initials
+	 * @defaultvalue ""
+	 * @public
+	 */
+	@property()
+	initials!: string;
+
+	/**
+	 * Defines the shape of the component.
+	 *
+	 * @type {sap.ui.webc.main.types.AvatarShape}
+	 * @name sap.ui.webc.main.Avatar.prototype.shape
+	 * @defaultvalue "Circle"
+	 * @public
+	 */
+	@property({ type: AvatarShape, defaultValue: AvatarShape.Circle })
+	shape!: `${AvatarShape}`;
+
+	/**
+	 * Defines predefined size of the component.
+	 *
+	 * @type {sap.ui.webc.main.types.AvatarSize}
+	 * @name sap.ui.webc.main.Avatar.prototype.size
+	 * @defaultvalue "S"
+	 * @public
+	 */
+	@property({ type: AvatarSize, defaultValue: AvatarSize.S })
+	size!: `${AvatarSize}`;
+
+	/**
+	 * @private
+	 */
+	@property({ type: AvatarSize, defaultValue: AvatarSize.S })
+	_size!: AvatarSize;
+
+	/**
+	 * Defines the background color of the desired image.
+	 *
+	 * @type {sap.ui.webc.main.types.AvatarColorScheme}
+	 * @name sap.ui.webc.main.Avatar.prototype.colorScheme
+	 * @defaultvalue "Accent6"
+	 * @public
+	 */
+	@property({ type: AvatarColorScheme, defaultValue: AvatarColorScheme.Accent6 })
+	colorScheme!: `${AvatarColorScheme}`;
+
+	/**
+	 * @private
+	 */
+	@property({ type: AvatarColorScheme, defaultValue: AvatarColorScheme.Accent6 })
+	_colorScheme!: AvatarColorScheme;
+
+	/**
+	 * Defines the text alternative of the component.
+	 * If not provided a default text alternative will be set, if present.
+	 *
+	 * @type {string}
+	 * @name sap.ui.webc.main.Avatar.prototype.accessibleName
+	 * @defaultvalue ""
+	 * @public
+	 * @since 1.0.0-rc.7
+	 */
+	@property()
+	accessibleName!: string;
+
+	/**
+	 * Defines the aria-haspopup value of the component when <code>interactive</code> property is <code>true</code>.
+	 * <br><br>
+	 * @type String
+	 * @since 1.0.0-rc.15
+	 * @protected
+	 */
+	@property()
+	ariaHaspopup!: string;
+
+	@property({ noAttribute: true })
+	_tabIndex!: string;
+
+	@property({ type: Boolean })
+	_hasImage!: boolean;
+
+	/**
+	 * Receives the desired <code>&lt;img&gt;</code> tag
+	 *
+	 * <b>Note:</b> If you experience flickering of the provided image, you can hide the component until it is being defined with the following CSS:
+	 * <br /> <br />
+	 * <code>
+	 *		kengine-avatar:not(:defined) { <br />
+	 *			&nbsp;visibility: hidden; <br />
+	 *		} <br />
+	 * </code>
+	 * @type {HTMLElement}
+	 * @name sap.ui.webc.main.Avatar.prototype.default
+	 * @slot image
+	 * @public
+	 * @since 1.0.0-rc.15
+	 */
+	@slot({ type: HTMLElement, "default": true })
+	image!: Array<HTMLElement>;
+
+	/**
+	 * Defines the optional badge that will be used for visual affordance.
+	 * <b>Note:</b> While the slot allows for custom badges, to achieve
+	 * the Fiori design, please use <code>kengine-badge</code> with <code>kengine-icon</code>
+	 * in the corresponding <code>icon</code> slot, without text nodes.
+	 * <br><br>
+	 * Example:
+	 * <br><br>
+	 * &lt;kengine-avatar><br>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;&lt;kengine-badge slot="badge"><br>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;kengine-icon slot="icon" name="employee">&lt;/kengine-icon><br>
+	 * &nbsp;&nbsp;&nbsp;&nbsp;&lt;/kengine-badge><br>
+	 * &lt;/kengine-avatar>
+	 * <br><br>
+	 * <kengine-avatar initials="AB" color-scheme="Accent1">
+	 * <kengine-badge slot="badge">
+	 * <kengine-icon slot="icon" name="accelerated"></kengine-icon>
+	 * </kengine-badge>
+	 * </kengine-avatar>
+	 *
+	 * @type {HTMLElement}
+	 * @name sap.ui.webc.main.Avatar.prototype.badge
+	 * @slot badge
+	 * @public
+	 * @since 1.7.0
+	 */
+	@slot()
+	badge!: Array<HTMLElement>;
+
+	_onclick?: (e: MouseEvent) => void;
+	static i18nBundle: I18nBundle;
+	_handleResizeBound: ResizeObserverCallback;
+
+	constructor() {
+		super();
+		this._handleResizeBound = this.handleResize.bind(this);
+	}
+
+	static async onDefine() {
+		Avatar.i18nBundle = await getI18nBundle("@kengine/webcomponents");
+	}
+
+	get tabindex() {
+		return this._tabIndex || (this._interactive ? "0" : "-1");
+	}
+
+	/**
+	 * Returns the effective avatar size.
+	 * @readonly
+	 * @type {string}
+	 * @defaultValue "S"
+	 * @private
+	 */
+	get _effectiveSize(): AvatarSize {
+		// we read the attribute, because the "size" property will always have a default value
+		return this.getAttribute("size") as AvatarSize || this._size;
+	}
+
+	/**
+	 * Returns the effective background color.
+	 * @readonly
+	 * @type {string}
+	 * @defaultValue "Accent6"
+	 * @private
+	 */
+	get _effectiveBackgroundColor() {
+		// we read the attribute, because the "background-color" property will always have a default value
+		return this.getAttribute("color-scheme") || this._colorScheme;
+	}
+
+	get _role() {
+		return this._interactive ? "button" : "img";
+	}
+
+	get _ariaHasPopup() {
+		return this._getAriaHasPopup();
+	}
+
+	get _fallbackIcon() {
+		if (this.fallbackIcon === "") {
+			this.fallbackIcon = "employee";
+		}
+
+		return this.fallbackIcon;
+	}
+
+	get _interactive() {
+		return this.interactive && !this.disabled;
+	}
+
+	get validInitials() {
+		// initials should consist of only 1,2 or 3 latin letters
+		const validInitials = /^[a-zA-Zà-üÀ-Ü]{1,3}$/,
+			areInitialsValid = this.initials && validInitials.test(this.initials);
+
+		if (areInitialsValid) {
+			return this.initials;
+		}
+
+		return null;
+	}
+
+	get accessibleNameText() {
+		if (this.accessibleName) {
+			return this.accessibleName;
+		}
+
+		return Avatar.i18nBundle.getText(AVATAR_TOOLTIP) || undefined;
+	}
+
+	get hasImage() {
+		this._hasImage = !!this.image.length;
+		return this._hasImage;
+	}
+
+	get initialsContainer(): HTMLObjectElement | null {
+		return this.getDomRef()!.querySelector(".kengine-avatar-initials");
+	 }
+
+	onBeforeRendering() {
+		this._onclick = this._interactive ? this._onClickHandler.bind(this) : undefined;
+	}
+
+	async onAfterRendering() {
+		await renderFinished();
+		if (this.initials && !this.icon) {
+			this._checkInitials();
+		}
+	}
+
+	onEnterDOM() {
+		this.initialsContainer && ResizeHandler.register(this.initialsContainer,
+			this._handleResizeBound);
+	}
+
+	onExitDOM() {
+		this.initialsContainer && ResizeHandler.deregister(this.initialsContainer,
+			this._handleResizeBound);
+	}
+
+	handleResize() {
+		if (this.initials && !this.icon) {
+			this._checkInitials();
+		}
+	}
+
+	_checkInitials() {
+		const avatar = this.getDomRef()!,
+			avatarInitials = avatar.querySelector(".kengine-avatar-initials");
+		// if there aren`t initalts set - the fallBack icon should be shown
+		if (!this.validInitials) {
+			avatarInitials!.classList.add("kengine-avatar-initials-hidden");
+			return;
+		}
+		// if initials` width is bigger than the avatar, an icon should be shown inside the avatar
+		avatarInitials && avatarInitials.classList.remove("kengine-avatar-initials-hidden");
+		if (this.initials && this.initials.length === 3) {
+			if (avatarInitials && avatarInitials.scrollWidth > avatar.scrollWidth) {
+				avatarInitials.classList.add("kengine-avatar-initials-hidden");
+			}
+		}
+	}
+
+	_onClickHandler(e: MouseEvent) {
+		// prevent the native event and fire custom event to ensure the noConfict "kengine-click" is fired
+		e.stopPropagation();
+		this._fireClick();
+	}
+
+	_onkeydown(e: KeyboardEvent) {
+		if (!this._interactive) {
+			return;
+		}
+
+		if (isEnter(e)) {
+			this._fireClick();
+		}
+
+		if (isSpace(e)) {
+			e.preventDefault(); // prevent scrolling
+		}
+	}
+
+	_onkeyup(e: KeyboardEvent) {
+		if (this._interactive && !e.shiftKey && isSpace(e)) {
+			this._fireClick();
+		}
+	}
+
+	_fireClick() {
+		this.fireEvent("click");
+		this.pressed = !this.pressed;
+	}
+
+	_onfocusout() {
+		this.focused = false;
+	}
+
+	_onfocusin() {
+		if (this._interactive) {
+			this.focused = true;
+		}
+	}
+
+	_getAriaHasPopup() {
+		if (!this._interactive || this.ariaHaspopup === "") {
+			return;
+		}
+
+		return this.ariaHaspopup;
+	}
+}
+
+Avatar.define();
+
+export default Avatar;

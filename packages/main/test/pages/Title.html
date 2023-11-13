@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+
+	<title>Title test page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta charset="utf-8">
+
+
+	<script src="../../bundle.esm.js" type="module"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="./styles/Title.css">
+</head>
+
+<body class="title1auto">
+	<section>
+		<kengine-title id="titleH1" level="H1">Title Level 1</kengine-title>
+		<kengine-title>Title Level Auto (2)</kengine-title>
+		<kengine-title id="titleH2" level="H2">Title Level 2</kengine-title>
+		<kengine-title id="titleH3" level="H3">Title Level 3</kengine-title>
+		<kengine-title id="titleH4" level="H4">Title Level 4</kengine-title>
+		<kengine-title id="titleH5" level="H5">Title Level 5</kengine-title>
+		<kengine-title id="titleH6" level="H6">Title Level 6</kengine-title>
+		<kengine-title level="H2">A Very Long Long Long Long Title Text with Level Two</kengine-title>
+	</section>
+
+	<section class="wrapping">
+		<h2>Wrapping</h2>
+		<kengine-title level="H6" id="truncated-title">Truncated Title Lorem Ipsum Dolor, Sit Amet Consectetur Adipisicing Elit. Numquam, Ab.</kengine-title>
+		<kengine-title level="H6" wrapping-type="Normal" id="wrapping-title">Wrapping Title Lorem Ipsum Dolor, Sit Amet Consectetur Adipisicing Elit. Numquam, Ab.</kengine-title>
+	</section>
+
+	<section>
+		<h2>Usage With kengine-link</h2>
+		<kengine-title level="H3">
+			<kengine-link design="Default">With Default Link (57)</kengine-link>
+		</kengine-title>
+		<kengine-title level="H3">
+			<kengine-link design="Emphasized">With Emphasized Link (58)</kengine-link>
+		</kengine-title>
+		<kengine-title level="H3">
+			<kengine-link design="Subtle">With Subtle Link (59)</kengine-link>
+		</kengine-title>
+		<div class="wrapping">
+			<h2>Wrapping With Link</h2>
+			<kengine-title level="H6">
+				<kengine-link design="Default">Truncated With Link (60) Lorem Ipsum Dolor, Sit Amet Consectetur Adipisicing Elit. Numquam, Ab.</kengine-link>
+			</kengine-title>
+			<kengine-title level="H6" wrapping-type="Normal">
+				<kengine-link design="Default">Wrapping With Link (61) Lorem Ipsum Dolor, Sit Amet Consectetur Adipisicing Elit. Numquam, Ab.</kengine-link>
+			</kengine-title>
+		</div>
+	</section>
+</body>
+</html>

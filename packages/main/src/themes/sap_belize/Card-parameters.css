@@ -1,0 +1,5 @@
+@import "../base/Card-parameters.css";
+
+:root {
+	--_kengine_card_header_subtitle_margin_top: .5rem;
+}

@@ -1,0 +1,94 @@
+:host {
+	font-family: "72override", var(--sapFontFamily);
+	color: var(--sapList_TextColor);
+	font-size: var(--sapFontSize);
+}
+
+:host([open]) .kengine-toast-root {
+	display: block;
+}
+
+.kengine-toast-root {
+	position: fixed;
+	display: none;
+	box-sizing: border-box;
+	max-width: 15rem;
+	overflow: hidden;
+	padding: 1rem;
+	background: var(--_kengine_toast_background);
+	box-shadow: var(--_kengine_toast_shadow);
+	border-radius: var(--sapElement_BorderCornerRadius);
+	transition-property: opacity;
+	opacity: 1;
+	font-family: inherit;
+	color: inherit;
+	font-weight: inherit;
+	font-size: inherit;
+	word-wrap: break-word;
+	text-align: center;
+	text-overflow: ellipsis;
+	white-space: pre-line;
+}
+
+:host(:not([placement])) .kengine-toast-root {
+	bottom: var(--_kengine_toast_vertical_offset);
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+:host([placement="TopStart"]) .kengine-toast-root {
+	top: var(--_kengine_toast_vertical_offset);
+	left: var(--_kengine_toast_horizontal_offset);
+}
+
+:host([placement="MiddleStart"]) .kengine-toast-root {
+	left: var(--_kengine_toast_horizontal_offset);
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+:host([placement="BottomStart"]) .kengine-toast-root {
+	left: var(--_kengine_toast_horizontal_offset);
+	bottom: var(--_kengine_toast_vertical_offset);
+}
+
+ :host([placement="TopCenter"]) .kengine-toast-root {
+	top: var(--_kengine_toast_vertical_offset);
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+:host([placement="MiddleCenter"]) .kengine-toast-root {
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+:host([placement="BottomCenter"]) .kengine-toast-root {
+	bottom: var(--_kengine_toast_vertical_offset);
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+:host([placement="TopEnd"]) .kengine-toast-root {
+	right: var(--_kengine_toast_horizontal_offset);
+	top: var(--_kengine_toast_vertical_offset);
+}
+
+:host([placement="MiddleEnd"]) .kengine-toast-root {
+	right: var(--_kengine_toast_horizontal_offset);
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+:host([placement="BottomEnd"]) .kengine-toast-root {
+	right: var(--_kengine_toast_horizontal_offset);
+	bottom: var(--_kengine_toast_vertical_offset);
+}
+
+:host([focused]) .kengine-toast-root {
+	outline-width: var(--sapContent_FocusWidth);
+	outline-style: var(--sapContent_FocusStyle);
+	outline-color: var(--sapContent_FocusColor);
+	outline-offset: var(--_kengine_toast_offset_width);
+}

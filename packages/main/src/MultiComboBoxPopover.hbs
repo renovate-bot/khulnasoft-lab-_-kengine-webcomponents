@@ -1,0 +1,141 @@
+<kengine-responsive-popover
+	placement-type="Bottom"
+	horizontal-align="Left"
+	class="{{classes.popover}}"
+	hide-arrow
+	_disable-initial-focus
+	style="{{styles.suggestionsPopover}}"
+	@kengine-selection-change={{_listSelectionChange}}
+	@kengine-after-close={{_afterClosePicker}}
+	@kengine-before-open={{_beforeOpen}}
+	@kengine-after-open={{_afterOpenPicker}}
+>
+	{{#if _isPhone}}
+		<div slot="header" class="kengine-responsive-popover-header" style="{{styles.popoverHeader}}">
+			<div class="row">
+				<span>{{_headerTitleText}}</span>
+				<kengine-button
+					class="kengine-responsive-popover-close-btn"
+					icon="decline"
+					design="Transparent"
+					@click="{{handleCancel}}"
+				>
+				</kengine-button>
+			</div>
+			<div class="row">
+				<div
+					slot="header"
+					class="input-root-phone"
+					value-state="{{valueState}}"
+				>
+					<input
+						.value="{{value}}"
+						inner-input
+						placeholder="{{placeholder}}"
+						value-state="{{valueState}}"
+						@input="{{_inputLiveChange}}"
+						@change={{_inputChange}}
+						@keydown={{_onkeydown}}
+						aria-autocomplete="both"
+						/>
+					</div>
+					<kengine-toggle-button
+						slot="header"
+						class="kengine-multi-combobox-toggle-button"
+						icon="multiselect-all"
+						design="Transparent"
+						?pressed={{_showAllItemsButtonPressed}}
+						@click="{{filterSelectedItems}}"
+					></kengine-toggle-button>
+				</div>
+			{{#if hasValueStateMessage}}
+				<div class="{{classes.popoverValueState}}" style="{{styles.popoverValueStateMessage}}">
+					<kengine-icon class="kengine-input-value-state-message-icon" name="{{_valueStateMessageIcon}}"></kengine-icon>
+					{{> valueStateMessage}}
+				</div>
+			{{/if}}
+			</div>
+		</div>
+	{{/if}}
+
+	{{#unless _isPhone}}
+		{{#if hasValueStateMessage}}
+			<div slot="header" @keydown="{{_onValueStateKeydown}}" tabindex="0" class="kengine-responsive-popover-header {{classes.popoverValueState}}" style={{styles.popoverValueStateMessage}}>
+				<kengine-icon class="kengine-input-value-state-message-icon" name="{{_valueStateMessageIcon}}"></kengine-icon>
+				{{> valueStateMessage}}
+			</div>
+		{{/if}}
+	{{/unless}}
+
+	{{#if filterSelected}}
+		<kengine-list separators="None" mode="MultiSelect" class="kengine-multi-combobox-all-items-list">
+			{{#each selectedItems}}
+				{{#if isGroupItem}}
+					<kengine-li-groupheader data-kengine-stable="{{this.stableDomRef}}" @keydown="{{../_onItemKeydown}}">{{ this.text }}</kengine-li-groupheader>
+				{{else}}
+					{{> listItem}}
+				{{/if}}
+			{{/each}}
+		</kengine-list>
+	{{else}}
+		<kengine-list separators="None" mode="MultiSelect" class="kengine-multi-combobox-all-items-list">
+			{{#each _filteredItems}}
+				{{#if isGroupItem}}
+					<kengine-li-groupheader data-kengine-stable="{{this.stableDomRef}}" @keydown="{{../_onItemKeydown}}">{{ this.text }}</kengine-li-groupheader>
+				{{else}}
+					{{> listItem}}
+				{{/if}}
+			{{/each}}
+		</kengine-list>
+	{{/if}}
+
+	{{#if _isPhone}}
+		<div slot="footer" class="kengine-responsive-popover-footer">
+			<kengine-button
+				design="Transparent"
+				@click="{{handleOK}}"
+			>{{_dialogOkButton}}</kengine-button>
+		</div>
+	{{/if}}
+</kengine-responsive-popover>
+
+{{#if hasValueStateMessage}}
+	<kengine-popover
+		skip-registry-update
+		_disable-initial-focus
+		prevent-focus-restore
+		hide-arrow
+		class="kengine-valuestatemessage-popover"
+		placement-type="Bottom"
+		horizontal-align="{{_valueStatePopoverHorizontalAlign}}"
+	>
+		<div slot="header" class="{{classes.popoverValueState}}" style="{{styles.popoverHeader}}">
+			<kengine-icon class="kengine-input-value-state-message-icon" name="{{_valueStateMessageIcon}}"></kengine-icon>
+			{{> valueStateMessage}}
+		</div>
+	</kengine-popover>
+{{/if}}
+
+{{#*inline "valueStateMessage"}}
+	{{#if shouldDisplayDefaultValueStateMessage}}
+		{{valueStateDefaultText}}
+	{{else}}
+		{{#each valueStateMessageText}}
+			{{this}}
+		{{/each}}
+	{{/if}}
+{{/inline}}
+
+{{#*inline "listItem"}}
+	<kengine-li
+		wrapping-type="Normal"
+		type="{{../_listItemsType}}"
+		additional-text={{this.additionalText}}
+		?selected={{this.selected}}
+		data-kengine-token-id="{{this._id}}"
+		data-kengine-stable="{{this.stableDomRef}}"
+		@keydown="{{../_onItemKeydown}}"
+	>
+		{{this.text}}
+	</kengine-li>
+{{/inline}}

@@ -1,0 +1,22 @@
+@import "../base/Input-parameters.css";
+
+:root {
+	--_kengine_input_min_width: 3rem;
+	--_kengine_input_custom_icon_padding: .6875rem .625rem;
+	--_kengine_input_error_warning_icon_padding: .625rem .5rem .625rem .5625rem;
+	--_kengine_input_information_icon_padding: .625rem .5rem .625rem .5625rem;
+	--_kengine-input-border: 1px solid var(--sapField_BorderColor);
+	--_kengine_input_disabled_opacity: 0.5;
+	--_kengine_input_error_warning_custom_icon_padding: .625rem;
+	--_kengine_input_information_custom_icon_padding: .625rem;
+	--_kengine-input_disabled_background: var(--sapField_ReadOnly_Background);
+	--_kengine_input_disabled_border_color: var(--sapField_ReadOnly_BorderColor);
+}
+
+[data-kengine-compact-size],
+.kengine-content-density-compact,
+.sapUiSizeCompact {
+	--_kengine_input_min_width: 2rem;
+	--_kengine_input_error_warning_custom_icon_padding: .1875rem .5rem;
+	--_kengine_input_information_custom_icon_padding: .1875rem .5rem;
+}

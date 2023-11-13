@@ -1,0 +1,81 @@
+.kengine-dt-picker-content {
+	display: flex;
+	flex-direction: row;
+	height: var(--_kengine_datetime_picker_height);
+	min-width: var(--_kengine_datetime_picker_width);
+	box-sizing: border-box;
+	justify-content: center;
+}
+
+.kengine-dt-picker-toggle-button {
+    width: 8rem;
+}
+
+.kengine-dt-cal {
+	width: auto;
+	box-sizing: border-box;
+}
+
+.kengine-dt-time {
+	width: 100%;
+	min-width: var(--_kengine_datetime_timeview_width);
+	box-sizing: border-box;
+}
+
+.kengine-dt-cal.kengine-dt-cal--hidden,
+.kengine-dt-time.kengine-dt-time--hidden {
+	display: none;
+}
+
+.kengine-dt-picker-header {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	margin-top: 1rem;
+	box-sizing: border-box;
+}
+
+.kengine-dt-picker-separator {
+	height: calc(100% - 2rem);
+	width: 0px;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	border-left: 1px solid var(--sapGroup_ContentBorderColor);
+	box-sizing: border-box;
+}
+
+.kengine-dt-picker-footer {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	height: 2.75rem;
+	width: 100%;
+}
+
+
+.kengine-dt-picker-footer.kengine-dt-picker-footer-time-hidden {
+	padding: 0;
+}
+
+.kengine-dt-picker-action {
+	margin: 0.25rem;
+}
+
+#ok.kengine-dt-picker-action {
+	width: 4rem;
+}
+
+/* Phone mode */
+/* TODO: Improve that layouting */
+.kengine-dt-picker-content--phone.kengine-dt-picker-content {
+	min-width: auto;
+	height: calc(100% - 4rem);
+}
+
+.kengine-dt-picker-content--phone .kengine-dt-cal {
+	width: 100%;
+}
+
+.kengine-dt-picker-content--phone .kengine-dt-time {
+	min-width: var(--_kengine_datetime_timeview_phonemode_width);
+}

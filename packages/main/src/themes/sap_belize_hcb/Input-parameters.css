@@ -1,0 +1,37 @@
+@import "../base/Input-parameters.css";
+
+:root {
+	--_kengine_input_min_width: 3rem;
+	--_kengine_input_focus_border_width: 0.125rem;
+	--_kengine_input_state_border_width: 1px;
+	--_kengine_input_information_border_width: var(--sapField_BorderWidth);
+	--_kengine-input-border: 1px solid var(--sapField_BorderColor);
+	--_kengine_input_error_warning_border_style: dashed;
+	--_kengine_input_error_warning_font_style: italic;
+	--_kengine_input_error_warning_text_indent: 0.125rem;
+	--_kengine_input_error_font_weight: bold;
+	--_kengine_input_disabled_color: var(--sapContent_DisabledTextColor);
+	--_kengine_input_disabled_font_weight: normal;
+	--_kengine_input_icon_padding: 0.65rem 0.75rem;
+	--_kengine_input_disabled_opacity: 0.5;
+	--_kengine_input_custom_icon_padding: .6875rem .625rem;
+	--_kengine_input_error_warning_icon_padding: .6875rem .5625rem;
+	--_kengine_input_information_icon_padding: .6875rem .5625rem;
+	--_kengine_input_error_warning_custom_icon_padding: .6875rem .625rem;
+	--_kengine_input_information_custom_icon_padding: .6875rem .625rem;
+	--_kengine-input_disabled_background: var(--sapField_ReadOnly_Background);
+	--_kengine_input_disabled_border_color: var(--sapField_ReadOnly_BorderColor);
+	--_kengine_input_value_state_error_hover_background: var(--sapField_InvalidBackground);
+	--_kengine_input_value_state_error_warning_placeholder_font_weight: bold;
+	--_kengine_input_placeholder_style: normal;
+	--_kengine-input_error_placeholder_color: var(--sapField_TextColor);
+}
+
+[data-kengine-compact-size],
+.kengine-content-density-compact,
+.sapUiSizeCompact {
+	--_kengine_input_min_width: 2rem;
+	--_kengine_input_error_warning_custom_icon_padding: .25rem .5rem;
+	--_kengine_input_information_custom_icon_padding: .25rem .5rem;
+	--_kengine_input_error_warning_icon_padding: .25rem .4375rem .25rem .4375rem;
+}

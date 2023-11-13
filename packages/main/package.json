@@ -1,0 +1,55 @@
+{
+  "name": "@kengine/webcomponents",
+  "version": "1.20.0-rc.0",
+  "description": "KENGINE Web Components: webcomponents.main",
+  "kengine": {
+    "webComponentsPackage": true
+  },
+  "type": "module",
+  "author": "KHULNASOFT SE (https://www.khulnasoft.com)",
+  "license": "Apache-2.0",
+  "private": false,
+  "customElements": "./dist/custom-elements.json",
+  "keywords": [
+    "kengine",
+    "ui",
+    "kengine"
+  ],
+  "scripts": {
+    "clean": "wc-dev clean",
+    "lint": "wc-dev lint",
+    "start": "wc-dev start",
+    "watch": "wc-dev watch",
+    "build": "wc-dev build",
+    "test": "wc-dev test",
+    "test:suite-1": "wc-dev test-suite-1",
+    "test:suite-2": "wc-dev test-suite-2",
+    "create-kengine-element": "wc-create-kengine-element",
+    "prepublishOnly": "npm run build"
+  },
+  "exports": {
+    "./.port": "./.port",
+    "./src/*": "./src/*",
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json",
+    "./bundle.esm.js": "./bundle.esm.js",
+    "./bundle.common.js": "./bundle.common.js",
+    "./bundle.scoped.esm.js": "./bundle.scoped.esm.js",
+    "./*": "./dist/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khulnasoft-lab/kengine-webcomponents.git",
+    "directory": "packages/main"
+  },
+  "dependencies": {
+    "@kengine/webcomponents-base": "1.20.0-rc.0",
+    "@kengine/webcomponents-icons": "1.20.0-rc.0",
+    "@kengine/webcomponents-localization": "1.20.0-rc.0",
+    "@kengine/webcomponents-theming": "1.20.0-rc.0"
+  },
+  "devDependencies": {
+    "@kengine/webcomponents-tools": "1.20.0-rc.0",
+    "chromedriver": "117.0.3"
+  }
+}

@@ -1,0 +1,234 @@
+import KENGINEElement from "@kengine/webcomponents-base/dist/KENGINEElement.js";
+import customElement from "@kengine/webcomponents-base/dist/decorators/customElement.js";
+import property from "@kengine/webcomponents-base/dist/decorators/property.js";
+import slot from "@kengine/webcomponents-base/dist/decorators/slot.js";
+import event from "@kengine/webcomponents-base/dist/decorators/event.js";
+import litRender from "@kengine/webcomponents-base/dist/renderer/LitRenderer.js";
+import { getI18nBundle } from "@kengine/webcomponents-base/dist/i18nBundle.js";
+import type I18nBundle from "@kengine/webcomponents-base/dist/i18nBundle.js";
+import CSSColor from "@kengine/webcomponents-base/dist/types/CSSColor.js";
+import ColorPalettePopoverTemplate from "./generated/templates/ColorPalettePopoverTemplate.lit.js";
+
+// Styles
+import ColorPalettePopoverCss from "./generated/themes/ColorPalettePopover.css.js";
+import ResponsivePopoverCommonCss from "./generated/themes/ResponsivePopoverCommon.css.js";
+import {
+	COLORPALETTE_POPOVER_TITLE,
+	COLOR_PALETTE_DIALOG_CANCEL_BUTTON,
+} from "./generated/i18n/i18n-defaults.js";
+
+import Button from "./Button.js";
+import Title from "./Title.js";
+import ResponsivePopover from "./ResponsivePopover.js";
+import ColorPalette from "./ColorPalette.js";
+import type { ColorPaletteItemClickEventDetail } from "./ColorPalette.js";
+import type ColorPaletteItem from "./ColorPaletteItem.js";
+
+type ColorPalettePopoverItemClickEventDetail = ColorPaletteItemClickEventDetail;
+
+/**
+ * @class
+ *
+ * <h3 class="comment-api-title">Overview</h3>
+ * Represents a predefined range of colors for easier selection.
+ *
+ * Overview
+ * The ColorPalettePopover provides the users with a slot to predefine colors.
+ *
+ * You can customize them with the use of the colors property. You can specify a defaultColor and display a "Default color" button for the user to choose directly.
+ * You can display a "More colors..." button that opens an additional color picker for the user to choose specific colors that are not present in the predefined range.
+ *
+ * <h3>Usage</h3>
+ *
+ * The palette is intended for users, who don't want to check and remember the different values of the colors and spend large amount of time to configure the right color through the color picker.
+ *
+ * For the <code>kengine-color-palette-popover</code>
+ * <h3>ES6 Module Import</h3>
+ *
+ * <code>import @kengine/webcomponents/dist/ColorPalettePopover.js";</code>
+ *
+ * @constructor
+ * @author KHULNASOFT SE
+ * @alias sap.ui.webc.main.ColorPalettePopover
+ * @extends sap.ui.webc.base.KENGINEElement
+ * @tagname kengine-color-palette-popover
+ * @public
+ * @since 1.0.0-rc.16
+ */
+@customElement({
+	tag: "kengine-color-palette-popover",
+	renderer: litRender,
+	styles: [ResponsivePopoverCommonCss, ColorPalettePopoverCss],
+	template: ColorPalettePopoverTemplate,
+	dependencies: [
+		ResponsivePopover,
+		Button,
+		Title,
+		ColorPalette,
+	],
+})
+
+/**
+ * Fired when the user selects a color.
+ *
+ * @event sap.ui.webc.main.ColorPalettePopover#item-click
+ * @public
+ * @param {string} color the selected color
+ */
+@event("item-click", {
+	detail: {
+		color: {
+			type: String,
+		},
+	},
+})
+class ColorPalettePopover extends KENGINEElement {
+	/**
+	 * Defines whether the user can see the last used colors in the bottom of the component
+	 * @type {boolean}
+	 * @name sap.ui.webc.main.ColorPalettePopover.prototype.showRecentColors
+	 * @defaultvalue false
+	 * @public
+	 */
+	@property({ type: Boolean })
+	showRecentColors!: boolean;
+
+	/**
+	 * Defines whether the user can choose a custom color from a component.
+	 * <b>Note:</b> In order to use this property you need to import the following module: <code>"@kengine/webcomponents/dist/features/ColorPaletteMoreColors.js"</code>
+	 * @type {boolean}
+	 * @name sap.ui.webc.main.ColorPalettePopover.prototype.showMoreColors
+	 * @defaultvalue false
+	 * @public
+	 */
+	@property({ type: Boolean })
+	showMoreColors!: boolean;
+
+	/**
+	 * Defines whether the user can choose the default color from a button.
+	 * @type {boolean}
+	 * @name sap.ui.webc.main.ColorPalettePopover.prototype.showDefaultColor
+	 * @defaultvalue false
+	 * @public
+	 */
+	@property({ type: Boolean })
+	showDefaultColor!: boolean;
+
+	/**
+	 * Defines the default color of the component.
+	 * <b>Note:</b> The default color should be a part of the ColorPalette colors</code>
+	 * @type {sap.ui.webc.base.types.CSSColor}
+	 * @name sap.ui.webc.main.ColorPalettePopover.prototype.defaultColor
+	 * @public
+	 */
+	@property({ validator: CSSColor })
+	defaultColor?: string;
+
+	/**
+	 * Defines the content of the component.
+	 * @type {sap.ui.webc.main.IColorPaletteItem[]}
+	 * @name sap.ui.webc.main.ColorPalettePopover.prototype.default
+	 * @slot colors
+	 * @public
+	 */
+	@slot({ "default": true, type: HTMLElement, individualSlots: true })
+	colors!: Array<ColorPaletteItem>;
+
+	static i18nBundle: I18nBundle;
+
+	responsivePopover?: ResponsivePopover;
+
+	static async onDefine() {
+		ColorPalettePopover.i18nBundle = await getI18nBundle("@kengine/webcomponents");
+	}
+
+	constructor() {
+		super();
+	}
+
+	_respPopover() {
+		this.responsivePopover = this.shadowRoot!.querySelector<ResponsivePopover>("[kengine-responsive-popover]")!;
+		return this.responsivePopover;
+	}
+
+	_colorPalette() {
+		return this.responsivePopover!.content[0].querySelector<ColorPalette>("[kengine-color-palette]")!;
+	}
+
+	/**
+	 * Shows the ColorPalettePopover.
+	 * @param {HTMLElement} opener the element that the popover is shown at
+	 * @public
+	 * @method
+	 * @name sap.ui.webc.main.ColorPalettePopover#showAt
+	 * @since 1.1.1
+	 */
+	showAt(opener: HTMLElement) {
+		this._openPopover(opener);
+	}
+
+	/**
+	 * Shows the ColorPalettePopover.
+	 * <b>Note:</b> The method is deprecated and will be removed in future, use <code>showAt</code> instead.
+	 * @param {HTMLElement} opener the element that the popover is shown at
+	 * @public
+	 * @method
+	 * @name sap.ui.webc.main.ColorPalettePopover#openPopover
+	 * @since 1.0.0-rc.16
+	 * @deprecated The method is deprecated in favour of <code>showAt</code>.
+	 */
+	openPopover(opener: HTMLElement) {
+		console.warn("The method 'openPopover' is deprecated and will be removed in future, use 'showAt' instead."); // eslint-disable-line
+		this._openPopover(opener);
+	}
+
+	_openPopover(opener: HTMLElement) {
+		this._respPopover();
+
+		this.responsivePopover!.showAt(opener, true);
+
+		if (this.showDefaultColor) {
+			this._colorPalette().colorPaletteNavigationElements[0].focus();
+		} else {
+			this._colorPalette().focusColorElement(this._colorPalette().colorPaletteNavigationElements[0], this._colorPalette()._itemNavigation);
+		}
+	}
+
+	closePopover() {
+		this.responsivePopover!.close();
+	}
+
+	onSelectedColor(e: CustomEvent<ColorPaletteItemClickEventDetail>) {
+		this.closePopover();
+		this.fireEvent<ColorPalettePopoverItemClickEventDetail>("item-click", e.detail);
+	}
+
+	/**
+	 * Returns if the component is opened.
+	 *
+	 * @protected
+	 * @since 1.0.0-rc.16
+	 * @returns {boolean}
+	 */
+	isOpen() {
+		this._respPopover();
+		return this.responsivePopover!.opened;
+	}
+
+	get colorPaletteColors() {
+		return this.getSlottedNodes<ColorPaletteItem>("colors");
+	}
+
+	get _colorPaletteTitle() {
+		return ColorPalettePopover.i18nBundle.getText(COLORPALETTE_POPOVER_TITLE);
+	}
+
+	get _cancelButtonLabel() {
+		return ColorPalettePopover.i18nBundle.getText(COLOR_PALETTE_DIALOG_CANCEL_BUTTON);
+	}
+}
+
+ColorPalettePopover.define();
+
+export default ColorPalettePopover;
+export type { ColorPalettePopoverItemClickEventDetail };

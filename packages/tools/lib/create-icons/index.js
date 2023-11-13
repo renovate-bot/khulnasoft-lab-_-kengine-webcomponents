@@ -1,0 +1,124 @@
+const fs = require("fs").promises;
+const path = require("path");
+
+const collectionName = process.argv[2] || "KHULNASOFT-icons-v4";
+const collectionVersion = process.argv[3];
+const srcFile = collectionVersion ? path.normalize(`src/${collectionVersion}/${collectionName}.json`) : path.normalize(`src/${collectionName}.json`);
+const destDir = collectionVersion ? path.normalize(`dist/${collectionVersion}/`) : path.normalize("dist/");
+
+const iconTemplate = (name, pathData, ltr, collection, packageName) => `import { registerIcon } from "@kengine/webcomponents-base/dist/asset-registries/Icons.js";
+
+const name = "${name}";
+const pathData = "${pathData}";
+const ltr = ${ltr};
+const accData = null;
+const collection = "${collection}";
+const packageName = "${packageName}";
+
+registerIcon(name, { pathData, ltr, collection, packageName });
+
+export default "${collection}/${name}";
+export { pathData, ltr, accData };`;
+
+
+const iconAccTemplate = (name, pathData, ltr, accData, collection, packageName) => `import { registerIcon } from "@kengine/webcomponents-base/dist/asset-registries/Icons.js";
+import { ${accData.key} } from "../generated/i18n/i18n-defaults.js";
+
+const name = "${name}";
+const pathData = "${pathData}";
+const ltr = ${ltr};
+const accData = ${accData.key};
+const collection = "${collection}";
+const packageName = "${packageName}";
+
+registerIcon(name, { pathData, ltr, accData, collection, packageName });
+
+export default "${collection}/${name}";
+export { pathData, ltr, accData };`;
+
+
+
+const collectionTemplate = (name, versions, fullName) => `import { isLegacyThemeFamily } from "@kengine/webcomponents-base/dist/config/Theme.js";
+import { pathData as pathData${versions[0]}, ltr, accData } from "./${versions[0]}/${name}.js";
+import { pathData as pathData${versions[1]} } from "./${versions[1]}/${name}.js";
+
+const pathData = isLegacyThemeFamily() ? pathData${versions[0]} : pathData${versions[1]};
+
+export default "${fullName}";
+export { pathData, ltr, accData };`;
+
+
+const typeDefinitionTemplate = (name, accData, collection) => `declare const pathData: string;
+declare const ltr: boolean;
+declare const accData: ${accData ? '{ key: string; defaultText: string; }' : null}
+declare const _default: "${collection}/${name}";
+
+export default _default;
+export { pathData, ltr, accData };`
+
+const collectionTypeDefinitionTemplate = (name, accData) => `declare const pathData: string;
+declare const ltr: boolean;
+declare const accData: ${accData ? '{ key: string; defaultText: string; }' : null}
+declare const _default: "${name}";
+
+export default _default;
+export { pathData, ltr, accData };`
+
+
+const svgTemplate = (pathData) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+	<path d="${pathData}"/>
+</svg>`;
+
+const createIcons = async (file) => {
+	await fs.mkdir(destDir, { recursive: true });
+
+	const json = JSON.parse(await fs.readFile(file));
+
+	const promises = [];
+	for (let name in json.data) {
+		const iconData = json.data[name];
+		const pathData = iconData.path;
+		const ltr = !!iconData.ltr;
+		const acc = iconData.acc;
+		const packageName =  json.packageName;
+		const collection =  json.collection;
+
+		const content = acc ? iconAccTemplate(name, pathData, ltr, acc, collection, packageName) : iconTemplate(name, pathData, ltr, collection, packageName);
+
+		promises.push(fs.writeFile(path.join(destDir, `${name}.js`), content));
+		promises.push(fs.writeFile(path.join(destDir, `${name}.svg`), svgTemplate(pathData)));
+		promises.push(fs.writeFile(path.join(destDir, `${name}.d.ts`), typeDefinitionTemplate(name, acc, collection)));
+
+		// For versioned icons collections, the script creates top level (unversioned) module that internally imports the versioned ones.
+		// For example, the top level "@kengine/kengine-webcomponents-icons/dist/accept.js" imports:
+		// - "@kengine/kengine-webcomponents-icons/dist/v5/accept.js" 
+		// - "@kengine/kengine-webcomponents-icons/dist/v4/accept.js"
+
+		if (json.version) {
+			// The exported value from the top level (unversioned) icon module depends on whether the collection is the default,
+			// to add or not the collection name to the exported value:
+			// For the default collection (KHULNASOFTIcons) we export just the icon name - "export default { 'accept' }"
+			// For non-default collections (KHULNASOFTTNTIcons and KHULNASOFTBSIcons) we export the full name - "export default { 'tnt/actor' }"
+			const effectiveName = isDefaultCollection(collection) ? name : getUnversionedFullIconName(name, collection);
+			promises.push(fs.writeFile(path.join(path.normalize("dist/"), `${name}.js`), collectionTemplate(name, json.versions, effectiveName)));
+            promises.push(fs.writeFile(path.join(path.normalize("dist/"), `${name}.d.ts`), collectionTypeDefinitionTemplate(effectiveName, acc)));
+		}
+	}
+
+	return Promise.all(promises);
+};
+
+const isDefaultCollection = collectionName => collectionName === "KHULNASOFT-icons-v4"  || collectionName === "KHULNASOFT-icons-v5";
+const getUnversionedFullIconName = (name, collection) => `${getUnversionedCollectionName(collection)}/${name}`;
+const getUnversionedCollectionName = collectionName => CollectionVersionedToUnversionedMap[collectionName] || collectionName;
+
+const CollectionVersionedToUnversionedMap = {
+	"tnt-v2": "tnt",
+	"tnt-v3": "tnt",
+	"business-suite-v1": "business-suite",
+	"business-suite-v2": "business-suite",
+};
+
+createIcons(srcFile).then(() => {
+	console.log("Icons created.");
+});

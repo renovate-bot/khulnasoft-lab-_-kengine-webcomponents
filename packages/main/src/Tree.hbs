@@ -1,0 +1,24 @@
+<kengine-tree-list
+    .mode="{{mode}}"
+    .headerText="{{headerText}}"
+    .footerText="{{footerText}}"
+    .noDataText="{{noDataText}}"
+    .accessibleRole="{{_role}}"
+    .accessibleName="{{_label}}"
+	.accessibleRoleDescription="{{accessibleRoleDescription}}"
+    @kengine-item-click="{{_onListItemClick}}"
+    @kengine-item-delete="{{_onListItemDelete}}"
+    @kengine-selection-change="{{_onListSelectionChange}}"
+    @kengine-toggle="{{_onListItemToggle}}"
+    @kengine-step-in="{{_onListItemStepIn}}"
+    @kengine-step-out="{{_onListItemStepOut}}"
+    @mouseover="{{_onListItemMouseOver}}"
+    @mouseout="{{_onListItemMouseOut}}"
+    class="kengine-tree-root"
+>
+	{{#if _hasHeader}}
+        <slot name="header" slot="header"></slot>
+	{{/if}}
+
+    <slot></slot>
+</kengine-tree-list>

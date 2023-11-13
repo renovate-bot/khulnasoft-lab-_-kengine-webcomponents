@@ -1,0 +1,50 @@
+<div class="kengine-rating-indicator-root"
+	role="slider"
+	aria-roledescription="{{_ariaRoleDescription}}"
+	aria-valuemin="0"
+	aria-valuenow="{{value}}"
+	aria-valuemax="{{max}}"
+	aria-valuetext="{{value}} of {{max}}"
+	aria-orientation="horizontal"
+	aria-disabled="{{_ariaDisabled}}"
+	aria-readonly="{{ariaReadonly}}"
+	aria-description="{{_ariaDescription}}"
+	tabindex="{{effectiveTabIndex}}"
+	@focusin="{{_onfocusin}}"
+	@focusout="{{_onfocusout}}"
+	@click="{{_onclick}}"
+	@keydown="{{_onkeydown}}"
+	title="{{ratingTooltip}}"
+	aria-label="{{_ariaLabel}}"
+>
+	<ul class="kengine-rating-indicator-list"
+		aria-hidden="true"
+		>
+		{{#each _stars}}
+			{{#if this.selected}}
+				<li data-kengine-value="{{this.index}}" class="kengine-rating-indicator-item kengine-rating-indicator-item-sel">
+					<kengine-icon data-kengine-value="{{this.index}}" name="favorite"></kengine-icon>
+				</li>
+			{{else if this.halfStar}}
+				<li class="kengine-rating-indicator-item kengine-rating-indicator-item-half">
+					<kengine-icon data-kengine-value="{{this.index}}" name="unfavorite"></kengine-icon>
+					<div class="kengine-rating-indicator-half-icon-wrapper">
+						<kengine-icon data-kengine-value="{{this.index}}" name="favorite" class="kengine-rating-indicator-half-icon"></kengine-icon>
+					</div>
+				</li>
+			{{else if ../readonly}}
+				<li class="kengine-rating-indicator-item kengine-rating-indicator-item-unsel">
+					<kengine-icon data-kengine-value="{{this.index}}" name="favorite"></kengine-icon>
+				</li>
+			{{else if ../disabled}}
+				<li class="kengine-rating-indicator-item kengine-rating-indicator-item-unsel">
+					<kengine-icon data-kengine-value="{{this.index}}" name="favorite"></kengine-icon>
+				</li>
+			{{else}}
+				<li data-kengine-value="{{this.index}}" class="kengine-rating-indicator-item kengine-rating-indicator-item-unsel">
+					<kengine-icon data-kengine-value="{{this.index}}" name="unfavorite"></kengine-icon>
+				</li>
+			{{/if}}
+		{{/each}}
+	</ul>
+</div>

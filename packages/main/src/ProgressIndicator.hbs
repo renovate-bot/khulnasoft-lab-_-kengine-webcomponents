@@ -1,0 +1,35 @@
+<div class="kengine-progress-indicator-root {{classes.root}}"
+     role="progressbar"
+     aria-valuemin="0"
+     aria-valuenow="{{validatedValue}}"
+     aria-valuemax="100"
+     aria-valuetext="{{valueStateText}}"
+     aria-disabled="{{_ariaDisabled}}"
+     aria-label="{{accessibleName}}"
+>
+    <div class="kengine-progress-indicator-bar" style="{{styles.bar}}">
+        {{#unless showValueInRemainingBar}}
+           {{> valueLabel}}
+        {{/unless}}
+    </div>
+    <div class="kengine-progress-indicator-remaining-bar">
+        {{#if showValueInRemainingBar}}
+           {{> valueLabel}}
+        {{/if}}
+    </div>
+</div>
+
+{{#*inline "valueLabel"}}
+    {{#if showIcon}}
+        <kengine-icon name="{{valueStateIcon}}" class="kengine-progress-indicator-icon"></kengine-icon>
+    {{/if}}
+    {{#unless hideValue}}
+        <span class="kengine-progress-indicator-value">
+            {{#if displayValue}}
+                {{displayValue}}
+            {{else}}
+                {{validatedValue}}%
+            {{/if}}
+        </span>
+    {{/unless}}
+{{/inline}}

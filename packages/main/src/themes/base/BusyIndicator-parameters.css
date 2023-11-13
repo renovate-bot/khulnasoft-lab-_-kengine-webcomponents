@@ -1,0 +1,5 @@
+:root {
+	--_kengine_busy_indicator_color: var(--sapContent_IconColor);
+	--_kengine_busy_indicator_focus_outline:  var(--sapContent_FocusWidth) var(--sapContent_FocusStyle) var(--sapContent_FocusColor);
+	--_kengine_busy_indicator_focus_border_radius: 0px;
+}

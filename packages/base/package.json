@@ -1,0 +1,50 @@
+{
+  "name": "@kengine/webcomponents-base",
+  "version": "1.20.0-rc.0",
+  "description": "KENGINE Web Components: webcomponents.base",
+  "author": "KHULNASOFT SE (https://www.khulnasoft.com)",
+  "license": "Apache-2.0",
+  "type": "module",
+  "module": "index.js",
+  "keywords": [
+    "kengine",
+    "ui",
+    "kengine"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khulnasoft-lab/kengine-webcomponents.git",
+    "directory": "packages/base"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json",
+    "./bundle.esm.js": "./bundle.esm.js",
+    "./*": "./dist/*"
+  },
+  "scripts": {
+    "clean": "nps clean",
+    "lint": "nps lint",
+    "start": "nps start",
+    "build": "nps build",
+    "test": "nps test",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "dependencies": {
+    "lit-html": "^2.0.1"
+  },
+  "devDependencies": {
+    "@buxlabs/amd-to-es6": "0.16.1",
+    "@kengine/sap.ui.core": "1.116.0",
+    "@kengine/webcomponents-tools": "1.20.0-rc.0",
+    "chromedriver": "117.0.3",
+    "clean-css": "^5.2.2",
+    "copy-and-watch": "^0.1.5",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.22.0",
+    "mkdirp": "^1.0.4",
+    "replace-in-file": "^6.3.5",
+    "resolve": "^1.20.0"
+  }
+}

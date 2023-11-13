@@ -1,0 +1,303 @@
+:host(:not([hidden])) {
+	display: inline-block;
+	box-sizing: border-box;
+	position: relative;
+}
+
+/* The kengine_hovered class is set by FileUploader to indicate hover state of the control */
+:host(:not([hidden]).kengine_hovered) {
+	opacity: .7;
+}
+
+:host(:is([interactive]):not([disabled])) {
+	cursor: pointer;
+}
+
+:host(:is([interactive][pressed]):not([hidden])) {
+	background: var(--sapButton_Active_Background);
+	border-color: var(--sapButton_Active_BorderColor);
+	color: var(--sapButton_Active_TextColor);
+}
+
+:host(:is([interactive][pressed]):not([hidden]):hover) {
+	background: var(--sapButton_Selected_Hover_Background);
+	border-color: var(--sapButton_Selected_Hover_BorderColor);
+	color: var(--sapButton_Selected_TextColor);
+}
+
+:host(:is([interactive]):not([hidden]):not([pressed]):not([disabled]):hover) {
+	box-shadow: var(--kengine-avatar-hover-box-shadow-offset);
+}
+
+:host(:is([interactive][focused]):not([hidden]):not([pressed])) {
+	outline: var(--_kengine_avatar_outline);
+	outline-offset: var(--_kengine_avatar_focus_offset);
+}
+
+:host(:is([disabled])) {
+	opacity: var(--sapContent_DisabledOpacity);
+}
+
+:host {
+	height: 3rem;
+	width: 3rem;
+	border-radius: 50%;
+	border: var(--kengine-avatar-initials-border);
+	outline: none;
+	color: var(--kengine-avatar-initials-color);
+}
+
+.kengine-avatar-root {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	outline: none;
+	height: 100%;
+	width: 100%;
+}
+
+/* Sizes */
+:host([_size="XS"]),
+:host([size="XS"]) {
+	height: 2rem;
+	width: 2rem;
+	min-height: 2rem;
+	min-width: 2rem;
+	font-size: var(--_kengine_avatar_fontsize_XS);
+}
+
+:host([_size="S"]),
+:host([size="S"]) {
+	min-height: 3rem;
+	min-width: 3rem;
+	font-size: var(--_kengine_avatar_fontsize_S);
+}
+
+:host([_size="M"]),
+:host([size="M"]) {
+	min-height: 4rem;
+	min-width: 4rem;
+	font-size: var(--_kengine_avatar_fontsize_M);
+}
+
+:host([_size="L"]),
+:host([size="L"]) {
+	min-height: 5rem;
+	min-width: 5rem;
+	font-size: var(--_kengine_avatar_fontsize_L);
+}
+
+:host([_size="XL"]),
+:host([size="XL"]) {
+	min-height: 7rem;
+	min-width: 7rem;
+	font-size: var(--_kengine_avatar_fontsize_XL);
+}
+
+/* Icon */
+:host .kengine-avatar-icon {
+	height: var(--_kengine_avatar_fontsize_S);
+	width: var(--_kengine_avatar_fontsize_S);
+	color: inherit;
+}
+
+:host([_size="XS"]) .kengine-avatar-icon,
+:host([size="XS"]) .kengine-avatar-icon {
+	height: var(--_kengine_avatar_icon_XS);
+	width: var(--_kengine_avatar_icon_XS);
+}
+
+:host([_size="S"]) .kengine-avatar-icon,
+:host([size="S"]) .kengine-avatar-icon {
+	height: var(--_kengine_avatar_icon_S);
+	width: var(--_kengine_avatar_icon_S);
+}
+
+:host([_size="M"]) .kengine-avatar-icon,
+:host([size="M"]) .kengine-avatar-icon {
+	height: var(--_kengine_avatar_icon_M);
+	width: var(--_kengine_avatar_icon_M);
+}
+
+:host([_size="L"]) .kengine-avatar-icon,
+:host([size="L"]) .kengine-avatar-icon {
+	height: var(--_kengine_avatar_icon_L);
+	width: var(--_kengine_avatar_icon_L);
+}
+
+:host([_size="XL"]) .kengine-avatar-icon,
+:host([size="XL"]) .kengine-avatar-icon {
+	height: var(--_kengine_avatar_icon_XL);
+	width: var(--_kengine_avatar_icon_XL);
+}
+
+::slotted(*) {
+	border-radius: 50%;
+    width: 100%;
+    height: 100%;
+	pointer-events: none;
+}
+
+/* Shapes */
+:host([shape="Square"]) {
+	border-radius: var(--kengine-avatar-border-radius);
+}
+
+:host([shape="Square"]) ::slotted(*) {
+	border-radius: calc(var(--kengine-avatar-border-radius) - var(--kengine-avatar-border-radius-img-deduction));
+}
+
+:host(:not([color-scheme])),
+:host(:not([_has-image])),
+:host([_color-scheme="Accent6"]),
+:host([kengine-avatar][color-scheme="Accent6"]) {
+	background-color: var(--kengine-avatar-accent6);
+	color: var(--kengine-avatar-accent6-color);
+	border-color: var(--kengine-avatar-accent6-border-color);
+}
+
+:host([_color-scheme="Accent1"]),
+:host([kengine-avatar][color-scheme="Accent1"]) {
+	background-color: var(--kengine-avatar-accent1);
+	color: var(--kengine-avatar-accent1-color);
+	border-color: var(--kengine-avatar-accent1-border-color);
+}
+
+:host([_color-scheme="Accent2"]),
+:host([kengine-avatar][color-scheme="Accent2"]) {
+	background-color: var(--kengine-avatar-accent2);
+	color: var(--kengine-avatar-accent2-color);
+	border-color: var(--kengine-avatar-accent2-border-color);
+}
+
+:host([_color-scheme="Accent3"]),
+:host([kengine-avatar][color-scheme="Accent3"]) {
+	background-color: var(--kengine-avatar-accent3);
+	color: var(--kengine-avatar-accent3-color);
+	border-color: var(--kengine-avatar-accent3-border-color);
+}
+
+:host([_color-scheme="Accent4"]),
+:host([kengine-avatar][color-scheme="Accent4"]) {
+	background-color: var(--kengine-avatar-accent4);
+	color: var(--kengine-avatar-accent4-color);
+	border-color: var(--kengine-avatar-accent4-border-color);
+}
+
+:host([_color-scheme="Accent5"]),
+:host([kengine-avatar][color-scheme="Accent5"]) {
+	background-color: var(--kengine-avatar-accent5);
+	color: var(--kengine-avatar-accent5-color);
+	border-color: var(--kengine-avatar-accent5-border-color);
+}
+
+:host([_color-scheme="Accent7"]),
+:host([kengine-avatar][color-scheme="Accent7"]) {
+	background-color: var(--kengine-avatar-accent7);
+	color: var(--kengine-avatar-accent7-color);
+	border-color: var(--kengine-avatar-accent7-border-color);
+}
+
+:host([_color-scheme="Accent8"]),
+:host([kengine-avatar][color-scheme="Accent8"]) {
+	background-color: var(--kengine-avatar-accent8);
+	color: var(--kengine-avatar-accent8-color);
+	border-color: var(--kengine-avatar-accent8-border-color);
+}
+
+:host([_color-scheme="Accent9"]),
+:host([kengine-avatar][color-scheme="Accent9"]) {
+	background-color: var(--kengine-avatar-accent9);
+	color: var(--kengine-avatar-accent9-color);
+	border-color: var(--kengine-avatar-accent9-border-color);
+}
+
+:host([_color-scheme="Accent10"]),
+:host([kengine-avatar][color-scheme="Accent10"]) {
+	background-color: var(--kengine-avatar-accent10);
+	color: var(--kengine-avatar-accent10-color);
+	border-color: var(--kengine-avatar-accent10-border-color);
+}
+
+:host([_color-scheme="Placeholder"]),
+:host([kengine-avatar][color-scheme="Placeholder"]) {
+	background-color: var(--kengine-avatar-placeholder);
+	color: var(--kengine-avatar-placeholder-color);
+	border-color: var(--kengine-avatar-placeholder-border-color);
+}
+
+:host([_has-image]) {
+	color: var(--kengine-avatar-accent10-color);
+	background-color: transparent;
+	vertical-align: middle;
+}
+
+.kengine-avatar-initials {
+	color: inherit;
+}
+
+.kengine-avatar-icon ~ .kengine-avatar-initials,
+.kengine-avatar-icon ~ .kengine-avatar-icon-fallback {
+	display: none;
+}
+
+.kengine-avatar-initials:not(.kengine-avatar-initials-hidden) + .kengine-avatar-icon-fallback {
+	display: none;
+}
+
+.kengine-avatar-initials-hidden {
+	position: absolute;
+	visibility: hidden;
+	z-index: 0;
+	pointer-events: none;
+}
+
+/* Slotted Badge */
+::slotted([slot="badge"]) {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 1.125rem;
+	height: 1.125rem;
+	background: var(--sapButton_Emphasized_Background);
+	border: var(--sapButton_Emphasized_Background);
+	border-radius: 1rem;
+	color: var(--sapContent_BadgeTextColor);
+	justify-content: center;
+	font-family: "72override", var(--sapFontFamily);
+	font-size: var(--sapFontSmallSize);
+}
+
+::slotted([kengine-badge][slot="badge"]) {
+	padding: 0.1875rem;
+}
+
+:host([_size="L"]) ::slotted([slot="badge"]),
+:host([size="L"]) ::slotted([slot="badge"]) {
+	width: 1.25rem;
+	height: 1.25rem;
+}
+
+:host([_size="XL"]) ::slotted([slot="badge"]),
+:host([size="XL"]) ::slotted([slot="badge"]) {
+	padding: 0.375rem;
+	width: 1.75rem;
+	height: 1.75rem;
+}
+
+:host([shape="Square"]) ::slotted([slot="badge"]) {
+	bottom: -0.125rem;
+	right: -0.125rem;
+}
+
+:host([_size="L"][shape="Square"]) ::slotted([slot="badge"]),
+:host([size="L"][shape="Square"]) ::slotted([slot="badge"]) {
+	bottom: -0.1875rem;
+	right: -0.1875rem;
+}
+
+:host([_size="XL"][shape="Square"]) ::slotted([slot="badge"]),
+:host([size="XL"][shape="Square"]) ::slotted([slot="badge"]) {
+	bottom: -0.25rem;
+	right: -0.25rem;
+}

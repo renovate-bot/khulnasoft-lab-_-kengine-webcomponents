@@ -1,0 +1,42 @@
+{{>include "./SliderBase.hbs"}}
+
+{{#*inline "progressBar"}}
+	<div
+		class="kengine-slider-progress-container"
+		aria-hidden="true"
+		part="progress-container"
+	>
+		<div class="kengine-slider-progress"
+			style="{{styles.progress}}"
+			@focusout="{{_onfocusout}}"
+			@focusin="{{_onfocusin}}"
+			tabindex="-1"
+			part="progress-bar"
+		></div>
+	</div>
+{{/inline}}
+
+{{#*inline "handles"}}
+	<div class="kengine-slider-handle"
+		style="{{styles.handle}}"
+		@focusout="{{_onfocusout}}"
+		@focusin="{{_onfocusin}}"
+		role="slider"
+		tabindex="{{_tabIndex}}"
+		aria-orientation="horizontal"
+		aria-valuemin="{{min}}"
+		aria-valuemax="{{max}}"
+		aria-valuenow="{{value}}"
+		aria-labelledby="{{_ariaLabelledByHandleRefs}}"
+		aria-disabled="{{_ariaDisabled}}"
+		data-sap-focus-ref
+		part="handle"
+	>
+			<kengine-icon name="direction-arrows" part="icon-slider" slider-icon></kengine-icon>
+		{{#if showTooltip}}
+			<div class="kengine-slider-tooltip" style="{{styles.tooltip}}">
+				<span class="kengine-slider-tooltip-value">{{tooltipValue}}</span>
+			</div>
+		{{/if}}
+	</div>
+{{/inline}}

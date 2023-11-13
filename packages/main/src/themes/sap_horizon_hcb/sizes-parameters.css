@@ -1,0 +1,9 @@
+@import "../base/sizes-parameters.css";
+
+[data-kengine-compact-size],
+.kengine-content-density-compact,
+.sapUiSizeCompact {
+	/* SplitButton */
+	--_kengine_split_button_text_button_width: 2.25rem;
+	--_kengine_color_picker_slider_container_margin_top: -10px;
+}

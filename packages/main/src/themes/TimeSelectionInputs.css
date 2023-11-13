@@ -1,0 +1,25 @@
+.kengine-time-selection-numeric-input {
+	width: 2.875rem;
+	text-align: center;
+}
+
+.kengine-time-selection-inputs {
+	min-width: 12.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+span[separator] {
+	display: inline-block;
+	min-width: 0.5rem;
+	padding: 0 0.125rem;
+	text-align: center;
+	font-family: var(--sapFontFamily);
+	font-size: var(--sapFontSize);
+	color: var(--sapTextColor);
+}
+
+.kengine-hidden-text {
+	display: none;
+}

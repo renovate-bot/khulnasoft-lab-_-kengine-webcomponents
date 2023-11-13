@@ -1,0 +1,91 @@
+@import "./InvisibleTextStyles.css";
+
+:host(:not([hidden])) {
+	display: inline-block;
+	width: 100%;
+}
+
+/** Root classes **/
+.kengine-message-strip-root {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	border-radius: var(--sapPopover_BorderCornerRadius);
+	padding: var(--_kengine_message_strip_padding);
+	border-width: var(--_kengine_message_strip_border_width);
+	border-style: solid;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.kengine-message-strip-root-hide-icon {
+	padding-inline: var(--_kengine_message_strip_padding_inline_no_icon);
+	padding-block: var(--_kengine_message_strip_padding_block_no_icon);
+}
+
+.kengine-message-strip-root-hide-close-button {
+	padding-inline-end: 1rem;
+}
+
+.kengine-message-strip-root--info {
+	background-color: var(--sapInformationBackground);
+	border-color: var(--sapMessage_InformationBorderColor);
+	color: var(--sapTextColor);
+}
+
+.kengine-message-strip-root--info .kengine-message-strip-icon {
+	color: var(--sapInformativeElementColor);
+}
+
+.kengine-message-strip-root--positive {
+	background-color: var(--sapSuccessBackground);
+	border-color: var(--sapMessage_SuccessBorderColor);
+}
+
+.kengine-message-strip-root--positive .kengine-message-strip-icon {
+	color: var(--sapPositiveElementColor);
+}
+
+.kengine-message-strip-root--negative {
+	background-color: var(--sapErrorBackground);
+	border-color: var(--sapMessage_ErrorBorderColor);
+}
+
+.kengine-message-strip-root--negative .kengine-message-strip-icon {
+	color: var(--sapNegativeElementColor);
+}
+
+.kengine-message-strip-root--warning {
+	background-color: var(--sapWarningBackground);
+	border-color: var(--sapMessage_WarningBorderColor);
+}
+
+.kengine-message-strip-root--warning .kengine-message-strip-icon {
+	color: var(--sapCriticalElementColor);
+}
+
+/** Icon wrapper **/
+.kengine-message-strip-icon-wrapper {
+	position: absolute;
+	top: var(--_kengine_message_strip_icon_top);
+	inset-inline-start: 0.75rem;
+	box-sizing: border-box;
+}
+
+/** Text **/
+.kengine-message-strip-text {
+	width: 100%;
+	color: var(--sapTextColor);
+	line-height: 1.2;
+	font-family: "72override", var(--sapFontFamily);
+	font-size: var(--sapFontSize);
+}
+
+/** Close button - always in compact mode **/
+.kengine-message-strip-close-button {
+	height: 1.625rem;
+	min-height: 1.625rem;
+	position: absolute;
+	top: var(--_kengine_message_strip_close_button_top);
+	inset-inline-end: var(--_kengine_message_strip_close_button_right);
+}

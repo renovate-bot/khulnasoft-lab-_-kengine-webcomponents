@@ -1,0 +1,65 @@
+@import "./FormComponents.css";
+
+:host {
+	display: inline-block;
+}
+
+.kengine-file-uploader-root {
+	position: relative;
+}
+
+.kengine-file-uploader-root input[type=file] {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.kengine-file-uploader-root input[type=file]:not([disabled]) {
+	cursor: pointer;
+}
+
+.kengine-file-uploader-mask {
+	display: flex;
+	align-items: center;
+}
+
+.kengine-file-uploader-mask [kengine-input] {
+	margin-right: 0.25rem;
+}
+
+:host([value-state="None"]:not([disabled]):hover) [kengine-input],
+:host(:not([value-state]):not([disabled]):hover) [kengine-input] {
+	border: var(--_kengine_file_uploader_hover_border);
+	background-color: var(--sapField_Hover_Background);
+	box-shadow: var(--sapField_Hover_Shadow);
+}
+
+:host([value-state="Error"]:not([disabled]):hover) [kengine-input] {
+	background-color: var(--_kengine_file_uploader_value_state_error_hover_background_color);
+	box-shadow: var(--sapField_Hover_InvalidShadow);
+}
+
+:host([value-state="Warning"]:not([disabled]):hover) [kengine-input] {
+	background-color: var(--sapField_Hover_Background);
+	box-shadow: var(--sapField_Hover_WarningShadow);
+}
+
+:host([value-state="Success"]:not([disabled]):hover) [kengine-input] {
+	background-color: var(--sapField_Hover_Background);
+	box-shadow: var(--sapField_Hover_SuccessShadow);
+}
+
+:host([value-state="Information"]:not([disabled]):hover) [kengine-input] {
+	background-color: var(--sapField_Hover_Background);
+	box-shadow: var(--sapField_Hover_InformationShadow);
+}
+
+:host(:not([disabled]):active) [kengine-button] {
+	background-color: var(--sapButton_Active_Background);
+	border-color: var(--sapButton_Active_BorderColor);
+	color: var(--sapButton_Active_TextColor);
+	text-shadow: none;
+}

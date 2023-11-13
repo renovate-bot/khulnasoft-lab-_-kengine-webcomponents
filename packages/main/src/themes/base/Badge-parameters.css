@@ -1,0 +1,56 @@
+:root {
+	--_kengine-badge-height: 1rem;
+	--_kengine-badge-border: 0.0625em solid;
+	--_kengine-badge-border-radius: 0.5rem;
+	--_kengine-badge-padding-inline: 0.3125em;
+	--_kengine-badge-padding-inline-icon-only: 0.1875rem;
+	--_kengine-badge-text-transform: uppercase;
+	--_kengine-badge-icon-gap: 0.125rem;
+	--_kengine-badge-font-size: var(--sapFontSmallSize);
+	--_kengine-badge-font: "72override", var(--sapFontFamily);
+	--_kengine-badge-font-weight: bold;
+	--_kengine-badge-default-border-color: var(--kengine-badge-color-scheme-1-border);
+	--_kengine-badge-default-background: var(--kengine-badge-color-scheme-1-background);
+	--_kengine-badge-default-color: var(--kengine-badge-color-scheme-1-color);
+	--_kengine-badge-letter-spacing: 0.0125em;
+
+	--kengine-badge-color-scheme-1-background: var(--sapLegendBackgroundColor1);
+	--kengine-badge-color-scheme-1-border: var(--sapAccentColor1);
+	--kengine-badge-color-scheme-1-color: var(--sapTextColor);
+
+	--kengine-badge-color-scheme-2-background: var(--sapLegendBackgroundColor2);
+	--kengine-badge-color-scheme-2-border: var(--sapAccentColor2);
+	--kengine-badge-color-scheme-2-color: var(--sapTextColor);
+
+	--kengine-badge-color-scheme-3-background: var(--sapLegendBackgroundColor3);
+	--kengine-badge-color-scheme-3-border: var(--sapAccentColor3);
+	--kengine-badge-color-scheme-3-color: var(--sapTextColor);
+
+	--kengine-badge-color-scheme-4-background: var(--sapLegendBackgroundColor5);
+	--kengine-badge-color-scheme-4-border: var(--sapAccentColor4);
+	--kengine-badge-color-scheme-4-color: var(--sapTextColor);
+
+	--kengine-badge-color-scheme-5-background: var(--sapLegendBackgroundColor20);
+	--kengine-badge-color-scheme-5-border: var(--sapAccentColor5);
+	--kengine-badge-color-scheme-5-color: var(--sapTextColor);
+
+	--kengine-badge-color-scheme-6-background: var(--sapLegendBackgroundColor6);
+	--kengine-badge-color-scheme-6-border: var(--sapAccentColor6);
+	--kengine-badge-color-scheme-6-color: var(--sapTextColor);
+
+	--kengine-badge-color-scheme-7-background: var(--sapLegendBackgroundColor7);
+	--kengine-badge-color-scheme-7-border: var(--sapAccentColor7);
+	--kengine-badge-color-scheme-7-color: var(--sapTextColor);
+
+	--kengine-badge-color-scheme-8-background: var(--sapLegendBackgroundColor18);
+	--kengine-badge-color-scheme-8-border: var(--sapLegendColor18);
+	--kengine-badge-color-scheme-8-color: var(--sapTextColor);
+
+	--kengine-badge-color-scheme-9-background: var(--sapLegendBackgroundColor10);
+	--kengine-badge-color-scheme-9-border: var(--sapAccentColor10);
+	--kengine-badge-color-scheme-9-color: var(--sapTextColor);
+
+	--kengine-badge-color-scheme-10-background: var(--sapLegendBackgroundColor9);
+	--kengine-badge-color-scheme-10-border: var(--sapAccentColor9);
+	--kengine-badge-color-scheme-10-color: var(--sapTextColor);
+}

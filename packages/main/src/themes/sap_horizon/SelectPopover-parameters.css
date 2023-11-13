@@ -1,0 +1,4 @@
+:root {
+	--_kengine_select_option_focus_border_radius: var(--sapElement_BorderCornerRadius);
+}
+

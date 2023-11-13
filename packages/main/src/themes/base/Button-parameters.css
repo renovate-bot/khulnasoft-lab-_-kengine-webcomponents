@@ -1,0 +1,24 @@
+:root {
+	--_kengine_button_focused_border: 0.0625rem dotted var(--sapContent_FocusColor);
+	--_kengine_button_focused_border_radius: 0.25rem;
+	--_kengine_button_focused_inner_border_radius: 0;
+	--_kengine_button_base_min_width: 2.5rem;
+	--_kengine_button_base_min_compact_width: 2rem;
+	--_kengine_button_base_height: var(--sapElement_Height);
+	--_kengine_button_compact_height: 1.625rem;
+	--_kengine_button_border_radius: var(--sapButton_BorderCornerRadius);
+	--_kengine_button_base_padding: 0.6875rem;
+	--_kengine_button_compact_padding: 0.4375rem;
+	--_kengine_button_base_icon_only_padding: 0.5625rem;
+	--_kengine_button_base_icon_margin: 0.563rem;
+	--_kengine_button_icon_font_size: 1.375rem;
+	--_kengine_button_emphasized_outline: 1px dotted var(--sapContent_FocusColor);
+	--_kengine_button_text_shadow: var(--sapContent_TextShadow);
+	--_kengine_button_focus_offset: 1px;
+	--_kengine_button_focus_width: 1px;
+	--_kengine_button_pressed_focused_border_color: var(--sapContent_ContrastFocusColor);
+	--_kengine_button_fontFamily: var(--sapFontFamily);
+	--_kengine_button_emphasized_focused_border_color: var(--sapButton_Emphasized_BorderColor);
+	--_kengine_button_emphasized_focused_border_before: none;
+	--_kengine_button_emphasized_focused_active_border_color: transparent;
+}

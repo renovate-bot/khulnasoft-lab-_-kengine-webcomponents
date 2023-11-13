@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+
+<head>
+	<meta charset="utf-8">
+
+	<title>i18n default language test page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta charset="utf-8">
+
+	<!-- The "fetchDefaultLanguage" is enabled,
+		the configured default language will be fetched over the network
+	-->
+	<script data-kengine-config type="application/json">{"fetchDefaultLanguage": true}</script>
+
+
+	<script src="../../bundle.esm.js" type="module"></script>
+
+<link rel="stylesheet" type="text/css" href="./styles/i18n-defaultLang.css">
+</head>
+	<body class="i18n-defaultlang1auto">
+
+	<kengine-textarea
+		maxlength="20"
+		placeholder="Max length"
+		show-exceeded-text
+	></kengine-textarea>
+</body>
+</html>

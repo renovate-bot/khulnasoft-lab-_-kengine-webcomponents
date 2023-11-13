@@ -1,0 +1,30 @@
+<div
+	class="kengine-avatar-root"
+	tabindex="{{tabindex}}"
+	data-sap-focus-ref
+	@keyup={{_onkeyup}}
+	@keydown={{_onkeydown}}
+	@focusout={{_onfocusout}}
+	@focusin={{_onfocusin}}
+	@click={{_onclick}}
+	role="{{_role}}"
+	aria-haspopup="{{_ariaHasPopup}}"
+	aria-label="{{accessibleNameText}}"
+	fallback-icon="{{_fallbackIcon}}"
+>
+	{{#if hasImage}}
+		<slot></slot>
+	{{else}}
+		{{#if icon}}
+			<kengine-icon class="kengine-avatar-icon" name="{{icon}}"></kengine-icon>
+		{{/if}}
+
+		{{#if initials}}
+			<span class="kengine-avatar-initials">{{validInitials}}</span>
+			<kengine-icon class="kengine-avatar-icon kengine-avatar-icon-fallback" name="{{fallbackIcon}}"></kengine-icon>
+		{{/if}}
+
+	{{/if}}
+
+	<slot name="badge"></slot>
+</div>

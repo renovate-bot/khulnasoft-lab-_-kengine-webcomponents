@@ -1,0 +1,26 @@
+<kengine-popover
+	skip-registry-update
+	_disable-initial-focus
+	prevent-focus-restore
+	hide-arrow
+	class="kengine-valuestatemessage-popover"
+	placement-type="Bottom"
+	horizontal-align="Left"
+>
+	<div slot="header" class="{{classes.popoverValueState}}" style="{{styles.popoverHeader}}">
+		{{#if _valueStateMessageInputIcon}}
+			<kengine-icon class="kengine-input-value-state-message-icon" name="{{_valueStateMessageInputIcon}}"></kengine-icon>
+		{{/if}}
+		{{> valueStateMessage}}
+	</div>
+</kengine-popover>
+
+{{#*inline "valueStateMessage"}}
+	{{#if shouldDisplayDefaultValueStateMessage}}
+		{{valueStateText}}
+	{{else}}
+		{{#each valueStateMessageText}}
+			{{this}}
+		{{/each}}
+	{{/if}}
+{{/inline}}

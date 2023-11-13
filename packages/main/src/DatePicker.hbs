@@ -1,0 +1,45 @@
+<div
+		class="kengine-date-picker-root"
+		style="{{styles.main}}"
+>
+	{{! INPUT}}
+	<kengine-input
+			id="{{_id}}-inner"
+			class="kengine-date-picker-input"
+			placeholder="{{_placeholder}}"
+			type="{{type}}"
+			value="{{value}}"
+			?disabled="{{disabled}}"
+			?required="{{required}}"
+			?readonly="{{readonly}}"
+			value-state="{{valueState}}"
+			data-sap-focus-ref
+			._inputAccInfo ="{{accInfo}}"
+			@kengine-change="{{_onInputChange}}"
+			@kengine-input="{{_onInputInput}}"
+			@kengine-submit="{{_onInputSubmit}}"
+			@keydown="{{_onkeydown}}"
+	>
+
+		{{#if valueStateMessage.length}}
+			<slot name="valueStateMessage" slot="valueStateMessage"></slot>
+		{{/if}}
+
+		{{#unless readonly}}
+			<kengine-icon
+				slot="icon"
+				name="{{openIconName}}"
+				tabindex="-1"
+				accessible-name="{{openIconTitle}}"
+				accessible-role="button"
+				aria-hidden="{{_ariaHidden}}"
+				show-tooltip
+				@click="{{togglePicker}}"
+				input-icon
+				?pressed="{{_isPickerOpen}}"
+			></kengine-icon>
+		{{/unless}}
+	</kengine-input>
+
+	<slot name="formSupport"></slot>
+</div>

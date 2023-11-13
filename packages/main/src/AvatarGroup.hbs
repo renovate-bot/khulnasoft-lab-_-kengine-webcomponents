@@ -1,0 +1,30 @@
+<div class="kengine-avatar-group-root">
+	<div
+		class="kengine-avatar-group-items"
+		@keyup="{{_onkeyup}}"
+		@keydown="{{_onkeydown}}"
+		@focusin="{{_onfocusin}}"
+		tabindex="{{_groupTabIndex}}"
+		@click="{{_onClick}}"
+		@kengine-click="{{_onKENGINEClick}}"
+		aria-label="{{_ariaLabelText}}"
+		role="{{_role}}"
+		aria-haspopup="{{_containerAriaHasPopup}}"
+	>
+		<slot></slot>
+
+		{{#if _customOverflowButton}}
+			<slot name="overflowButton"></slot>
+		{{else}}
+			<kengine-button
+				.accessibilityAttributes="{{_overflowButtonAccAttributes}}"
+				aria-label="{{_overflowButtonAriaLabelText}}"
+				?hidden="{{_overflowBtnHidden}}"
+				?non-interactive={{_isGroup}}
+				class="{{classes.overflowButton}}"
+			>
+				{{_overflowButtonText}}
+			</kengine-button>
+		{{/if}}
+	</div>
+</div>

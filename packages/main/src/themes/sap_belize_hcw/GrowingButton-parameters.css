@@ -1,0 +1,8 @@
+@import "../base/GrowingButton-parameters.css";
+
+:root {
+	--_kengine_load_more_padding: 0.25rem;
+	--_kengine_load_more_border: 1px solid var(--sapButton_BorderColor);
+	--_kengine_load_more_border_radius: 0.375rem;
+	--_kengine_load_more_outline_width: 0.125rem;
+}

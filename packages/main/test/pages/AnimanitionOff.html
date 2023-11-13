@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Animations off</title>
+
+	<script data-kengine-config type="application/json">
+		{
+			"animationMode": "none"
+		}
+	</script>
+
+	<script src="../../bundle.esm.js" type="module"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="./styles/AnimanitionOff.css">
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			panel1.addEventListener("kengine-toggle", function (event) {
+				console.log(event);
+				event.target.headerText = event.target.collapsed ? "Click to expand!" : "Click to collapse!";
+				field1.value = parseInt(field1.value) + 1;
+			});
+			panel2.addEventListener("kengine-toggle", function (event) {
+				field2.value = parseInt(field2.value) + 1;
+			});
+		});
+	</script>
+</head>
+
+<body class="animanitionoff1auto">
+	<kengine-panel id="panel1" collapsed header-text="Click to expand!" class="panel">
+		<kengine-title>This is a demo how to use the &quot;expand&quot; event.</kengine-title><br>
+		<kengine-label>Some short text.</kengine-label>
+	</kengine-panel>
+
+	<kengine-panel id="panel2" collapsed accessible-role="Complementary" class="panel">
+		<div slot="header" class="header">
+			<kengine-title>Expandable but not expanded</kengine-title>
+		</div>
+		<kengine-title>This is a demo how to use the &quot;expand&quot; event.</kengine-title><br>
+		<kengine-label>Some short text.</kengine-label>
+	</kengine-panel><br>
+
+	<kengine-input id="field1" value="0"></kengine-input>
+	<kengine-input id="field2" value="0"></kengine-input>
+</body>
+</html>

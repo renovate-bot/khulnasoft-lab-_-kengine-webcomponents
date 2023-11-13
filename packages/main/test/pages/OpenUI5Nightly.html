@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <title>OpenKENGINE Nightly + KENGINE Web Components</title>
+
+    <script id='sap-ui-bootstrap'
+            src='https://kenginenightly.hana.ondemand.com/resources/sap-ui-core.js'
+            data-sap-ui-theme='sap_belize_hcb'
+            data-sap-ui-libs='sap.m, sap.ui.core'
+            data-sap-ui-preload="async"
+    ></script>
+
+    <script>
+        sap.ui.getCore().attachInit(function() {
+			const dialog = new sap.m.Dialog({
+                content: [
+                    new sap.ui.core.HTML({
+                        content: '<kengine-date-picker id="myDatepicker" value="Aug 14, 2018" data-sap-ui-integration-popup-content></kengine-date-picker>'
+                    }),
+                ]
+            });
+
+            const dialog2 = new sap.m.Dialog({
+                content: [
+                    new sap.ui.core.HTML({
+                        content: '<kengine-calendar id="myCalendar" value="Aug 14, 2018"></kengine-calendar>'
+                    }),
+                ]
+            });
+
+			const btn = new sap.m.Button({
+				text: "DialogWithDatePicker",
+				press: function() {
+					dialog.open();
+				},
+			});
+
+			const btn2 = new sap.m.Button({
+				text: "DialogWithCalendar",
+				press: function() {
+					dialog2.open();
+				},
+			});
+
+            const page = new sap.m.Page({
+                content: [
+                    dialog, dialog2, btn, btn2
+                ],
+            });
+
+			page.placeAt('content');
+        });
+    </script>
+
+    <script data-kengine-config type="application/json">
+        {
+            "language": "de",
+            "noConflict": {
+                "events": ["click"]
+            },
+            "compactSize": true,
+            "calendarType": "Islamic"
+        }
+    </script>
+
+    <script src="../../bundle.esm.js" type="module"></script>
+
+	<link rel="stylesheet" type="text/css" href="./styles/OpenKENGINE.css">
+</head>
+
+<body class="kengine1auto">
+
+	<kengine-button icon="download">Web Component</kengine-button>
+	<kengine-datepicker></kengine-datepicker>
+
+	<div id='content'></div>
+</body>
+</html>

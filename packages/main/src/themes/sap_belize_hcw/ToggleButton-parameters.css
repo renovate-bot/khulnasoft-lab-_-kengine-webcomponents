@@ -1,0 +1,6 @@
+@import "../base/ToggleButton-parameters.css";
+
+:root {
+	--_kengine_toggle_button_pressed_focussed: transparent;
+	--_kengine_toggle_button_pressed_focussed_hovered: transparent;
+}

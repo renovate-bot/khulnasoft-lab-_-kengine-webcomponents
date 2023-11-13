@@ -1,0 +1,320 @@
+:host(:not([hidden])) {
+	display: block;
+}
+
+:host {
+	height: 100%;
+	width: 100%;
+}
+
+:host([hide-week-numbers]) .kengine-dp-content {
+	flex-basis: 100%;
+}
+
+.kengine-dp-root.kengine-dp-twocalendartypes .kengine-dp-item {
+	flex-direction: column;
+	justify-content: var(--_kengine_day_picker_item_justify_content);
+}
+
+.kengine-dp-root.kengine-dp-twocalendartypes .kengine-dp-daytext {
+	height: 1.575rem;
+	padding-top: var(--_kengine_dp_two_calendar_item_text_padding_top)
+}
+
+.kengine-dp-root.kengine-dp-twocalendartypes .kengine-dp-daysectext {
+	font-size: 0.625rem;
+	height: var(--_kengine_dp_two_calendar_item_secondary_text_height);
+	padding: 0 0.375rem 0.375rem 50%;
+}
+
+.kengine-dp-weekname,
+.kengine-dp-dayname,
+.kengine-dp-item {
+	width: var(--_kengine_day_picker_item_width);
+	height: var(--_kengine_day_picker_item_height);
+	margin-top: var(--_kengine_daypicker_item_margin);
+	margin-right: var(--_kengine_daypicker_item_margin);
+	font-family: "72override", var(--sapFontFamily);
+	border-radius: var(--_kengine_daypicker_item_border_radius);
+}
+
+.kengine-dp-weekname {
+	color: var(--_kengine_daypicker_weekname_color);
+}
+
+.kengine-dp-weeks-row {
+	display: flex;
+}
+
+.kengine-dp-content {
+	display: flex;
+	flex-basis: 87.5%;
+	flex-direction: column;
+	font-family: "72override", var(--sapFontFamily);
+}
+
+.kengine-dp-days-names-container {
+	display: flex;
+	height: var(--_kengine_daypicker_daynames_container_height);
+}
+
+.kengine-dp-weeknumber-container {
+	padding-top: var(--_kengine_daypicker_weeknumbers_container_padding_top);
+	flex-basis: 12.5%;
+}
+
+.kengine-dp-weekname,
+.kengine-dp-dayname,
+.kengine-dp-weekname-container,
+.kengine-dp-item {
+	display: flex;
+	flex-grow: 1;
+	justify-content: center;
+	align-items: center;
+	font-size: var(--sapFontSmallSize);
+	outline: none;
+	box-sizing: border-box;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+.kengine-dp-item {
+	position: relative;
+	color: var(--sapTextColor);
+	background: var(--sapLegend_WorkingBackground);
+	font-size: var(--sapFontSize);
+	border: var(--_kengine_daypicker_item_border);
+	border-radius: var(--_kengine_daypicker_item_border_radius);
+}
+
+.kengine-dp-item:hover {
+	background: var(--sapList_Hover_Background);
+}
+
+.kengine-dp-daytext {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+.kengine-dp-dayname {
+	color: var(--_kengine_daypicker_dayname_color);
+	height: 100%;
+}
+
+.kengine-dp-item.kengine-dp-item--weeekend {
+	background: var(--sapLegend_NonWorkingBackground);
+}
+
+.kengine-dp-item.kengine-dp-item--disabled {
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+
+.kengine-dp-item.kengine-dp-item--weeekend:hover {
+	background: var(--sapList_Hover_Background);
+	filter: var(--_kengine_daypicker_item_weeekend_filter);
+}
+
+.kengine-dp-item.kengine-dp-item--othermonth {
+	color: var(--_kengine_daypicker_item_othermonth_color);
+	background: var(--_kengine_daypicker_item_othermonth_background_color);
+	border-color: transparent;
+}
+
+.kengine-dp-item.kengine-dp-item--othermonth:hover,
+.kengine-dp-item.kengine-dp-item--weeekend.kengine-dp-item--othermonth:hover {
+	color: var(--_kengine_daypicker_item_othermonth_hover_color);
+	background: var(--sapList_Hover_Background);
+}
+
+.kengine-dp-item:focus::after {
+	content: "";
+	border: var(--_kengine_daypicker_item_not_selected_focus_border);
+	position: absolute;
+	inset: var(--_kengine_daypicker_item_no_selected_inset);
+	outline: none;
+	border-radius: var(--_kengine_daypicker_item_border_radius_focus_after);
+}
+
+.kengine-dp-item.kengine-dp-item--now::before {
+	position: absolute;
+	inset: var(--_kengine_daypicker_item_now_not_selected_inset);
+	border: 0.125rem solid var(--_kengine_daypicker_item_now_border_color);
+	content: "";
+	border-radius: var(--_kengine_daypicker_item_border_radius);
+}
+
+.kengine-dp-item.kengine-dp-item--now.kengine-dp-item--selected {
+	box-shadow: var(--_kengine_daypicker_item_now_box_shadow);
+}
+
+.kengine-dp-item.kengine-dp-item--selected {
+	background: var(--sapContent_Selected_Background)
+}
+.kengine-dp-item.kengine-dp-item--selected:not(.kengine-dp-item.kengine-dp-item--now) .kengine-dp-daytext::after{
+	position: absolute;
+	inset: 0;
+	border: var(--_kengine_daypicker_item_selected_border);
+	content: "";
+	border-radius: var(--_kengine_daypicker_item_border_radius_item);
+}
+
+.kengine-dp-item.kengine-dp-item--selected.kengine-dp-item.kengine-dp-item--now .kengine-dp-daytext {
+	border: var(--_kengine_day_picker_item_selected_now_border);
+	outline: var(--_kengine_daypicker_item_selected_text_outline);
+	outline-offset: var(--_kengine_daypicker_item_now_selected_outline_offset);
+	border-radius: var(--_kengine_daypicker_item_border_radius_item);
+	font-family: var(--_kengine_daypicker_item_selected_text_font);
+}
+
+.kengine-dp-item.kengine-dp-item--selected .kengine-dp-daytext {
+	background: var(--_kengine_daypicker_item_selected_background);
+	color: var(--sapContent_Selected_TextColor);
+	border-radius: var(--_kengine_daypicker_item_border_radius);
+	border: var(--_kengine_daypicker_item_selected_text_border);
+	font-family: var(--_kengine_daypicker_item_selected_text_font);
+}
+
+.kengine-dp-item.kengine-dp-item--selected:hover .kengine-dp-daytext {
+	background: var(--_kengine_daypicker_item_selected_daytext_hover_background);
+	color: var(--sapContent_Selected_TextColor);
+}
+
+.kengine-dp-item.kengine-dp-item--now:focus::after {
+	inset: var(--_kengine_daypicker_item_now_inset);
+	border-radius: var(--_kengine_daypicker_item_now_border_radius_focus_after);
+	border: var(--_kengine_daypicker_item_now_border_focus_after);
+	position: absolute;
+	content: "";
+	width: auto;
+	height: auto;
+}
+
+.kengine-dp-item.kengine-dp-item--selected.kengine-dp-item--now:focus::after {
+	inset: var(--_kengine_daypicker_item_now_inset);
+	border-radius: var(--_kengine_day_picker_item_selected_now_border_radius_focus);
+	border: var(--_kengine_day_picker_item_selected_now_border_focus);
+	position: absolute;
+	content: "";
+	width: auto;
+	height: auto;
+}
+
+.kengine-dp-item.kengine-dp-item--selected:hover {
+	background: var( --_kengine_daypicker_item_selected_hover);
+	color: var(--sapContent_ContrastTextColor);
+}
+
+.kengine-dp-item.kengine-dp-item--selected:focus::after {
+	border-color: var(--_kengine_daypicker_item_selected_focus_color);
+	border-width: var(--_kengine_daypicker_item_selected_focus_width);
+}
+
+.kengine-dp-items-container {
+	outline: none;
+}
+
+.kengine-dp-item.kengine-dp-item--selected-between .kengine-dp-daytext,
+.kengine-dp-item[hovered] .kengine-dp-daytext {
+	border: var(--_kengine_daypicker_item_select_between_border);
+	border-radius: var(--_kengine_daypicker_item_border_radius);
+	background-color: var(--_kengine_daypicker_item_selected_between_text_background);
+	color: var(--sapTextColor);
+	font-weight: var(--_kengine_daypicker_item_selected_between_text_font);
+}
+
+.kengine-dp-item.kengine-dp-item--selected-between.kengine-dp-item--now:not(.kengine-dp-item--selected) .kengine-dp-daytext::after {
+	content: "";
+	position: absolute;
+	inset: var(--_kengine_daypicker_item_now_selected_between_inset);
+	border: var(--_kengine_daypicker_item_now_selected_between_border);
+	border-radius: var(--_kengine_daypicker_item_now_selected_between_border_radius);
+}
+
+.kengine-dp-item.kengine-dp-item--selected-between,
+.kengine-dp-item[hovered] {
+	border-radius: var(--_kengine_daypicker_item_selected_between_border);
+	background: var(--_kengine_daypicker_item_selected_between_background);
+}
+
+.kengine-dp-item.kengine-dp-item--selected-between:hover {
+	background: var(--_kengine_daypicker_item_selected_between_hover_background);
+}
+
+.kengine-dp-item.kengine-dp-item--selected.kengine-dp-item--selected-between:focus::after {
+	border-color: var(--sapContent_FocusColor);
+}
+
+.kengine-dp-items-container > :first-child {
+	justify-content: flex-end;
+}
+
+.kengine-dp-emptyweek {
+	height: var(--_kengine_day_picker_empty_height);
+}
+
+.kengine-dp-item.kengine-dp-item--now.kengine-dp-item--selected.kengine-dp-item--withsecondtype:focus::after{
+	outline-offset: -0.1875rem;
+	border-radius: var(--_kengine-dp-item_withsecondtype_border);
+}
+.kengine-dp-item.kengine-dp-item--selected.kengine-dp-item--now.kengine-dp-item--withsecondtype .kengine-dp-daysectext,
+.kengine-dp-item.kengine-dp-item--now.kengine-dp-item--selected.kengine-dp-item--withsecondtype .kengine-dp-daytext {
+	border: none;
+	outline: none;
+}
+
+/* styles for calendar with two types */
+
+.kengine-dp-root.kengine-dp-twocalendartypes .kengine-dp-item.kengine-dp-item--selected:not(.kengine-dp-item.kengine-dp-item--now) .kengine-dp-daytext::after{
+	border-width: 0.125rem;
+}
+
+.kengine-dp-root.kengine-dp-twocalendartypes .kengine-dp-item.kengine-dp-item--now .kengine-dp-daytext {
+	height: var(--_kengine_dp_two_calendar_item_primary_text_height);
+	padding-top: var(--_kengine_dp_two_calendar_item_now_text_padding_top);
+}
+
+.kengine-dp-root.kengine-dp-twocalendartypes .kengine-dp-item.kengine-dp-item--now .kengine-dp-daysectext {
+	height: var(--_kengine_dp_two_calendar_item_secondary_text_height);
+	padding-top: 0;
+    border-radius: var(--_kengine_dp_two_calendar_item_secondary_text_border_radios);
+}
+
+.kengine-dp-root.kengine-dp-twocalendartypes .kengine-dp-item.kengine-dp-item--selected.kengine-dp-item.kengine-dp-item--now .kengine-dp-daytext {
+    border-radius: var(--_kengine_daypicker_two_calendar_item_border_radius);
+}
+
+.kengine-dp-root.kengine-dp-twocalendartypes .kengine-dp-item:focus::after {
+	inset: var(--_kengine_daypicker_two_calendar_item_no_selected_inset);
+	border-radius: var(--_kengine_daypicker_two_calendar_item_border_focus_border_radius);
+}
+
+.kengine-dp-root.kengine-dp-twocalendartypes .kengine-dp-item.kengine-dp-item--now::after {
+	inset: var(--_kengine_daypicker_two_calendar_item_no_selected_focus_inset);
+	border-radius: var(--_kengine_daypicker_two_calendar_item_no_select_focus_border_radius);
+}
+
+.kengine-dp-root.kengine-dp-twocalendartypes .kengine-dp-item.kengine-dp-item--selected:focus::after {
+	border-width: var(--_kengine_daypicker_two_calendar_item_now_selected_border_width);
+	inset: var(--_kengine_daypicker_two_calendar_item_now_selected_border_inset);
+	border-radius: var(--_kengine_daypicker_two_calendar_item_border_focus_border_radius);
+}
+
+.kengine-dp-root.kengine-dp-twocalendartypes .kengine-dp-item.kengine-dp-item--selected.kengine-dp-item--now::after {
+	inset: var(--_kengine_daypicker_two_calendar_item_now_inset);
+	border-radius: var(--_kengine_daypicker_two_calendar_item_selected_now_border_radius_focus);
+}
+
+.kengine-dp-root.kengine-dp-twocalendartypes .kengine-dp-item.kengine-dp-item--now.kengine-dp-item--selected.kengine-dp-item--withsecondtype .kengine-dp-daytext:not(.kengine-dp-daysectext)::before {
+	content: var(--_kengine_daypicker_two_calendar_item_now_day_text_content);
+	position: absolute;
+	inset: 0.3125rem;
+	border-radius: var(--_kengine_daypicker_two_calendar_item_selected_now_border_radius_focus);
+	outline: var(--_kengine_daypicker_item_selected__secondary_type_text_outline)
+}

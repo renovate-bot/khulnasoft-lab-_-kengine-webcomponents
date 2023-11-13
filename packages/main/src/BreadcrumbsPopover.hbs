@@ -1,0 +1,28 @@
+<kengine-responsive-popover
+	class="kengine-breadcrumbs-popover"
+	hide-arrow
+	content-only-on-desktop
+	placement-type="Bottom"
+	horizontal-align="Left"
+	_hide-header
+	@keydown="{{_onkeydown}}">
+	<kengine-list mode="SingleSelect"
+		separators="None"
+		@kengine-selection-change="{{_onOverflowListItemSelect}}">
+
+		{{#each _overflowItemsData}}
+			<kengine-li
+				id="{{this._id}}-li"
+				accessible-name="{{this.accessibleName}}"
+				data-kengine-stable="{{this.stableDomRef}}">
+				{{this.textContent}}
+			</kengine-li>
+		{{/each}}
+	</kengine-list>
+	<div slot="footer" class="kengine-breadcrumbs-popover-footer">
+		<kengine-button
+			design="Transparent"
+			@click="{{_closeRespPopover}}"
+		>{{_cancelButtonText}}</kengine-button>
+	</div>
+</kengine-responsive-popover>

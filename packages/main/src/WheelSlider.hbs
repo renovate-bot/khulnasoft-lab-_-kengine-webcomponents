@@ -1,0 +1,48 @@
+<div
+	id="{{this._id}}"
+	?disabled= "{{disabled}}"
+	value = "{{value}}"
+	label = "{{label}}"
+	@click = {{_onclick}}
+	@keydown={{_onkeydown}}
+	class = "{{classes.root}}"
+	data-sap-focus-ref
+	tabindex="0"
+	@wheel="{{_handleWheel}}"
+>
+	<div class="kengine-wheelslider-header-block">
+		<div id="{{this._id}}--label" class="kengine-wheelslider-label">{{label}}</div>
+		<div class="kengine-wheelslider-invisible-text"></div>
+		<kengine-button class="kengine-wheelslider-arrow" icon="navigation-up-arrow" @click={{_onArrowUp}} tabindex="-1"></kengine-button>
+	</div>
+	<div id="{{this._id}}--inner" class="kengine-wheelslider-inner">
+	<div id="{{this._id}}--selection-frame" class="kengine-wheelslider-selection-frame"></div>
+		<div id="{{this._id}}--wrapper" class="kengine-wheelslider-wrapper">
+			{{#if expanded}}
+				<ul id="{{this._id}}--items-list" role="listbox" aria-label="{{label}}">
+					{{#each _itemsToShow}}
+						<li class="kengine-wheelslider-item"
+							data-item-index="{{@index}}"
+							role="option"
+							aria-selected="{{this.selected}}"
+						>
+							{{this.value}}
+						</li>
+					{{/each}}
+				</ul>
+			{{else}}
+				<ul id="{{this._id}}--items-list" role="listbox" aria-label="{{label}}">
+					<li class="kengine-wheelslider-item"
+						role="option"
+						aria-selected="true"
+					>
+						{{value}}
+					</li>
+				</ul>
+			{{/if}}
+		</div>
+	</div>
+	<div class="kengine-wheelslider-footer-block">
+		<kengine-button class="kengine-wheelslider-arrow" icon="navigation-down-arrow" @click={{_onArrowDown}} tabindex="-1"></kengine-button>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+@import "../base/YearPicker-parameters.css";
+
+:root {
+	--_kengine_yearpicker_item_border_radius: 0.5rem;
+	--_kengine_yearpicker_item_focus_after_offset: 0.25rem;
+	--_kengine_yearpicker_item_focus_after_border: var(--_kengine_button_focused_border);
+	--_kengine_yearpicker_item_focus_after_border_radius: 0.5rem;
+	--_kengine_yearpicker_item_focus_after_width: calc(100% - 0.5rem);
+	--_kengine_yearpicker_item_focus_after_height: calc(100% - 0.5rem);
+	--_kengine_yearpicker_item_selected_background_color: transparent;
+	--_kengine_yearpicker_item_selected_text_color: var(--sapContent_Selected_TextColor);
+	--_kengine_yearpicker_item_selected_box_shadow: none;
+	--_kengine_yearpicker_item_selected_hover_color: var(--sapList_Hover_Background);
+	--_kengine_yearpicker_item_focus_after_outline: none;
+}

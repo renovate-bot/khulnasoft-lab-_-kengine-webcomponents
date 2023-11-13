@@ -1,0 +1,4 @@
+:root {
+	--_kengine-tree-item-minimal-background: var(--sapList_SelectionBackgroundColor);
+	--_kengine-tree-item-minimal-children-indicator-display: initial;
+}

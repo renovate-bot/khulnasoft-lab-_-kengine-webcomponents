@@ -1,0 +1,85 @@
+<tr
+	class="kengine-table-row-root"
+	tabindex="{{_tabIndex}}"
+	@focusin="{{_onfocusin}}"
+	@focusout="{{_onfocusout}}"
+	@click="{{_onrowclick}}"
+	@keydown="{{_onkeydown}}"
+	@keyup="{{_onkeyup}}"
+	@mouseup="{{_onmouseup}}"
+	@touchstart="{{_ontouchstart}}"
+	@touchend="{{_ontouchend}}"
+	aria-label="{{ariaLabelText}}"
+	aria-selected="{{this.selected}}"
+	aria-current="{{_ariaCurrent}}"
+	data-sap-focus-ref
+	part="row"
+>
+
+	{{#if isMultiSelect}}
+		<td
+			class="kengine-table-multi-select-cell"
+			aria-hidden="true"
+			role="presentation"
+		>
+			<kengine-checkbox
+				class="kengine-multi-select-checkbox"
+				?checked="{{this.selected}}"
+				aria-label="{{ariaLabelRowSelection}}"
+				@kengine-change="{{_handleSelection}}"
+				tabindex="-1"
+			>
+			</kengine-checkbox>
+		</td>
+	{{/if}}
+
+	{{#if shouldPopin}}
+		{{#each visibleCells}}
+			<slot name="{{this._individualSlot}}"></slot>
+		{{/each}}
+	{{else}}
+		{{#each cells}}
+			<slot name="{{this._individualSlot}}"></slot>
+		{{/each}}
+	{{/if}}
+
+	<td class="kengine-table-row-navigated" aria-hidden="true">
+		<div class="kengine-table-div-navigated"></div>
+	</td>
+</tr>
+
+{{#if shouldPopin}}
+	{{#each popinCells}}
+		<tr part="popin-row" class="{{this.classes}}"
+			@click="{{../_onrowclick}}"
+			@keydown="{{../_onkeydown}}"
+			@keyup="{{../_onkeyup}}">
+			<td colspan="{{../visibleCellsCount}}" role="cell">
+				{{#if popinDisplayInline}}
+					<div class="kengine-table-display-inline-container">
+						{{#if this.popinText}}
+							<span class="kengine-table-row-popin-title">{{this.popinText}}:</span>
+						{{/if}}
+						<span class="kengine-table-cell-display-inline">
+							<slot name="{{this.cell._individualSlot}}"></slot>
+						</span>
+					</div>
+				{{else}}
+					{{#if this.popinText}}
+						<span class="kengine-table-row-popin-title">{{this.popinText}}:</span>
+					{{/if}}
+					<div>
+						<slot name="{{this.cell._individualSlot}}"></slot>
+					</div>
+				{{/if}}
+			</td>
+
+			<td class="kengine-table-row-navigated" aria-hidden="true">
+				<div class="kengine-table-div-navigated"></div>
+			</td>
+		</tr>
+	{{/each}}
+{{/if}}
+
+
+

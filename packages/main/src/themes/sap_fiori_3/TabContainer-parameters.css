@@ -1,0 +1,13 @@
+@import "../base/TabContainer-parameters.css";
+
+:root {
+	--_kengine_tc_header_border_bottom: 0.0625rem solid var(--sapObjectHeader_Background);
+
+	/* Header Item */
+	--_kengine_tc_headerItemContent_border_bottom: 0.1875rem solid var(--sapSelectedColor);
+
+	--_kengine_tc_overflowItem_default_color: var(--sapNeutralTextColor);
+	--_kengine_tc_overflowItem_current_color: CurrentColor;
+	--_kengine_tc_content_border_bottom: 0.0625rem solid var(--sapObjectHeader_BorderColor);
+	--_kengine_tc_headerItem_text_hover_color: #1a1c1f;
+}

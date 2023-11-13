@@ -1,0 +1,29 @@
+.kengine-suggestions-popover {
+	box-shadow: var(--sapContent_Shadow1);
+}
+
+.kengine-suggestions-popover::part(header),
+.kengine-suggestions-popover::part(content) {
+	padding: 0;
+}
+
+.kengine-suggestions-popover::part(footer) {
+	padding: 0 1rem;
+}
+
+.kengine-suggestions-popover [kengine-li]::part(icon),
+.kengine-suggestions-popover [kengine-li-suggestion-item]::part(icon) {
+	color: var(--sapList_TextColor);
+}
+
+.input-root-phone.native-input-wrapper {
+	display: contents;
+}
+
+.input-root-phone.native-input-wrapper::before {
+	display: none;
+}
+
+.native-input-wrapper .kengine-input-inner-phone {
+	margin: 0;
+}

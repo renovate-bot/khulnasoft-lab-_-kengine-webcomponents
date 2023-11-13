@@ -1,0 +1,41 @@
+<li
+		role="option"
+		aria-roledescription="{{ariaDescription}}"
+		aria-posinset="{{posInSet}}"
+		aria-setsize="{{sizeOfSet}}"
+		aria-selected="{{pressed}}"
+		class="kengine-button-root"
+		aria-disabled="{{disabled}}"
+		data-sap-focus-ref
+	{{> ariaPressed}}
+		@focusout={{_onfocusout}}
+		@focusin={{_onfocusin}}
+		@click={{_onclick}}
+		@mousedown={{_onmousedown}}
+		@mouseup={{_onmouseup}}
+		@keydown={{_onkeydown}}
+		@keyup={{_onkeyup}}
+		@touchstart="{{_ontouchstart}}"
+		@touchend="{{_ontouchend}}"
+		tabindex={{tabIndexValue}}
+		aria-label="{{ariaLabelText}}"
+		title="{{tooltip}}"
+>
+	{{#if icon}}
+		<kengine-icon
+			class="kengine-button-icon"
+			name="{{icon}}"
+			part="icon"
+			?show-tooltip={{showIconTooltip}}
+		></kengine-icon>
+	{{/if}}
+
+	<span id="{{_id}}-content" class="kengine-button-text">
+		<bdi>
+			<slot></slot>
+		</bdi>
+	</span>
+
+</li>
+
+{{#*inline "ariaPressed"}}{{/inline}}

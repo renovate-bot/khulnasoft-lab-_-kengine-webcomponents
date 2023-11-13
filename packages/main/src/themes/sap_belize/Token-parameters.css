@@ -1,0 +1,8 @@
+@import "../base/Token-parameters.css";
+
+:root {
+	--_kengine_token_border_radius: 0.125rem;
+	--_kengine_token_left_padding: 0.375rem;
+	--_kengine_token_right_margin: 0.375rem;
+	--_kengine_token_readonly_color: var(--sapContent_ForegroundTextColor);
+}

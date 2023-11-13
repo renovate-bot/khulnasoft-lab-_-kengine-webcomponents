@@ -1,0 +1,11 @@
+@import "./FormComponents.css";
+@import "./Input.css";
+@import "./InputIcon.css";
+
+.kengine-combobox-root {
+	display: flex;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	border-radius: var(--_kengine_input_border_radius);
+}

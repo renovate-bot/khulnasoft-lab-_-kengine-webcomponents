@@ -1,0 +1,17 @@
+@import "../base/Token-parameters.css";
+
+:root {
+	--_kengine_token_border_radius: 0.25rem;
+	--_kengine_token_focus_outline_width: 0.125rem;
+	--_kengine_token_readonly_background: var(--sapField_ReadOnly_Background);
+	--_kengine_token_focus_offset: 0;
+	--_kengine_token_focus_outline_border_radius: 0.25rem;
+	--_kengine_token_text_color: var(--sapTextColor);
+	--_kengine_token_readonly_padding: 0.25rem 0.3125rem;
+}
+
+[data-kengine-compact-size],
+.kengine-content-density-compact,
+.sapUiSizeCompact {
+	--_kengine_token_focus_offset: 0;
+}

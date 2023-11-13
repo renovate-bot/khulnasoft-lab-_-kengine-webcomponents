@@ -1,0 +1,15 @@
+:root {
+	--_kengine_dialog_resize_handle_color: var(--sapButton_Lite_TextColor);
+	--_kengine_dialog_resize_handle_right: -0.25rem;
+	--_kengine_dialog_resize_handle_bottom: -0.0625rem;
+	--_kengine_dialog_header_focus_bottom_offset: 3px;
+	--_kengine_dialog_header_focus_top_offset: 2px;
+	--_kengine_dialog_header_focus_left_offset: 2px;
+	--_kengine_dialog_header_focus_right_offset: 2px;
+	--_kengine_dialog_header_border_radius: 0px;
+	--_kengine_dialog_header_error_state_icon_color: var(--sapNegativeElementColor);
+	--_kengine_dialog_header_information_state_icon_color: var(--sapInformativeElementColor);
+	--_kengine_dialog_header_success_state_icon_color: var(--sapPositiveElementColor);
+	--_kengine_dialog_header_warning_state_icon_color: var(--sapCriticalElementColor);
+	--_kengine_dialog_header_state_line_height: 0.0625rem;
+}

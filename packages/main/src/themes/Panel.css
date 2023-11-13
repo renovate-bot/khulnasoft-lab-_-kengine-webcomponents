@@ -1,0 +1,153 @@
+@import "./InvisibleTextStyles.css";
+
+:host(:not([hidden])) {
+	display: block;
+}
+
+:host {
+	font-family: "72override", var(--sapFontFamily);
+	background-color: var(--sapGroup_TitleBackground);
+	border-radius: var(--_kengine_panel_border_radius);
+}
+
+:host(:not([collapsed])) {
+	border-bottom: var(--_kengine_panel_border_bottom);
+}
+
+:host([fixed]) .kengine-panel-header {
+	padding-left: 1rem;
+}
+
+.kengine-panel-header {
+	min-height: var(--_kengine_panel_header_height);
+	width: 100%;
+	position: relative;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	outline: none;
+	box-sizing: border-box;
+	padding-right: var(--_kengine_panel_header_padding_right);
+	font-family: "72override", var(--sapFontHeaderFamily);
+	font-size: var(--sapGroup_Title_FontSize);
+	font-weight: normal;
+	color: var(--sapGroup_TitleTextColor);
+}
+
+.kengine-panel-header-icon {
+	color: var(--_kengine_panel_icon_color);
+}
+
+.kengine-panel-header-button-animated {
+	transition: transform 0.4s ease-out;
+}
+
+:host(:not([_has-header]):not([fixed])) .kengine-panel-header {
+	cursor: pointer;
+}
+
+:host(:not([_has-header]):not([fixed])) .kengine-panel-header:focus::after {
+	content: "";
+	position: absolute;
+	pointer-events: none;
+	z-index: 2;
+	border: var(--_kengine_panel_focus_border);
+	border-radius: var(--_kengine_panel_border_radius);
+	top: var(--_kengine_panel_focus_offset);
+	bottom: var(--_kengine_panel_focus_offset);
+	left: var(--_kengine_panel_focus_offset);
+	right: var(--_kengine_panel_focus_offset);
+}
+
+:host(:not([collapsed]):not([_has-header]):not([fixed])) .kengine-panel-header:focus:after {
+	border-radius: var(--_kengine_panel_border_radius_expanded);
+}
+
+:host(:not([collapsed])) .kengine-panel-header-button:not(.kengine-panel-header-button-with-icon),
+:host(:not([collapsed])) .kengine-panel-header-icon-wrapper [kengine-icon] {
+	transform: var(--_kengine_panel_toggle_btn_rotation);
+}
+
+:host([fixed]) .kengine-panel-header-title {
+	width: 100%;
+}
+
+.kengine-panel-heading-wrapper.kengine-panel-heading-wrapper-sticky {
+    position: sticky;
+    top: 0;
+	background-color: var(--_kengine_panel_header_background_color);
+	z-index: 100; /* The z-index of the table header is 99 therefore to have table in the panel and panel header to be on top we need 100 */
+	border-radius: var(--_kengine_panel_border_radius);
+}
+
+.kengine-panel-header-title {
+	width: calc(100% - var(--_kengine_panel_button_root_width));
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.kengine-panel-content {
+	padding: var(--_kengine_panel_content_padding);
+	background-color: var(--sapGroup_ContentBackground);
+	outline: none;
+	border-bottom-left-radius: var(--_kengine_panel_border_radius);
+	border-bottom-right-radius: var(--_kengine_panel_border_radius);
+	overflow: auto;
+}
+
+.kengine-panel-header-button-root {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	width: var(--_kengine_panel_button_root_width);
+	height: var(--_kengine_panel_button_root_width);
+	padding: var(--_kengine_panel_header_button_wrapper_padding);
+	box-sizing: border-box;
+}
+
+:host([fixed]:not([collapsed]):not([_has-header])) .kengine-panel-header,
+:host([collapsed]) .kengine-panel-header {
+	border-bottom: 0.0625rem solid var(--sapGroup_TitleBorderColor);
+}
+
+:host([collapsed]) .kengine-panel-header {
+	border-bottom-left-radius: var(--_kengine_panel_border_radius);
+	border-bottom-right-radius: var(--_kengine_panel_border_radius);
+}
+
+:host(:not([fixed]):not([collapsed])) .kengine-panel-header {
+	border-bottom: var(--_kengine_panel_default_header_border);
+}
+
+[kengine-button].kengine-panel-header-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: initial;
+	height: 100%;
+	width: 100%;
+}
+
+.kengine-panel-header-icon-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.kengine-panel-header-icon-wrapper,
+.kengine-panel-header-icon-wrapper .kengine-panel-header-icon {
+	color: inherit;
+}
+
+.kengine-panel-header-icon-wrapper,
+[kengine-button].kengine-panel-header-button-with-icon [kengine-icon] {
+	pointer-events: none;
+}
+
+.kengine-panel-root {
+	height: 100%;
+    display: flex;
+    flex-direction: column;
+}

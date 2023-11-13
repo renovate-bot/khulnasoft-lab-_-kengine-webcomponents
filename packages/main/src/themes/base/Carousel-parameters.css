@@ -1,0 +1,12 @@
+:root {
+    --kengine_carousel_background_color_solid: var(--sapGroup_ContentBackground);
+    --kengine_carousel_background_color_translucent: var(--sapBackgroundColor);
+    --kengine_carousel_button_size: 2.5rem;
+    --kengine_carousel_inactive_dot_size: 0.25rem;
+    --kengine_carousel_inactive_dot_margin: 0 0.375rem;
+    --kengine_carousel_inactive_dot_border: 1px solid var(--sapContent_ForegroundBorderColor);
+    --kengine_carousel_inactive_dot_background: var(--sapContent_ForegroundBorderColor);
+    --kengine_carousel_active_dot_border: 1px solid var(--sapContent_Selected_ForegroundColor);
+    --kengine_carousel_active_dot_background: var(--sapContent_Selected_ForegroundColor);
+    --kengine_carousel_navigation_button_active_box_shadow: var(--sapContent_Shadow1);
+}

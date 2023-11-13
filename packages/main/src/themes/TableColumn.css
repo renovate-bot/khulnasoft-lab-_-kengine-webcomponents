@@ -1,0 +1,25 @@
+:host {
+	display: contents;
+}
+
+th {
+	background: var(--sapList_HeaderBackground);
+	width: inherit;
+	font-weight: var(--kengine_table_header_row_font_weight);
+	font-size: var(--sapFontMediumSize);
+	font-family: var(--kengine_table_header_row_font_family);
+	padding: 0.5rem;
+	box-sizing: border-box;
+	text-align: start;
+	vertical-align: middle;
+}
+
+:host([first]) th {
+	padding-inline-start: 1rem;
+}
+
+th ::slotted([kengine-label]) {
+	font-weight: var(--kengine_table_header_row_font_weight);
+	font-size: var(--sapFontMediumSize);
+	font-family: var(--kengine_table_header_row_font_family);
+}

@@ -1,0 +1,77 @@
+:host(:not([hidden])) {
+	display: inline-block;
+}
+
+:host(:not([hidden])[popup-mode]) {
+	width: 100%;
+}
+
+
+.kengine-cp-root {
+	display: flex;
+	flex-direction: column;
+}
+
+.kengine-cp-root.kengine-cp-root-phone,
+.kengine-cp-separator,
+.kengine-cp-root.kengine-cp-root-phone .kengine-cp-more-colors-wrapper,
+.kengine-cp-root.kengine-cp-root-phone .kengine-cp-default-color-button-wrapper,
+.kengine-cp-recent-colors-wrapper {
+	width: 100%;
+}
+
+.kengine-cp-root.kengine-cp-root-phone .kengine-cp-item-container {
+	width: 18.5rem;
+	max-width: 19.5rem;
+	max-height: 13rem;
+	padding: 0.375rem 0.625rem;
+}
+
+.kengine-cp-recent-colors-wrapper {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.kengine-cp-root.kengine-cp-root-phone {
+	display: flex;
+	align-items: center;
+}
+
+.kengine-cp-item-container {
+	display: flex;
+	max-width: var(--_kengine_color-palette-row-width);
+	flex-flow: wrap;
+	max-height: var(--_kengine_color-palette-row-height);
+	overflow: hidden;
+	padding: var(--_kengine_color-palette-swatch-container-padding);
+}
+
+.kengine-cp-separator {
+	height: 0.0625rem;
+	background: var(--sapToolbar_SeparatorColor);
+}
+
+.kengine-cp-more-colors,
+.kengine-cp-default-color-button {
+	width: 100%;
+	height: var(--_kengine_color-palette-button-height);
+	text-align: center;
+	border: none;
+}
+
+.kengine-cp-more-colors-wrapper,
+.kengine-cp-default-color-button-wrapper {
+	display: flex;
+	flex-direction: column;
+}
+
+.kengine-cp-separator {
+	height: 0.0625rem;
+	background: var(--sapToolbar_SeparatorColor);
+}
+
+.kengine-cp-default-color-button,
+.kengine-cp-more-colors {
+	padding: 0.0625rem;
+}

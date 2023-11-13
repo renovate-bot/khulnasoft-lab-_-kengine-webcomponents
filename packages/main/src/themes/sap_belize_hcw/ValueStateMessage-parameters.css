@@ -1,0 +1,7 @@
+@import "../base/ValueStateMessage-parameters.css";
+
+:root {
+	--_kengine_value_state_message_border: 2px solid var(--sapField_BorderColor);
+	--_kengine_value_state_header_border_bottom: 2px solid var(--sapField_BorderColor);
+	--_kengine_value_state_header_offset: -0.1875rem
+}

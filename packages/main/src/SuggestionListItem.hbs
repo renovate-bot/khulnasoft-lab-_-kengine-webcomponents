@@ -1,0 +1,33 @@
+{{>include "./StandardListItem.hbs"}}
+
+{{#*inline "listItemContent"}}
+	<div class="kengine-li-text-wrapper">
+		{{#if hasTitle}}
+			<span part="title" class="kengine-li-title"><slot></slot></span>
+		{{/if}}
+		{{#if hasDescription}}
+			<div class="kengine-li-description-info-wrapper">
+				<span part="description" class="kengine-li-desc">
+					{{#if richDescription.length}}
+						<slot name="richDescription"></slot>
+					{{else}}
+						{{description}}
+					{{/if}}
+				</span>
+
+				{{#if additionalText}}
+					<span part="additional-text" class="kengine-li-additional-text">{{additionalText}}</span>
+				{{/if}}
+			</div>
+		{{/if}}
+		{{#unless typeActive}}
+			<span class="kengine-hidden-text">{{type}}</span>
+		{{/unless}}
+	</div>
+	{{#unless hasDescription}}
+		{{#if additionalText}}
+			<span part="additional-text" class="kengine-li-additional-text">{{additionalText}}</span>
+		{{/if}}
+	{{/unless}}
+{{/inline}}
+

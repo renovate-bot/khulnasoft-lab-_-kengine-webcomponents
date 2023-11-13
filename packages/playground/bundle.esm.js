@@ -1,0 +1,1 @@
+import "@kengine/webcomponents-fiori/bundle.esm.js";

@@ -1,0 +1,9 @@
+:root {
+    --kengine_carousel_button_size: 2.5rem;
+    --kengine_carousel_inactive_dot_size: 0.25rem;
+    --kengine_carousel_inactive_dot_margin: 0 0.375rem;
+    --kengine_carousel_inactive_dot_border: none;
+    --kengine_carousel_inactive_dot_background: var(--sapContent_NonInteractiveIconColor);
+    --kengine_carousel_active_dot_border: var(--kengine_carousel_inactive_dot_border);
+    --kengine_carousel_active_dot_background: var(--sapSelectedColor);
+}

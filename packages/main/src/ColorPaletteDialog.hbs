@@ -1,0 +1,18 @@
+<kengine-dialog
+    header-text="{{moreColorsFeature.colorPaletteDialogTitle}}"
+>
+    <div class="kengine-cp-dialog-content">
+        <kengine-color-picker></kengine-color-picker>
+    </div>
+
+    <div slot="footer" class="kengine-cp-dialog-footer">
+        <kengine-button
+            design="Emphasized"
+            @click="{{_chooseCustomColor}}"
+        >{{moreColorsFeature.colorPaletteDialogOKButton}}</kengine-button>
+        <kengine-button
+            design="Transparent"
+            @click="{{_closeDialog}}"
+        >{{moreColorsFeature.colorPaletteCancelButton}}</kengine-button>
+    </div>
+</kengine-dialog>

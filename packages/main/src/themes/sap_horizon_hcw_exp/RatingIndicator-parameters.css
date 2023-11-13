@@ -1,0 +1,16 @@
+@import "../base/RatingIndicator-parameters.css";
+
+:root {
+	--_kengine_rating_indicator_outline_offset: 0.0625rem;;
+	--_kengine_rating_indicator_readonly_item_height: 0.75em;
+	--_kengine_rating_indicator_readonly_item_width: 0.75em;
+	--_kengine_rating_indicator_readonly_item_spacing: 0.1875rem 0.1875rem;
+}
+
+[data-kengine-compact-size],
+.kengine-content-density-compact,
+.sapUiSizeCompact {
+	--_kengine_rating_indicator_readonly_item_height: 0.5em;
+	--_kengine_rating_indicator_readonly_item_width: 0.5em;
+	--_kengine_rating_indicator_readonly_item_spacing: 0.125rem 0.125rem;
+}

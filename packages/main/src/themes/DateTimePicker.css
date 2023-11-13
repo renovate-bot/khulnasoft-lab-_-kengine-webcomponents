@@ -1,0 +1,11 @@
+:host {
+	min-width: 15rem;
+	color: var(--sapField_TextColor);
+	background-color: var(--sapField_Background);
+}
+
+:host .kengine-date-picker-input {
+	min-width: inherit;
+	color: inherit;
+	background-color: inherit;
+}

@@ -1,0 +1,6 @@
+kind: Component
+metadata:
+  displayName: kengine-webcomponents
+  description: The enterprise-flavored sugar on top of native APIs! Reference implementation of the Core Components of the KhulnaSoft Design system!
+  tags:
+    - dxp-project-documentation

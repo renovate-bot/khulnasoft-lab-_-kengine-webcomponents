@@ -1,0 +1,12 @@
+@import "../base/ColorPicker-parameters.css";
+
+:root {
+    --_kengine_color_picker_slider_handle_box_shadow: 0.125rem solid var(--sapField_BorderColor);
+    --_kengine_color_picker_slider_handle_border: 0.125rem solid var(--sapField_BorderColor);
+    --_kengine_color_picker_slider_handle_outline_hover: 0.125rem solid var(--sapContent_FocusColor);
+    --_kengine_color_picker_slider_handle_outline_focus: 0.125rem solid var(--sapContent_FocusColor);
+    --_kengine_color_picker_slider_handle_margin_top: -.1875rem;
+    --_kengine_color_picker_slider_handle_focus_margin_top: var(--_kengine_color_picker_slider_handle_margin_top);
+    --_kengine_color_picker_slider_container_margin_top: -11px;
+    --_kengine_color_picker_slider_handle_inline_focus: 1px solid var(--sapContent_ContrastFocusColor);
+}

@@ -1,0 +1,9 @@
+[kengine-calendar] {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+[kengine-responsive-popover]::part(content) {
+    padding: 0;
+}

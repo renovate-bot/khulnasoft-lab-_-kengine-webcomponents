@@ -1,0 +1,43 @@
+@import "../base/Input-parameters.css";
+
+:root {
+	--_kengine-input-border: none;
+	--_kengine_input_hover_border: none;
+	--_kengine_input_focus_border_radius: 0.25rem;
+	--_kengine_input_error_warning_border_style: none;
+	--_kengine_input_focused_value_state_error_background: var(--sapField_Hover_Background);
+	--_kengine_input_focused_value_state_warning_background: var(--sapField_Hover_Background);
+	--_kengine_input_focused_value_state_success_background: var(--sapField_Hover_Background);
+	--_kengine_input_focused_value_state_information_background: var(--sapField_Hover_Background);
+	--_kengine_input_focused_value_state_error_focus_outline_color: var(--sapField_InvalidColor);
+	--_kengine_input_focused_value_state_warning_focus_outline_color: var(--sapField_WarningColor);
+	--_kengine_input_focused_value_state_success_focus_outline_color: var(--sapField_SuccessColor);
+	--_kengine_input_focus_offset: 0;
+	--_kengine_input_information_icon_padding: .625rem .625rem .5rem .625rem;
+	--_kengine_input_information_focused_icon_padding: .625rem .625rem .5625rem .625rem;
+	--_kengine_input_error_warning_icon_padding: .625rem .625rem .5rem .625rem;
+	--_kengine_input_error_warning_focused_icon_padding: .625rem .625rem .5625rem .625rem;
+	--_kengine_input_custom_icon_padding: .625rem .625rem .5625rem .625rem;
+	--_kengine_input_error_warning_custom_icon_padding: .625rem .625rem .5rem .625rem;
+	--_kengine_input_error_warning_custom_focused_icon_padding: .625rem .625rem .5625rem .625rem;
+	--_kengine_input_information_custom_icon_padding: .625rem .625rem .5rem .625rem;
+	--_kengine_input_information_custom_focused_icon_padding: .625rem .625rem .5625rem .625rem;
+	--_kengine_input_focus_outline_color: var(--sapField_Active_BorderColor);
+	--_kengine_input_icon_wrapper_height: calc(100% - 1px);
+	--_kengine_input_icon_wrapper_state_height: calc(100% - 2px);
+	--_kengine_input_icon_wrapper_success_state_height: calc(100% - var(--_kengine_input_value_state_success_border_width));
+}
+
+[data-kengine-compact-size],
+.kengine-content-density-compact,
+.sapUiSizeCompact {
+	--_kengine_input_information_icon_padding: .3125rem .5rem .1875rem .5rem;
+	--_kengine_input_information_focused_icon_padding: .3125rem .5rem .25rem .5rem;
+	--_kengine_input_error_warning_icon_padding: .3125rem .5rem .1875rem .5rem;
+	--_kengine_input_error_warning_focused_icon_padding: .3125rem .5rem .25rem .5rem;
+	--_kengine_input_custom_icon_padding: .3125rem .5rem .25rem .5rem;
+	--_kengine_input_error_warning_custom_icon_padding: .3125rem .5rem .1875rem .5rem;
+	--_kengine_input_error_warning_custom_focused_icon_padding: .3125rem .5rem .25rem .5rem;
+	--_kengine_input_information_custom_icon_padding: .3125rem .5rem .1875rem .5rem;
+	--_kengine_input_information_custom_focused_icon_padding: .3125rem .5rem .25rem .5rem;
+}

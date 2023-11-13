@@ -1,0 +1,77 @@
+<div
+	class="kengine-panel-root"
+	role="{{accRole}}"
+	aria-label="{{effectiveAccessibleName}}"
+	aria-labelledby="{{fixedPanelAriaLabelledbyReference}}"
+>
+
+	{{#if hasHeaderOrHeaderText}}
+		{{! header: either header or h1 with header text}}
+		<div
+			class="kengine-panel-heading-wrapper{{classes.stickyHeaderClass}}"
+			role="{{headingWrapperRole}}"
+			aria-level="{{headingWrapperAriaLevel}}"
+		>
+			<div
+				@click="{{_headerClick}}"
+				@keydown="{{_headerKeyDown}}"
+				@keyup="{{_headerKeyUp}}"
+				class="kengine-panel-header"
+				tabindex="{{headerTabIndex}}"
+				role="{{accInfo.role}}"
+				aria-expanded="{{accInfo.ariaExpanded}}"
+				aria-controls="{{accInfo.ariaControls}}"
+				aria-labelledby="{{accInfo.ariaLabelledby}}"
+				part="header"
+			>
+				{{#unless fixed}}
+					<div class="kengine-panel-header-button-root">
+						{{#if _hasHeader}}
+							<kengine-button
+								design="Transparent"
+								class="kengine-panel-header-button kengine-panel-header-button-with-icon"
+								@click="{{_toggleButtonClick}}"
+								.accessibilityAttributes={{accInfo.button.accessibilityAttributes}}
+								tooltip="{{accInfo.button.title}}"
+								accessible-name="{{accInfo.button.ariaLabelButton}}"
+							>
+								<div class="kengine-panel-header-icon-wrapper">
+									<kengine-icon class="kengine-panel-header-icon {{classes.headerBtn}}" name="slim-arrow-right"></kengine-icon>
+								</div>
+							</kengine-button>
+						{{else}}
+							<kengine-icon
+								class="kengine-panel-header-button kengine-panel-header-icon {{classes.headerBtn}}"
+								name="slim-arrow-right"
+								show-tooltip
+								accessible-name="{{toggleButtonTitle}}"
+							></kengine-icon>
+						{{/if}}
+					</div>
+				{{/unless}}
+
+				{{#if _hasHeader}}
+					<slot name="header"></slot>
+				{{else}}
+					<div
+						id="{{_id}}-header-title"
+						class="kengine-panel-header-title"
+					>
+						{{headerText}}
+					</div>
+				{{/if}}
+			</div>
+		</div>
+	{{/if}}
+
+	{{! content area}}
+	<div
+		class="kengine-panel-content"
+		id="{{_id}}-content"
+		tabindex="-1"
+		style="{{styles.content}}"
+		part="content"
+	>
+		<slot></slot>
+	</div>
+</div>

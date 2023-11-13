@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta charset="utf-8">
+
+	<title>Core Controls</title>
+
+
+	<script src="../../bundle.esm.js" type="module"></script>
+
+
+	<script>// delete Document.prototype.adoptedStyleSheets;</script>
+
+	<script data-kengine-config type="application/json">
+		{
+			"theme": "sap_horizon_exp",
+			"language": "EN"
+		}
+	</script>
+
+	<link rel="stylesheet" type="text/css" href="./styles/CoreControls_exp.css">
+</head>
+
+<body>
+	<section class="row-space-between">
+		<kengine-badge color-scheme="1">Mango</kengine-badge><br>
+		<kengine-badge color-scheme="2">Redd</kengine-badge><br>
+		<kengine-badge color-scheme="3">Pink</kengine-badge><br>
+		<kengine-badge color-scheme="4">Pink 2</kengine-badge><br>
+		<kengine-badge color-scheme="5">Purple</kengine-badge><br>
+		<kengine-badge color-scheme="6">Blue</kengine-badge><br>
+		<kengine-badge color-scheme="7">Green</kengine-badge><br>
+		<kengine-badge color-scheme="8">Lemon</kengine-badge><br>
+		<kengine-badge color-scheme="9">Grey</kengine-badge><br>
+		<kengine-badge color-scheme="10">indigo</kengine-badge><br>
+	</section>
+
+	<section class="row-center">
+		<kengine-input show-suggestions placeholder="Suggestions">
+			<kengine-suggestion-item text="Chromium"></kengine-suggestion-item>
+			<kengine-suggestion-item text="Titanium"></kengine-suggestion-item>
+			<kengine-suggestion-item text="Iron"></kengine-suggestion-item>
+			<kengine-suggestion-item text="Gold"></kengine-suggestion-item>
+			<kengine-suggestion-item text="Silver"></kengine-suggestion-item>
+		</kengine-input>
+
+		<kengine-input value="Not editable" readonly></kengine-input>
+		<kengine-input value="Not editable" disabled></kengine-input>
+	</section>
+
+	<section class="row-center">
+			<kengine-input  value="input" value-state="Error">
+			</kengine-input>
+			<kengine-input  value="input" value-state="Warning">
+			</kengine-input>
+			<kengine-input  value="input" value-state="Success">
+			</kengine-input>
+
+			<kengine-input  value="input" value-state="Information">
+			</kengine-input>
+	</section>
+
+	<section class="row-center">
+			<kengine-combobox show-suggestions placeholder="Standard">
+				<kengine-cb-item text="Chromium"></kengine-cb-item>
+				<kengine-cb-item selected text="Titanium"></kengine-cb-item>
+				<kengine-cb-item text="Iron"></kengine-cb-item>
+				<kengine-cb-item text="Gold"></kengine-cb-item>
+				<kengine-cb-item text="Silver"></kengine-cb-item>
+			</kengine-combobox>
+
+			<kengine-combobox show-suggestions readonly value="Not editable">
+				<kengine-cb-item text="Chromium"></kengine-cb-item>
+				<kengine-cb-item text="Titanium"></kengine-cb-item>
+				<kengine-cb-item text="Iron"></kengine-cb-item>
+				<kengine-cb-item text="Gold"></kengine-cb-item>
+				<kengine-cb-item text="Silver"></kengine-cb-item>
+			</kengine-combobox>
+
+			<kengine-combobox disabled value="disabled"></kengine-combobox>
+
+			<kengine-combobox show-suggestions placeholder="Standard">
+				<kengine-cb-item text="Chromium"></kengine-cb-item>
+				<kengine-cb-item text="Titanium"></kengine-cb-item>
+				<kengine-cb-item text="Iron"></kengine-cb-item>
+				<kengine-cb-item text="Gold"></kengine-cb-item>
+				<kengine-cb-item text="Silver"></kengine-cb-item>
+			</kengine-combobox>
+	</section>
+
+	<section class="row-center">
+		<kengine-select>
+			<kengine-option>Cozy</kengine-option>
+			<kengine-option selected>Compact</kengine-option>
+			<kengine-option >Condensed</kengine-option>
+		</kengine-select>
+
+		<kengine-date-picker placeholder='Delivery Date...'></kengine-date-picker>
+
+		<kengine-date-picker value-state="Error"></kengine-date-picker>
+	</section>
+
+	<section>
+		<kengine-tabcontainer collapsed fixed>
+			<kengine-tab text="One" selected>
+			</kengine-tab>
+			<kengine-tab text="Two">
+			</kengine-tab>
+			<kengine-tab text="Three">
+			</kengine-tab>
+			<kengine-tab text="Four">
+			</kengine-tab>
+			<kengine-tab text="Five">
+			</kengine-tab>
+			<kengine-tab text="Six">
+			</kengine-tab>
+			<kengine-tab text="Seven">
+			</kengine-tab>
+			<kengine-tab text="Eight">
+			</kengine-tab>
+			<kengine-tab text="Nine">
+			</kengine-tab>
+			<kengine-tab text="Ten">
+			</kengine-tab>
+			<kengine-tab text="Eleven">
+			</kengine-tab>
+			<kengine-tab text="Twelve">
+			</kengine-tab>
+			<kengine-tab text="Thirteen">
+			</kengine-tab>
+			<kengine-tab text="Fourteen">
+			</kengine-tab>
+			<kengine-tab text="Fiveteen">
+			</kengine-tab>
+			<kengine-tab text="Sixteen">
+			</kengine-tab>
+		</kengine-tabcontainer>
+	</section>
+
+	<section class="row-center">
+		<section>
+			<kengine-button design="Emphasized">Action</kengine-button>
+			<kengine-button>Primary</kengine-button>
+			<kengine-button design="Transparent">Secondary</kengine-button>
+			<kengine-button disabled>Inactive</kengine-button>
+			<kengine-button design="Positive">Agree</kengine-button>
+			<kengine-button design="Negative">Decline</kengine-button>
+			<kengine-button design="Attention">Warning</kengine-button>
+			<kengine-button design="Attention" icon="message-warning">Warning</kengine-button>
+		</section>
+
+		<section>
+			<kengine-radio-button text="Group One" checked name="test"></kengine-radio-button>
+			<kengine-radio-button text="Group One" name="test"></kengine-radio-button>
+			<kengine-radio-button text="Group One" name="test"></kengine-radio-button>
+			<kengine-radio-button text="Group One" disabled name="test2"></kengine-radio-button>
+			<kengine-radio-button text="Group One" readonly name="test2"></kengine-radio-button>
+		</section>
+
+		<section>
+			<kengine-radio-button value-state="Error" checked text="Group Two" name="test2"></kengine-radio-button>
+			<kengine-radio-button value-state="Error" disabled text="Group Two" name="test2"></kengine-radio-button>
+			<kengine-radio-button value-state="Warning" text="Group Two" name="test2"></kengine-radio-button>
+			<kengine-radio-button value-state="Success" text="Group Two" name="test2"></kengine-radio-button>
+			<kengine-radio-button value-state="Information" text="Group Two" name="test2"></kengine-radio-button>
+		</section>
+
+		<section>
+			<kengine-checkbox text="Option C"></kengine-checkbox>
+			<kengine-checkbox checked text="Option D"></kengine-checkbox>
+			<kengine-checkbox text="Option E"></kengine-checkbox>
+			<kengine-checkbox disabled text="Option A"></kengine-checkbox>
+			<kengine-checkbox readonly text="Option B"></kengine-checkbox>
+		</section>
+
+		<section>
+			<kengine-checkbox checked value-state="Error" text="First"></kengine-checkbox>
+			<kengine-checkbox value-state="Error" disabled text="Second"></kengine-checkbox>
+			<kengine-checkbox value-state="Warning" text="Third"></kengine-checkbox>
+			<kengine-checkbox value-state="Success" text="Fourth"></kengine-checkbox>
+			<kengine-checkbox value-state="Information" text="Fifth"></kengine-checkbox>
+		</section>
+
+		<section>
+			<kengine-switch checked name="test"></kengine-switch>
+			<kengine-switch name="test"></kengine-switch>
+			<kengine-switch name="test"></kengine-switch>
+			<kengine-switch checked name="test"></kengine-switch>
+			<kengine-switch name="test"></kengine-switch>
+		</section>
+	</section>
+
+	<section class="row-center">
+		<section class="corecontrols_exp1auto">
+			<kengine-slider min="0" max="20" show-tooltip></kengine-slider>
+			<kengine-slider min="20" max="100" label-interval="5" show-tickmarks></kengine-slider>
+		</section>
+	</section>
+</body>
+</html>

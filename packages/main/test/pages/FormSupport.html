@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Form support</title>
+
+
+	<script src="../../bundle.esm.js" type="module"></script>
+
+
+<link rel="stylesheet" type="text/css" href="./styles/FormSupport.css">
+</head>
+
+<body class="formsupport1auto">
+
+<form method="get">
+    <kengine-input name="input" value="ok"></kengine-input>
+    <kengine-input name="input_disabled" disabled value="ok"></kengine-input>
+    <br><br>
+    <kengine-textarea id="ta" name="ta" value="ok"></kengine-textarea>
+    <kengine-textarea name="ta_disabled" disabled value="ok"></kengine-textarea>
+    <br><br>
+    <kengine-date-picker name="dp" value="Apr 10, 2019"></kengine-date-picker>
+    <kengine-date-picker name="dp_disabled" disabled value="Apr 10, 2019"></kengine-date-picker>
+    <br><br>
+    <kengine-checkbox name="cb" checked></kengine-checkbox>
+    <kengine-checkbox name="cb_disabled" disabled checked></kengine-checkbox>
+    <br><br>
+    <kengine-radio-button name="radio" text="A" value="a"></kengine-radio-button>
+    <kengine-radio-button name="radio" text="B" value="b" checked></kengine-radio-button>
+    <kengine-radio-button name="radio" text="C" value="c"></kengine-radio-button>
+    <br><br>
+    <kengine-step-input class="formsupport2auto" name="si" value="5" min="0" max="10" step="1"></kengine-step-input>
+    <kengine-step-input class="formsupport2auto" name="si_diabled" value="7" min="0" max="10" step="1" disabled></kengine-step-input>
+    <br><br>
+    <kengine-button id="b1">Does not submit forms</kengine-button>
+    <kengine-button id="b2" submits>Submits forms</kengine-button>
+</form>
+
+<form method="get" id="form">
+    <kengine-input name="input" value="notOk"></kengine-input>
+    <kengine-button id="b3" submits>Submits forms</kengine-button>
+</form>
+
+<script>
+    const form = document.getElementById("form");
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+    })
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+<ul
+	part="native-li"
+	tabindex="{{_tabIndex}}"
+	class="kengine-ghli-root {{classes.main}}"
+	@focusin="{{_onfocusin}}"
+	@focusout="{{_onfocusout}}"
+	@keydown="{{_onkeydown}}"
+	aria-label="{{ariaLabelText}}"
+	aria-roledescription="{{groupHeaderText}}"
+	role="group"
+>
+	<div id="{{_id}}-content" class="kengine-li-content">
+		<span class="kengine-ghli-title"><slot></slot></span>
+	</div>
+</ul>

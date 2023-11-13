@@ -1,0 +1,33 @@
+<div class="{{classes.root}}"
+	id="{{_id}}"
+	role="note"
+	aria-live="assertive"
+	aria-labelledby="{{_id}}"
+>
+
+	{{#unless hideIcon}}
+		<div
+		class="kengine-message-strip-icon-wrapper"
+		aria-hidden="true"
+		>
+			{{#if iconProvided}}
+				<slot name="icon"></slot>
+			{{else}}
+				<kengine-icon name="{{standardIconName}}" class="kengine-message-strip-icon"></kengine-icon>
+			{{/if}}
+		</div>
+	{{/unless}}
+
+	<span class="kengine-hidden-text">{{hiddenText}}</span>
+	<span class="kengine-message-strip-text"><slot></slot></span>
+
+	{{#unless hideCloseButton}}
+		<kengine-button
+			icon="decline"
+			design="Transparent"
+			class="kengine-message-strip-close-button"
+			tooltip="{{_closeButtonText}}"
+			@click={{_closeClick}}
+		></kengine-button>
+	{{/unless}}
+</div>

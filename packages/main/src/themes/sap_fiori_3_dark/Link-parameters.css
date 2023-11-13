@@ -1,0 +1,6 @@
+@import "../base/Link-parameters.css";
+
+:root {
+	--_kengine_link_text_decoration: none;
+	--_kengine_link_hover_text_decoration: underline;
+}
