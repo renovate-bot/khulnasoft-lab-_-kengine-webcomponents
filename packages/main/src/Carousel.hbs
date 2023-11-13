@@ -1,0 +1,85 @@
+<section
+	class="kengine-carousel-root kengine-carousel-background-{{_backgroundDesign}}"
+	tabindex="0"
+	role="listbox"
+	aria-activedescendant="{{ariaActiveDescendant}}"
+	@focusin="{{_onfocusin}}"
+	@keydown={{_onkeydown}}
+	@mouseout="{{_onmouseout}}"
+	@mouseover="{{_onmouseover}}"
+>
+	<div class="{{classes.viewport}}" part="content">
+		<div class="{{classes.content}}" style="{{styles.content}}">
+			{{#each items}}
+				<div id="{{id}}"
+					class="kengine-carousel-item {{classes}}"
+					style="{{styles}}"
+					role="option"
+					aria-posinset="{{posinset}}"
+					aria-setsize="{{setsize}}"
+					part="item"
+				>
+					<slot name="{{this.item._individualSlot}}" tabindex="{{this.tabIndex}}"></slot>
+				</div>
+			{{/each}}
+		</div>
+		{{#if showArrows.content}}
+			<div class="kengine-carousel-navigation-arrows">
+				{{> arrow-back}}
+				{{> arrow-forward}}
+			</div>
+		{{/if}}
+	</div>
+
+	{{#if renderNavigation}}
+		<div class="{{classes.navigation}}">
+			{{#if showArrows.navigation}}
+				{{> arrow-back}}
+			{{/if}}
+
+			<div class="kengine-carousel-navigation">
+				{{#unless hidePageIndicator}}
+					{{#if isPageTypeDots}}
+						{{#each dots}}
+							<div
+								role="img"
+								aria-label="{{ariaLabel}}"
+								?active="{{active}}"
+								class="kengine-carousel-navigation-dot"
+							></div>
+						{{/each}}
+					{{else}}
+						<div class="kengine-carousel-navigation-text">{{selectedIndexToShow}}&nbsp;{{ofText}}&nbsp;{{pagesCount}}</div>
+					{{/if}}
+				{{/unless}}
+			</div>
+
+			{{#if showArrows.navigation}}
+				{{> arrow-forward}}
+			{{/if}}
+		</div>
+	{{/if}}
+	</div>
+</section>
+
+{{#*inline "arrow-back"}}
+	<kengine-button
+		arrow-back
+		tooltip="{{previousPageText}}"
+		class="kengine-carousel-navigation-button {{classes.navPrevButton}}"
+		icon="slim-arrow-left"
+		tabindex="-1"
+		@click={{_navButtonClick}}
+	></kengine-button>
+{{/inline}}
+
+{{#*inline "arrow-forward"}}
+	<kengine-button
+		arrow-forward
+		tooltip="{{nextPageText}}"
+		class="kengine-carousel-navigation-button {{classes.navNextButton}}"
+		icon="slim-arrow-right"
+		tabindex="-1"
+		@click={{_navButtonClick}}
+	></kengine-button>
+{{/inline}}

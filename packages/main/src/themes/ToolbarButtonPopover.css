@@ -1,0 +1,3 @@
+:not([icon-only]).kengine-tb-popover-button::part(button) {
+	justify-content: start;
+}

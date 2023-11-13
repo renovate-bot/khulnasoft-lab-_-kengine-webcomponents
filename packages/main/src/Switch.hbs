@@ -1,0 +1,52 @@
+<div
+	class="kengine-switch-root {{classes.main}}"
+	role="switch"
+	aria-label="{{ariaLabelText}}"
+	aria-checked="{{checked}}"
+	aria-disabled="{{effectiveAriaDisabled}}"
+	aria-required="{{required}}"
+	@click="{{_onclick}}"
+	@keyup="{{_onkeyup}}"
+	@keydown="{{_onkeydown}}"
+	tabindex="{{effectiveTabIndex}}"
+	dir="{{effectiveDir}}"
+	title="{{tooltip}}"
+>
+	<div class="kengine-switch-inner">
+		<div class="kengine-switch-track" part="slider">
+			<div class="kengine-switch-slider">
+				{{#if graphical}}
+					<span class="kengine-switch-text kengine-switch-text--on">
+						<kengine-icon name="accept" class="kengine-switch-icon-on"></kengine-icon>
+					</span>
+					<span class="kengine-switch-text kengine-switch-text--off">
+						<kengine-icon name="decline" class="kengine-switch-icon-off"></kengine-icon>
+					</span>
+				{{else}}
+					{{#if hasNoLabel}}
+						<span class="kengine-switch-text kengine-switch-text--on kengine-switch-no-label-icon" part="text-on">
+							<kengine-icon name="{{sapNextIcon}}" class="kengine-switch-no-label-icon-on" ></kengine-icon>
+						</span>
+						<span class="kengine-switch-text kengine-switch-text--off switch-no-label-icon" part="text-off">
+							<kengine-icon name="{{sapNextIcon}}" class="kengine-switch-no-label-icon-off" ></kengine-icon>
+						</span>
+					{{else}}
+						<span class="kengine-switch-text kengine-switch-text--on" part="text-on">{{_textOn}}</span>
+						<span class="kengine-switch-text kengine-switch-text--off" part="text-off">{{_textOff}}</span>
+					{{/if}}
+				{{/if}}
+
+				<span class="kengine-switch-handle" part="handle">
+					{{!-- this icon is used in the sap_horizon_exp theme --}}
+					<kengine-icon
+						name="{{sapNextIcon}}"
+						class="kengine-switch-handle-icon"
+					></kengine-icon>
+				</span>
+			</div>
+		</div>
+	</div>
+
+	<input type='checkbox' ?checked="{{checked}}" class="kengine-switch-input" data-sap-no-tab-ref/>
+	<slot name="formSupport"></slot>
+</div>

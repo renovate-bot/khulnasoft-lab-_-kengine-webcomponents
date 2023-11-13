@@ -1,0 +1,14 @@
+[kengine-responsive-popover]::part(header),
+[kengine-responsive-popover]::part(content) {
+	padding: 0;
+}
+
+#kengine-tokenizer-dialog-confirm-btn {
+	height: 100%;
+	min-width: 4rem;
+}
+
+[kengine-responsive-popover] {
+	margin-top: var(--_kengine_tokenizer-popover_offset);
+	margin-inline-start: calc(-1 * var(--_kengine_tokenizer_padding));
+}

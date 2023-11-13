@@ -1,0 +1,25 @@
+@import "../base/Avatar-parameters.css";
+
+:root {
+	--kengine-avatar-hover-box-shadow-offset: 0px;
+	--kengine-avatar-initials-color: var(--sapTextColor);
+	--kengine-avatar-initials-border: .0625rem solid var(--sapField_BorderColor);
+	--kengine-avatar-accent1: var(--sapBackgroundColor);
+	--kengine-avatar-accent2: var(--sapBackgroundColor);
+	--kengine-avatar-accent3: var(--sapBackgroundColor);
+	--kengine-avatar-accent4: var(--sapBackgroundColor);
+	--kengine-avatar-accent5: var(--sapBackgroundColor);
+	--kengine-avatar-accent6: var(--sapBackgroundColor);
+	--kengine-avatar-accent7: var(--sapBackgroundColor);
+	--kengine-avatar-accent8: var(--sapBackgroundColor);
+	--kengine-avatar-accent9: var(--sapBackgroundColor);
+	--kengine-avatar-accent10: var(--sapBackgroundColor);
+	--kengine-avatar-placeholder: var(--sapBackgroundColor);
+	--_kengine_avatar_outline: 0.125rem dotted var(--sapContent_FocusColor);
+
+	--_kengine_avatar_fontsize_XS: 1rem;
+	--_kengine_avatar_fontsize_S: 1.125rem;
+	--_kengine_avatar_fontsize_M: 1.5rem;
+	--_kengine_avatar_fontsize_L: 2.25rem;
+	--_kengine_avatar_fontsize_XL: 3rem;
+}

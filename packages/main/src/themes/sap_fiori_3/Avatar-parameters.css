@@ -1,0 +1,9 @@
+@import "../base/Avatar-parameters.css";
+
+:root {
+	--_kengine_avatar_fontsize_XS: 1rem;
+	--_kengine_avatar_fontsize_S: 1.125rem;
+	--_kengine_avatar_fontsize_M: 1.5rem;
+	--_kengine_avatar_fontsize_L: 2.25rem;
+	--_kengine_avatar_fontsize_XL: 3rem;
+}

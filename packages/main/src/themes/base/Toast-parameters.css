@@ -1,0 +1,7 @@
+:root {
+	--_kengine_toast_vertical_offset: 3rem;
+	--_kengine_toast_horizontal_offset: 2rem;
+	--_kengine_toast_background: var(--sapList_Background);
+	--_kengine_toast_shadow: var(--sapContent_Shadow2);
+	--_kengine_toast_offset_width: -0.1875rem;
+}

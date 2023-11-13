@@ -1,0 +1,105 @@
+@import "./GrowingButton.css";
+
+:host(:not([hidden])) {
+	display: inline-block;
+	width: 100%;
+}
+
+.kengine-table-root {
+	position: relative;
+	border-bottom: var(--kengine_table_bottom_border);
+}
+
+table {
+	width: 100%;
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+.kengine-table-header-row-navigated {
+    width: 0.1875rem;
+    background: var(--sapList_HeaderBackground);
+    vertical-align: middle;
+}
+
+.kengine-table-header-row {
+	color: var(--sapList_HeaderTextColor);
+	height: var(--kengine_table_header_row_height);
+	font-family: "72override", var(--sapFontFamily);
+	font-size: var(--sapFontSize);
+	font-weight: var(--kengine_table_header_row_font_weight);
+	border-bottom: var(--kengine_table_header_row_border_width) solid var(--kengine_table_header_row_border_bottom_color);
+}
+
+.kengine-table-header-row:focus {
+	outline: var(--kengine_table_header_row_outline_width) var(--sapContent_FocusStyle) var(--sapContent_FocusColor);
+	outline-offset: var(--kengine_table_focus_outline_offset);
+}
+
+tr {
+	height: 3rem;
+}
+
+.kengine-table-no-data-row {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: auto;
+	justify-content: center;
+	text-align: center;
+	padding: 0.5rem 1rem;
+	font-family: "72override", var(--sapFontFamily);
+	font-size: 0.875rem;
+	box-sizing: border-box;
+	color: var(--sapTextColor);
+	min-height: 3rem;
+	background-color: var(--sapList_Background);
+}
+
+.kengine-table-end-row {
+	height: 0px;
+}
+
+:host([busy]) .kengine-table-busy-row {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	outline: none;
+}
+
+:host([busy]) .kengine-table-busy-ind {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+}
+
+:host([busy]) [growing-button] {
+	opacity: 0.72;
+}
+
+:host [growing-button] {
+	border-bottom: var(--_kengine_table_load_more_border-bottom);
+}
+
+.kengine-table-select-all-column {
+	width: var(--kengine_table_multiselect_column_width);
+	text-align: center;
+}
+
+:host([sticky-column-header]) .kengine-table-header-row {
+	position: sticky;
+	top: 0;
+	z-index: 99;
+}
+
+th {
+	background: var(--sapList_HeaderBackground);
+}
+
+.kengine-table-focusarea {
+	position: fixed;
+}

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta charset="utf-8">
+
+	<title>Button</title>
+	<script>
+		// delete Document.prototype.adoptedStyleSheets
+	</script>
+
+
+	<script src="../../bundle.esm.js" type="module"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="./styles/Button.css">
+
+</head>
+
+<body class="button1auto">
+	<kengine-button icon="home" id="icon-only-comment"><!----><!----></kengine-button>
+	<kengine-button icon="text" id="icon-only-blank-text"> </kengine-button>
+	<kengine-button>
+		<kengine-avatar id="btnImage" size="XS">
+			<img src="https://sdk.kengine.org/test-resources/sap/f/images/Woman_avatar_01.png" />
+		</kengine-avatar>
+	</kengine-button>
+	<kengine-icon name="invalid_name"></kengine-icon>
+	<kengine-button design="Emphasized" icon="invalid_name">Press</kengine-button>
+
+	<kengine-button id="download" icon="download" accessible-name="Download application"></kengine-button>
+	<kengine-button id="button1" icon="home" design="Emphasized">Action Bar Button</kengine-button>
+	<kengine-button class="button2auto">Primary <br> button</kengine-button>
+	<kengine-button class="button2auto button3auto" design="Transparent">Secondary <span >button</span></kengine-button>
+	<kengine-button disabled id="button-disabled">Inactive</kengine-button>
+	<kengine-button design="Positive">Accept</kengine-button>
+	<kengine-button design="Negative">Decline</kengine-button>
+
+	<br />
+	<br />
+
+	<div>
+		<kengine-toggle-button design="Positive" icon="add"></kengine-toggle-button>
+		<kengine-toggle-button design="Negative" icon="add"></kengine-toggle-button>
+	</div>
+
+	<br />
+	<br />
+
+	<kengine-input id="click-counter"></kengine-input>
+
+	<kengine-button class="button2auto" design="Emphasized">Action<br> <i>Bar</i><br> Button</kengine-button>
+	<kengine-button>Primary button</kengine-button>
+	<kengine-button design="Transparent">Secondary button</kengine-button>
+	<kengine-button disabled>Inactive</kengine-button>
+	<kengine-button design="Positive">Agree</kengine-button>
+	<kengine-button design="Negative">Decline</kengine-button>
+	<kengine-button design="Attention">Warning</kengine-button>
+	<kengine-button id="attentionIconButton" design="Attention" icon="message-warning">Warning</kengine-button>
+	<kengine-button design="Attention" icon="message-warning"></kengine-button>
+	<br/>
+	<br/>
+	<br/>
+
+	<kengine-button icon="download" accessible-name="Download application"></kengine-button>
+	<kengine-button icon="employee" accessible-name="Download book">Action Bar Button</kengine-button>
+	<kengine-button icon="download"></kengine-button>
+
+	<kengine-button icon="employee" accessible-name="Download book" class="button4auto">Action Bar Button</kengine-button>
+	<kengine-button icon="employee" icon-end accessible-name="Download book" class="button4auto">Action Bar Button</kengine-button>
+
+	<br />
+	<br />
+
+	<kengine-label id="1download-text">Download Application</kengine-label>
+	<kengine-label id="download-text2">From This Button</kengine-label>
+
+	<kengine-button icon="employee" accessible-name="Help me">Action Bar Button</kengine-button>
+	<kengine-button id="buttonAccNameRef" icon="download" accessible-name="Help me" accessible-name-ref="1download-text"></kengine-button>
+
+	<kengine-button icon="employee" accessible-name-ref="1download-text download-text2">Action Bar Button</kengine-button>
+	<kengine-button icon="download" accessible-name-ref="1download-text"></kengine-button>
+
+
+
+	<br/>
+	<br/>
+	<br/>
+
+	<kengine-button design="Default" icon="employee">Default</kengine-button>
+	<kengine-button disabled design="Default" icon="employee">Default</kengine-button>
+	<br/>
+	<br/>
+
+	<kengine-button design="Positive" icon="employee">Agree</kengine-button>
+	<kengine-button disabled design="Positive" icon="employee">Agree</kengine-button>
+	<br/>
+	<br/>
+
+	<kengine-button design="Negative" icon="employee">Decline</kengine-button>
+	<kengine-button disabled design="Negative" icon="employee">Decline</kengine-button>
+	<br/>
+	<br/>
+
+	<kengine-button design="Transparent" icon="employee">Transparent</kengine-button>
+	<kengine-button disabled design="Transparent" icon="employee">Transparent</kengine-button>
+	<br/>
+	<br/>
+
+	<kengine-button design="Emphasized" icon="employee">Emphasized</kengine-button>
+	<kengine-button disabled design="Emphasized" icon="employee">Emphasized</kengine-button>
+
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+
+	<kengine-button icon-end icon="employee">Icon last</kengine-button>
+	<kengine-button icon="employee" id="disabled-button-icon-only" disabled></kengine-button>
+	<kengine-button id="disabled-button-without-icon" disabled>Disabled Buton</kengine-button>
+
+
+
+	<kengine-checkbox text="Option A"></kengine-checkbox>
+	<kengine-checkbox disabled text="Option A"></kengine-checkbox>
+	<br/>
+	<kengine-label>"This is a label, this is a label"</kengine-label>
+
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+
+	<kengine-toggle-button design="Emphasized">Action Bar Button</kengine-toggle-button>
+	<kengine-toggle-button>Primary button</kengine-toggle-button>
+	<kengine-toggle-button design="Transparent">Secondary button</kengine-toggle-button>
+	<kengine-toggle-button disabled>Inactive</kengine-toggle-button>
+	<kengine-toggle-button design="Positive">Agree</kengine-toggle-button>
+	<kengine-toggle-button design="Negative">Decline</kengine-toggle-button>
+
+	<br/>
+	<br/>
+	<br/>
+
+	<kengine-toggle-button icon="employee">Action Bar Button</kengine-toggle-button>
+	<kengine-toggle-button icon="download"></kengine-toggle-button>
+	<kengine-toggle-button icon="download"></kengine-toggle-button>
+
+	<br/>
+	<br/>
+	<br/>
+
+	<kengine-toggle-button design="Default" icon="employee">Default</kengine-toggle-button>
+	<kengine-toggle-button disabled design="Default" icon="employee">Default</kengine-toggle-button>
+	<br/>
+	<br/>
+
+	<kengine-toggle-button design="Positive" icon="employee">Agree</kengine-toggle-button>
+	<kengine-toggle-button disabled design="Positive" icon="employee">Agree</kengine-toggle-button>
+	<br/>
+	<br/>
+
+	<kengine-toggle-button design="Negative" icon="employee">Decline</kengine-toggle-button>
+	<kengine-toggle-button disabled design="Negative" icon="employee">Decline</kengine-toggle-button>
+	<br/>
+	<br/>
+
+	<kengine-toggle-button design="Transparent" icon="employee">Transparent</kengine-toggle-button>
+	<kengine-toggle-button disabled design="Transparent" icon="employee">Transparent</kengine-toggle-button>
+	<br/>
+	<br/>
+
+	<kengine-toggle-button design="Emphasized" icon="employee">Emphasized</kengine-toggle-button>
+	<kengine-toggle-button disabled design="Emphasized" icon="employee">Emphasized</kengine-toggle-button>
+
+	<br/>
+	<br/>
+	<kengine-button class="long-button long-button-begin" icon="download">Download</kengine-button>
+	<kengine-button class="long-button" icon="download">Download</kengine-button>
+	<kengine-button class="long-button long-button-end" icon="download">Download</kengine-button>
+
+	<br/>
+	<br/>
+	<kengine-title>Buttons with tooltip</kengine-title>
+	<br/>
+	<kengine-button id="customTooltip" icon="message-information" tooltip="Go home"></kengine-button>
+	<kengine-button icon="accept" tooltip="Accept terms & conditions"></kengine-button>
+	<kengine-button icon="action-settings" tooltip="Go to settings"></kengine-button>
+	<kengine-button icon="alert" tooltip="Fire an alert"></kengine-button>
+	<kengine-button icon="arrow-down" tooltip="Go down"></kengine-button>
+	<kengine-button icon="arrow-down" disabled tooltip="Go down"></kengine-button>
+
+	<br/>
+	<br/>
+
+	<form>
+		<input value="Native input in a form">
+		<kengine-input value="KENGINE Input in a form"></kengine-input>
+		<kengine-button type="Submit">Submit</kengine-button>
+		<kengine-button type="Reset">Reset</kengine-button>
+	</form>
+
+	<kengine-button id="openDialogButton" design="Emphasized">Show Registration Dialog</kengine-button>
+
+		<kengine-dialog id="registration-dialog" header-text="Register Form">
+			<section class="login-form">
+				<div>
+					<kengine-label for="username" required>Username: </kengine-label>
+					<kengine-input id="username"></kengine-input>
+				</div>
+
+				<div>
+					<kengine-label for="password" required>Password: </kengine-label>
+					<kengine-input id="password" type="Password" value-state="Error"></kengine-input>
+				</div>
+
+				<div>
+					<kengine-label for="email" type="Email" required>Email: </kengine-label>
+					<kengine-input id="email"></kengine-input>
+				</div>
+
+				<div>
+					<kengine-label for="address">Address: </kengine-label>
+					<kengine-input id="address"></kengine-input>
+				</div>
+			</section>
+
+			<div slot="footer">
+				<div style="flex: 1;"></div>
+				<kengine-button id="closeDialogButton" design="Emphasized">Register</kengine-button>
+			</div>
+		</kengine-dialog>
+	<script>
+		var clickCounter = document.querySelector("#click-counter");
+		var button = document.querySelector("#button1");
+		var disabledButton = document.querySelector("#button-disabled");
+		var disabledButtonIconOnly = document.querySelector("#disabled-button-icon-only");
+		var disabledButtonWithoutIcon = document.querySelector("#disabled-button-without-icon")
+		var clickCount = 0;
+
+		[button, disabledButton, disabledButtonIconOnly, disabledButtonWithoutIcon].forEach(function (el) {
+			el.addEventListener("click", function(event) {
+				clickCount += 1;
+				clickCounter.value = clickCount;
+			});
+		});
+
+		button.accessibilityAttributes = {
+			expanded: "true"
+		};
+
+		button.addEventListener("click", function(event) {
+			button.accessibilityAttributes = {
+				expanded: button.accessibilityAttributes.expanded === "true" ? "false" : "true"
+			};
+		});
+
+		var dialogOpener = document.getElementById("openDialogButton");
+		var dialog = document.getElementById("registration-dialog");
+		var dialogCloser = document.getElementById("closeDialogButton");
+
+		dialogOpener.accessibilityAttributes = {
+			hasPopup: "dialog",
+			controls: dialog.id,
+		}
+
+		dialogOpener.addEventListener("click", function() {
+			dialog.show();
+		});
+
+		dialogCloser.addEventListener("click", function() {
+			dialog.close();
+		});
+	</script>
+</body>
+</html>

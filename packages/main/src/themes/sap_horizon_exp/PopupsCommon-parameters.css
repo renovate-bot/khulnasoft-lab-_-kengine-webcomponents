@@ -1,0 +1,6 @@
+@import "../base/PopupsCommon-parameters.css";
+
+:root {
+	--_kengine_popup_header_font_family: var(--sapFontHeaderFamily);
+	--_kengine_popup_border_radius: 0.5rem;
+}

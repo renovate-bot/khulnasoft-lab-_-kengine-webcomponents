@@ -1,0 +1,133 @@
+:host {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.kengine-calheader-root {
+	display: flex;
+	height: 100%;
+	padding: var(--_kengine_calendar_header_padding);
+	box-sizing: border-box;
+}
+
+.kengine-calheader-arrowbtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: var(--_kengine_calendar_header_arrow_button_width);
+	background-color: var(--sapButton_Lite_Background);
+	color: var(--sapButton_Lite_TextColor);
+	cursor: pointer;
+	overflow: hidden;
+	white-space: nowrap;
+	padding: 0;
+	font-size: var(--sapFontSize);
+	user-select: none;
+}
+
+.kengine-calheader-arrowbtn.kengine-calheader-arrowbtn-disabled:hover,
+.kengine-calheader-arrowbtn.kengine-calheader-arrowbtn-disabled:active,
+.kengine-calheader-arrowbtn.kengine-calheader-arrowbtn-disabled:focus,
+.kengine-calheader-arrowbtn.kengine-calheader-arrowbtn-disabled {
+	opacity: 0.4;
+	cursor: default;
+	outline: none;
+	background-color: var(--sapButton_Lite_Background);
+	color: var(--sapButton_Lite_TextColor);
+}
+
+[hidden].kengine-calheader-arrowbtn.kengine-calheader-middlebtn {
+	display: none;
+}
+
+.kengine-calheader-arrowbtn:focus {
+	outline: none;
+}
+
+.kengine-calheader-arrowbtn:hover {
+	background-color: var(--sapButton_Hover_Background);
+	color: var(--sapButton_Lite_TextColor);
+	box-shadow: var(--_kengine_calendar_header_arrow_button_box_shadow);
+}
+
+.kengine-calheader-arrowbtn:active {
+	background-color: var(--sapButton_Active_Background);
+	color: var(--sapButton_Active_TextColor);
+}
+
+.kengine-calheader-arrowbtn,
+.kengine-calheader-middlebtn {
+	border: var(--_kengine_calendar_header_arrow_button_border);
+	border-radius: var(--_kengine_calendar_header_arrow_button_border_radius);
+	display:flex;
+	background-color: var(--sapButton_Lite_Background);
+	border-color: var(--sapButton_Lite_BorderColor);
+}
+
+.kengine-calheader-middlebtn {
+	flex-direction: column;
+	align-items: center;
+	justify-content:center;
+}
+
+.kengine-calheader-arrowbtn:not(:active) .kengine-calheader-btn-sectext {
+	color: var(--sapNeutralElementColor);
+	font-size: var(--sapFontSmallSize);
+}
+
+.kengine-calheader-arrowicon {
+	color: currentColor;
+	pointer-events: none;
+}
+
+.kengine-calheader-midcontainer {
+	display: flex;
+	justify-content: space-around;
+	flex: 1 1 auto;
+	padding: 0 0.5rem;
+}
+
+.kengine-calheader-midcontainer .kengine-calheader-middlebtn:first-child {
+	margin-inline-end: 0.5rem;
+}
+
+.kengine-calheader-middlebtn {
+	font-family: var(--_kengine_button_fontFamily);
+	width: var(--_kengine_calendar_header_middle_button_width);
+	flex: var(--_kengine_calendar_header_middle_button_flex);
+	position: relative;
+	box-sizing: border-box;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+.kengine-calheader-middlebtn:focus {
+	border: var(--_kengine_calendar_header_middle_button_focus_border);
+	border-radius: var(--_kengine_calendar_header_middle_button_focus_border_radius);
+	outline: var(--_kengine_calendar_header_middle_button_focus_outline);
+	outline-offset: -0.125rem;
+	background: var(--_kengine_calendar_header_middle_button_focus_background);
+}
+
+.kengine-calheader-middlebtn:focus:active {
+	outline: var(--_kengine_calendar_header_middle_button_focus_active_outline);
+	outline-offset: -0.0625rem;
+	background: var(--_kengine_calendar_header_middle_button_focus_active_background)
+}
+
+.kengine-calheader-middlebtn:focus::after {
+	content: "";
+	display: var(--_kengine_calendar_header_middle_button_focus_after_display);
+	width: var(--_kengine_calendar_header_middle_button_focus_after_width);
+	height: var(--_kengine_calendar_header_middle_button_focus_after_height);
+	border: var(--_kengine_calendar_header_middle_button_focus_after_border);
+	position: absolute;
+	top: var(--_kengine_calendar_header_middle_button_focus_after_top_offset);
+	left: var(--_kengine_calendar_header_middle_button_focus_after_left_offset);
+}
+
+.kengine-calheader-middlebtn:focus:active::after {
+	border-color: var(--sapContent_ContrastFocusColor);
+}

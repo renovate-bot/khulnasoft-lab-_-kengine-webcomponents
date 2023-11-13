@@ -1,0 +1,27 @@
+{
+  "name": "@kengine/create-webcomponents-package",
+  "version": "1.20.0-rc.0",
+  "description": "KENGINE Web Components: create package",
+  "author": "KHULNASOFT SE (https://www.khulnasoft.com)",
+  "license": "Apache-2.0",
+  "private": false,
+  "keywords": [
+    "kengine",
+    "ui",
+    "ui5"
+  ],
+  "bin": {
+    "create-webcomponents-package": "create-package.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khulnasoft-lab/kengine-webcomponents.git",
+    "directory": "packages/create-package"
+  },
+  "dependencies": {
+    "mkdirp": "^1.0.4",
+    "npm-config-user-agent-parser": "^1.0.0",
+    "prompts": "^2.4.1",
+    "yargs": "^17.5.1"
+  }
+}

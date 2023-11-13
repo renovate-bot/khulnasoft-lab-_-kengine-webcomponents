@@ -1,0 +1,25 @@
+:host {
+	--_kengine_input_width: 100%;
+	min-width: 6.25rem;
+	min-height: 2rem;
+}
+
+:host([opened]) {
+	display: inline-block;
+}
+
+.kengine-responsive-popover-header {
+	height: var(--_kengine-responsive_popover_header_height);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width:100%;
+}
+
+.kengine-responsive-popover-header-text {
+	width: calc(100% - var(--_kengine_button_base_min_width));
+}
+
+.kengine-responsive-popover-header-no-title {
+	justify-content: flex-end;
+}

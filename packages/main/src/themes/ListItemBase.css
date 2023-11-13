@@ -1,0 +1,85 @@
+:host(:not([hidden])) {
+	display: block;
+}
+
+:host {
+	height: var(--_kengine_list_item_base_height);
+	background: var(--kengine-listitem-background-color);
+	box-sizing: border-box;
+	border-bottom: 1px solid transparent;
+}
+
+/* selected */
+:host([selected]) {
+	background: var(--sapList_SelectionBackgroundColor);
+}
+
+:host([has-border]) {
+	border-bottom: var(--kengine-listitem-border-bottom);
+}
+
+:host([selected]) {
+	border-bottom: var(--kengine-listitem-selected-border-bottom);
+}
+
+:host(:not([focused])[selected][has-border]) {
+	border-bottom: var(--kengine-listitem-selected-border-bottom);
+}
+
+/* focused & selected */
+:host([focused][selected]) {
+	border-bottom: var(--kengine-listitem-focused-selected-border-bottom);
+}
+
+.kengine-li-root {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	padding: var(--kengine-listitem-padding);
+	box-sizing: border-box;
+}
+
+/* focused */
+:host([focused]) .kengine-li-root.kengine-li--focusable {
+	outline: none;
+}
+
+:host([focused]) .kengine-li-root.kengine-li--focusable:after {
+	content: "";
+	border: var(--sapContent_FocusWidth) var(--sapContent_FocusStyle) var(--sapContent_FocusColor);
+	position: absolute;
+	border-radius: var(--kengine-listitem-focus-border-radius);
+	top: var(--kengine-listitem-focus-offset);
+	right: var(--kengine-listitem-focus-offset);
+	bottom: var(--kengine-listitem-focus-offset);
+	left: var(--kengine-listitem-focus-offset);
+	pointer-events: none;
+}
+
+:host([focused]) .kengine-li-content:focus:after {
+	content: "";
+	border: var(--sapContent_FocusWidth) var(--sapContent_FocusStyle) var(--sapContent_FocusColor);
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	pointer-events: none;
+}
+
+:host([active][focused]) .kengine-li-root.kengine-li--focusable:after {
+	border-color: var(--kengine-listitem-active-border-color);
+}
+
+:host([disabled]) {
+	opacity: var(--_kengine-listitembase_disabled_opacity);
+	pointer-events: none;
+}
+
+.kengine-li-content {
+	max-width: 100%;
+	font-family: "72override", var(--sapFontFamily);
+	color: var(--sapList_TextColor);
+}

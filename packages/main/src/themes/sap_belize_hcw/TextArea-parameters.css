@@ -1,0 +1,39 @@
+@import "../base/TextArea-parameters.css";
+
+:root {
+	--_kengine_textarea_min_height: 2.5rem;
+	--_kengine_textarea_error_warning_border_style: dashed;
+	--_kengine_textarea_error_hover_background_color: var(--sapField_InvalidBackground);
+	--_kengine_textarea_information_border_width: var(--sapField_BorderWidth);
+	--_kengine_textarea_value_state_error_warning_placeholder_font_weight: bold;
+	--_kengine_textarea_error_placeholder_font_weight: bold;
+	--_kengine_textarea_placeholder_font_style: normal;
+	--_kengine_textarea_error_warning_font_style: italic;
+	--_kengine_textarea_error_warning_font_weight: bold;
+	--_kengine_textarea_state_border_width: 0.0625rem;
+	--_kengine_textarea_error_placeholder_font_style: normal;
+	--_kengine_textarea_error_placeholder_color: var(--sapField_TextColor);
+	--_kengine_textarea_padding_top: 0.5625rem;
+	--_kengine_textarea_padding_bottom: 0.5625rem;
+	--_kengine_textarea_padding_top_readonly: 0.5625rem;
+	--_kengine_textarea_padding_bottom_readonly: 0.5625rem;
+	--_kengine_textarea_padding_top_error_warning: 0.5625rem;
+	--_kengine_textarea_padding_bottom_error_warning: 0.5625rem;
+	--_kengine_textarea_padding_top_information: 0.5625rem;
+	--_kengine_textarea_padding_bottom_information: 0.5625rem;
+	--_kengine_textarea_padding_right_and_left: 0.6875rem;
+	--_kengine_textarea_padding_right_and_left_error_warning: 0.6875rem;
+	--_kengine_textarea_padding_right_and_left_information: 0.6875rem;
+	--_kengine_textarea_padding_right_and_left_readonly: 0.6875rem;
+}
+
+[data-kengine-compact-size],
+.kengine-content-density-compact,
+.sapUiSizeCompact {
+	--_kengine_textarea_padding_top_error_warning: 0.125rem;
+	--_kengine_textarea_padding_bottom_error_warning: 0.125rem;
+	--_kengine_textarea_padding_top_information: 0.125rem;
+	--_kengine_textarea_padding_bottom_information: 0.125rem;
+	--_kengine_textarea_padding_right_and_left_error_warning: 0.4375rem;
+	--_kengine_textarea_padding_right_and_left_information: 0.4375rem;
+}

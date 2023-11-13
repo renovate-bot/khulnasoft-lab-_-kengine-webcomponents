@@ -1,0 +1,12 @@
+.kengine-select-popover::part(content),
+.kengine-select-popover::part(header) {
+	padding: 0;
+}
+
+.kengine-select-popover [kengine-li] {
+	height: var(--_kengine_list_item_dropdown_base_height);
+}
+
+.kengine-select-popover [kengine-li]::part(icon) {
+	color: var(--sapList_TextColor);
+}

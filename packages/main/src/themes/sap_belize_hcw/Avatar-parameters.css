@@ -1,0 +1,19 @@
+@import "../base/Avatar-parameters.css";
+
+:root {
+	--kengine-avatar-hover-box-shadow-offset: 0px;
+	--kengine-avatar-initials-color: #000;
+	--kengine-avatar-initials-border: .0625rem solid #000;
+	--kengine-avatar-accent1: #fff;
+	--kengine-avatar-accent2: #fff;
+	--kengine-avatar-accent3: #fff;
+	--kengine-avatar-accent4: #fff;
+	--kengine-avatar-accent5: #fff;
+	--kengine-avatar-accent6: #fff;
+	--kengine-avatar-accent7: #fff;
+	--kengine-avatar-accent8: #fff;
+	--kengine-avatar-accent9: #fff;
+	--kengine-avatar-accent10: #fff;
+	--kengine-avatar-placeholder: #fff;
+	--_kengine_avatar_outline: 0.125rem dotted var(--sapContent_FocusColor);
+}

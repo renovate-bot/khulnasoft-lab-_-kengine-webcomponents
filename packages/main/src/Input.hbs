@@ -1,0 +1,80 @@
+<div
+	class="kengine-input-root kengine-input-focusable-element"
+	@focusin="{{_onfocusin}}"
+	@focusout="{{_onfocusout}}"
+>
+	<div class="kengine-input-content">
+		{{> preContent}}
+
+		<input id="{{_id}}-inner"
+			class="kengine-input-inner"
+			style="{{styles.innerInput}}"
+			type="{{inputType}}"
+			inner-input
+			?inner-input-with-icon="{{icon.length}}"
+			?disabled="{{disabled}}"
+			?readonly="{{_readonly}}"
+			.value="{{_innerValue}}"
+			placeholder="{{_placeholder}}"
+			maxlength="{{maxlength}}"
+			role="{{accInfo.input.role}}"
+			aria-controls="{{accInfo.input.ariaControls}}"
+			aria-invalid="{{accInfo.input.ariaInvalid}}"
+			aria-haspopup="{{accInfo.input.ariaHasPopup}}"
+			aria-describedby="{{accInfo.input.ariaDescribedBy}}"
+			aria-roledescription="{{accInfo.input.ariaRoledescription}}"
+			aria-autocomplete="{{accInfo.input.ariaAutoComplete}}"
+			aria-expanded="{{accInfo.input.ariaExpanded}}"
+			aria-label="{{accInfo.input.ariaLabel}}"
+			aria-required="{{required}}"
+			@input="{{_handleInput}}"
+			@change="{{_handleChange}}"
+			@keydown="{{_onkeydown}}"
+			@keyup="{{_onkeyup}}"
+			@click={{_click}}
+			@focusin={{innerFocusIn}}
+			data-sap-focus-ref
+			step="{{nativeInputAttributes.step}}"
+			min="{{nativeInputAttributes.min}}"
+			max="{{nativeInputAttributes.max}}"
+		/>
+
+		{{#if effectiveShowClearIcon}}
+			<div @click={{_clear}} @mousedown={{_iconMouseDown}} class="kengine-input-clear-icon-wrapper" input-icon tabindex="-1">
+				<kengine-icon tabindex="-1" class="kengine-input-clear-icon" name="decline" accessible-name="{{clearIconAccessibleName}}"></kengine-icon>
+			</div>
+		{{/if}}
+
+		{{#if icon.length}}
+			<div class="kengine-input-icon-root">
+				<slot name="icon"></slot>
+			</div>
+		{{/if}}
+
+		<div class="kengine-input-value-state-icon">
+			{{{_valueStateInputIcon}}}
+		</div>
+
+		{{> postContent }}
+
+		{{#if showSuggestions}}
+			<span id="{{_id}}-suggestionsText" class="kengine-hidden-text">{{suggestionsText}}</span>
+			<span id="{{_id}}-selectionText" class="kengine-hidden-text" aria-live="polite" role="status"></span>
+			<span id="{{_id}}-suggestionsCount" class="kengine-hidden-text" aria-live="polite">{{availableSuggestionsCount}}</span>
+		{{/if}}
+
+		{{#if accInfo.input.ariaDescription}}
+			<span id="{{_id}}-descr" class="kengine-hidden-text">{{accInfo.input.ariaDescription}}</span>
+		{{/if}}
+
+		{{#if hasValueState}}
+			<span id="{{_id}}-valueStateDesc" class="kengine-hidden-text">{{ariaValueStateHiddenText}}</span>
+		{{/if}}
+	</div>
+
+	<slot name="formSupport"></slot>
+</div>
+
+
+{{#*inline "preContent"}}{{/inline}}
+{{#*inline "postContent"}}{{/inline}}

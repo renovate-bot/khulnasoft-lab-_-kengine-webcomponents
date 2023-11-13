@@ -1,0 +1,42 @@
+{{#if _isPhone}}
+	<kengine-dialog
+		accessible-name={{accessibleName}}
+		accessible-name-ref={{accessibleNameRef}}
+		accessible-role={{accessibleRole}}
+		stretch
+		_disable-initial-focus
+		@kengine-before-open="{{_beforeDialogOpen}}"
+		@kengine-after-open="{{_propagateDialogEvent}}"
+		@kengine-before-close="{{_propagateDialogEvent}}"
+		@kengine-after-close="{{_afterDialogClose}}"
+		exportparts="content, header, footer"
+	>
+		{{!-- forward slot header to inner dialog slot header --}}
+		{{#unless _hideHeader}}
+			{{#if header.length}}
+				<slot slot="header" name="header"></slot>
+			{{else}}
+				<div class="{{classes.header}}" slot="header">
+					{{#if headerText }}
+						<kengine-title level="H2" class="kengine-popup-header-text kengine-responsive-popover-header-text">{{headerText}}</kengine-title>
+					{{/if}}
+					{{#unless _hideCloseButton}}
+						<kengine-button
+							icon="decline"
+							design="Transparent"
+							aria-label="{{_closeDialogAriaLabel}}"
+							@click="{{close}}"
+						>
+						</kengine-button>
+					{{/unless}}
+				</div>
+			{{/if}}
+		{{/unless}}
+
+		<slot></slot>
+		{{!-- forward slot footer to inner dialog slot footer --}}
+		<slot slot="footer" name="footer"></slot>
+	</kengine-dialog>
+{{else}}
+	{{>include "./Popover.hbs"}}
+{{/if}}

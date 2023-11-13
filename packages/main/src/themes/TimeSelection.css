@@ -1,0 +1,27 @@
+:host(:not([hidden])) {
+    display: inline-block;
+    min-width: 18rem;
+}
+
+.kengine-time-selection-root {
+    width: 100%;
+    height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+	direction: ltr;
+	box-sizing: border-box;
+}
+
+.kengine-time-selection-root.kengine-phone{
+	height: 90vh;
+}
+
+:host(.kengine-dt-time.kengine-dt-cal--hidden) .kengine-time-selection-root.kengine-phone {
+	height: 80vh;
+}
+
+[kengine-wheelslider] {
+	padding-left: 0.25rem;
+	padding-right: 0.25rem;
+}

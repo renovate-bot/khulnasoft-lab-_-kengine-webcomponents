@@ -1,0 +1,10 @@
+@import "../base/TabContainer-parameters.css";
+
+:root {
+	--_kengine_tc_headerItem_text_selected_color: #3b6f9a;
+	--_kengine_tc_headerItemIcon_selected_background: #3b6f9a;
+	--_kengine_tc_header_background: var( --sapObjectHeader_Background);
+	--_kengine_tc_header_background_translucent: rgba(239,244,249,0.6);
+	--_kengine_tc_content_background: var(--sapGroup_ContentBackground);
+	--_kengine_tc_content_background_translucent: rgba(255,255,255,0.6);
+}

@@ -1,0 +1,16 @@
+:root {
+	--_kengine_yearpicker_item_selected_focus: var(--sapContent_Selected_Background);
+	--_kengine_yearpicker_item_selected_hover_color: var(--sapContent_Selected_Background);
+	--_kengine_yearpicker_item_border: none;
+	--_kengine_yearpicker_item_border_radius: 0;
+	--_kengine_yearpicker_item_margin: 1px;
+	--_kengine_yearpicker_item_focus_after_width: calc(100% - 0.375rem);
+	--_kengine_yearpicker_item_focus_after_height: calc(100% - 0.375rem);
+	--_kengine_yearpicker_item_focus_after_border: 1px dotted var(--sapContent_FocusColor);
+	--_kengine_yearpicker_item_focus_after_offset: 2px;
+	--_kengine_yearpicker_item_focus_after_border_radius: 0;
+	--_kengine_yearpicker_item_selected_background_color: var(--sapSelectedColor);
+	--_kengine_yearpicker_item_selected_text_color: var(--sapContent_ContrastTextColor);
+	--_kengine_yearpicker_item_selected_box_shadow: none;
+	--_kengine_yearpicker_item_focus_after_outline: none;
+}

@@ -1,0 +1,382 @@
+@import "./InvisibleTextStyles.css";
+@import "./TapHighlightColor.css";
+
+:host(:not([hidden])) {
+	display: inline-block;
+}
+
+.kengine-switch-root {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: var(--_kengine_switch_width);
+	height: var(--_kengine_switch_height);
+	min-width: var(--_kengine_switch_min_width);
+	cursor: pointer;
+	outline: none;
+	border-radius: var(--_kengine-switch-root-border-radius);
+}
+
+.kengine-switch-root:not(.kengine-switch--no-label):not(.kengine-switch--semantic) {
+	width: var(--_kengine_switch_with_label_width);
+	height: var(--_kengine_switch_height);
+}
+
+.kengine-switch-root.kengine-switch--no-label {
+	min-width: var(--_kengine_switch_width);
+}
+
+.kengine-switch-inner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+	min-width: inherit;
+	overflow: hidden;
+	pointer-events: none;
+	will-change: transform;
+}
+
+:host([checked]) .kengine-switch-inner {
+	border-radius: 6.25rem;
+	box-shadow: var(--_kengine-switch-root-box-shadow);
+}
+
+.kengine-switch-track {
+	display: flex;
+	align-items: center;
+	height: var(--_kengine_switch_track_height);
+	width: var(--_kengine_switch_track_width);
+	border: var(--_kengine-switch-track-border);
+	border-radius: var(--_kengine_switch_track_border_radius);
+	box-sizing: border-box;
+	transition: var(--_kengine_switch_track_transition);
+}
+
+.kengine-switch-root:not(.kengine-switch--no-label):not(.kengine-switch--semantic) .kengine-switch-track {
+	height: var(--_kengine_switch_track_with_label_height);
+	width: var(--_kengine_switch_track_with_label_width);
+}
+
+.kengine-switch-slider {
+	position: relative;
+	height: var(--_kengine_switch_height);
+	width: 100%;
+	transition: transform 0.1s ease-in;
+	transform-origin: top left;
+}
+
+.kengine-switch-slider > *:not(.kengine-switch-handle) {
+	display: var(--_kengine-switch-slider-texts-display);
+}
+
+.kengine-switch-handle {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: var(--_kengine_switch_handle_width);
+	height: var(--_kengine_switch_handle_height);
+	border: var(--_kengine_switch_handle_border);
+	border-radius: var(--_kengine_switch_handle_border_radius);
+	box-sizing: border-box;
+}
+
+.kengine-switch-root:not(.kengine-switch--no-label):not(.kengine-switch--semantic) .kengine-switch-handle {
+	height: var(--_kengine_switch_handle_with_label_height);
+	width: var(--_kengine_switch_handle_with_label_width);
+}
+
+.kengine-switch-handle-icon {
+	display: var(--_kengine-switch-handle-icon-display);
+	transition: var(--_kengine_switch_track_transition);
+}
+
+:host([checked]) .kengine-switch-handle-icon {
+	color: var(--_kengine-switch_track-on-background)
+}
+
+.kengine-switch-text {
+	display: flex;
+	justify-content: center;
+	position: absolute;
+	z-index: var(--_kengine_switch_text_z_index);
+	min-width: var(--_kengine_switch_text_min_width);
+	font-size: var(--_kengine_switch_text_font_size);
+	font-family: var(--_kengine-switch-text_font_family);
+	text-transform: uppercase;
+	text-align: center;
+	white-space: nowrap;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+.kengine-switch-handle,
+.kengine-switch-text {
+	left: var(--_kengine_switch_handle_left);
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+/* switch focused */
+.kengine-switch-desktop.kengine-switch-root:focus::after {
+	content: "";
+	position: absolute;
+	left: var(--_kengine_switch_root_outline_left);
+	right: var(--_kengine_switch_root_outline_right);
+	top: var(--_kengine_switch_root_outline_top);
+	bottom: var(--_kengine_switch_root_outline_bottom);
+	border: var(--_kengine_switch_focus_outline);
+	border-radius: var(--_kengine_switch_root_after_boreder_radius);
+	pointer-events: none;
+	transition: var(--_kengine_switch_track_transition);
+	outline: var(--_kengine_switch_root_after_outline);
+}
+
+/* switch hidden input */
+.kengine-switch-root .kengine-switch-input {
+	position: absolute;
+	left: 0;
+	width: 0;
+	height: 0;
+	margin: 0;
+	visibility: hidden;
+	-webkit-appearance: none;
+}
+
+/* switch disabled */
+.kengine-switch-root.kengine-switch--disabled {
+	opacity: var(--_kengine_switch_disabled_opacity);
+	cursor: default;
+}
+
+.kengine-switch-root.kengine-switch--checked .kengine-switch-text--off {
+	visibility: var(--_kengine_switch_text_hidden);
+}
+.kengine-switch-root:not(.kengine-switch--checked) .kengine-switch-text--on {
+	visibility: var(--_kengine_switch_text_hidden);
+}
+
+.kengine-switch-root.kengine-switch--checked.kengine-switch--semantic .kengine-switch-text--on, 
+.kengine-switch-root.kengine-switch--checked.kengine-switch-desktop.kengine-switch--no-label .kengine-switch-text--on {
+	left: var(--_kengine_switch_text_active_left);
+}
+.kengine-switch-root:not(.kengine-switch--checked).kengine-switch--semantic .kengine-switch-text--off,
+.kengine-switch-root:not(.kengine-switch--checked).kengine-switch-desktop.kengine-switch--no-label .kengine-switch-text--off {
+	left: var(--_kengine_switch_text_inactive_left);
+	right: var(--_kengine_switch_text_inactive_right);
+}
+
+/* handle */
+.kengine-switch-root.kengine-switch--checked .kengine-switch-handle {
+	background: var(--_kengine_switch_handle_active_background_color);
+	border-color: var(--_kengine_switch_handle_active_border_color);
+}
+.kengine-switch-root:not(.kengine-switch--checked) .kengine-switch-handle {
+	background: var(--_kengine_switch_handle_inactive_background_color);
+	border-color: var(--_kengine_switch_handle_inactive_border_color);
+}
+
+.kengine-switch-desktop.kengine-switch-root.kengine-switch--checked:not(.kengine-switch--disabled):hover .kengine-switch-handle {
+	background: var(--_kengine_switch_handle_hover_active_background_color);
+	border-color: var(--_kengine_switch_handle_hover_active_border_color);
+}
+.kengine-switch-desktop.kengine-switch-root:not(.kengine-switch--disabled):not(.kengine-switch--checked):hover .kengine-switch-handle {
+	background: var(--_kengine_switch_handle_hover_inactive_background_color);
+	border-color: var(--_kengine_switch_handle_hover_inactive_border_color);
+}
+
+/* handle semantic */
+.kengine-switch-root.kengine-switch--semantic.kengine-switch--checked .kengine-switch-handle {
+	background: var(--_kengine_switch_handle_semantic_accept_background_color);
+	border-color: var(--_kengine_switch_handle_semantic_accept_border_color);
+}
+.kengine-switch-root.kengine-switch--semantic:not(.kengine-switch--checked) .kengine-switch-handle {
+	background: var(--_kengine_switch_handle_semantic_reject_background_color);
+	border-color: var(--_kengine_switch_handle_semantic_reject_border_color);
+}
+
+.kengine-switch-desktop.kengine-switch-root.kengine-switch--semantic.kengine-switch--checked:not(.kengine-switch--disabled):hover .kengine-switch-handle {
+	background: var(--_kengine_switch_handle_semantic_hover_accept_background_color);
+	border-color: var(--_kengine_switch_handle_semantic_hover_accept_border_color);
+}
+.kengine-switch-desktop.kengine-switch--semantic.kengine-switch-root:not(.kengine-switch--checked):not(.kengine-switch--disabled):hover .kengine-switch-handle {
+	background: var(--_kengine_switch_handle_semantic_hover_reject_background_color);
+	border-color: var(--_kengine_switch_handle_semantic_hover_reject_border_color);
+}
+
+
+/* track */
+.kengine-switch-root.kengine-switch--checked .kengine-switch-track {
+	background: var(--_kengine_switch_track_active_background_color);
+	border-color: var(--_kengine_switch_track_active_border_color);
+}
+.kengine-switch-root:not(.kengine-switch--checked) .kengine-switch-track {
+	background: var(--_kengine_switch_track_inactive_background_color);
+	border-color: var(--_kengine_switch_track_inactive_border_color);
+}
+
+.kengine-switch-desktop.kengine-switch-root.kengine-switch--checked:not(.kengine-switch--disabled):hover .kengine-switch-track {
+	background: var(--_kengine_switch_track_hover_active_background_color);
+	border-color: var(--_kengine_switch_track_hover_active_border_color);
+}
+.kengine-switch-desktop.kengine-switch-root:not(.kengine-switch--checked):not(.kengine-switch--disabled):hover .kengine-switch-track {
+	background: var(--_kengine_switch_track_hover_inactive_background_color);
+	border-color: var(--_kengine_switch_track_hover_inactive_border_color);
+}
+
+/* track semantic*/
+.kengine-switch-root.kengine-switch--semantic.kengine-switch--checked .kengine-switch-track {
+	background: var(--_kengine_switch_track_semantic_accept_background_color);
+	border-color: var(--_kengine_switch_track_semantic_accept_border_color);
+}
+.kengine-switch-root.kengine-switch--semantic:not(.kengine-switch--checked) .kengine-switch-track {
+	background: var(--_kengine_switch_track_semantic_reject_background_color);
+	border-color: var(--_kengine_switch_track_semantic_reject_border_color);
+}
+
+.kengine-switch-desktop.kengine-switch-root.kengine-switch--semantic.kengine-switch--checked:not(.kengine-switch--disabled):hover .kengine-switch-track {
+	background: var(--_kengine_switch_track_semantic_hover_accept_background_color);
+	border-color: var(--_kengine_switch_track_semantic_hover_accept_border_color);
+}
+.kengine-switch-desktop.kengine-switch--semantic.kengine-switch-root:not(.kengine-switch--checked):not(.kengine-switch--disabled):hover .kengine-switch-track {
+	background: var(--_kengine_switch_track_semantic_hover_reject_background_color);
+	border-color: var(--_kengine_switch_track_semantic_hover_reject_border_color);
+}
+
+.kengine-switch-root.kengine-switch--checked:not(.kengine-switch--no-label):not(.kengine-switch--semantic) .kengine-switch-slider {
+	/* Move slider to oposite end, taking into account the handle as an offset. */
+	/* Note: translate(calc()) does not work in IE11 */
+	transform: var(--_kengine_switch_transform_with_label);
+}
+
+.kengine-switch-root.kengine-switch--checked .kengine-switch-slider {
+	/* Move slider to oposite end, taking into account the handle as an offset. */
+	/* Note: translate(calc()) does not work in IE11 */
+	transform: var(--_kengine_switch_transform);
+}
+
+/* switch semantic icon and type noLabel icon in horizon theme */
+.kengine-switch-text .kengine-switch-text--on .kengine-switch-no-label-icon,
+.kengine-switch-root.kengine-switch--semantic .kengine-switch-text,
+.kengine-switch-root.kengine-switch--no-label .kengine-switch-text {
+	display: flex;
+	justify-content: center;
+
+}
+
+.kengine-switch--no-label .kengine-switch-no-label-icon-on,
+.kengine-switch--no-label .kengine-switch-no-label-icon-off {
+	width: var(--_kengine_switch_icon_width);
+	height: var(--_kengine_switch_icon_height);
+	display: var(--_kengine_switch_track_icon_display);
+}
+
+.kengine-switch-root.kengine-switch--semantic .kengine-switch-icon-on,
+.kengine-switch-root.kengine-switch--semantic .kengine-switch-icon-off {
+	width: var(--_kengine_switch_icon_width);
+	height: var(--_kengine_switch_icon_height)
+}
+
+.kengine-switch-root .kengine-switch-text {
+	font-family: var(--_kengine_switch_text_font_family);
+	font-size: var(--_kengine_switch_text_font_size);
+	width: var(--_kengine_switch_text_width);
+}
+
+.kengine-switch-root:not(.kengine-switch--no-label):not(.kengine-switch--semantic) .kengine-switch-text {
+	font-family: var(--_kengine_switch_text_with_label_font_family);
+	font-size: var(--_kengine_switch_text_with_label_font_size);
+	width: var(--_kengine_switch_text_with_label_width);
+}
+
+/* switch active effects */
+/* active & off */
+
+:host([active]) .kengine-switch-desktop.kengine-switch-root:not(.kengine-switch--disabled) .kengine-switch-track {
+	background: var( --_kengine-switch_track-off-active-background);
+}
+
+/* active & on */
+
+:host([active]) .kengine-switch-desktop.kengine-switch-root.kengine-switch--checked:not(.kengine-switch--disabled):hover .kengine-switch-track {
+	background: var(--_kengine-switch_track-on-active-background);
+}
+
+.kengine-switch-desktop.kengine-switch-root:not(.kengine-switch--disabled):hover .kengine-switch-handle {
+	box-shadow: var(--_kengine_switch_handle_off_hover_box_shadow);
+}
+
+ /* switch on hover, when switched on */
+.kengine-switch-desktop.kengine-switch-root.kengine-switch--checked:not(.kengine-switch--disabled):hover .kengine-switch-handle {
+	box-shadow: var(--_kengine_switch_handle_on_hover_box_shadow);
+}
+
+/* semantic switch on hover, when switched off */
+.kengine-switch-desktop.kengine-switch-root.kengine-switch--semantic:not(.kengine-switch--disabled):hover .kengine-switch-handle {
+	box-shadow: var(--_kengine_switch_handle_semantic_off_hover_box_shadow);
+}
+
+/* semantic switch on hover, when switched on */
+.kengine-switch-desktop.kengine-switch-root.kengine-switch--semantic.kengine-switch--checked:not(.kengine-switch--disabled):hover .kengine-switch-handle {
+	box-shadow: var(--_kengine_switch_handle_semantic_on_hover_box_shadow);
+}
+
+/* Text */
+.kengine-switch-root.kengine-switch--semantic .kengine-switch-icon-on,
+.kengine-switch-root.kengine-switch--semantic .kengine-switch-text--on {
+	color: var(--_kengine_switch_text_semantic_accept_color);
+}
+.kengine-switch-root.kengine-switch--semantic .kengine-switch-icon-off,
+.kengine-switch-root.kengine-switch--semantic .kengine-switch-text--off {
+	color: var(--_kengine_switch_text_semantic_reject_color);
+}
+
+.kengine-switch-root .kengine-switch-text--on {
+	color: var(--_kengine_switch_text_active_color);
+	overflow: var(--_kengine_switch_text_overflow);
+	text-overflow: ellipsis;
+	left: var(--_kengine_switch_text_active_left_alternate);
+}
+.kengine-switch-root .kengine-switch-text--off {
+	color: var(--_kengine_switch_text_inactive_color);
+	overflow: var(--_kengine_switch_text_overflow);
+	text-overflow: ellipsis;
+	left: var(--_kengine_switch_text_inactive_left_alternate);
+	right: var(--_kengine_switch_text_inactive_right_alternate);
+}
+
+.kengine-switch-root .kengine-switch-no-label-icon-on,
+.kengine-switch-root .kengine-switch-icon-on {
+	color: var(--_kengine_switch_text_active_color);
+}
+
+.kengine-switch-root .kengine-switch-no-label-icon-off,
+.kengine-switch-root .kengine-switch-icon-off {
+	color: var(--_kengine_switch_text_inactive_color);
+}
+
+/* RTL */
+[dir="rtl"].kengine-switch-root.kengine-switch--checked:not(.kengine-switch--no-label):not(.kengine-switch--semantic) .kengine-switch-slider {
+	transform: var(--_kengine_switch_rtl_transform_with_label);
+}
+
+[dir="rtl"].kengine-switch-root.kengine-switch--checked .kengine-switch-slider {
+	transform: var(--_kengine_switch_rtl_transform);
+}
+
+[dir="rtl"].kengine-switch-root .kengine-switch-handle {
+	left: auto;
+	right: var(--_kengine_switch_handle_left);
+}
+
+[dir="rtl"].kengine-switch-root .kengine-switch-text--on {
+	right: var(--_kengine_switch_text_active_left);
+	left: var(--_kengine_switch_text_active_right);
+}
+
+[dir="rtl"].kengine-switch-root .kengine-switch-text--off {
+	right: var(--_kengine_switch_text_inactive_left);
+	left: var(--_kengine_switch_text_inactive_right);
+}

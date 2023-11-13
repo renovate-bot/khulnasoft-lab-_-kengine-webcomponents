@@ -1,0 +1,5 @@
+@import "../base/ListItemBase-parameters.css";
+
+:root {
+	--kengine-listitem-active-border-color: var(--sapContent_FocusColor);
+}

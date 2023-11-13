@@ -1,0 +1,8 @@
+@import "../base/PopupsCommon-parameters.css";
+
+:root {
+	--_kengine_popup_header_prop_header_text_alignment: center;
+	--_kengine_popup_header_background: var(--sapGroup_ContentBackground);
+	--_kengine_popup_header_shadow: none;
+	--_kengine_popup_header_border: 1px solid var(--sapGroup_ContentBorderColor);
+}

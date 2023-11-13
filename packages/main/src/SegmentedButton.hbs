@@ -1,0 +1,18 @@
+<ul
+	@click="{{_onclick}}"
+	@mousedown="{{_onmousedown}}"
+	@keydown="{{_onkeydown}}"
+	@keyup="{{_onkeyup}}"
+	@focusin="{{_onfocusin}}"
+	class="kengine-segmented-button-root"
+	role="listbox"
+	aria-multiselectable="true"
+	aria-describedby="{{_id}}-invisibleText"
+	aria-roledescription={{ariaDescription}}
+	aria-label={{accessibleName}}
+>
+	<slot></slot>
+
+	<span id="{{_id}}-invisibleText" class="kengine-hidden-text">{{ariaDescribedBy}}</span>
+
+</ul>

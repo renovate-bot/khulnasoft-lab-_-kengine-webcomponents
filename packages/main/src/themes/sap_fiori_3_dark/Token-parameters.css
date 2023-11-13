@@ -1,0 +1,5 @@
+@import "../base/Token-parameters.css";
+
+:root {
+	--_kengine_token_text_color: var(--sapTextColor);
+}

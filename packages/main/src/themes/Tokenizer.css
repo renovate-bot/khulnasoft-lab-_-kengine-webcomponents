@@ -1,0 +1,65 @@
+@import "./InvisibleTextStyles.css";
+
+:host {
+	display: inline-block;
+	box-sizing: border-box;
+	border: 1px solid black;
+	height: 2.25rem;
+}
+
+.kengine-tokenizer-root {
+	height: 100%;
+	display: flex;
+	align-items: center;
+	overflow-x: scroll;
+	box-sizing: border-box;
+	font-family: "72override", var(--sapFontFamily);
+}
+
+.kengine-tokenizer-no-padding {
+	padding: 0;
+}
+
+.kengine-tokenizer-root.kengine-tokenizer-nmore--wrapper {
+	overflow: hidden;
+}
+
+.kengine-tokenizer--token--wrapper {
+	display: inline-flex;
+	align-items: center;
+	box-sizing: border-box;
+	height: 100%;
+}
+
+:host([expanded]) .kengine-tokenizer--content {
+	display: inline-flex;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.kengine-tokenizer--content {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	overflow: hidden;
+	padding-inline-start: var(--_kengine_tokenizer_padding);
+	height: 100%;
+	box-sizing: border-box;
+}
+
+:host([_tokens-count="1"]) .kengine-tokenizer--content {
+	padding-inline-end: 4px;
+	box-sizing: border-box;
+	max-width: 100%;
+	flex: 1;
+}
+
+.kengine-tokenizer-more-text {
+	display: inline-block;
+	margin-inline-start: .25rem;
+	cursor: pointer;
+	white-space: nowrap;
+	font-size: var(--sapFontSize);
+	font-weight: normal;
+	color: var(--_kengine_tokenizer_n_more_text_color);
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <title>Button</title>
+
+    <script data-kengine-config type="application/json">
+        {
+            "language": "EN",
+            "noConflict": {
+                "events": ["click"]
+            },
+            "calendarType": "Islamic"
+        }
+    </script>
+
+
+	<script src="../../bundle.esm.js" type="module"></script>
+
+
+<link rel="stylesheet" type="text/css" href="./styles/CustomCSS.css">
+</head>
+
+<body class="customcss1auto">
+
+	<kengine-select id="select">
+		<kengine-option>1</kengine-option>
+		<kengine-option>2</kengine-option>
+	</kengine-select>
+
+	<br />
+	<br />
+
+	<kengine-button id="btn">Apply custom css and rerender</kengine-button>
+
+	<br />
+	<br />
+
+	<script>
+		const applyCustomCSSAndRerender = function() {
+			window["sap-ui-webcomponents-bundle"].addCustomCSS("kengine-select", ".kengine-select-root { background-color: red; } ");
+		};
+
+		document
+			.getElementById("btn")
+			.addEventListener("click", applyCustomCSSAndRerender);
+
+	</script>
+
+</body>
+</html>

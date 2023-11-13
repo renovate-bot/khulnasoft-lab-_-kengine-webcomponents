@@ -1,0 +1,57 @@
+<kengine-responsive-popover
+	class="kengine-select-menu"
+	placement-type="Bottom"
+	horizontal-align="Left"
+	@kengine-after-open="{{_onAfterOpen}}"
+	@kengine-after-close="{{_onAfterClose}}"
+	@kengine-before-open="{{_onBeforeOpen}}"
+	hide-arrow
+	_disable-initial-focus
+	style={{styles.responsivePopover}}
+	>
+		{{#if _isPhone}}
+			<div slot="header" class="kengine-responsive-popover-header">
+				<div class="row">
+					<span>{{_headerTitleText}}</span>
+					<kengine-button
+						class="kengine-responsive-popover-close-btn"
+						icon="decline"
+						design="Transparent"
+						@click="{{_onCloseBtnClick}}"
+					>
+					</kengine-button>
+				</div>
+				{{#if hasValueState}}
+					<div class="{{classes.popoverValueState}} row kengine-select-value-state-dialog-header">
+						{{> valueStateMessage}}
+					</div>
+				{{/if}}
+			</div>
+		{{/if}}
+		{{#unless _isPhone}}
+				{{#if hasValueState}}
+					<div class="{{classes.popoverValueState}}" style={{styles.responsivePopoverHeader}}>
+						<kengine-icon class="kengine-input-value-state-message-icon" name="{{_valueStateMessageInputIcon}}"></kengine-icon>
+						{{> valueStateMessage}}
+					</div>
+				{{/if}}
+		{{/unless}}
+
+		<kengine-list 
+			mode="SingleSelect"
+			separators="None"
+			@kengine-item-click="{{_onOptionClick}}">
+					<slot></slot>
+		</kengine-list>
+</kengine-responsive-popover>
+
+
+{{#*inline "valueStateMessage"}}
+	{{#if hasValueStateSlot}}
+		{{#each valueStateMessageText}}
+			{{this}}
+		{{/each}}
+	{{else}}
+		{{ valueStateText }}
+	{{/if}}
+{{/inline}}

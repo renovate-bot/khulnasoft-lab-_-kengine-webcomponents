@@ -1,0 +1,32 @@
+<ui5-popover class="ui5-shellbar-menu-popover"
+	hide-arrow
+	placement-type="Bottom"
+	@kengine-before-open={{_menuPopoverBeforeOpen}}
+	@kengine-after-close={{_menuPopoverAfterClose}}
+>
+	<ui5-list separators="None" mode="SingleSelect" @kengine-selection-change={{_menuItemPress}}>
+		{{#each _menuPopoverItems}}
+			{{ this }}
+		{{/each}}
+	</ui5-list>
+</ui5-popover>
+
+<ui5-popover class="ui5-shellbar-overflow-popover"
+	placement-type="Bottom"
+	horizontal-align="{{popoverHorizontalAlign}}"
+	hide-arrow
+	@kengine-before-open={{_overflowPopoverBeforeOpen}}
+	@kengine-after-close={{_overflowPopoverAfterClose}}
+>
+	<ui5-list separators="None" @kengine-item-click="{{_handleActionListClick}}">
+		{{#each _hiddenIcons}}
+			<ui5-li
+				data-ui5-external-action-item-id="{{this.refItemid}}"
+				icon="{{this.icon}}"
+				type="Active"
+				@kengine-_press="{{this.press}}"
+			>{{this.text}}
+			</ui5-li>
+		{{/each}}
+	</ui5-list>
+</ui5-popover>

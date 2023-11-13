@@ -1,0 +1,14 @@
+<label
+	class="kengine-label-root"
+	@click={{_onclick}}
+	>
+	<span class="kengine-label-text-wrapper">
+		<bdi id="{{_id}}-bdi"><slot></slot></bdi>
+	</span>
+	<span 
+		aria-hidden="true" 
+		class="kengine-label-required-colon"
+		data-colon="{{_colonSymbol}}"
+	>
+	</span>
+</label>

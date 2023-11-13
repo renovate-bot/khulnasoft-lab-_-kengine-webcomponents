@@ -1,0 +1,56 @@
+<kengine-responsive-popover
+	tokenizer-popover="true"
+	style={{styles.popover}}
+	?content-only-on-desktop="{{hasValueState}}"
+	hide-arrow
+	placement-type="Bottom"
+	horizontal-align="Left"
+	@before-close={{handleBeforeClose}}
+	@before-open="{{handleBeforeOpen}}"
+>
+	<div slot="header" class="kengine-responsive-popover-header" style="{{styles.popoverHeader}}">
+		{{#if _isPhone}}
+			<div class="row" style="{{styles.popoverHeaderTitle}}">
+				<kengine-title level="H5" class="kengine-responsive-popover-header-text">{{morePopoverTitle}}</kengine-title>
+				<kengine-button
+					class="kengine-responsive-popover-close-btn"
+					icon="decline"
+					design="Transparent"
+					@click="{{closeMorePopover}}"
+				>
+				</kengine-button>
+			</div>
+		{{/if}}
+		{{#unless hasValueState}}
+			<div class="{{classes.popoverValueState}}" style="{{styles.popoverValueStateMessage}}">
+				<kengine-icon class="kengine-input-value-state-message-icon" name="{{_valueStateMessageIcon}}"></kengine-icon>
+				{{#each valueStateMessageText}}
+					{{this}}
+				{{/each}}
+			</div>
+		{{/unless}}
+	</div>
+	<kengine-list
+		class="kengine-tokenizer-list"
+		mode="Delete"
+		@kengine-item-delete={{itemDelete}}
+	>
+		{{#each _tokens}}
+			<kengine-li
+				.tokenRef={{this}}
+				wrapping-type="Normal"
+			>
+				{{this.text}}
+			</kengine-li>
+		{{/each}}
+	</kengine-list>
+	{{#if _isPhone}}
+		<div slot="footer" class="kengine-responsive-popover-footer">
+			<kengine-button
+				id="kengine-tokenizer-dialog-confirm-btn"
+				design="Emphasized"
+				@click="{{closeMorePopover}}"
+			>OK</kengine-button>
+		</div>
+	{{/if}}
+</kengine-responsive-popover>

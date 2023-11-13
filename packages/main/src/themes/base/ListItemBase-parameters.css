@@ -1,0 +1,13 @@
+:root {
+	--kengine-listitem-background-color: var(--sapList_Background);
+	--kengine-listitem-border-bottom: var(--sapList_BorderWidth) solid var(--sapList_BorderColor);
+	--kengine-listitem-selected-border-bottom: 1px solid var(--sapList_SelectionBorderColor);
+	--kengine-listitem-focused-selected-border-bottom: 1px solid var(--sapList_SelectionBorderColor);
+	--kengine-listitem-active-border-color: var(--sapContent_ContrastFocusColor);
+	--kengine-listitem-padding: 0 1rem;
+	--kengine-listitem-focus-border-radius: 0;
+	--kengine-listitem-focus-offset: 0.125rem;
+	--_kengine_listitembase_focus_width: 1px;
+	--_kengine-listitembase_disabled_opacity: 0.5;
+	--_kengine_product_switch_item_border: none;
+}

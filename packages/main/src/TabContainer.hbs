@@ -1,0 +1,87 @@
+<div class="{{classes.root}}">
+	{{#if tabsAtTheBottom}}
+		{{> contentArea}}
+	{{/if}}
+	<div
+		class="{{classes.header}}"
+		id="{{_id}}-header"
+		@focusin="{{_onHeaderFocusin}}"
+	>
+		<div
+			class="kengine-tc__overflow kengine-tc__overflow--start"
+			@click="{{_onOverflowClick}}"
+			@keydown="{{_onOverflowKeyDown}}"
+			hidden
+		>
+			{{#if startOverflowButton.length}}
+				<slot name="startOverflowButton"></slot>
+			{{else}}
+				<kengine-button
+					icon="{{overflowMenuIcon}}"
+					data-kengine-stable="overflow-start"
+					tabindex="-1"
+					tooltip="{{overflowMenuTitle}}"
+					aria-haspopup="menu"
+					icon-end>{{this._startOverflowText}}</kengine-button>
+			{{/if}}
+		</div>
+
+		<div
+			id="{{_id}}-tabStrip"
+			class="{{classes.tabStrip}}"
+			role="tablist"
+			aria-describedby="{{tablistAriaDescribedById}}"
+			@click="{{_onTabStripClick}}"
+			@keydown="{{_onTabStripKeyDown}}"
+			@keyup="{{_onTabStripKeyUp}}"
+		>
+			{{#each items}}
+				{{this.stripPresentation}}
+			{{/each}}
+		</div>
+
+		<div
+			class="kengine-tc__overflow kengine-tc__overflow--end"
+			@click="{{_onOverflowClick}}"
+			@keydown="{{_onOverflowKeyDown}}"
+			hidden
+		>
+			{{#if overflowButton.length}}
+				<slot name="overflowButton"></slot>
+			{{else}}
+				<kengine-button
+					icon="{{overflowMenuIcon}}"
+					data-kengine-stable="overflow-end"
+					tabindex="-1"
+					tooltip="{{overflowMenuTitle}}"
+					aria-haspopup="menu"
+					icon-end>{{this._endOverflowText}}</kengine-button>
+			{{/if}}
+		</div>
+	</div>
+
+	{{#unless tabsAtTheBottom}}
+		{{> contentArea}}
+	{{/unless}}
+
+	{{#if hasSubTabs}}
+		<span id="{{_id}}-invisibleText" class="kengine-hidden-text">{{accInvisibleText}}</span>
+	{{/if}}
+
+</div>
+
+{{#*inline "contentArea"}}
+	<div class="{{classes.content}}" part="content">
+		<div
+			class="kengine-tc__contentItem"
+			id="kengine-tc-content"
+			?hidden="{{this._selectedTab.effectiveHidden}}"
+			role="tabpanel"
+			aria-labelledby="{{this._selectedTab._id}}"
+		>
+			{{#each items}}
+				<slot name="{{this._effectiveSlotName}}"></slot>
+			{{/each}}
+		</div>
+	</div>
+{{/inline}}

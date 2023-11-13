@@ -1,0 +1,41 @@
+{
+  "name": "@kengine/webcomponents-localization",
+  "version": "1.20.0-rc.0",
+  "description": "Localization for KENGINE Web Components",
+  "author": "KHULNASOFT SE (https://www.khulnasoft.com)",
+  "license": "Apache-2.0",
+  "type": "module",
+  "keywords": [
+    "kengine",
+    "ui",
+    "ui5"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khulnasoft-lab/kengine-webcomponents.git",
+    "directory": "packages/localization"
+  },
+  "exports": {
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json",
+    "./*": "./dist/*"
+  },
+  "scripts": {
+    "clean": "nps clean",
+    "lint": "nps lint",
+    "start": "nps start",
+    "build": "nps build",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "devDependencies": {
+    "@kengine/sap.ui.core": "1.116.0",
+    "@kengine/webcomponents-tools": "1.20.0-rc.0",
+    "chromedriver": "117.0.3",
+    "mkdirp": "^1.0.4",
+    "resolve": "^1.20.0"
+  },
+  "dependencies": {
+    "@types/kengine": "^1.113.0",
+    "@kengine/webcomponents-base": "1.20.0-rc.0"
+  }
+}

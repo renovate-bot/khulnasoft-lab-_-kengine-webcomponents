@@ -1,0 +1,116 @@
+<kengine-responsive-popover
+	id="{{_id}}-menu-rp"
+	class="kengine-menu-rp"
+	horizontal-align="Left"
+	placement-type={{placementType}}
+	vertical-align={{verticalAlign}}
+	hide-arrow
+	allow-target-overlap
+	?sub-menu={{_isSubMenu}}
+	@kengine-before-open={{_beforePopoverOpen}}
+	@kengine-after-open={{_afterPopoverOpen}}
+	@kengine-before-close={{_beforePopoverClose}}
+	@kengine-after-close={{_afterPopoverClose}}
+>
+{{#if isPhone}}
+	<div
+		slot="header"
+		class="kengine-menu-dialog-header"
+	>
+	{{#if isSubMenuOpened}}
+		<kengine-button
+			icon="nav-back"
+			class="kengine-menu-back-button"
+			design="Transparent"
+			aria-label="{{labelBack}}"
+			@click={{_navigateBack}}
+		>
+		</kengine-button>
+	{{/if}}
+		<div
+			class="kengine-menu-dialog-title"
+		>
+			<div>
+				{{menuHeaderTextPhone}}
+			</div>
+		</div>
+		<kengine-button
+			icon="decline"
+			design="Transparent"
+			aria-label="{{labelClose}}"
+			@click={{close}}
+		>
+		</kengine-button>
+	</div>
+{{/if}}
+	<div
+		id="{{_id}}-menu-main"
+	>
+	{{#if _currentItems.length}}
+		<kengine-list
+			id="{{_id}}-menu-list"
+			mode="None"
+			?busy="{{busy}}"
+			busy-delay="{{busyDelay}}"
+			separators="None"
+			accessible-role="menu"
+			@kengine-item-click={{_itemClick}}
+			@mouseover="{{_busyMouseOver}}"
+		>
+		{{#each _currentItems}}
+			<kengine-li
+				.associatedItem="{{this.item}}"
+				class="kengine-menu-item"
+				id="{{../_id}}-menu-item-{{@index}}"
+				.icon="{{this.item.icon}}"
+				accessible-name={{this.item.ariaLabelledByText}}
+				accessible-role="menuitem"
+				.additionalText="{{this.item._additionalText}}"
+				._ariaHasPopup={{this.ariaHasPopup}}
+				?disabled={{this.item.disabled}}
+				?starts-section={{this.item.startsSection}}
+				?selected={{this.item.subMenuOpened}}
+				?is-phone={{../isPhone}}
+				@mouseover={{../_itemMouseOver}}
+				@mouseout={{../_itemMouseOut}}
+				@keydown={{../_itemKeyDown}}
+			>
+				{{#if this.item.hasDummyIcon}}
+					<div
+						class="kengine-menu-item-dummy-icon"
+					>
+					</div>
+				{{/if}}
+				{{this.item.text}}
+				{{#if this.item.hasSubmenu}}
+					<kengine-icon
+						part="icon"
+						name="slim-arrow-right"
+						class="kengine-menu-item-icon-end"
+					>
+					</kengine-icon>
+				{{else if this.item._siblingsWithChildren}}
+					<div
+						class="kengine-menu-item-no-icon-end"
+					>
+					</div>
+				{{/if}}
+			</kengine-li>
+		{{/each}}
+		</kengine-list>
+	{{else if busy}}
+		<kengine-busy-indicator
+			id="{{_id}}-menu-busy-indicator"
+			delay="{{busyDelay}}"
+			class="kengine-menu-busy-indicator"
+			@mouseover="{{_busyMouseOver}}"
+			active>
+		</kengine-busy-indicator>
+	{{/if}}
+	</div>
+</kengine-responsive-popover>
+
+<div
+	class="kengine-menu-submenus"
+>
+</div>

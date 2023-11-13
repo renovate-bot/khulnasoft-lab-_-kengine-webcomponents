@@ -1,0 +1,59 @@
+:root {
+	--kengine-avatar-hover-box-shadow-offset: 0px 0px 0px 0.0625rem;
+	--kengine-avatar-initials-color: var(--sapContent_ImagePlaceholderForegroundColor);
+	--kengine-avatar-border-radius: .25rem;
+	--kengine-avatar-border-radius-img-deduction: 0.0625rem;
+	--kengine-avatar-initials-border: none;
+	--kengine-avatar-accent1: var(--sapAccentColor1);
+	--kengine-avatar-accent2: var(--sapAccentColor2);
+	--kengine-avatar-accent3: var(--sapAccentColor3);
+	--kengine-avatar-accent4: var(--sapAccentColor4);
+	--kengine-avatar-accent5: var(--sapAccentColor5);
+	--kengine-avatar-accent6: var(--sapAccentColor6);
+	--kengine-avatar-accent7: var(--sapAccentColor7);
+	--kengine-avatar-accent8: var(--sapAccentColor8);
+	--kengine-avatar-accent9: var(--sapAccentColor9);
+	--kengine-avatar-accent10: var(--sapAccentColor10);
+	--kengine-avatar-placeholder: var(--sapContent_ImagePlaceholderBackground);
+
+	--kengine-avatar-accent1-color: var(--kengine-avatar-initials-color);
+	--kengine-avatar-accent2-color: var(--kengine-avatar-initials-color);
+	--kengine-avatar-accent3-color: var(--kengine-avatar-initials-color);
+	--kengine-avatar-accent4-color: var(--kengine-avatar-initials-color);
+	--kengine-avatar-accent5-color: var(--kengine-avatar-initials-color);
+	--kengine-avatar-accent6-color: var(--kengine-avatar-initials-color);
+	--kengine-avatar-accent7-color: var(--kengine-avatar-initials-color);
+	--kengine-avatar-accent8-color: var(--kengine-avatar-initials-color);
+	--kengine-avatar-accent9-color: var(--kengine-avatar-initials-color);
+	--kengine-avatar-accent10-color: var(--kengine-avatar-initials-color);
+	--kengine-avatar-placeholder-color: var(--kengine-avatar-initials-color);
+
+	--kengine-avatar-accent1-border-color: var(--sapField_BorderColor);
+	--kengine-avatar-accent2-border-color: var(--sapField_BorderColor);
+	--kengine-avatar-accent3-border-color: var(--sapField_BorderColor);
+	--kengine-avatar-accent4-border-color: var(--sapField_BorderColor);
+	--kengine-avatar-accent5-border-color: var(--sapField_BorderColor);
+	--kengine-avatar-accent6-border-color: var(--sapField_BorderColor);
+	--kengine-avatar-accent7-border-color: var(--sapField_BorderColor);
+	--kengine-avatar-accent8-border-color: var(--sapField_BorderColor);
+	--kengine-avatar-accent9-border-color: var(--sapField_BorderColor);
+	--kengine-avatar-accent10-border-color: var(--sapField_BorderColor);
+	--kengine-avatar-placeholder-border-color: var(--sapField_BorderColor);
+
+	--_kengine_avatar_outline: var(--sapContent_FocusWidth) var(--sapContent_FocusStyle) var(--sapContent_FocusColor);
+	--_kengine_avatar_focus_offset: 1px;
+	--_kengine_avatar_focus_width: 1px;
+	--_kengine_avatar_focus_color: var(--sapContent_FocusColor);
+
+	--_kengine_avatar_fontsize_XS: 0.75rem;
+	--_kengine_avatar_fontsize_S: 1.125rem;
+	--_kengine_avatar_fontsize_M: 1.625rem;
+	--_kengine_avatar_fontsize_L: 2rem;
+	--_kengine_avatar_fontsize_XL: 2.75rem;
+
+	--_kengine_avatar_icon_XS: 1rem;
+	--_kengine_avatar_icon_S: 1.5rem;
+	--_kengine_avatar_icon_M: 2rem;
+	--_kengine_avatar_icon_L: 2.5rem;
+	--_kengine_avatar_icon_XL: 3rem;
+}

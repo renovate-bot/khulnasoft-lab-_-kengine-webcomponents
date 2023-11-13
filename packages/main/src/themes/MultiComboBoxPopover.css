@@ -1,0 +1,3 @@
+.kengine-suggestions-popover .kengine-multi-combobox-all-items-list {
+	--_kengine_checkbox_width_height: var(--_kengine_list_item_dropdown_base_height);
+}

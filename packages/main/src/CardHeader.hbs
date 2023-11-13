@@ -1,0 +1,61 @@
+<div
+	id="{{_id}}--header"
+	class="{{classes.root}}"
+	role="group"
+	aria-roledescription="{{ariaRoleDescription}}"
+	@click="{{_click}}"
+	@keydown="{{_keydown}}"
+	@keyup="{{_keyup}}"
+	part="root"
+>
+	<div
+		class="kengine-card-header-focusable-element"
+		aria-labelledby="{{ariaLabelledBy}}"
+		role="{{ariaRoleFocusableElement}}"
+		data-sap-focus-ref
+		tabindex="0"
+	>
+		{{#if hasAvatar}}
+			<div id="{{_id}}-avatar" class="kengine-card-header-avatar" aria-label="{{ariaCardAvatarLabel}}">
+				<slot name="avatar"></slot>
+			</div>
+		{{/if}}
+
+		<div class="kengine-card-header-text">
+			<div class="kengine-card-header-first-line">
+				{{#if titleText}}
+					<div
+						id="{{_id}}-title"
+						class="kengine-card-header-title"
+						part="title"
+						role="heading"
+						aria-level="3"
+					>{{titleText}}</div>
+				{{/if}}
+
+				{{#if status}}
+					<div class="kengine-card-header-status">
+						<span id="{{_id}}-status" part="status" dir="auto">{{status}}</span>
+					</div>
+				{{/if}}
+
+			</div>
+
+			{{#if subtitleText}}
+				<div id="{{_id}}-subtitle" class="kengine-card-header-subtitle" part="subtitle">{{subtitleText}}</div>
+			{{/if}}
+		</div>
+	</div>
+
+	{{#if hasAction}}
+		<div
+			class="kengine-card-header-action"
+			@focusin="{{_actionsFocusin}}"
+			@focusout="{{_actionsFocusout}}"
+		>
+			<slot name="action"></slot>
+		</div>
+	{{/if}}
+
+	</div>
+</div>

@@ -1,0 +1,17 @@
+@import "../base/WheelSlider-parameters.css";
+
+:root{
+	--_kengine_wheelslider_item_background_color: var(--sapList_Background);
+	--_kengine_wheelslider_item_text_color: var(--sapTextColor);
+	--_ui_wheelslider_item_hover_color: var(--sapHighlightColor);
+	--_kengine_wheelslider_item_border_color: var(--sapList_BorderColor);
+	--_kengine_wheelslider_collapsed_item_text_color: var(--sapContent_ContrastTextColor);
+	--_kengine_wheelslider_selected_item_background_color: var(--sapSelectedColor);
+	--_kengine_wheelslider_selected_item_hover_background_color: var(--sapHighlightColor);
+	--_kengine_wheelslider_active_item_background_color: var(--sapHighlightColor);
+	--_kengine_wheelslider_active_item_text_color: var(--sapTextColor);
+	--_kengine_wheelslider_item_width: 72px;
+	--_kengine_wheelslider_item_height: 48px;
+	--_kengine_wheelslider_selection_frame_color: var(--sapContent_ForegroundBorderColor);
+	--_ui_wheelslider_item_border_radius: 0;
+}

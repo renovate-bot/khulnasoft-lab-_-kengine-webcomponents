@@ -1,0 +1,52 @@
+<div
+	class="{{classes.colorPaletteRoot}}"
+	@click={{_onclick}}
+	@keyup={{_onkeyup}}
+	@keydown={{_onkeydown}}
+>
+	{{#if this.showDefaultColor}}
+		<div class="kengine-cp-default-color-button-wrapper">
+			<kengine-button 
+				class="kengine-cp-default-color-button"
+				design="Transparent" 
+				@click={{_onDefaultColorClick}}
+				@keydown={{_onDefaultColorKeyDown}}>Default color</kengine-button>
+			<div class="kengine-cp-separator"></div>
+		</div>
+	{{/if}}
+	<div class="kengine-cp-item-container" 
+		role="region"
+		aria-label="{{colorContainerLabel}}"
+		@keydown="{{_onColorContainerKeyDown}}"
+	>
+		{{#each this.displayedColors}}
+			<slot
+				name="{{this._individualSlot}}"
+			>
+			</slot>
+		{{/each}}
+	</div>
+
+	{{#if _showMoreColors}}
+		<div class="kengine-cp-more-colors-wrapper">
+			<div class="kengine-cp-separator"></div>
+			<kengine-button
+				design="Transparent"
+				class="kengine-cp-more-colors"
+				@click="{{_openMoreColorsDialog}}"
+				@keydown={{_onMoreColorsKeyDown}}
+			>{{colorPaleteMoreColorsText}}</kengine-button>
+		</div>
+	{{/if}}
+
+	{{#if showRecentColors}}
+		<div class="kengine-cp-recent-colors-wrapper">
+			<div class="kengine-cp-separator"></div>
+			<div class="kengine-cp-recent-colors-container" @keydown="{{_onRecentColorsContainerKeyDown}}">
+				{{#each recentColors}}
+					<kengine-color-palette-item value="{{this}}"></kengine-color-palette-item>
+				{{/each}}
+			</div>
+		</div>
+	{{/if}}
+</div>

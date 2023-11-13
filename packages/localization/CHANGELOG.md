@@ -1,0 +1,734 @@
+# Change Log
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# [1.20.0-rc.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.19.0...v1.20.0-rc.0) (2023-11-09)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.19.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.19.0-rc.3...v1.19.0) (2023-11-02)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.19.0-rc.3](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.19.0-rc.2...v1.19.0-rc.3) (2023-11-02)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.19.0-rc.2](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.19.0-rc.1...v1.19.0-rc.2) (2023-10-26)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.19.0-rc.1](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.19.0-rc.0...v1.19.0-rc.1) (2023-10-19)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.19.0-rc.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.18.1-rc.0...v1.19.0-rc.0) (2023-10-12)
+
+
+### Bug Fixes
+
+* **localization:** missing calendarWeekNumbering ([#7684](https://github.com/khulnasoft-lab/kengine-webcomponents/issues/7684)) ([01a9349](https://github.com/khulnasoft-lab/kengine-webcomponents/commit/01a9349c7ab5e3c046fa10034dc9aa99b840f3d0))
+
+
+
+
+
+## [1.18.1-rc.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.18.0...v1.18.1-rc.0) (2023-10-05)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.18.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.18.0-rc.2...v1.18.0) (2023-10-02)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.18.0-rc.2](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.18.0-rc.1...v1.18.0-rc.2) (2023-09-28)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.18.0-rc.1](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.18.0-rc.0...v1.18.0-rc.1) (2023-09-21)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.18.0-rc.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.17.0...v1.18.0-rc.0) (2023-09-07)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.17.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.17.0-rc.2...v1.17.0) (2023-09-01)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.17.0-rc.2](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.17.0-rc.1...v1.17.0-rc.2) (2023-08-24)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.17.0-rc.1](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.17.0-rc.0...v1.17.0-rc.1) (2023-08-17)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.17.0-rc.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.16.0...v1.17.0-rc.0) (2023-08-10)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.16.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.16.0-rc.4...v1.16.0) (2023-08-03)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.16.0-rc.4](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.16.0-rc.3...v1.16.0-rc.4) (2023-08-03)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.16.0-rc.3](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.16.0-rc.2...v1.16.0-rc.3) (2023-07-27)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.16.0-rc.2](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.16.0-rc.1...v1.16.0-rc.2) (2023-07-20)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.16.0-rc.1](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.16.0-rc.0...v1.16.0-rc.1) (2023-07-13)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.16.0-rc.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.15.1...v1.16.0-rc.0) (2023-07-06)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.15.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.15.0-rc.2...v1.15.0) (2023-06-30)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.15.0-rc.2](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.15.0-rc.1...v1.15.0-rc.2) (2023-06-22)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.15.0-rc.1](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.15.0-rc.0...v1.15.0-rc.1) (2023-06-15)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+
+
+
+
+# [1.15.0-rc.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.14.0...v1.15.0-rc.0) (2023-06-08)
+
+
+### Bug Fixes
+
+* **ui5-calendar:** prevent focus loss during arrow navigation with mouse/touch ([#6957](https://github.com/khulnasoft-lab/kengine-webcomponents/issues/6957)) ([216f6a7](https://github.com/khulnasoft-lab/kengine-webcomponents/commit/216f6a7a476d18a0f6fdf7ff189f953085e30b47))
+
+
+
+
+
+# [1.14.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.14.0-rc.2...v1.14.0) (2023-06-01)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.14.0-rc.2](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.14.0-rc.1...v1.14.0-rc.2) (2023-06-01)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.14.0-rc.1](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.14.0-rc.0...v1.14.0-rc.1) (2023-05-25)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.14.0-rc.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.13.2...v1.14.0-rc.0) (2023-05-18)
+
+
+### Features
+
+* **framework:** use `template literal notation` for enum types ([#6856](https://github.com/khulnasoft-lab/kengine-webcomponents/issues/6856)) ([0de21e8](https://github.com/khulnasoft-lab/kengine-webcomponents/commit/0de21e8ba37c6a75fd3d2a29a16cc82661619cb1)), closes [#6636](https://github.com/khulnasoft-lab/kengine-webcomponents/issues/6636)
+
+
+
+
+
+## [1.13.2](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.13.1...v1.13.2) (2023-05-15)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+## [1.13.1](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.13.0-rc.5...v1.13.1) (2023-05-11)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.13.0-rc.5](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.13.0-rc.4...v1.13.0-rc.5) (2023-05-11)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.13.0-rc.4](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.13.0-rc.3...v1.13.0-rc.4) (2023-05-04)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.13.0-rc.3](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.13.0-rc.2...v1.13.0-rc.3) (2023-04-27)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.13.0-rc.2](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.13.0-rc.1...v1.13.0-rc.2) (2023-04-20)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.13.0-rc.1](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.13.0-rc.0...v1.13.0-rc.1) (2023-04-13)
+
+
+### Features
+
+* **localization:** add `timezone` support [experimental] ([#6857](https://github.com/khulnasoft-lab/kengine-webcomponents/issues/6857)) ([aa91fd1](https://github.com/khulnasoft-lab/kengine-webcomponents/commit/aa91fd136f8bff757d476b83444f963d4299d562))
+
+
+
+
+
+# [1.13.0-rc.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.12.0...v1.13.0-rc.0) (2023-04-06)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.12.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.12.0-rc.3...v1.12.0) (2023-04-04)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.12.0-rc.3](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.12.0-rc.2...v1.12.0-rc.3) (2023-03-30)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.12.0-rc.2](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.12.0-rc.1...v1.12.0-rc.2) (2023-03-23)
+
+
+### Bug Fixes
+
+* fix eslint for JS 3rd party projects ([#6725](https://github.com/khulnasoft-lab/kengine-webcomponents/issues/6725)) ([215a888](https://github.com/khulnasoft-lab/kengine-webcomponents/commit/215a888b006e46d431edd6324812b9d39249aef4))
+* inline sources in the .map file so the src folder is not mandatory ([#6732](https://github.com/khulnasoft-lab/kengine-webcomponents/issues/6732)) ([16771a6](https://github.com/khulnasoft-lab/kengine-webcomponents/commit/16771a64d7b13f418af9afa1a03b224fe3762775))
+
+
+
+
+
+# [1.12.0-rc.1](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.12.0-rc.0...v1.12.0-rc.1) (2023-03-16)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.12.0-rc.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.11.0...v1.12.0-rc.0) (2023-03-09)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.11.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.11.0-rc.4...v1.11.0) (2023-03-06)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.11.0-rc.4](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.11.0-rc.3...v1.11.0-rc.4) (2023-03-02)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.11.0-rc.3](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.11.0-rc.2...v1.11.0-rc.3) (2023-02-23)
+
+
+### Features
+
+* **framework:** support legacy date calendar customizing ([#6462](https://github.com/khulnasoft-lab/kengine-webcomponents/issues/6462)) ([27df89b](https://github.com/khulnasoft-lab/kengine-webcomponents/commit/27df89bc62aaccbfbec5f4d36c520dbd762dab34))
+
+
+
+
+
+# [1.11.0-rc.2](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.11.0-rc.1...v1.11.0-rc.2) (2023-02-16)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.11.0-rc.1](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.11.0-rc.0...v1.11.0-rc.1) (2023-02-09)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.11.0-rc.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.10.4-rc.0...v1.11.0-rc.0) (2023-02-02)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+## [1.10.4-rc.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.10.3...v1.10.4-rc.0) (2023-01-26)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+## [1.10.3](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.10.2...v1.10.3) (2023-01-25)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+## [1.10.2](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.10.1...v1.10.2) (2023-01-25)
+
+**Note:** Version bump only for package kengine-webcomponents
+
+## [1.10.1](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v0.0.0-7b49a7ff1...v1.10.1) (2023-01-24)
+
+
+### Bug Fixes
+
+* add kengine types as a dependency ([#6346](https://github.com/khulnasoft-lab/kengine-webcomponents/issues/6346)) ([2f06c71](https://github.com/khulnasoft-lab/kengine-webcomponents/commit/2f06c71eefb455db179cdbb9bd4b293af5b5aa2b))
+
+
+
+
+
+# [1.10.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.9.3...v1.10.0) (2023-01-20)
+
+
+### Features
+
+* add TS types for localization packages  ([#6147](https://github.com/khulnasoft-lab/kengine-webcomponents/issues/6147)) ([39dcbfd](https://github.com/khulnasoft-lab/kengine-webcomponents/commit/39dcbfd91e6bc728f1c3feaff5e229ae3a359b06))
+* **ui5-button, ui5-date-picker, ui5-calendar:** migrate to TS ([#6173](https://github.com/khulnasoft-lab/kengine-webcomponents/issues/6173)) ([7232ca0](https://github.com/khulnasoft-lab/kengine-webcomponents/commit/7232ca08f286c5dde10080373fb62247f1acf7b7)), closes [#6080](https://github.com/khulnasoft-lab/kengine-webcomponents/issues/6080)
+
+
+
+
+
+## [1.9.3](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.9.2...v1.9.3) (2022-12-16)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+## [1.9.1](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.9.0...v1.9.1) (2022-11-10)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.9.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.8.0...v1.9.0) (2022-10-31)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.8.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.7.1...v1.8.0) (2022-10-03)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+## [1.7.1](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.7.0...v1.7.1) (2022-09-08)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.7.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.6.0...v1.7.0) (2022-09-02)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.6.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.5.0...v1.6.0) (2022-07-25)
+
+
+### Features
+
+* **ui5-calendar:** show months and years from both primary and secon… ([#5412](https://github.com/khulnasoft-lab/kengine-webcomponents/issues/5412)) ([d5dc7ec](https://github.com/khulnasoft-lab/kengine-webcomponents/commit/d5dc7ec))
+
+
+
+
+
+# [1.5.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.4.0...v1.5.0) (2022-07-03)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.4.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.3.1...v1.4.0) (2022-05-25)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+## [1.3.1](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.3.0...v1.3.1) (2022-04-27)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.3.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.2.4...v1.3.0) (2022-04-19)
+
+
+### Bug Fixes
+
+* **localization:** fix js error if "sh" locale set ([#4905](https://github.com/khulnasoft-lab/kengine-webcomponents/issues/4905)) ([979bca2](https://github.com/khulnasoft-lab/kengine-webcomponents/commit/979bca2)), closes [#4904](https://github.com/khulnasoft-lab/kengine-webcomponents/issues/4904)
+
+
+
+
+
+## [1.2.4](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.2.3...v1.2.4) (2022-03-30)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+## [1.2.3](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.2.2...v1.2.3) (2022-03-23)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+## [1.2.2](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.2.1...v1.2.2) (2022-03-22)
+
+
+### Bug Fixes
+
+* **localization:** fix js error if "sh" locale set ([#4905](https://github.com/khulnasoft-lab/kengine-webcomponents/issues/4905)) ([9ace82c](https://github.com/khulnasoft-lab/kengine-webcomponents/commit/9ace82c)), closes [#4904](https://github.com/khulnasoft-lab/kengine-webcomponents/issues/4904)
+
+
+
+
+
+
+## [1.2.1](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.2.0...v1.2.1) (2022-03-02)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.2.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.1.2...v1.2.0) (2022-02-28)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+## [1.1.2](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.1.1...v1.1.2) (2022-01-26)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+## [1.1.1](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.1.0...v1.1.1) (2022-01-24)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.1.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.0.2...v1.1.0) (2022-01-21)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+## [1.0.2](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.0.1...v1.0.2) (2021-11-29)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+## [1.0.1](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.0.0...v1.0.1) (2021-11-10)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.0.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.0.0-rc.16...v1.0.0) (2021-11-10)
+
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.0.0-rc.16](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.0.0-rc.15...v1.0.0-rc.16) (2021-11-09)
+
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.0.0-rc.15](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.0.0-rc.14...v1.0.0-rc.15) (2021-07-23)
+
+
+**Note:** Version bump only for package @kengine/webcomponents-icons-tnt
+
+
+
+
+# [1.0.0-rc.14](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.0.0-rc.13...v1.0.0-rc.14) (2021-04-01)
+
+
+
+
+
+# [1.0.0-rc.13](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.0.0-rc.12...v1.0.0-rc.13) (2021-03-26)
+
+
+
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.0.0-rc.12](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.0.0-rc.11...v1.0.0-rc.12) (2021-02-18)
+
+
+### Bug Fixes
+
+* **ui5-calendar:** Today date is now timezone aware ([#2660](https://github.com/khulnasoft-lab/kengine-webcomponents/issues/2660)) ([32dd0ef](https://github.com/khulnasoft-lab/kengine-webcomponents/commit/32dd0ef))
+
+
+
+
+# [1.0.0-rc.11](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.0.0-rc.10...v1.0.0-rc.11) (2020-12-21)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.0.0-rc.10](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.0.0-rc.9...v1.0.0-rc.10) (2020-11-12)
+
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.0.0-rc.9](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.0.0-rc.8...v1.0.0-rc.9) (2020-10-08)
+
+
+### Features
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.0.0-rc.8](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.0.0-rc.7...v1.0.0-rc.8) (2020-07-30)
+
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [1.0.0-rc.7](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v1.0.0-rc.6...v1.0.0-rc.7) (2020-04-30)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization
+
+
+
+
+
+# [0.19.0](https://github.com/khulnasoft-lab/kengine-webcomponents/compare/v0.18.0...v0.19.0) (2020-03-27)
+
+**Note:** Version bump only for package @kengine/webcomponents-localization

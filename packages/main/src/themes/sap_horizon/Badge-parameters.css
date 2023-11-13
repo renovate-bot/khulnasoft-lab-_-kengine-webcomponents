@@ -1,0 +1,48 @@
+@import "../base/Badge-parameters.css";
+
+:root {
+	--_kengine-badge-height: 1.375rem;
+	--_kengine-badge-border: none;
+	--_kengine-badge-border-radius: 0.25rem;
+	--_kengine-badge-padding-inline: 0.375em;
+	--_kengine-badge-padding-inline-icon-only: var(--_kengine-badge-padding-inline);
+	--_kengine-badge-text-transform: none;
+	--_kengine-badge-icon-gap: 0.25rem;
+	--_kengine-badge-font-size: var(--sapFontSize);
+	--_kengine-badge-font: "72override", var(--sapFontSemiboldDuplexFamily);
+	--_kengine-badge-font-weight: normal;
+	--_kengine-badge-default-border-color: transparent;
+	--_kengine-badge-default-background: var(--kengine-badge-color-scheme-1-background);
+	--_kengine-badge-default-color: var(--kengine-badge-color-scheme-1-color);
+	--_kengine-badge-letter-spacing: normal;
+
+	--kengine-badge-color-scheme-1-background: var(--sapAvatar_1_Background);
+	--kengine-badge-color-scheme-1-color: var(--sapAvatar_1_TextColor);
+
+	--kengine-badge-color-scheme-2-background: var(--sapAvatar_2_Background);
+	--kengine-badge-color-scheme-2-color: var(--sapAvatar_2_TextColor);
+
+	--kengine-badge-color-scheme-3-background: var(--sapAvatar_3_Background);
+	--kengine-badge-color-scheme-3-color: var(--sapAvatar_3_TextColor);
+
+	--kengine-badge-color-scheme-4-background: var(--sapAvatar_4_Background);
+	--kengine-badge-color-scheme-4-color: var(--sapAvatar_4_TextColor);
+
+	--kengine-badge-color-scheme-5-background: var(--sapAvatar_5_Background);
+	--kengine-badge-color-scheme-5-color: var(--sapAvatar_5_TextColor);
+
+	--kengine-badge-color-scheme-6-background: var(--sapAvatar_6_Background);
+	--kengine-badge-color-scheme-6-color: var(--sapAvatar_6_TextColor);
+
+	--kengine-badge-color-scheme-7-background: var(--sapAvatar_7_Background);
+	--kengine-badge-color-scheme-7-color: var(--sapAvatar_7_TextColor);
+
+	--kengine-badge-color-scheme-8-background: var(--sapAvatar_8_Background);
+	--kengine-badge-color-scheme-8-color: var(--sapAvatar_8_TextColor);
+
+	--kengine-badge-color-scheme-9-background: var(--sapAvatar_9_Background);
+	--kengine-badge-color-scheme-9-color: var(--sapAvatar_9_TextColor);
+
+	--kengine-badge-color-scheme-10-background: var(--sapAvatar_10_Background);
+	--kengine-badge-color-scheme-10-color: var(--sapAvatar_10_TextColor);
+}

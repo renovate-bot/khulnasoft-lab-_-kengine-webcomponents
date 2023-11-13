@@ -1,0 +1,72 @@
+<div
+	class="kengine-cal-root"
+	@keydown={{_onkeydown}}
+>
+	<div id="{{_id}}-content" class="kengine-cal-content">
+		<kengine-daypicker
+			id="{{_id}}-daypicker"
+			?hidden="{{_isDayPickerHidden}}"
+			format-pattern="{{_formatPattern}}"
+			.selectedDates="{{_selectedDatesTimestamps}}"
+			._hidden="{{_isDayPickerHidden}}"
+			.primaryCalendarType="{{_primaryCalendarType}}"
+			.secondaryCalendarType="{{_secondaryCalendarType}}"
+			.selectionMode="{{selectionMode}}"
+			.minDate="{{minDate}}"
+			.maxDate="{{maxDate}}"
+			timestamp="{{_timestamp}}"
+			?hide-week-numbers="{{hideWeekNumbers}}"
+			@kengine-change="{{onSelectedDatesChange}}"
+			@kengine-navigate="{{onNavigate}}"
+		></kengine-daypicker>
+
+		<kengine-monthpicker
+			id="{{_id}}-MP"
+			?hidden="{{_isMonthPickerHidden}}"
+			format-pattern="{{_formatPattern}}"
+			.selectedDates="{{_selectedDatesTimestamps}}"
+			._hidden="{{_isMonthPickerHidden}}"
+			.primaryCalendarType="{{_primaryCalendarType}}"
+			.secondaryCalendarType="{{_secondaryCalendarType}}"
+			.minDate="{{minDate}}"
+			.maxDate="{{maxDate}}"
+			timestamp="{{_timestamp}}"
+			@kengine-change="{{onSelectedMonthChange}}"
+			@kengine-navigate="{{onNavigate}}"
+		></kengine-monthpicker>
+
+		<kengine-yearpicker
+			id="{{_id}}-YP"
+			?hidden="{{_isYearPickerHidden}}"
+			format-pattern="{{_formatPattern}}"
+			.selectedDates="{{_selectedDatesTimestamps}}"
+			._hidden="{{_isYearPickerHidden}}"
+			.primaryCalendarType="{{_primaryCalendarType}}"
+			.secondaryCalendarType="{{_secondaryCalendarType}}"
+			.minDate="{{minDate}}"
+			.maxDate="{{maxDate}}"
+			timestamp="{{_timestamp}}"
+			@kengine-change="{{onSelectedYearChange}}"
+			@kengine-navigate="{{onNavigate}}"
+		></kengine-yearpicker>
+	</div>
+
+	{{! Positioned above the content due to flex-direction:column-reverse, but physically here for tab order to work}}
+	<kengine-calendar-header
+			id="{{_id}}-head"
+			.primaryCalendarType="{{_primaryCalendarType}}"
+			.secondaryCalendarType="{{_secondaryCalendarType}}"
+			.buttonTextForSecondaryCalendarType="{{secondaryCalendarTypeButtonText}}"
+			timestamp="{{_timestamp}}"
+			.isPrevButtonDisabled="{{_previousButtonDisabled}}"
+			.isNextButtonDisabled="{{_nextButtonDisabled}}"
+			.isMonthButtonHidden="{{_isHeaderMonthButtonHidden}}"
+			._monthButtonText="{{_headerMonthButtonText}}"
+			._yearButtonText="{{_headerYearButtonText}}"
+			._yearButtonTextSecType="{{_headerYearButtonTextSecType}}"
+			@kengine-previous-press="{{onHeaderPreviousPress}}"
+			@kengine-next-press="{{onHeaderNextPress}}"
+			@kengine-show-month-press="{{onHeaderShowMonthPress}}"
+			@kengine-show-year-press="{{onHeaderShowYearPress}}"
+	></kengine-calendar-header>
+</div>

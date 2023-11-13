@@ -1,0 +1,6 @@
+:root {
+	--_kengine_load_more_padding: 0;
+	--_kengine_load_more_border: 1px top solid transparent;
+	--_kengine_load_more_border_radius: none;
+	--_kengine_load_more_outline_width: 1px;
+}

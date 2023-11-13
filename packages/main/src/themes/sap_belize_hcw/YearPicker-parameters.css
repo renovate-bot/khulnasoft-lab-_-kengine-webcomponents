@@ -1,0 +1,10 @@
+@import "../base/YearPicker-parameters.css";
+
+:root {
+	--_kengine_yearpicker_item_border: 1px solid var(--sapList_BorderColor);
+	--_kengine_yearpicker_item_margin: 0;
+	--_kengine_yearpicker_item_focus_after_width: calc(100% - 0.25rem);
+	--_kengine_yearpicker_item_focus_after_height: calc(100% - 0.25rem);
+	--_kengine_yearpicker_item_focus_after_border: 2px dotted var(--sapContent_FocusColor);
+	--_kengine_yearpicker_item_focus_after_offset: 0;
+} 

@@ -1,0 +1,23 @@
+import { assert } from "chai";
+
+describe("Mobile: TabContainer general interaction", () => {
+	before(async () => {
+		await browser.url("test/pages/TabContainer.html");
+		await browser.emulateDevice("iPhone X");
+	});
+
+	it("should close the overflow popover when pressing the cancel button", async () => {
+		const moreButton = await browser.$("#tabContainerNestedTabs").shadow$(`[data-kengine-stable="overflow-end"]`);
+		await moreButton.click();
+
+		const staticAreaItemClassName = await browser.getStaticAreaItemClassName("#tabContainerNestedTabs");
+		let overflow = await browser.$(`.${staticAreaItemClassName}`).shadow$("kengine-responsive-popover");
+		const closeButton = await overflow.$("kengine-button");
+
+		assert.ok(await overflow.getProperty("open"), "Overflow is opened");
+
+		await closeButton.click();
+
+		assert.notOk(await overflow.getProperty("open"), "Overflow is closed");
+	});
+});

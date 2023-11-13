@@ -1,0 +1,344 @@
+:root {
+	/* Calendar */
+	--_kengine_calendar_height: 24.5rem;
+	--_kengine_calendar_width: 20rem;
+	--_kengine_calendar_padding: 1rem;
+	--_kengine_calendar_left_right_padding:  0.5rem;
+	--_kengine_calendar_top_bottom_padding: 1rem;
+	--_kengine_calendar_header_height: 3rem;
+	--_kengine_calendar_header_arrow_button_width: 2.5rem;
+	--_kengine_calendar_header_padding: 0.25rem 0;
+
+	--_kengine_checkbox_root_side_padding: .6875rem;
+	--_kengine_checkbox_icon_size: 1rem;
+	--_kengine_checkbox_partially_icon_size: .75rem;
+	--_kengine_custom_list_item_rb_min_width: 2.75rem;
+	--_kengine_day_picker_item_width: 2.25rem;
+	--_kengine_day_picker_item_height: 2.875rem;
+	--_kengine_day_picker_empty_height: 3rem;
+	--_kengine_day_picker_item_justify_content: space-between;
+	--_kengine_dp_two_calendar_item_now_text_padding_top: 0.387rem;
+    --_kengine_dp_two_calendar_item_primary_text_height: 1.8125rem;
+    --_kengine_dp_two_calendar_item_secondary_text_height: 1rem;
+	--_kengine_dp_two_calendar_item_text_padding_top: 0.575rem;
+
+	/* ColorPalette */
+	 --_kengine_color-palette-item-height: 1.75rem;
+	 --_kengine_color-palette-item-hover-height: 2.375rem;
+	 --_kengine_color-palette-item-margin: calc((var(--_kengine_color-palette-item-hover-height) - var(--_kengine_color-palette-item-height)) / 2);
+	 --_kengine_color-palette-row-width: 12rem;
+	 --_kengine_color-palette-swatch-container-padding: 0.3125rem 0.6875rem;
+
+	 /* DateTimePicker */
+	--_kengine_datetime_picker_width: 40.0625rem;
+	--_kengine_datetime_picker_height: 25rem;
+	--_kengine_datetime_timeview_width: 17rem;
+	--_kengine_datetime_timeview_phonemode_width: 19.5rem;
+	--_kengine_datetime_timeview_padding: 1rem;
+
+	/* Dialog */
+	--_kengine_dialog_content_min_height: 2.75rem;
+	--_kengine_dialog_footer_height: 2.75rem;
+
+	--_kengine_input_inner_padding: 0 0.625rem;
+	--_kengine_input_inner_padding_with_icon: 0 0.25rem 0 0.625rem;
+	--_kengine_input_inner_space_to_tokenizer: 0.125rem;
+	--_kengine_input_inner_space_to_n_more_text: 0.1875rem;
+	--_kengine_list_no_data_height: 3rem;
+	--_kengine_list_item_cb_margin_right: 0;
+	--_kengine_list_item_title_size: var(--sapFontLargeSize);
+	--_kengine_list_no_data_font_size: var(--sapFontLargeSize);
+	--_kengine_list_item_img_size: 3rem;
+	--_kengine_list_item_img_top_margin: 0.5rem;
+	--_kengine_list_item_img_bottom_margin: 0.5rem;
+	--_kengine_list_item_img_hn_margin: 0.75rem;
+	--_kengine_list_item_dropdown_base_height: 2.5rem;
+	--_kengine_list_item_base_height: var(--sapElement_LineHeight);
+	--_kengine_list_item_icon_size: 1.125rem;
+	--_kengine_list_item_icon_padding-inline-end: 0.5rem;
+	--_kengine_list_item_selection_btn_margin_top: calc(-1 * var(--_kengine_checkbox_wrapper_padding));
+	--_kengine_list_item_content_vertical_offset: calc((var(--_kengine_list_item_base_height) - var(--_kengine_list_item_title_size)) / 2);
+	--_kengine_group_header_list_item_height: 2.75rem;
+	--_kengine_list_busy_row_height: 3rem;
+	--_kengine_month_picker_item_height: 3rem;
+	--_kengine_list_buttons_left_space: 0.125rem;
+
+	/* Popup subclasses */
+	--_kengine_popup_default_header_height: 2.75rem;
+
+	/* Notifications */
+	--_kengine-notification-overflow-popover-padding: 0.25rem 0.5rem;
+
+	--_kengine_year_picker_item_height: 3rem;
+	--_kengine_tokenizer_padding: 0.25rem;
+	--_kengine_token_height: 1.625rem;
+	--_kengine_token_icon_size: .75rem;
+	--_kengine_token_icon_padding: 0.25rem 0.5rem;
+	--_kengine_token_wrapper_right_padding: 0.3125rem;
+	--_kengine_token_wrapper_left_padding: 0;
+	--_kengine_tl_bubble_padding: 1rem;
+	--_kengine_tl_indicator_before_bottom: -1.625rem;
+	--_kengine_tl_padding: 1rem 1rem 1rem .5rem;
+	--_kengine_tl_li_margin_bottom: 1.625rem;
+
+	/*switch*/
+	--_kengine_switch_focus_width_size_horizon_exp: calc(100% + 4px);
+	--_kengine_switch_focus_height_size_horizon_exp: calc(100% + 4px);
+
+	--_kengine_tc_item_text: 3rem;
+	--_kengine_tc_item_height: 4.75rem;
+	--_kengine_tc_item_text_only_height: 2.75rem;
+	--_kengine_tc_item_text_only_with_additional_text_height: 3.75rem;
+	--_kengine_tc_item_text_line_height: 1.325rem;
+	--_kengine_tc_item_icon_circle_size: 2.75rem;
+	--_kengine_tc_item_icon_size: 1.25rem;
+	--_kengine_tc_item_add_text_margin_top: 0.375rem;
+
+	/* TextArea */
+	--_kengine_textarea_margin: .25rem 0;
+
+	/* Panel */
+	--_kengine_panel_header_height: 2.75rem;
+
+	/* Radio Button */
+	--_kengine_radio_button_height: 2.75rem;
+	--_kengine_radio_button_label_side_padding: .875rem;
+	--_kengine_radio_button_inner_size: 2.75rem;
+	--_kengine_radio_button_svg_size: 1.375rem;
+
+	/* Responsive Popover */
+	--_kengine-responsive_popover_header_height: 2.75rem;
+
+	/* Side Navigation */
+	--kengine_side_navigation_item_height: 2.75rem;
+
+	/* Table */
+
+	--_kengine_load_more_text_height: 2.75rem;
+	--_kengine_load_more_text_font_size: var(--sapFontMediumSize);
+	--_kengine_load_more_desc_padding:  0.375rem 2rem 0.875rem 2rem;
+	--kengine_table_header_row_height: 2.75rem;
+	--kengine_table_row_height: 2.75rem;
+	--kengine_table_focus_outline_offset: -0.125rem;
+	--kengine_table_group_row_height: 2rem;
+
+	/* Tree */
+	--_kengine-tree-indent-step: 1.5rem;
+	--_kengine-tree-toggle-box-width: 2.75rem;
+	--_kengine-tree-toggle-box-height: 2.25rem;
+	--_kengine-tree-toggle-icon-size: 1.0625rem;
+
+	/* Timeline */
+	--_kengine_timeline_tli_indicator_before_bottom: -1.625rem;
+	--_kengine_timeline_tli_indicator_before_right: -1.625rem;
+	--_kengine_timeline_tli_indicator_before_without_icon_bottom: -1.875rem;
+	--_kengine_timeline_tli_indicator_before_without_icon_right: -1.9375rem;
+
+	/* SplitButton */
+	--_kengine_split_button_middle_separator_top: 0;
+	--_kengine_split_button_middle_separator_height: 2.25rem;
+
+	/* Toolbar */
+	--_kengine-toolbar-separator-height: 2rem;
+	--_kengine-toolbar-height: 2.75rem;
+	--_kengine_toolbar_overflow_padding: 0.25rem 0.5rem;
+}
+
+[data-kengine-compact-size],
+.kengine-content-density-compact,
+.sapUiSizeCompact {
+	--_kengine_button_base_height: var(--sapElement_Compact_Height);
+	--_kengine_button_base_padding: 0.4375rem;
+	--_kengine_button_base_min_width: 2rem;
+	--_kengine_button_icon_font_size: 1rem;
+
+	/* Calendar */
+	--_kengine_calendar_height: 18rem;
+	--_kengine_calendar_width: 17.75rem;
+	--_kengine_calendar_left_right_padding: 0.25rem;
+	--_kengine_calendar_top_bottom_padding: 0.5rem;
+	--_kengine_calendar_header_height: 2rem;
+	--_kengine_calendar_header_arrow_button_width: 2rem;
+	--_kengine_calendar_header_padding: 0;
+
+	/* CheckBox */
+	--_kengine_checkbox_root_side_padding: var(--_kengine_checkbox_wrapped_focus_padding);
+	--_kengine_checkbox_wrapped_content_margin_top: var(--_kengine_checkbox_compact_wrapped_label_margin_top);
+	--_kengine_checkbox_wrapped_focus_left_top_bottom_position: var(--_kengine_checkbox_compact_focus_position);
+	--_kengine_checkbox_width_height: var(--_kengine_checkbox_compact_width_height);
+	--_kengine_checkbox_wrapper_padding: var(--_kengine_checkbox_compact_wrapper_padding);
+	--_kengine_checkbox_focus_position: var(--_kengine_checkbox_compact_focus_position);
+	--_kengine_checkbox_inner_width_height: var(--_kengine_checkbox_compact_inner_size);
+	--_kengine_checkbox_icon_size: .75rem;
+	--_kengine_checkbox_partially_icon_size: .5rem;
+
+	/* ColorPalette */
+	--_kengine_color-palette-item-height: 1.25rem;
+	--_kengine_color-palette-item-focus-height: 1rem;
+	--_kengine_color-palette-item-container-sides-padding: 0.1875rem;
+	--_kengine_color-palette-item-container-rows-padding: 0.8125rem;
+	--_kengine_color-palette-item-hover-height: 1.625rem;
+	--_kengine_color-palette-item-margin: calc((var(--_kengine_color-palette-item-hover-height) - var(--_kengine_color-palette-item-height)) / 2);
+	--_kengine_color-palette-row-width: 8.125rem;
+	--_kengine_color-palette-swatch-container-padding: 0.1875rem 0.8125rem;
+	--_kengine_color-palette-item-hover-margin: 0;
+	--_kengine_color-palette-row-height: 7.5rem;
+	--_kengine_color-palette-button-height: 2rem;
+	--_kengine_color_picker_slider_container_margin_top: -4px;
+
+	/* Custom List Item */
+	--_kengine_custom_list_item_rb_min_width: 2rem;
+
+	/* DayPicker */
+	--_kengine_daypicker_weeknumbers_container_padding_top: 2rem;
+	--_kengine_day_picker_item_width: 2rem;
+	--_kengine_day_picker_item_height: 2rem;
+	--_kengine_day_picker_empty_height: 2.125rem;
+	--_kengine_day_picker_item_justify_content: flex-end;
+	--_kengine_dp_two_calendar_item_now_text_padding_top: 0rem;
+    --_kengine_dp_two_calendar_item_primary_text_height: 1rem;
+    --_kengine_dp_two_calendar_item_secondary_text_height: 0.75rem;
+	--_kengine_dp_two_calendar_item_text_padding_top: 0;
+
+	/* DateTimePicker */
+	--_kengine_datetime_picker_height: 17rem;
+	--_kengine_datetime_picker_width: 34.0625rem;
+	--_kengine_datetime_timeview_width: 17rem;
+	--_kengine_datetime_timeview_phonemode_width: 18.5rem;
+	--_kengine_datetime_timeview_padding: 0.5rem;
+
+	/* Dialog */
+	--_kengine_dialog_content_min_height: 2.5rem;
+	--_kengine_dialog_footer_height: 2.5rem;
+
+	/* Input */
+	--_kengine_input_height: var(--sapElement_Compact_Height);
+	--_kengine_input_inner_padding: 0 0.5rem;
+	--_kengine_input_inner_padding_with_icon: 0 0.2rem 0 0.5rem;
+	--_kengine_input_inner_space_to_tokenizer: 0.125rem;
+	--_kengine_input_inner_space_to_n_more_text: 0.125rem;
+	--_kengine_input_icon_min_width: var(--_kengine_input_compact_min_width);
+
+	/* Menu */
+	--_kengine_menu_item_padding: 0 0.75rem 0 0.5rem;
+	--_kengine_menu_item_submenu_icon_right: 0.75rem;
+
+	/* Notifications */
+	--_kengine-notification-overflow-popover-padding: 0.25rem 0.5rem;
+
+	/* Popup subclasses */
+	--_kengine_popup_default_header_height: 2.5rem;
+
+	/* TextArea */
+	--_kengine_textarea_margin: .1875rem 0;
+
+	/* List */
+	--_kengine_list_no_data_height: 2rem;
+	--_kengine_list_item_cb_margin_right: .5rem;
+	--_kengine_list_item_title_size: var(--sapFontSize);
+	--_kengine_list_item_img_top_margin: 0.55rem;
+	--_kengine_list_no_data_font_size: var(--sapFontSize);
+	--_kengine_list_item_dropdown_base_height: 2rem;
+	--_kengine_list_item_base_height: 2rem;
+	--_kengine_list_item_icon_size: 1rem;
+	--_kengine_list_item_selection_btn_margin_top: calc(-1 * var(--_kengine_checkbox_wrapper_padding));
+	--_kengine_list_item_content_vertical_offset: calc((var(--_kengine_list_item_base_height) - var(--_kengine_list_item_title_size)) / 2);
+	--_kengine_list_busy_row_height: 2rem;
+	--_kengine_list_buttons_left_space: 0.125rem;
+
+	--_kengine_month_picker_item_height: 2rem;
+	--_kengine_year_picker_item_height: 2rem;
+	--_kengine_panel_header_height: 2.5rem;
+
+	--_kengine_token_height: 1.25rem;
+	--_kengine_token_right_margin: 0.25rem;
+	--_kengine_token_left_padding: 0.25rem;
+	--_kengine_token_readonly_padding: 0.125rem 0.25rem;
+	--_kengine_token_focus_offset: -0.125rem;
+	--_kengine_token_icon_size: .75rem;
+	--_kengine_token_icon_padding: 0.125rem 0.25rem;
+	--_kengine_token_wrapper_right_padding: 0.25rem;
+	--_kengine_token_wrapper_left_padding: 0;
+	--_kengine_token_outline_offset: -0.125rem;
+
+	--_kengine_tl_bubble_padding: .5rem;
+	--_kengine_tl_indicator_before_bottom: -.5rem;
+	--_kengine_tl_padding: .5rem;
+	--_kengine_tl_li_margin_bottom: .5rem;
+
+	--_kengine_wheelslider_item_width: 64px;
+	--_kengine_wheelslider_item_height: 32px;
+	--_kengine_wheelslider_height: 224px;
+	--_kengine_wheelslider_selection_frame_margin_top: calc(var(--_kengine_wheelslider_item_height) * 2);
+	--_kengine_wheelslider_arrows_visibility: visible;
+	--_kengine_wheelslider_mobile_selection_frame_margin_top: 128px;
+
+	--_kengine_tc_item_text: 2rem;
+	--_kengine_tc_item_text_line_height: 1.325rem;
+	--_kengine_tc_item_icon_size: 1rem;
+	--_kengine_tc_item_add_text_margin_top: 0.3125rem;
+	--_kengine_tc_item_height: 4rem;
+	--_kengine_tc_header_height: var(--_kengine_tc_item_height);
+	--_kengine_tc_item_icon_circle_size: 2rem;
+	--_kengine_tc_item_icon_size: 1rem;
+
+	/* Radio Button */
+	--_kengine_radio_button_height: 2rem;
+	--_kengine_radio_button_label_side_padding: .5rem;
+	--_kengine_radio_button_inner_size: 2rem;
+	--_kengine_radio_button_svg_size: 1rem;
+
+	/* Responsive Popover */
+	--_kengine-responsive_popover_header_height: 2.5rem;
+
+	/* Side Navigation */
+	--kengine_side_navigation_item_height: 2rem;
+
+	/* Slider */
+	--_kengine_slider_handle_height: 1.25rem;
+	--_kengine_slider_handle_width: 1.25rem;
+	--_kengine_slider_handle_top: -.5rem;
+	--_kengine_slider_tooltip_height: 1rem;
+	--_kengine_slider_tooltip_padding: 0.25rem;
+	/* --_kengine_slider_tooltip_bottom: 1.875rem; */
+	--_kengine_slider_progress_outline_offset: -0.625rem;
+	--_kengine_slider_outer_height: 1.3125rem;
+
+	/* SplitButton */
+	--_kengine_split_button_middle_separator_top: 0;
+	--_kengine_split_button_middle_separator_height: 1.625rem;
+
+	/* StepInput */
+	--_kengine_step_input_min_width: 6rem;
+	--_kengine_step_input_padding: 2rem;
+
+	/* Table */
+	--_kengine_load_more_text_height: 2.625rem;
+	--_kengine_load_more_text_font_size: var(--sapFontSize);
+	--_kengine_load_more_desc_padding: 0 2rem 0.875rem 2rem;
+	--kengine_table_header_row_height: 2rem;
+	--kengine_table_row_height: 2rem;
+
+	/* Tree */
+	--_kengine-tree-indent-step: 0.5rem;
+	--_kengine-tree-toggle-box-width: 2rem;
+	--_kengine-tree-toggle-box-height: 1.5rem;
+	--_kengine-tree-toggle-icon-size: 0.8125rem;
+
+	/* Timeline */
+	--_kengine_timeline_tli_indicator_before_bottom: -0.5rem;
+	--_kengine_timeline_tli_indicator_before_right: -0.5rem;
+	--_kengine_timeline_tli_indicator_before_without_icon_bottom: -0.75rem;
+	--_kengine_timeline_tli_indicator_before_without_icon_right: -0.8125rem;
+
+	/* ViewSettingsDialog */
+	--_kengine_vsd_header_container: 2.5rem;
+	--_kengine_vsd_sub_header_container_height: 2rem;
+	--_kengine_vsd_header_height: 4rem;
+	--_kengine_vsd_expand_content_height: 25.4375rem;
+
+	/* Toolbar */
+	--_kengine-toolbar-separator-height: 1.5rem;
+	--_kengine-toolbar-height: 2rem;
+	--_kengine_toolbar_overflow_padding: 0.1875rem 0.375rem;
+}

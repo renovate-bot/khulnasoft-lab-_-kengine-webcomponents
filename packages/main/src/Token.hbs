@@ -1,0 +1,29 @@
+<div
+	tabindex="{{_tabIndex}}"
+	@click="{{_handleSelect}}"
+	@focusin="{{_focusin}}"
+	@focusout="{{_focusout}}"
+	@keydown="{{_keydown}}"
+	class="kengine-token--wrapper"
+	role="option"
+	aria-selected="{{selected}}"
+>
+	<span class="kengine-token--text">{{this.text}}</span>
+
+	{{#unless readonly}}
+		<div
+			class="kengine-token--icon"
+		>
+			{{#if closeIcon.length}}
+				<slot name="closeIcon" @click="{{_delete}}"></slot>
+			{{else}}
+				<kengine-icon
+					name="{{iconURI}}"
+					accessible-name="{{tokenDeletableText}}"
+					show-tooltip
+					@click="{{_delete}}"
+				></kengine-icon>
+			{{/if}}
+		</div>
+	{{/unless}}
+</div>

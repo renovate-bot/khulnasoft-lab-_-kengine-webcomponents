@@ -1,0 +1,88 @@
+:host(:not([hidden])) {
+	display: block;
+}
+
+:host {
+	width: 100%;
+	height: 100%;
+}
+
+.kengine-mp-root {
+	padding: 2rem 0 1rem 0;
+	display: flex;
+	flex-direction: column;
+	font-family: "72override", var(--sapFontFamily);
+	font-size: var(--sapFontSize);
+	justify-content: center;
+	align-items: center;
+}
+
+.kengine-mp-item {
+	display: flex;
+	flex-direction: column;
+	width: calc(33.333% - 0.125rem);
+	height: var(--_kengine_month_picker_item_height);
+	color: var(--sapButton_Lite_TextColor);
+	background-color: var(--sapLegend_WorkingBackground);
+	align-items: center;
+	justify-content: center;
+	margin: var(--_kengine_monthpicker_item_margin);
+	box-sizing: border-box;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+	cursor: default;
+	outline: none;
+	position: relative;
+	border: var(--_kengine_monthpicker_item_border);
+	border-radius: var(--_kengine_monthpicker_item_border_radius);
+}
+
+.kengine-dp-monthsectext {
+	font-size: 0.75rem;
+	color: var(--sapNeutralElementColor);
+}
+
+.kengine-mp-item:hover {
+	background-color: var(--sapList_Hover_Background);
+}
+
+.kengine-mp-item.kengine-mp-item--selected,
+.kengine-mp-item.kengine-mp-item--selected .kengine-dp-monthsectext {
+	box-shadow: var(--_kengine_monthpicker_item_selected_box_shadow);
+	font-weight: var(--_kengine_monthpicker_item_selected_font_wieght);
+	background-color: var(--_kengine_monthpicker_item_selected_background_color);
+	color: var(--_kengine_monthpicker_item_selected_text_color);
+}
+
+.kengine-mp-item.kengine-mp-item--disabled {
+	pointer-events: none;
+	opacity: 0.5;
+}
+
+.kengine-mp-item.kengine-mp-item--selected:focus {
+	background-color: var(--sapContent_Selected_Background);
+}
+
+.kengine-mp-item.kengine-mp-item--selected:focus::after {
+	border-color: var(--_kengine_monthpicker_item_focus_after_border);
+}
+
+.kengine-mp-item.kengine-mp-item--selected:hover {
+	background-color: var(--_kengine_monthpicker_item_selected_hover_color);
+}
+
+.kengine-mp-item:focus::after {
+	content: "";
+	position: absolute;
+	border: var(--_kengine_button_focused_border);
+	inset: 0;
+	border-radius: var(--_kengine_monthpicker_item_focus_after_border_radius);
+}
+
+.kengine-mp-quarter {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}

@@ -1,0 +1,13 @@
+@import "../base/CheckBox-parameters.css";
+
+:root {
+	--_kengine_checkbox_wrapper_padding: .6875rem;
+	--_kengine_checkbox_width_height: 2.75rem;
+	--_kengine_checkbox_inner_border: .0625rem solid var(--sapField_BorderColor);
+	--_kengine_checkbox_focus_position: 0.5625rem;
+	--_kengine_checkbox_inner_border_radius: .125rem;
+	--_kengine_checkbox_wrapped_content_margin_top: 0;
+	--_kengine_checkbox_wrapped_focus_padding: .5rem;
+	--_kengine_checkbox_inner_readonly_border: 1px solid var(--sapField_ReadOnly_BorderColor);
+	--_kengine_checkbox_compact_wrapped_label_margin_top: -0.125rem;
+}

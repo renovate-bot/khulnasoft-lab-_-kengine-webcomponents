@@ -1,0 +1,18 @@
+.kengine-tab-semantic-icon {
+	display: var(--_kengine_tc_headerItemSemanticIcon_display);
+	height: var(--_kengine_tc_headerItemSemanticIcon_size);
+	width: var(--_kengine_tc_headerItemSemanticIcon_size);
+	margin-inline-end: 0.5rem;
+}
+
+.kengine-tab-semantic-icon--positive {
+	color: var(--sapPositiveElementColor);
+}
+
+.kengine-tab-semantic-icon--negative {
+	color: var(--sapNegativeElementColor);
+}
+
+.kengine-tab-semantic-icon--critical {
+	color: var(--sapCriticalElementColor);
+}

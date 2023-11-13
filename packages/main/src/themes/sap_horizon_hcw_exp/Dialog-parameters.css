@@ -1,0 +1,6 @@
+@import "../base/Dialog-parameters.css";
+
+:root {
+	--_kengine_dialog_resize_handle_right: 0;
+	--_kengine_dialog_resize_handle_bottom: 3px;
+}

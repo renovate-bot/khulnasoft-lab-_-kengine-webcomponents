@@ -1,0 +1,5 @@
+@import "../base/List-parameters.css";
+
+:root {
+	--kengine_list_footer_text_color: var(--sapList_FooterTextColor);
+}

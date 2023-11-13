@@ -1,0 +1,45 @@
+<div class="kengine-combobox-root kengine-input-focusable-element">
+	{{#if hasValueState}}
+		<span id="value-state-description" class="kengine-hidden-text">{{ariaValueStateHiddenText}}</span>
+	{{/if}}
+
+	<input id="kengine-combobox-input"
+		.value="{{value}}"
+		inner-input
+		placeholder="{{placeholder}}"
+		?disabled={{disabled}}
+		?readonly={{readonly}}
+		value-state="{{valueState}}"
+		@keydown="{{_keydown}}"
+		@input="{{_input}}"
+		@change="{{_inputChange}}"
+		@click={{_click}}
+		@keyup="{{_keyup}}"
+		@focusin="{{_focusin}}"
+		@focusout="{{_focusout}}"
+		aria-expanded="{{open}}"
+		role="combobox"
+		aria-haspopup="listbox"
+		aria-autocomplete="both"
+		aria-describedby="value-state-description"
+		aria-label="{{ariaLabelText}}"
+		aria-required="{{required}}"
+		data-sap-focus-ref
+	/>
+
+	{{#if icon}}
+		<slot name="icon"></slot>
+	{{/if}}
+
+	{{#unless readonly}}
+		<kengine-icon
+			name="slim-arrow-down"
+			slot="icon"
+			tabindex="-1"
+			input-icon
+			?pressed="{{_iconPressed}}"
+			@click="{{_arrowClick}}"
+			accessible-name="{{_iconAccessibleNameText}}"
+		></kengine-icon>
+	{{/unless}}
+</div>

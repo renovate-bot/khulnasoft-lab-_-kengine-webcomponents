@@ -1,0 +1,66 @@
+@import "./FormComponents.css";
+@import "./InvisibleTextStyles.css";
+@import "./InputIcon.css";
+
+:host(:not([hidden])) {
+	display: inline-block;
+	line-height: normal;
+	letter-spacing: normal;
+	word-spacing: normal;
+}
+
+:host {
+	min-width: calc(var(--_kengine_input_min_width) + var(--_kengine_input_icon_width));
+	color: var(--sapField_TextColor);
+	background-color: var(--sapField_Background);
+	border-radius: var(--_kengine-time_picker_border_radius);
+	margin: var(--_kengine_input_margin_top_bottom) 0;
+}
+
+:host([value-state="Error"]) {
+	background-color: var(--sapField_InvalidBackground);
+}
+
+:host(:not([disabled]):hover) {
+	background: var(--sapField_Hover_Background);
+}
+
+.kengine-time-picker-root {
+	line-height: inherit;
+	letter-spacing: inherit;
+	word-spacing: inherit;
+}
+
+:host .kengine-time-picker-input {
+	width: 100%;
+	color: inherit;
+	background-color: inherit;
+	line-height: inherit;
+	letter-spacing: inherit;
+	word-spacing: inherit;
+	margin: inherit;
+}
+
+.kengine-time-picker-input-icon-button {
+	border-left: 0.0625rem solid transparent;
+}
+
+.kengine-time-picker-input-icon-button {
+	border-left: 0.0625rem solid transparent;
+}
+
+.kengine-time-picker-input-icon-button:hover {
+	cursor: pointer;
+	border-left: var(--_kengine_time_picker_border);
+	background: var(--sapButton_Hover_Background);
+}
+
+.kengine-time-picker-input-icon-button:active {
+	background-color: var(--sapButton_Active_Background);
+	color: var(--sapButton_Active_TextColor);
+}
+
+.kengine-time-picker-input-icon-button[pressed] {
+	background-color: var(--sapButton_Active_Background);
+	color: var(--sapButton_Active_TextColor);
+}

@@ -1,0 +1,12 @@
+
+@import "../base/CheckBox-parameters.css";
+
+:root {
+--_kengine_checkbox_inner_border_radius: 0;
+--_kengine_checkbox_checkmark_color: var(--sapContent_IconColor);
+--_kengine_checkbox_inner_error_border: 0.125rem dashed var(--sapField_InvalidColor);
+--_kengine_checkbox_inner_warning_border: 0.125rem dashed var(--sapField_WarningColor);
+--_kengine_checkbox_checkmark_warning_color: var(--sapField_WarningColor);
+--_kengine_checkbox_hover_background: var(--sapSelectedColor);
+--_kengine_checkbox_focus_outline: 0.125rem dotted var(--sapContent_FocusColor);
+}

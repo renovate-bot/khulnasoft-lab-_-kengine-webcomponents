@@ -1,0 +1,6 @@
+@import "../base/Card-parameters.css";
+
+:root {
+	--_kengine_card_box_shadow: none;
+	--_kengine_card_header_focus_border: 0.125rem dotted var(--sapContent_FocusColor);
+}

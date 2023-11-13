@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta charset="utf-8">
+
+	<title>RTL and Language</title>
+	<script>
+		// delete Document.prototype.adoptedStyleSheets
+	</script>
+
+
+	<script src="../../bundle.esm.js" type="module"></script>
+
+
+	<link rel="stylesheet" type="text/css" href="./styles/RTL.css">
+
+</head>
+
+<body class="rtl1auto">
+
+
+	<div class="rtl2auto">
+		<kengine-segmented-button id="tb">
+			<kengine-toggle-button pressed>EN</kengine-toggle-button>
+			<kengine-toggle-button>DE</kengine-toggle-button>
+			<kengine-toggle-button>BG</kengine-toggle-button>
+			<kengine-toggle-button>ES</kengine-toggle-button>
+			<kengine-toggle-button>HE</kengine-toggle-button>
+			<kengine-toggle-button>AR</kengine-toggle-button>
+		</kengine-segmented-button>
+		<div class="rtl3auto"></div>
+		<kengine-label class="rtl4auto">Manually switch RTL:</kengine-label>
+		<kengine-switch id="sw"></kengine-switch>
+	</div>
+
+	<section>
+		<kengine-textarea maxlength="20" show-exceeded-text class="rtl5auto"></kengine-textarea>
+	</section>
+
+	<section>
+		<kengine-title>This section does not define dir</kengine-title>
+		<br>
+		<kengine-checkbox text="Click me"></kengine-checkbox>
+		<br>
+		<kengine-checkbox text="Click me"></kengine-checkbox>
+		<br>
+		<kengine-checkbox text="Click me"></kengine-checkbox>
+	</section>
+
+	<section dir="ltr">
+		<kengine-title>This section defines dir=LTR</kengine-title>
+		<br>
+		<kengine-checkbox text="Click me"></kengine-checkbox>
+		<br>
+		<kengine-checkbox text="Click me"></kengine-checkbox>
+		<br>
+		<kengine-checkbox text="This checkbox however defines dir=rtl" dir="rtl"></kengine-checkbox>
+	</section>
+
+	<section dir="rtl">
+		<kengine-title>This section defines dir=RTL</kengine-title>
+		<br>
+		<kengine-checkbox text="Click me"></kengine-checkbox>
+		<br>
+		<kengine-checkbox text="Click me"></kengine-checkbox>
+		<br>
+		<kengine-checkbox text="This checkbox however defines dir=ltr" dir="ltr"></kengine-checkbox>
+	</section>
+
+	<kengine-date-picker></kengine-date-picker>
+	<script>
+
+		setTimeout(function() {
+			window['sap-ui-webcomponents-bundle'].attachDirectionChange(function() {
+				console.log("Direction changed");
+			});
+		}, 1000);
+
+		// Utility function to change RTL and apply the changes
+		function setDir(dir) {
+			document.body.dir = dir;
+			window['sap-ui-webcomponents-bundle'].applyDirection();
+		}
+
+		function setDirByLang(lang) {
+			if (lang === "he" || lang === "ar") {
+				setDir("rtl");
+			} else {
+				setDir("ltr");
+			}
+		}
+
+		function setLanguage(lang) {
+			return window['sap-ui-webcomponents-bundle'].configuration.setLanguage(lang);
+		}
+
+		document.getElementById("sw").addEventListener("kengine-click", function(e) {
+			if (e.target.checked) {
+				setDir("rtl");
+			} else {
+				setDir("ltr");
+			}
+		});
+
+		document.getElementById("tb").addEventListener("kengine-selection-change", function(e) {
+			var lang = e.detail.selectedButton.textContent.toLowerCase();
+
+			setLanguage(lang).then(function() {
+				setDirByLang(lang);
+			});
+		});
+	</script>
+
+</body>
+</html>

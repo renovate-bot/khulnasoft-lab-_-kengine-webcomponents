@@ -1,0 +1,47 @@
+<div
+	class="kengine-select-root kengine-input-focusable-element"
+	id="{{_id}}-select"
+	@click="{{_onclick}}"
+>
+	{{#if selectedOptionIcon}}
+		<kengine-icon
+			aria-hidden="true"
+			class="kengine-select-option-icon"
+			name="{{selectedOptionIcon}}"
+		></kengine-icon>
+	{{/if}}
+	<div class="kengine-select-label-root"
+		data-sap-focus-ref
+		tabindex="{{_effectiveTabIndex}}"
+		role="combobox"
+		aria-haspopup="listbox"
+		aria-label="{{ariaLabelText}}"
+		aria-describedby="{{valueStateTextId}}"
+		aria-disabled="{{isDisabled}}"
+		aria-required="{{required}}"
+		aria-expanded="{{_isPickerOpen}}"
+		aria-roledescription="{{_ariaRoleDescription}}"
+		@keydown="{{_onkeydown}}"
+		@keypress="{{_handleKeyboardNavigation}}"
+		@keyup="{{_onkeyup}}"
+		@focusin="{{_onfocusin}}"
+		@focusout="{{_onfocusout}}"
+	>
+		{{#if hasCustomLabel}}
+			<slot name="label"></slot>
+		{{else}}
+			{{_text}}
+		{{/if}}
+	</div>
+
+	<kengine-icon
+		name="slim-arrow-down"
+		input-icon
+		?pressed="{{_iconPressed}}"
+	></kengine-icon>
+
+	{{#if hasValueState}}
+		<span id="{{_id}}-valueStateDesc" class="kengine-hidden-text">{{valueStateText}}</span>
+	{{/if}}
+	<slot name="formSupport"></slot>
+</div>

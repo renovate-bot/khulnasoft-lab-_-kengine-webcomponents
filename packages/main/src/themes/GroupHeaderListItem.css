@@ -1,0 +1,29 @@
+@import "./InvisibleTextStyles.css";
+
+:host {
+	height: var(--_kengine_group_header_list_item_height);
+	background: var(--kengine-group-header-listitem-background-color);
+	color: var(--sapList_TableGroupHeaderTextColor);
+}
+
+:host([has-border]) {
+	border-bottom: var(--sapList_BorderWidth) solid var(--sapList_GroupHeaderBorderColor);
+}
+
+.kengine-li-root.kengine-ghli-root {
+	padding-top: 0.5rem;
+	color: currentColor;
+	font-size: var(--sapFontHeader6Size);
+	font-weight: normal;
+	line-height: 2rem;
+	margin: 0;
+}
+
+.kengine-ghli-title {
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	font-weight: bold;
+	font-family: var(--sapFontHeaderFamily);
+}

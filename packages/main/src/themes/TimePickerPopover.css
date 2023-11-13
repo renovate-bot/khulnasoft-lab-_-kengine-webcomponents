@@ -1,0 +1,15 @@
+.kengine-time-picker-footer {
+	height: fit-content;
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+}
+
+.kengine-time-picker-footer > [kengine-button] {
+	margin: 1%;
+	min-width: 20%;
+}
+
+.kengine-time-picker-popover::part(content) {
+	padding: 0;
+}

@@ -1,0 +1,25 @@
+{{>include "./Popup.hbs"}}
+
+{{#*inline "beforeContent"}}
+	<span class="kengine-popover-arrow" style="{{styles.arrow}}"></span>
+
+	{{#if _displayHeader}}
+		<header class="kengine-popup-header-root" id="kengine-popup-header" part="header">
+			{{#if header.length }}
+				<slot name="header"></slot>
+			{{else}}
+				<h1 class="kengine-popup-header-text">{{headerText}}</h1>
+			{{/if}}
+		</header>
+	{{/if}}
+{{/inline}}
+
+{{#*inline "afterContent"}}
+	{{#if _displayFooter}}
+		{{#if footer.length }}
+			<footer class="kengine-popup-footer-root" part="footer">
+				<slot name="footer"></slot>
+			</footer>
+		{{/if}}
+	{{/if}}
+{{/inline}}

@@ -1,0 +1,89 @@
+@import "./TapHighlightColor.css";
+
+:host([hidden]) {
+	display: none;
+}
+
+:host([invalid]) {
+	display:none;
+}
+
+/*The kengine_hovered class is set by FileUploader to indicate hover state of the control*/
+:host(:not([hidden]).kengine_hovered) {
+	opacity: .7;
+}
+
+:host {
+	display: inline-block;
+	width: 1rem;
+	height: 1rem;
+	color: var(--sapContent_NonInteractiveIconColor);
+	fill: currentColor;
+	outline: none;
+}
+
+:host([design="Contrast"]) {
+	color: var(--sapContent_ContrastIconColor);
+}
+
+:host([design="Critical"]) {
+	color: var(--sapCriticalElementColor);
+}
+
+:host([design="Default"]) {
+	color: var(--sapContent_IconColor);
+}
+
+:host([design="Information"]) {
+	color: var(--sapInformativeElementColor);
+}
+
+:host([design="Negative"]) {
+	color: var(--sapNegativeElementColor);
+}
+
+:host([design="Neutral"]) {
+	color: var(--sapNeutralElementColor);
+}
+
+:host([design="NonInteractive"]) {
+	color: var(--sapContent_NonInteractiveIconColor);
+}
+
+:host([design="Positive"]) {
+	color: var(--sapPositiveElementColor);
+}
+
+:host([interactive][focused]) .kengine-icon-root {
+	outline: var(--sapContent_FocusWidth) var(--sapContent_FocusStyle) var(--sapContent_FocusColor);
+	border-radius: var(--kengine-icon-focus-border-radius);
+}
+
+.kengine-icon-root {
+	display:flex;
+	height: 100%;
+	width: 100%;
+	outline: none;
+	vertical-align: top;
+}
+
+
+:host([interactive]) {
+	cursor: pointer;
+}
+
+/*
+ * The Icon is currently the only component that enforces "LTR" direction inside its ShadowDOM
+ * as some icons should not be mirrored in RTL (f.e. checkmark, search, etc.).
+ * That means, we can have "RTL" set globally and "LTR" set internally for the Icon ShadowDom
+  * html dir=rtl
+ * 		[kengine-icon]
+ * 			#shadowroot
+ * 				svg dir=ltr
+ * In this case, we need to explicitly check for it as the global CSS definitions (rtl-parameters.css)
+ * is placed in the "head" and won't consider it.
+ */
+.kengine-icon-root:not([dir="ltr"]) {
+	transform: var(--_kengine_icon_transform_scale);
+	transform-origin: center;
+}

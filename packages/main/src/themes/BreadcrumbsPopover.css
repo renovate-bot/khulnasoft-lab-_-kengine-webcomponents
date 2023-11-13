@@ -1,0 +1,11 @@
+.kengine-breadcrumbs-popover::part(content) {
+    padding: 0;
+}
+
+.kengine-breadcrumbs-popover-footer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-right: 0.5rem;
+	align-items: center;
+}

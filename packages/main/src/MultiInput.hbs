@@ -1,0 +1,41 @@
+{{>include "./Input.hbs"}}
+
+{{#*inline "preContent"}}
+	<span id="{{_id}}-hiddenText-nMore" class="kengine-hidden-text">{{_tokensCountText}}</span>
+	<kengine-tokenizer
+		class="kengine-multi-input-tokenizer"
+		.morePopoverOpener={{morePopoverOpener}}
+		.popoverMinWidth={{_inputWidth}}
+		.valueState={{valueState}}
+		?expanded="{{expandedTokenizer}}"
+		show-more
+		@keydown="{{_onTokenizerKeydown}}"
+		@kengine-show-more-items-press={{showMorePress}}
+		@kengine-token-delete={{tokenDelete}}
+		@focusout="{{_tokenizerFocusOut}}"
+	>
+		<slot name="tokens"></slot>
+		<div slot="valueStateMessage">
+			{{#if shouldDisplayDefaultValueStateMessage}}
+				{{valueStateText}}
+			{{else}}
+				{{#each valueStateMessageText}}
+					{{this}}
+				{{/each}}
+			{{/if}}
+		</div>
+	</kengine-tokenizer>
+{{/inline}}
+
+
+{{#*inline "postContent"}}
+	{{#if showValueHelpIcon}}
+		<kengine-icon
+			@click={{valueHelpPress}}
+			@mousedown={{valueHelpMouseDown}}
+			@mouseup={{valueHelpMouseUp}}
+			input-icon
+			name="value-help"
+		></kengine-icon>
+	{{/if}}
+{{/inline}}

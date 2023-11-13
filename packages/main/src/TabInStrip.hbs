@@ -1,0 +1,66 @@
+<div id="{{this._id}}"
+	class="{{this.stripClasses.itemClasses}}"
+	tabindex="-1"
+	role="tab"
+	aria-roledescription="{{_roleDescription}}"
+	aria-haspopup="{{_ariaHasPopup}}"
+	aria-posinset="{{this._posinset}}"
+	aria-setsize="{{this._setsize}}"
+	aria-controls="kengine-tc-content"
+	aria-selected="{{this.effectiveSelected}}"
+	aria-disabled="{{this.effectiveDisabled}}"
+	?disabled="{{this.effectiveDisabled}}"
+	aria-labelledby="{{this.ariaLabelledBy}}"
+	._realTab="{{this}}"
+>
+	{{#if this.icon}}
+		<div class="kengine-tab-strip-item-icon-outer">
+			<kengine-icon id="{{this._id}}-icon" name="{{this.icon}}" class="kengine-tab-strip-item-icon"></kengine-icon>
+		</div>
+	{{/if}}
+
+	{{#if this._designDescription}}
+		<div id="{{this._id}}-designDescription" class="kengine-tab-strip-design-description">
+			{{this._designDescription}}
+		</div>
+	{{/if}}
+
+	<div class="kengine-tab-strip-itemContent">
+		{{#unless this._isInline}}
+			{{> additionalText}}
+		{{/unless}}
+
+		{{#if this.text}}
+			<span class="kengine-tab-strip-itemText" id="{{this._id}}-text">
+				{{#if this.semanticIconName}}
+					<kengine-icon class="{{semanticIconClasses}}" name="{{semanticIconName}}"></kengine-icon>
+				{{/if}}
+
+				{{this.displayText}}
+			{{#if this.isSingleClickArea}}
+			<span class="kengine-tab-single-click-icon">
+				<kengine-icon name="slim-arrow-down"></kengine-icon>
+			</span>
+			{{/if}}
+			</span>
+		{{/if}}
+	</div>
+
+	{{#if this.requiresExpandButton}}
+		<div class="kengine-tab-expand-button-separator"></div>
+		<div class="kengine-tab-expand-button" @click="{{_onTabExpandButtonClick}}">
+			<kengine-button
+				.tab={{this}}
+				icon="slim-arrow-down"
+				design="Transparent"
+				tabindex="-1"
+				?disabled="{{disabled}}"
+				tooltip="{{expandButtonTitle}}"
+				aria-haspopup="Menu">
+			</kengine-button>
+		</div>
+	{{/if}}
+
+{{#*inline additionalText}}
+		<span class="{{this.stripClasses.additionalTextClasses}}" id="{{this._id}}-additionalText">{{this.additionalText}}</span>
+{{/inline}}

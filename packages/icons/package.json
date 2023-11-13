@@ -1,0 +1,35 @@
+{
+  "name": "@kengine/webcomponents-icons",
+  "version": "1.20.0-rc.0",
+  "description": "KENGINE Web Components: webcomponents.KHULNASOFT-icons",
+  "author": "KHULNASOFT SE (https://www.khulnasoft.com)",
+  "license": "Apache-2.0",
+  "private": false,
+  "type": "module",
+  "keywords": [
+    "kengine",
+    "ui",
+    "ui5"
+  ],
+  "exports": {
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json",
+    "./*": "./dist/*"
+  },
+  "scripts": {
+    "clean": "wc-dev clean",
+    "build": "wc-dev build",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khulnasoft-lab/kengine-webcomponents.git",
+    "directory": "packages/icons"
+  },
+  "dependencies": {
+    "@kengine/webcomponents-base": "1.20.0-rc.0"
+  },
+  "devDependencies": {
+    "@kengine/webcomponents-tools": "1.20.0-rc.0"
+  }
+}

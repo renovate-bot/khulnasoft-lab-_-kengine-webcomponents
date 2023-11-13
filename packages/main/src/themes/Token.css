@@ -1,0 +1,147 @@
+:host {
+	display: inline-block;
+	background: var(--_kengine_token_background);
+	border: var(--sapButton_BorderWidth) solid var(--sapButton_TokenBorderColor);
+	border-radius: var(--_kengine_token_border_radius);
+	color: var(--_kengine_token_text_color);
+	height: var(--_kengine_token_height);
+	box-sizing: border-box;
+}
+
+:host(:not([single-token])) {
+	margin-inline-end: var(--_kengine_token_right_margin);
+}
+
+:host([overflows]) {
+	display: none;
+}
+
+:host(:not([readonly]):hover) {
+	background: var(--sapButton_Hover_Background);
+	border-color: var(--_kengine_token_hover_border_color);
+}
+
+:host([selected]:not([readonly])) {
+	color: var(--sapButton_Selected_TextColor);
+}
+
+:host([selected]:not([readonly])) {
+	background: var(--sapButton_Selected_Background);
+	border: var(--sapButton_BorderWidth) solid var(--sapButton_Selected_BorderColor);
+}
+
+:host([selected]:not([readonly])) .kengine-token--wrapper {
+	border-bottom: var(--_kengine_token_selected_internal_border_bottom);
+	border-bottom-left-radius: var(--_kengine_token_selected_internal_border_bottom_radius);
+	border-bottom-right-radius: var(--_kengine_token_selected_internal_border_bottom_radius);
+}
+
+:host([selected]:not([readonly]):hover) {
+	background: var(--sapButton_Selected_Hover_Background);
+	border-color: var(--_kengine_token_selected_hover_border_color);
+}
+
+:host([readonly]) {
+	background: var(--_kengine_token_readonly_background);
+	border-color: var(--sapField_ReadOnly_BorderColor);
+	color: var(--_kengine_token_readonly_color);
+}
+
+:host([readonly]) .kengine-token--wrapper {
+	padding: var(--_kengine_token_readonly_padding);
+}
+
+:host([selected]) .kengine-token--wrapper:focus {
+	outline: var(--_kengine_token_selected_focus_outline);
+}
+
+:host([selected]:not([readonly])) .kengine-token--text,
+:host([selected]:not([readonly])) .kengine-token--icon {
+	top: var(--_kengine_token_text_icon_top);
+	position: relative;
+}
+
+:host([focused][selected]:not([readonly]):not(:hover)) {
+	background: var(--sapButton_Selected_Background);
+	color: var(--sapButton_Selected_TextColor);
+	border: var(--_kengine_token_focused_selected_border);
+}
+
+.kengine-token--wrapper {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+	cursor: default;
+	padding-inline-start: var(--_kengine_token_left_padding);
+	box-sizing: border-box;
+	font-size: var(--sapFontSize);
+	font-family: "72override", var(--sapFontFamily);
+	user-select: none;
+}
+.kengine-token--wrapper {
+	position: relative;
+}
+
+:host([selected]) .kengine-token--wrapper {
+	font-family: var(--_kengine_token_selected_text_font_family);
+}
+
+.kengine-token--wrapper:focus {
+	outline-offset: var(--_kengine_token_outline_offset);
+	outline: var(--_kengine_token_focus_outline);
+}
+
+.kengine-token--wrapper:focus::after {
+	content: var(--kengine_token_focus_pseudo_element_content);
+	position: absolute;
+	pointer-events: none;
+	z-index: 2;
+	border: var(--sapContent_FocusWidth) var(--sapContent_FocusStyle) var(--sapContent_FocusColor);
+	border-radius: var(--_kengine_token_focus_outline_border_radius);
+	top: var(--_kengine_token_focus_offset);
+	bottom: var(--_kengine_token_focus_offset);
+	left: var(--_kengine_token_focus_offset);
+	right: var(--_kengine_token_focus_offset);
+}
+
+:host([focused][selected]:not([readonly])) .kengine-token--wrapper:focus::after {
+	bottom: var(--_kengine_token_selected_focused_offset_bottom)
+}
+
+.kengine-token--text {
+	white-space: nowrap;
+}
+
+.kengine-token--icon {
+	display: flex;
+}
+
+:host([selected]) .kengine-token--icon > [kengine-icon],
+:host([selected]) ::slotted([kengine-icon]) {
+	color: var(--sapButton_Selected_TextColor);
+}
+
+.kengine-token--icon > [kengine-icon],
+::slotted([kengine-icon]) {
+	color: inherit;
+	cursor: pointer;
+	width: var(--_kengine_token_icon_size);
+	height: var(--_kengine_token_icon_size);
+	padding: var(--_kengine_token_icon_padding);
+	color: var(--sapContent_IconColor);
+}
+
+:host([single-token]) {
+	max-width: 100%;
+}
+
+:host([single-token]) .kengine-token--wrapper {
+	max-width: 100%;
+}
+
+:host([single-token]) .kengine-token--text {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 100%;
+}

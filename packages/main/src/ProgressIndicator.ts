@@ -1,0 +1,228 @@
+import KENGINEElement from "@kengine/webcomponents-base/dist/KENGINEElement.js";
+import customElement from "@kengine/webcomponents-base/dist/decorators/customElement.js";
+import property from "@kengine/webcomponents-base/dist/decorators/property.js";
+import litRender from "@kengine/webcomponents-base/dist/renderer/LitRenderer.js";
+import AnimationMode from "@kengine/webcomponents-base/dist/types/AnimationMode.js";
+import ValueState from "@kengine/webcomponents-base/dist/types/ValueState.js";
+import Integer from "@kengine/webcomponents-base/dist/types/Integer.js";
+import { getAnimationMode } from "@kengine/webcomponents-base/dist/config/AnimationMode.js";
+import { getI18nBundle } from "@kengine/webcomponents-base/dist/i18nBundle.js";
+import type I18nBundle from "@kengine/webcomponents-base/dist/i18nBundle.js";
+import Icon from "./Icon.js";
+import {
+	VALUE_STATE_ERROR,
+	VALUE_STATE_WARNING,
+	VALUE_STATE_SUCCESS,
+	VALUE_STATE_INFORMATION,
+} from "./generated/i18n/i18n-defaults.js";
+
+// Template
+import ProgressIndicatorTemplate from "./generated/templates/ProgressIndicatorTemplate.lit.js";
+
+// Styles
+import ProgressIndicatorCss from "./generated/themes/ProgressIndicator.css.js";
+
+/**
+ * @class
+ *
+ * <h3 class="comment-api-title">Overview</h3>
+ * Shows the progress of a process in a graphical way. To indicate the progress,
+ * the inside of the component is filled with a color.
+ *
+ * <h3>Responsive Behavior</h3>
+ * You can change the size of the Progress Indicator by changing its <code>width</code> or <code>height</code> CSS properties.
+ *
+ * <h3>ES6 Module Import</h3>
+ *
+ * <code>import "@kengine/webcomponents/dist/ProgressIndicator.js";</code>
+ *
+ * @constructor
+ * @author KHULNASOFT SE
+ * @alias sap.ui.webc.main.ProgressIndicator
+ * @extends sap.ui.webc.base.KENGINEElement
+ * @tagname kengine-progress-indicator
+ * @public
+ * @since 1.0.0-rc.8
+ */
+@customElement({
+	tag: "kengine-progress-indicator",
+	renderer: litRender,
+	styles: ProgressIndicatorCss,
+	template: ProgressIndicatorTemplate,
+	dependencies: [Icon],
+})
+
+class ProgressIndicator extends KENGINEElement {
+	/**
+	 * Defines the accessible ARIA name of the component.
+	 *
+	 * @type {string}
+	 * @defaultvalue ""
+	 * @name sap.ui.webc.main.ProgressIndicator.prototype.accessibleName
+	 * @public
+	 * @since 1.16.0
+	*/
+	@property()
+	accessibleName!: string;
+
+	/**
+	 * Defines whether component is in disabled state.
+	 *
+	 * @type {boolean}
+	 * @name sap.ui.webc.main.ProgressIndicator.prototype.disabled
+	 * @defaultvalue false
+	 * @public
+	 */
+	@property({ type: Boolean })
+	disabled!: boolean;
+
+	/**
+	 * Defines whether the component value is shown.
+	 *
+	 * @type {boolean}
+	 * @name sap.ui.webc.main.ProgressIndicator.prototype.hideValue
+	 * @defaultvalue false
+	 * @public
+	 */
+	@property({ type: Boolean })
+	hideValue!: boolean;
+
+	/**
+	 * Specifies the numerical value in percent for the length of the component.
+	 *
+	 * <b>Note:</b>
+	 * If a value greater than 100 is provided, the percentValue is set to 100. In other cases of invalid value, percentValue is set to its default of 0.
+	 * @type {sap.ui.webc.base.types.Integer}
+	 * @name sap.ui.webc.main.ProgressIndicator.prototype.value
+	 * @defaultvalue 0
+	 * @public
+	 */
+	@property({ validator: Integer, defaultValue: 0 })
+	value!: number;
+
+	/**
+	 * Specifies the text value to be displayed in the bar.
+	 *
+	 * <b>Note:</b>
+	 * <ul>
+	 * <li>If there is no value provided or the value is empty, the default percentage value is shown.</li>
+	 * <li>If <code>hideValue</code> property is <code>true</code> both the <code>displayValue</code> and <code>value</code> property values are not shown.</li>
+	 * </ul>
+	 *
+	 * @type {string}
+	 * @name sap.ui.webc.main.ProgressIndicator.prototype.displayValue
+	 * @public
+	 */
+	@property()
+	displayValue!: string;
+
+	/**
+	 * Defines the value state of the component.
+	 *
+	 * @type {sap.ui.webc.base.types.ValueState}
+	 * @name sap.ui.webc.main.ProgressIndicator.prototype.valueState
+	 * @defaultvalue "None"
+	 * @public
+	 */
+	@property({ type: ValueState, defaultValue: ValueState.None })
+	valueState!: `${ValueState}`;
+
+	static i18nBundle: I18nBundle;
+	_previousValue: number;
+	_transitionDuration: number;
+
+	constructor() {
+		super();
+
+		this._previousValue = 0;
+		this._transitionDuration = 0;
+	}
+
+	onBeforeRendering() {
+		this._transitionDuration = Math.abs(this._previousValue - this.validatedValue) * 20;
+		this._previousValue = this.validatedValue;
+	}
+
+	valueStateTextMappings(): Record<string, string> {
+		return {
+			"Error": ProgressIndicator.i18nBundle.getText(VALUE_STATE_ERROR),
+			"Warning": ProgressIndicator.i18nBundle.getText(VALUE_STATE_WARNING),
+			"Success": ProgressIndicator.i18nBundle.getText(VALUE_STATE_SUCCESS),
+			"Information": ProgressIndicator.i18nBundle.getText(VALUE_STATE_INFORMATION),
+		};
+	}
+
+	valueStateIconMappings(): Record<string, string> {
+		return {
+			"Error": "status-negative",
+			"Warning": "status-critical",
+			"Success": "status-positive",
+			"Information": "information",
+		};
+	}
+
+	get styles() {
+		return {
+			bar: {
+				"width": `${this.validatedValue}%`,
+				"transition-duration": this.shouldAnimate ? `${this._transitionDuration}ms` : "none",
+			},
+		};
+	}
+
+	get classes() {
+		return {
+			root: {
+				"kengine-progress-indicator-max-value": this.validatedValue === 100,
+				"kengine-progress-indicator-min-value": this.validatedValue === 0,
+			},
+		};
+	}
+
+	get validatedValue() {
+		if (this.value < 0) {
+			return 0;
+		}
+
+		if (this.value > 100) {
+			return 100;
+		}
+
+		return this.value;
+	}
+
+	get showValueInRemainingBar() {
+		return this.value <= 50;
+	}
+
+	get shouldAnimate() {
+		return getAnimationMode() !== AnimationMode.None;
+	}
+
+	get valueStateText() {
+		const percentValue = `${this.validatedValue}%`;
+		const valueText = this.valueStateTextMappings()[this.valueState];
+
+		return valueText ? `${percentValue} ${valueText}` : percentValue;
+	}
+
+	get showIcon() {
+		return this.valueState !== ValueState.None;
+	}
+
+	get valueStateIcon() {
+		return this.valueStateIconMappings()[this.valueState];
+	}
+
+	get _ariaDisabled() {
+		return this.disabled || undefined;
+	}
+
+	static async onDefine() {
+		ProgressIndicator.i18nBundle = await getI18nBundle("@kengine/webcomponents");
+	}
+}
+
+ProgressIndicator.define();
+
+export default ProgressIndicator;

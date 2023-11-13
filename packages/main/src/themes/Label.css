@@ -1,0 +1,63 @@
+:host(:not([hidden])) {
+	display: inline-flex;
+}
+
+:host {
+	max-width: 100%;
+	color: var(--sapContent_LabelColor);
+	font-family: "72override", var(--sapFontFamily);
+	font-size: var(--sapFontSize);
+	font-weight: normal;
+	cursor: text;
+}
+
+.kengine-label-root {
+	width: 100%;
+	cursor: inherit;
+}
+
+:host([wrapping-type="Normal"]) .kengine-label-root {
+	white-space: normal;
+}
+
+:host(:not([wrapping-type="Normal"])) .kengine-label-root {
+	display: inline-flex;
+	white-space: nowrap;
+}
+
+:host(:not([wrapping-type="Normal"])) .kengine-label-text-wrapper {
+	text-overflow: ellipsis;
+	overflow: hidden;
+	display: inline-block;
+	vertical-align: top;
+	flex: 0 1 auto;
+	min-width: 0;
+}
+
+:host([show-colon]) .kengine-label-required-colon:before {
+	content: attr(data-colon);
+}
+
+:host([required]) .kengine-label-required-colon:after {
+	content:"*";
+	color: var(--sapField_RequiredColor);
+	font-size: 1.25rem;
+	font-weight: bold;
+	position: relative;
+	font-style: normal;
+	vertical-align: middle;
+	line-height: 0;
+}
+
+:host([required][show-colon]) .kengine-label-required-colon:after {
+	margin-inline-start: .125rem;
+}
+
+bdi {
+	padding-right: 0.075rem; /*1.2px - fix for last letter clipping issue when style is italic*/
+}
+
+:host([show-colon]) .kengine-label-required-colon {
+	margin-inline-start: -0.05rem; /*0.8px - fix for last letter clipping issue when style is italic*/
+	white-space: pre;
+}

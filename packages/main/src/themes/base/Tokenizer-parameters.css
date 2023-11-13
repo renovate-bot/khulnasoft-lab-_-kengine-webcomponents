@@ -1,0 +1,11 @@
+:root {
+	--_kengine_tokenizer_padding: 0.3125rem;
+	--_kengine_tokenizer_n_more_text_color: var(--sapField_TextColor);
+	--_kengine_tokenizer-popover_offset: .3125rem;
+}
+
+[data-kengine-compact-size],
+.kengine-content-density-compact,
+.sapUiSizeCompact {
+	--_kengine_tokenizer-popover_offset: .1875rem;
+}

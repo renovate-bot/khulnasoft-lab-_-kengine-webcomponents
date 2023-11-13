@@ -1,0 +1,13 @@
+<kengine-select 
+	class="kengine-tb-item"
+	style="{{this.styles}}"
+	data-kengine-external-action-item-id="{{this._id}}"
+	value-state="{{this.valueState}}"
+	?disabled="{{this.disabled}}"
+	accessible-name="{{this.accessibleName}}"
+	accessible-name-ref="{{this.accessibleNameRef}}"
+>
+	{{#each options}}
+		<kengine-option ?selected="{{this.selected}}" data-kengine-external-action-item-index="{{@index}}">{{this.textContent}}</kengine-option>
+	{{/each}}
+</kengine-select>

@@ -1,0 +1,179 @@
+import customElement from "@kengine/webcomponents-base/dist/decorators/customElement.js";
+import property from "@kengine/webcomponents-base/dist/decorators/property.js";
+import slot from "@kengine/webcomponents-base/dist/decorators/slot.js";
+import { isLeft, isRight } from "@kengine/webcomponents-base/dist/Keys.js";
+import SideNavigationItemBase from "./SideNavigationItemBase.js";
+import type SideNavigation from "./SideNavigation.js";
+import type SideNavigationSubItem from "./SideNavigationSubItem.js";
+
+/**
+ * @class
+ *
+ * <h3 class="comment-api-title">Overview</h3>
+ *
+ * The <code>ui5-side-navigation-item</code> is used within <code>ui5-side-navigation</code> only.
+ * Via the <code>ui5-side-navigation-item</code> you control the content of the <code>SideNavigation</code>.
+ *
+ * <h3>ES6 Module Import</h3>
+ *
+ * <code>import "@kengine/webcomponents-fiori/dist/SideNavigationItem.js";</code>
+ *
+ * @constructor
+ * @author KHULNASOFT SE
+ * @alias sap.ui.webc.fiori.SideNavigationItem
+ * @extends sap.ui.webc.fiori.SideNavigationItemBase
+ * @abstract
+ * @tagname ui5-side-navigation-item
+ * @public
+ * @implements sap.ui.webc.fiori.ISideNavigationItem
+ * @since 1.0.0-rc.8
+ */
+@customElement("ui5-side-navigation-item")
+class SideNavigationItem extends SideNavigationItemBase {
+	/**
+	 * Defines if the item is expanded
+	 *
+	 * @public
+	 * @type {boolean}
+	 * @defaultvalue false
+	 * @name sap.ui.webc.fiori.SideNavigationItem.prototype.expanded
+	 */
+	@property({ type: Boolean })
+	expanded!: boolean;
+
+	/**
+	 * Defines if the item should be collapsible or not.
+	 * It is true, for example, for the items inside the Popover of the Side Navigation
+	 * @private
+	 * @type {boolean}
+	 * @defaultvalue false
+	 * @name sap.ui.webc.fiori.SideNavigationItem.prototype._fixed
+	 * @since 1.10.0
+	 */
+	@property({ type: Boolean })
+	_fixed!: boolean;
+
+	/**
+     * Defines nested items by passing <code>ui5-side-navigation-sub-item</code> to the default slot.
+	 *
+	 * @type {sap.ui.webc.fiori.ISideNavigationSubItem[]}
+	 * @public
+	 * @slot items
+	 * @name sap.ui.webc.fiori.SideNavigationItem.prototype.default
+	 */
+	@slot({ type: HTMLElement, invalidateOnChildChange: true, "default": true })
+	items!: Array<SideNavigationSubItem>;
+
+	/**
+	 * Defines whether clicking the whole item or only pressing the icon will show/hide the sub items (if present).
+	 * If set to true, clicking the whole item will toggle the sub items, and it won't fire the <code>click</code> event.
+	 * By default, only clicking the arrow icon will toggle the sub items.
+	 *
+	 * @public
+	 * @type {boolean}
+	 * @defaultvalue false
+	 * @name sap.ui.webc.fiori.SideNavigationItem.prototype.wholeItemToggleable
+	 * @since 1.0.0-rc.11
+	 */
+	@property({ type: Boolean })
+	wholeItemToggleable!: boolean;
+
+	get _ariaHasPopup() {
+		if (!this.disabled && (this.parentNode as SideNavigation).collapsed && this.items.length) {
+			return "tree";
+		}
+
+		return undefined;
+	}
+
+	get _groupId() {
+		if (!this.items.length) {
+			return undefined;
+		}
+
+		return `${this._id}-group`;
+	}
+
+	get _expanded() {
+		if (!this.items.length) {
+			return undefined;
+		}
+
+		return this.expanded;
+	}
+
+	get _toggleIconName() {
+		return this.expanded ? "navigation-down-arrow" : "navigation-right-arrow";
+	}
+
+	get classesArray() {
+		const classes = super.classesArray;
+
+		if (!this.disabled && (this.parentNode as SideNavigation).collapsed && this.items.length) {
+			classes.push("ui5-sn-item-with-expander");
+		}
+
+		if (this._fixed) {
+			classes.push("ui5-sn-item-fixed");
+		}
+
+		return classes;
+	}
+
+	get _selected() {
+		if (this.sideNavigation?.collapsed) {
+			return this.selected || this.items.some(item => item.selected);
+		}
+
+		return this.selected;
+	}
+
+	get isFixedItem() {
+		return this.slot === "fixedItems";
+	}
+
+	_onToggleClick = (e: PointerEvent) => {
+		e.stopPropagation();
+
+		this.expanded = !this.expanded;
+	}
+
+	_onkeydown = (e: KeyboardEvent) => {
+		if (isLeft(e)) {
+			this.expanded = false;
+			return;
+		}
+
+		if (isRight(e)) {
+			this.expanded = true;
+			return;
+		}
+
+		super._onkeydown(e);
+	}
+
+	_onkeyup = (e: KeyboardEvent) => {
+		super._onkeyup(e);
+	}
+
+	_onfocusin = (e: FocusEvent) => {
+		super._onfocusin(e);
+	}
+
+	_onclick = (e: PointerEvent) => {
+		if (!this.sideNavigation?.collapsed
+			&& this.wholeItemToggleable
+			&& e.pointerType === "mouse") {
+			e.preventDefault();
+			e.stopPropagation();
+			this.expanded = !this.expanded;
+			return;
+		}
+
+		super._onclick(e);
+	}
+}
+
+SideNavigationItem.define();
+
+export default SideNavigationItem;

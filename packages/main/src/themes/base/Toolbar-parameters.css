@@ -1,0 +1,7 @@
+:root {
+    --_kengine-toolbar-padding-left: 0.5rem;
+	--_kengine-toolbar-padding-right: 0.5rem;
+
+	--_kengine-toolbar-item-margin-left: 0;
+	--_kengine-toolbar-item-margin-right: 0.25rem;
+}

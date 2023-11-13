@@ -1,0 +1,31 @@
+
+:host(:not([hidden])) {
+	display: block;
+}
+
+:host {
+	min-height: var(--_kengine_list_item_base_height);
+	height: auto;
+	box-sizing: border-box;
+}
+
+.kengine-li-root.kengine-custom-li-root {
+	pointer-events: inherit;
+	min-height: inherit;
+}
+
+.kengine-li-root.kengine-custom-li-root .kengine-li-content {
+	pointer-events: inherit;
+}
+
+[kengine-checkbox].kengine-li-singlesel-radiobtn,
+[kengine-radio-button].kengine-li-singlesel-radiobtn {
+	display: flex;
+	align-items: center;
+}
+
+.kengine-li-root.kengine-custom-li-root,
+[kengine-checkbox].kengine-li-singlesel-radiobtn,
+[kengine-radio-button].kengine-li-singlesel-radiobtn {
+	min-width: var(--_kengine_custom_list_item_rb_min_width);
+}

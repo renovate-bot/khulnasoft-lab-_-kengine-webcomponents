@@ -1,0 +1,16 @@
+.kengine-select-menu::part(content),
+.kengine-select-menu::part(header) {
+	padding: 0;
+}
+
+.kengine-select-menu [kengine-li-custom] {
+	height: var(--_kengine_list_item_dropdown_base_height);
+}
+
+.kengine-select-menu [kengine-li-custom]::part(native-li) {
+	padding: 0;
+}
+
+.kengine-select-menu [kengine-icon] {
+	color: var(--sapList_TextColor);
+}

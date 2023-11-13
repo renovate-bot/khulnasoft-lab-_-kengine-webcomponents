@@ -1,0 +1,9 @@
+<div id="{{_id}}"
+	class="kengine-tab-root"
+	data-kengine-stable="{{this.stableDomRef}}">
+	<slot name="{{this._defaultSlotName}}"></slot>
+
+	{{#each tabs}}
+	<slot name="{{this._effectiveSlotName}}"></slot>
+	{{/each}}
+</div>

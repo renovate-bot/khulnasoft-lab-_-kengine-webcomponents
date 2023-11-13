@@ -1,0 +1,46 @@
+<div
+	class="kengine-checkbox-root {{classes.main}}"
+	role="checkbox"
+	part="root"
+	aria-checked="{{effectiveAriaChecked}}"
+	aria-readonly="{{ariaReadonly}}"
+	aria-disabled="{{effectiveAriaDisabled}}"
+	aria-label="{{ariaLabelText}}"
+	aria-labelledby="{{ariaLabelledBy}}"
+	aria-describedby="{{ariaDescribedBy}}"
+	aria-required="{{required}}"
+	tabindex="{{effectiveTabIndex}}"
+	@mousedown="{{_onmousedown}}"
+	@mouseup="{{_onmouseup}}"
+	@keydown="{{_onkeydown}}"
+	@keyup="{{_onkeyup}}"
+	@click="{{_onclick}}"
+	@focusout="{{_onfocusout}}"
+>
+		<div id="{{_id}}-CbBg" class="kengine-checkbox-inner">
+			{{#if isCompletelyChecked}}
+				<kengine-icon aria-hidden="true" name="accept" class="kengine-checkbox-icon"></kengine-icon>
+			{{/if}}
+
+			<input
+				id="{{_id}}-CB"
+				type='checkbox'
+				?checked="{{checked}}"
+				?readonly="{{readonly}}"
+				?disabled="{{disabled}}"
+				tabindex="-1"
+				aria-hidden="true"
+				data-sap-no-tab-ref
+			/>
+		</div>
+
+		{{#if text}}
+			<kengine-label id="{{_id}}-label" class="kengine-checkbox-label" wrapping-type="{{wrappingType}}">{{text}}</kengine-label>
+		{{/if}}
+
+		{{#if hasValueState}}
+			<span id="{{_id}}-descr" class="kengine-hidden-text">{{valueStateText}}</span>
+		{{/if}}
+
+		<slot name="formSupport"></slot>
+</div>

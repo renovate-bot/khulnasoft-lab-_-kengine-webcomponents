@@ -1,0 +1,70 @@
+@import "./NotificationListItemBase.css";
+@import "./NotificationPrioIcon.css";
+
+:host {
+	--_ui5-notification_item-border-raius: 0px;
+}
+
+:host(:not([collapsed])) .ui5-nli-group-toggle-btn {
+	transform: var(--_ui5_li_notification_group_toggle_btn_rotation);
+}
+
+:host([collapsed]) .ui5-nli-group-items {
+	display: none;
+}
+
+:host([read]) .ui5-nli-group-title-text {
+	font-weight: normal;
+}
+
+.ui5-nli-group-root {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.ui5-nli-group-header {
+	background: var(--sapList_GroupHeaderBackground);
+	display: flex;
+	align-items: center;
+	padding-block: 0.75rem 0.25rem;
+	padding-inline: 0.75rem 0.5rem;
+	width: 100%;
+	border-bottom: 0.0625rem solid var(--sapList_GroupHeaderBorderColor);
+	box-sizing: border-box;
+	cursor: default;
+}
+
+.ui5-nli-group-toggle-btn {
+	margin-inline-end: 0.75rem;
+	cursor: pointer;
+}
+
+.ui5-nli-group-title-text {
+	color: var(--sapGroup_TitleTextColor);
+	font-family: "72override", var(--sapFontFamily);
+	font-size: var(--sapFontHeader6Size);
+	font-weight: bold;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ui5-nli-group-divider {
+	flex: 1;
+}
+
+.ui5-nli-group-counter {
+	margin-inline-start: 0.25rem;
+	margin-inline-end: 1rem;
+	color: var(--sapList_TableGroupHeaderTextColor);
+	font-size: var(--sapFontHeader6Size);
+	font-family: "72override", var(--sapFontHeaderFamily);
+}
+
+/* fix for blue background color on tap (touchscreen devices) */
+:host([ui5-li-notification-group]) {
+	-webkit-tap-highlight-color: transparent;
+}

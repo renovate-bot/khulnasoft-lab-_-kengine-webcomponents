@@ -1,0 +1,121 @@
+
+.kengine-menu-rp[kengine-responsive-popover]::part(header),
+.kengine-menu-rp[kengine-responsive-popover]::part(content),
+.kengine-menu-rp[kengine-responsive-popover]::part(footer) {
+	padding: 0;
+}
+
+.kengine-menu-rp[kengine-responsive-popover] {
+	box-shadow: var(--sapContent_Shadow1);
+	border-radius: var(--_kengine_menu_popover_border_radius);
+	max-width: 20rem;
+}
+
+.kengine-menu-item-icon-end {
+	display: inline-block;
+	vertical-align: middle;
+	padding-inline-start: 0.5rem;
+	pointer-events: none;
+	position: absolute;
+	inset-inline-end: var(--_kengine_menu_item_submenu_icon_right);
+}
+
+.kengine-menu-item-no-icon-end {
+	min-width: var(--_kengine_list_item_icon_size);
+	min-height: var(--_kengine_list_item_icon_size);
+	display: inline-block;
+	vertical-align: middle;
+	padding-inline-start: 0.5rem;
+	pointer-events: none;
+	inset-inline-end: var(--_kengine_menu_item_submenu_icon_right);
+}
+
+.kengine-menu-item[additional-text] .kengine-menu-item-no-icon-end {
+	display: none;
+}
+
+.kengine-menu-item-dummy-icon {
+	min-width: var(--_kengine_list_item_icon_size);
+	min-height: var(--_kengine_list_item_icon_size);
+	display: inline-block;
+	vertical-align: middle;
+	padding-inline-end: 0.5rem;
+	pointer-events: none;
+}
+
+.kengine-menu-busy-indicator {
+	width: 100%;
+}
+
+.kengine-menu-dialog-header {
+	display: flex;
+	height: var(--_kengine-responsive_popover_header_height);
+	align-items: center;
+	justify-content: space-between;
+	padding: 0px 1rem;
+	width: 100%;
+	overflow: hidden;
+}
+
+.kengine-menu-dialog-title {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	width: calc(100% - 6.5rem);
+	padding-right: 1rem;
+}
+
+.kengine-menu-dialog-title > div {
+	display: inline-block;
+	max-width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.kengine-menu-back-button {
+	margin-right: 1rem;
+}
+
+.kengine-menu-item::part(title) {
+    font-size: var(--sapFontSize);
+	padding-top: 0.125rem;
+}
+
+.kengine-menu-item[icon]:not([is-phone])::part(title),
+.kengine-menu-item[is-phone]:not([icon=""])::part(title) {
+	padding-top: 0;
+}
+
+.kengine-menu-item:not([is-phone])::part(native-li) {
+	padding: var(--_kengine_menu_item_padding);
+}
+
+.kengine-menu-item[starts-section] {
+	border-top: 1px solid var(--sapGroup_ContentBorderColor);
+}
+
+.kengine-menu-item[active] .kengine-menu-item-icon-end {
+	color: var(--sapList_Active_TextColor);
+}
+
+.kengine-menu-item[focused]:not([active]) {
+	background-color: var(--sapList_Hover_Background);
+}
+
+.kengine-menu-rp[sub-menu] {
+	margin-top: 0.25rem;
+	margin-inline: var(--_kengine_menu_submenu_margin_offset);
+}
+
+.kengine-menu-rp[sub-menu][actual-placement-type="Left"] {
+	margin-top: 0.25rem;
+	margin-inline: var(--_kengine_menu_submenu_placement_type_left_margin_offset);
+}
+
+.kengine-menu-item::part(additional-text) {
+	margin-inline-start: var(--_kengine_menu_item_additional_text_start_margin);
+	color: var(--sapContent_LabelColor);
+	min-width: max-content;
+}

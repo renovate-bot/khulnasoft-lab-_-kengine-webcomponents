@@ -1,0 +1,267 @@
+@import "./InvisibleTextStyles.css";
+
+:host(:not([hidden])) {
+	display: inline-block;
+}
+
+:host {
+	min-width: var(--_kengine_radio_button_min_width);
+	max-width: 100%;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	color: var(--_kengine_radio_button_color);
+	border-radius: var(--_kengine_radio_button_border_radius);
+}
+
+:host(:not([disabled])) .kengine-radio-root {
+	cursor: pointer;
+}
+
+/* checked */
+:host([checked]) {
+	color: var(--_kengine_radio_button_checked_fill);
+}
+
+:host([checked]) .kengine-radio-svg-inner {
+	fill: var(--_kengine_radio_button_inner_ring_color);
+}
+
+:host([checked]) .kengine-radio-svg-outer {
+	stroke: var(--_kengine_radio_button_outer_ring_color);
+}
+
+/* disabled */
+:host([disabled]) .kengine-radio-root {
+	color: var(--_kengine_radio_button_color);
+	opacity: var(--sapContent_DisabledOpacity);
+}
+
+:host([disabled][checked]) .kengine-radio-svg-outer {
+	stroke: var(--_kengine_radio_button_color);
+}
+
+/* focused */
+:host(:not([disabled])) .kengine-radio-root:focus::before {
+	content: "";
+	display: var(--_kengine_radio_button_focus_outline);
+	position: absolute;
+	inset: var(--_kengine_radio_button_focus_dist);
+	pointer-events: none;
+	border: var(--_kengine_radio_button_border_width) var(--sapContent_FocusStyle) var(--sapContent_FocusColor);
+	border-radius: var(--_kengine_radio_button_border_radius);
+}
+
+:host(:not([disabled])) .kengine-radio-root:focus {
+	border-radius: var(--_kengine_radio_button_border_radius);
+	border: var(--_kengine_radio_button_focus_border);
+}
+
+/* hovered and value-state */
+:host(:not([value-state="Error"]):not([value-state="Warning"]):not([value-state="Success"]):not([value-state="Information"])) .kengine-radio-root:hover .kengine-radio-inner--hoverable .kengine-radio-svg-outer {
+	stroke: var(--_kengine_radio_button_outer_ring_hover_color);
+}
+
+:host(:not([value-state="Error"]):not([value-state="Warning"]):not([value-state="Success"]):not([value-state="Information"])[checked]) .kengine-radio-root:hover .kengine-radio-inner--hoverable .kengine-radio-svg-outer {
+	stroke: var(--_kengine_radio_button_outer_ring_checked_hover_color);
+}
+
+.kengine-radio-root:hover .kengine-radio-inner--hoverable .kengine-radio-svg-outer,
+:host([checked]) .kengine-radio-root:hover .kengine-radio-inner--hoverable .kengine-radio-svg-outer {
+	fill: var(--_kengine_radio_button_hover_fill);
+}
+
+/* active, checked */
+:host([active][checked]:not([value-state]):not([disabled]):not([readonly])) .kengine-radio-svg-outer {
+	stroke: var(--_kengine_radio_button_outer_ring_checked_hover_color);
+}
+
+/* active, not checked */
+:host([active]:not([checked]):not([value-state]):not([disabled]):not([readonly])) .kengine-radio-svg-outer {
+	stroke: var(--_kengine_radio_button_outer_ring_active_color);
+}
+
+/* with label */
+:host([text]) .kengine-radio-root {
+	padding-inline-end: var(--_kengine_radio_button_border_width);
+}
+
+:host([text]) .kengine-radio-root:focus::before {
+	inset-inline-end: 0px;
+}
+
+:host([text]) .kengine-radio-inner {
+	padding: var(--_kengine_radio_button_outer_ring_padding_with_label);
+}
+
+/* readonly */
+:host([checked][readonly]) .kengine-radio-svg-inner {
+	fill: var(--_kengine_radio_button_read_only_inner_ring_color);
+}
+
+:host([readonly]) .kengine-radio-root .kengine-radio-svg-outer {
+	fill: var(--sapField_ReadOnly_Background);
+	stroke: var(--sapField_ReadOnly_BorderColor);
+	stroke-dasharray: var(--_kengine_radio_button_read_only_border_type);
+	stroke-width: var(--_kengine_radio_button_read_only_border_width);
+}
+
+/* value states */
+:host([value-state="Error"]) .kengine-radio-svg-outer,
+:host([value-state="Warning"]) .kengine-radio-svg-outer {
+	stroke-width: var(--sapField_InvalidBorderWidth);
+}
+
+:host([value-state="Information"]) .kengine-radio-svg-outer {
+	stroke-width: var(--_kengine_radio_button_information_border_width);
+}
+
+/* Error state */
+:host([value-state="Error"][checked]) .kengine-radio-svg-inner {
+	fill: var(--_kengine_radio_button_checked_error_fill);
+}
+:host([value-state="Error"]) .kengine-radio-svg-outer,
+:host([value-state="Error"]) .kengine-radio-root:hover .kengine-radio-inner.kengine-radio-inner--hoverable:hover .kengine-radio-svg-outer {
+	stroke: var(--sapField_InvalidColor);
+	fill: var(--sapField_InvalidBackground);
+}
+
+:host([value-state="Error"]) .kengine-radio-root:hover .kengine-radio-inner.kengine-radio-inner--hoverable .kengine-radio-svg-outer {
+	fill: var(--_kengine_radio_button_hover_fill_error);
+}
+
+/* Warning state */
+:host([value-state="Warning"][checked]) .kengine-radio-svg-inner {
+	fill: var(--_kengine_radio_button_checked_warning_fill);
+}
+:host([value-state="Warning"]) .kengine-radio-svg-outer,
+:host([value-state="Warning"]) .kengine-radio-root:hover .kengine-radio-inner.kengine-radio-inner--hoverable:hover .kengine-radio-svg-outer {
+	stroke: var(--sapField_WarningColor);
+	fill: var(--sapField_WarningBackground);
+}
+
+:host([value-state="Warning"]) .kengine-radio-root:hover .kengine-radio-inner.kengine-radio-inner--hoverable .kengine-radio-svg-outer {
+	fill: var(--_kengine_radio_button_hover_fill_warning);
+}
+
+/* Success state */
+:host([value-state="Success"][checked]) .kengine-radio-svg-inner {
+	fill: var(--_kengine_radio_button_checked_success_fill);
+}
+:host([value-state="Success"]) .kengine-radio-svg-outer,
+:host([value-state="Success"]) .kengine-radio-root:hover .kengine-radio-inner.kengine-radio-inner--hoverable:hover .kengine-radio-svg-outer {
+	stroke: var(--sapField_SuccessColor);
+	fill: var(--sapField_SuccessBackground);
+}
+
+:host([value-state="Success"]) .kengine-radio-root:hover .kengine-radio-inner.kengine-radio-inner--hoverable .kengine-radio-svg-outer {
+	fill: var(--_kengine_radio_button_hover_fill_success);
+}
+
+/* Information state */
+:host([value-state="Information"][checked]) .kengine-radio-svg-inner {
+	fill: var(--_kengine_radio_button_checked_information_fill);
+}
+:host([value-state="Information"]) .kengine-radio-svg-outer,
+:host([value-state="Information"]) .kengine-radio-root:hover .kengine-radio-inner.kengine-radio-inner--hoverable:hover .kengine-radio-svg-outer {
+	stroke: var(--sapField_InformationColor);
+	fill: var(--sapField_InformationBackground);
+}
+
+:host([value-state="Information"]) .kengine-radio-root:hover .kengine-radio-inner.kengine-radio-inner--hoverable .kengine-radio-svg-outer {
+	fill: var(--_kengine_radio_button_hover_fill_information);
+}
+
+:host([value-state="Error"]) .kengine-radio-root,
+:host([value-state="Warning"]) .kengine-radio-root,
+:host([value-state="Information"]) .kengine-radio-root {
+	stroke-dasharray: var(--_kengine_radio_button_warning_error_border_dash);
+}
+
+.kengine-radio-root {
+	height: var(--_kengine_radio_button_height);
+	position: relative;
+	display: inline-flex;
+	flex-wrap: nowrap;
+	outline: none;
+	max-width: 100%;
+	box-sizing: border-box;
+	border: var(--_kengine_radio_button_border);
+	border-radius: var(--_kengine_radio_button_border_radius);
+}
+
+/* Inner */
+.kengine-radio-inner {
+	display: flex;
+	align-items: center;
+	padding: var(--_kengine_radio_button_outer_ring_padding);
+	flex-shrink: 0;
+	height: var(--_kengine_radio_button_inner_size);
+	font-size: 1rem; /* override font size of the message dialog */
+	pointer-events: none;
+	vertical-align: top;
+}
+
+.kengine-radio-inner {
+	outline: none;
+}
+
+.kengine-radio-inner input {
+	-webkit-appearance: none;
+	visibility: hidden;
+	width: 0;
+	left: 0;
+	position: absolute;
+	font-size: inherit;
+	margin: 0; /* FF puts margin */
+}
+
+/* Label */
+[kengine-label].kengine-radio-label {
+	display: flex;
+	align-items: center;
+	padding-inline-end: var(--_kengine_radio_button_label_offset);
+	vertical-align: top;
+	max-width: 100%;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	pointer-events: none;
+	color: var(--_kengine_radio_button_label_color);
+}
+
+:host([wrapping-type="Normal"][text]) .kengine-radio-root {
+	height: auto;
+}
+
+:host([wrapping-type="Normal"][text]) [kengine-label].kengine-radio-label {
+	padding: var(--_kengine_radio_button_label_side_padding) 0;
+	overflow-wrap: break-word;
+}
+
+/* SVG */
+.kengine-radio-svg {
+	height: var(--_kengine_radio_button_svg_size);
+	width: var(--_kengine_radio_button_svg_size);
+	overflow: visible;
+	pointer-events: none;
+}
+
+.kengine-radio-svg-outer {
+	fill: var(--_kengine_radio_button_outer_ring_bg);
+	stroke: currentColor;
+	stroke-width: var(--_kengine_radio_button_outer_ring_width);
+}
+
+.kengine-radio-svg-inner {
+	fill: none;
+	r: var(--_kengine_radio_button_inner_ring_radius);
+}
+
+.kengine-radio-svg-outer,
+.kengine-radio-svg-inner {
+	flex-shrink: 0;
+}
+
+/* ListItem Context */
+:host(.kengine-li-singlesel-radiobtn) .kengine-radio-root .kengine-radio-inner .kengine-radio-svg-outer {
+	fill: var(--sapList_Background);
+}

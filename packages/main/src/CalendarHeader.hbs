@@ -1,0 +1,55 @@
+<div class="kengine-calheader-root">
+	<div
+		data-kengine-cal-header-btn-prev
+		class="{{classes.prevButton}}"
+		role="button"
+		@mousedown={{onPrevButtonClick}}
+		title="{{_prevButtonText}}"
+	>
+		<kengine-icon class="kengine-calheader-arrowicon" name="slim-arrow-left"></kengine-icon>
+	</div>
+
+	<div class="kengine-calheader-midcontainer">
+		<div
+			data-kengine-cal-header-btn-month
+			class="kengine-calheader-arrowbtn kengine-calheader-middlebtn"
+			?hidden="{{isMonthButtonHidden}}"
+			tabindex="0"
+			role="button"
+			aria-label="{{accInfo.ariaLabelMonthButton}}"
+			@click={{onMonthButtonClick}}
+			@keydown={{onMonthButtonKeyDown}}
+			@keyup={{onMonthButtonKeyUp}}
+		>
+			<span>{{_monthButtonText}}</span>
+			{{#if hasSecondaryCalendarType}}
+				<span class="kengine-calheader-btn-sectext">{{_secondMonthButtonText}}</span>
+			{{/if}}
+		</div>
+		<div
+			data-kengine-cal-header-btn-year
+			class="kengine-calheader-arrowbtn kengine-calheader-middlebtn"
+			?hidden="{{isYearButtonHidden}}"
+			tabindex="0"
+			role="button"
+			@click={{onYearButtonClick}}
+			@keydown={{onYearButtonKeyDown}}
+			@keyup={{onYearButtonKeyUp}}
+		>
+			<span>{{_yearButtonText}}</span>
+			{{#if hasSecondaryCalendarType}}
+				<span class="kengine-calheader-btn-sectext">{{_yearButtonTextSecType}}</span>
+			{{/if}}
+		</div>
+	</div>
+
+	<div
+		data-kengine-cal-header-btn-next
+		class="{{classes.nextButton}}"
+		role="button"
+		@mousedown={{onNextButtonClick}}
+		title={{_nextButtonText}}
+	>
+		<kengine-icon class="kengine-calheader-arrowicon" name="slim-arrow-right"></kengine-icon>
+	</div>
+</div>

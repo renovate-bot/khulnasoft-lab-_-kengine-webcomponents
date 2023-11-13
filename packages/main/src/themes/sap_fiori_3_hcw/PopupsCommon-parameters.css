@@ -1,0 +1,5 @@
+@import "../base/PopupsCommon-parameters.css";
+
+:root {
+	--_kengine_popup_header_shadow: none;
+}

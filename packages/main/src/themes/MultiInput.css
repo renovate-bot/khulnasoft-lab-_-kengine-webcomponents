@@ -1,0 +1,38 @@
+@import "./InputIcon.css";
+
+:host {
+	min-width: calc(var(--_kengine_input_min_width) + (var(--_kengine-input-icons-count)*var(--_kengine_input_icon_width)));
+}
+
+:host([tokenizer-available]) {
+	min-width: calc(var(--_kengine_input_min_width) + (var(--_kengine-input-icons-count)*var(--_kengine_input_icon_width)) + var(--_kengine_input_tokenizer_min_width));
+}
+
+.kengine-multi-input-tokenizer {
+	min-width: var(--_kengine_input_tokenizer_min_width);
+	max-width: calc(100% - 3rem - var(--_kengine-input-icons-count) * var(--_kengine_input_icon_min_width));
+	border: none;
+	width: auto;
+	height: 100%;
+}
+
+:host([readonly]) .kengine-multi-input-tokenizer::part(n-more-text) {
+	color: var(--sapLinkColor);
+}
+
+.kengine-multi-input-tokenizer::part(n-more-text) {
+	padding-inline-end: var(--_kengine_input_inner_space_to_n_more_text);
+}
+
+[inner-input][inner-input-with-icon] {
+	padding: var(--_kengine_input_inner_padding_with_icon);
+}
+
+:host([tokenizer-available]) [inner-input] {
+	padding-inline-start: var(--_kengine_input_inner_space_to_tokenizer);
+}
+
+:host(:not([tokenizer-available])) .kengine-multi-input-tokenizer {
+	--_kengine_input_tokenizer_min_width: 0px;
+	width: var(--_kengine_input_tokenizer_min_width);
+}

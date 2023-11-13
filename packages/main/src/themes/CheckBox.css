@@ -1,0 +1,256 @@
+@import "./InvisibleTextStyles.css";
+@import "./TapHighlightColor.css";
+
+:host(:not([hidden])) {
+	display: inline-block;
+}
+
+:host {
+	overflow: hidden;
+	max-width: 100%;
+	outline: none;
+	border-radius: var(--_kengine_checkbox_border_radius);
+	transition: var(--_kengine_checkbox_transition);
+	cursor: pointer;
+	user-select: none;
+  	-moz-user-select: none;
+  	-webkit-user-select: none;
+  	-ms-user-select: none;
+}
+
+/* disabled */
+:host([disabled]) {
+	cursor: default;
+}
+
+:host([disabled]) .kengine-checkbox-root {
+	opacity: var(--_kengine_checkbox_disabled_opacity);
+}
+
+:host([disabled]) .kengine-checkbox-inner {
+	border-color: var(--_kengine_checkbox_inner_disabled_border_color);
+}
+
+:host([disabled]) .kengine-checkbox-label {
+	color: var(--_kengine_checkbox_disabled_label_color);
+}
+
+/* readonly */
+:host([readonly]:not([value-state="Warning"]):not([value-state="Error"])) .kengine-checkbox-inner {
+	background: var(--sapField_ReadOnly_Background);
+	border: var(--_kengine_checkbox_inner_readonly_border);
+	color: var(--sapField_TextColor);
+}
+
+/* wrap */
+:host([wrapping-type="Normal"][text]) .kengine-checkbox-root {
+	min-height: auto;
+	box-sizing: border-box;
+	align-items: flex-start;
+	padding-top: var(--_kengine_checkbox_root_side_padding);
+	padding-bottom: var(--_kengine_checkbox_root_side_padding);
+}
+
+:host([wrapping-type="Normal"][text]) .kengine-checkbox-root .kengine-checkbox-inner,
+:host([wrapping-type="Normal"][text]) .kengine-checkbox-root .kengine-checkbox-label {
+	margin-top: var(--_kengine_checkbox_wrapped_content_margin_top);
+}
+
+:host([wrapping-type="Normal"][text]) .kengine-checkbox-root .kengine-checkbox-label {
+	overflow-wrap: break-word;
+	align-self: center;
+}
+
+:host([wrapping-type="Normal"]) .kengine-checkbox-root:focus::before {
+	bottom: var(--_kengine_checkbox_wrapped_focus_left_top_bottom_position);
+}
+
+/* value states */
+:host([value-state="Error"]) .kengine-checkbox-inner,
+:host([value-state="Error"]) .kengine-checkbox--hoverable:hover .kengine-checkbox-inner {
+	background: var(--sapField_InvalidBackground);
+	border: var(--_kengine_checkbox_inner_error_border);
+	color: var(--sapField_InvalidColor);
+}
+
+:host([value-state="Error"]) .kengine-checkbox--hoverable:hover .kengine-checkbox-inner {
+	background: var(--_kengine_checkbox_inner_error_background_hover);
+}
+
+:host([value-state="Warning"]) .kengine-checkbox-inner,
+:host([value-state="Warning"]) .kengine-checkbox--hoverable:hover .kengine-checkbox-inner {
+	background: var(--sapField_WarningBackground);
+	border: var(--_kengine_checkbox_inner_warning_border);
+	color: var(--_kengine_checkbox_inner_warning_color);
+}
+
+:host([value-state="Warning"]) .kengine-checkbox--hoverable:hover .kengine-checkbox-inner {
+	background: var(--_kengine_checkbox_inner_warning_background_hover);
+}
+
+:host([value-state="Information"]) .kengine-checkbox-inner,
+:host([value-state="Information"]) .kengine-checkbox--hoverable:hover .kengine-checkbox-inner {
+	background: var(--sapField_InformationBackground);
+	border: var(--_kengine_checkbox_inner_information_border);
+	color: var(--_kengine_checkbox_inner_information_color);
+}
+
+:host([value-state="Information"]) .kengine-checkbox--hoverable:hover .kengine-checkbox-inner {
+	background: var(--_kengine_checkbox_inner_information_background_hover);
+}
+
+
+:host([value-state="Success"]) .kengine-checkbox-inner,
+:host([value-state="Success"]) .kengine-checkbox--hoverable:hover .kengine-checkbox-inner  {
+	background: var(--sapField_SuccessBackground);
+	border: var(--_kengine_checkbox_inner_success_border);
+	color: var(--sapField_SuccessColor);
+}
+
+:host([value-state="Success"]) .kengine-checkbox--hoverable:hover .kengine-checkbox-inner  {
+	background: var(--_kengine_checkbox_inner_success_background_hover);
+}
+
+:host([value-state="Warning"]) .kengine-checkbox-icon,
+:host([value-state="Warning"][indeterminate]) .kengine-checkbox-inner::after {
+	color: var(--_kengine_checkbox_checkmark_warning_color);
+}
+
+:host([text]) .kengine-checkbox-root {
+	padding-inline-end: var(--_kengine_checkbox_right_focus_distance);
+}
+
+:host([text]) .kengine-checkbox-root:focus::before {
+	inset-inline-end: 0;
+}
+
+.kengine-checkbox-root {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	width: 100%;
+	min-height: var(--_kengine_checkbox_width_height);
+	min-width: var(--_kengine_checkbox_width_height);
+	padding: 0 var(--_kengine_checkbox_wrapper_padding);
+	box-sizing: border-box;
+	outline: none;
+	transition: var(--_kengine_checkbox_transition);
+	border: var(--_kengine_checkbox_default_focus_border);
+	border-radius: var(--_kengine_checkbox_border_radius);
+	box-sizing: border-box;
+}
+
+/* focused */
+.kengine-checkbox-root:focus::before {
+	display: var(--_kengine_checkbox_focus_outline_display);
+	content: "";
+	position: absolute;
+	inset-inline: var(--_kengine_checkbox_focus_position);
+	inset-block: var(--_kengine_checkbox_focus_position);
+	border: var(--_kengine_checkbox_focus_outline);
+	border-radius: var(--_kengine_checkbox_focus_border_radius);
+}
+
+:host .kengine-checkbox-root:focus {
+	border: var(--_kengine_checkbox_focus_border);
+	border-radius: 0.5rem;
+}
+
+/* hover */
+:host(:hover:not([disabled])) {
+	background: var(--_kengine_checkbox_outer_hover_background);
+}
+
+.kengine-checkbox--hoverable .kengine-checkbox-label:hover {
+	color: var(--_kengine_checkbox_label_color);
+}
+
+/* hover, not active, not checked */
+:host(:not([active]):not([checked]):not([value-state])) .kengine-checkbox--hoverable:hover .kengine-checkbox-inner,
+:host(:not([active]):not([checked])[value-state="None"]) .kengine-checkbox--hoverable:hover .kengine-checkbox-inner {
+	background: var(--_kengine_checkbox_hover_background);
+	border-color: var(--_kengine_checkbox_inner_hover_border_color);
+}
+
+/* hover, not active, checked */
+:host(:not([active])[checked]:not([value-state])) .kengine-checkbox--hoverable:hover .kengine-checkbox-inner,
+:host(:not([active])[checked][value-state="None"]) .kengine-checkbox--hoverable:hover .kengine-checkbox-inner {
+	background: var(--_kengine_checkbox_hover_background);
+	border-color: var(--_kengine_checkbox_inner_hover_checked_border_color);
+}
+
+/* checked */
+:host([checked]:not([value-state])) .kengine-checkbox-inner,
+:host([checked][value-state="None"]) .kengine-checkbox-inner {
+	border-color: var(--_kengine_checkbox_inner_selected_border_color);
+}
+
+/* active, not checked */
+:host([active]:not([checked]):not([value-state]):not([disabled])) .kengine-checkbox-inner,
+:host([active]:not([checked])[value-state="None"]:not([disabled])) .kengine-checkbox-inner {
+	border-color: var(--_kengine_checkbox_inner_active_border_color);
+	background-color: var(--_kengine_checkbox_active_background);
+}
+
+/* active, checked */
+:host([active][checked]:not([value-state]):not([disabled])) .kengine-checkbox-inner,
+:host([active][checked][value-state="None"]:not([disabled])) .kengine-checkbox-inner {
+	border-color: var(--_kengine_checkbox_inner_selected_border_color);
+	background-color: var(--_kengine_checkbox_active_background);
+}
+
+.kengine-checkbox-inner {
+	min-width: var(--_kengine_checkbox_inner_width_height);
+	max-width: var(--_kengine_checkbox_inner_width_height);
+	height: var(--_kengine_checkbox_inner_width_height);
+	max-height: var(--_kengine_checkbox_inner_width_height);
+	border: var(--_kengine_checkbox_inner_border);
+	border-radius: var(--_kengine_checkbox_inner_border_radius);
+	background: var(--_kengine_checkbox_inner_background);
+	color: var(--_kengine_checkbox_checkmark_color);
+	box-sizing: border-box;
+	position: relative;
+	cursor: inherit;
+}
+
+:host([indeterminate][checked]) .kengine-checkbox-inner::after {
+	content: "";
+	background-color: currentColor;
+	position: absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%, -50%);
+	width: var(--_kengine_checkbox_partially_icon_size);
+	height: var(--_kengine_checkbox_partially_icon_size);
+}
+
+.kengine-checkbox-inner input {
+	-webkit-appearance: none;
+	visibility: hidden;
+	width: 0;
+	left: 0;
+	position: absolute;
+	font-size: inherit;
+}
+
+.kengine-checkbox-root .kengine-checkbox-label {
+	margin-inline-start: var(--_kengine_checkbox_label_offset);
+	cursor: inherit;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	pointer-events: none;
+	color: var(--_kengine_checkbox_label_color);
+}
+
+.kengine-checkbox-icon {
+	width: var(--_kengine_checkbox_icon_size);
+	height: var(--_kengine_checkbox_icon_size);
+	color: currentColor;
+	cursor: inherit;
+	position: absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%, -50%);
+}
+
+

@@ -1,0 +1,7 @@
+@import "../base/SliderBase-parameters.css";
+
+:root {
+	--_kengine_slider_inner_min_width: 4rem;
+	--_kengine_range_slider_handle_background: transparent;
+	--_kengine_range_slider_root_hover_handle_bg: transparent;
+}

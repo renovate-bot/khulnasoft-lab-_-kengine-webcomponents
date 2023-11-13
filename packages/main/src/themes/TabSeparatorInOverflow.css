@@ -1,0 +1,10 @@
+.kengine-tc__separator {
+	min-height: 0.25rem;
+	border-bottom: 0.0625rem solid var(--sapGroup_TitleBorderColor);
+	margin-inline-start: calc(var(--_kengine-tab-indentation-level) * 0.5rem);
+	margin-inline-end: 0.5rem;
+}
+
+[kengine-list] > .kengine-tc__separator:first-child {
+	min-height: 0.5rem;
+}

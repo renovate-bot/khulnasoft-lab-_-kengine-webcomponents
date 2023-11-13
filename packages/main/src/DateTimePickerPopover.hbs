@@ -1,0 +1,76 @@
+
+{{>include "./DatePickerPopover.hbs"}}
+
+{{#*inline "header"}}
+	{{#if phone}}
+		<div class="kengine-dt-picker-header">
+			<kengine-segmented-button class="kengine-dt-picker-toggle-button">
+				<kengine-toggle-button key="Date" ?pressed="{{showDateView}}" @click="{{_dateTimeSwitchChange}}">{{btnDateLabel}}</kengine-toggle-button>
+				<kengine-toggle-button key="Time" ?pressed="{{showTimeView}}" @click="{{_dateTimeSwitchChange}}">{{btnTimeLabel}}</kengine-toggle-button>
+			</kengine-segmented-button>
+		</div>
+	{{/if}}
+{{/inline}}
+
+{{#*inline "content"}}
+	<div class="kengine-dt-picker-content {{classes.picker}}">
+		<kengine-calendar
+			class="kengine-dt-cal {{classes.dateTimeView}}"
+			id="{{_id}}-calendar"
+			primary-calendar-type="{{_primaryCalendarType}}"
+			secondary-calendar-type="{{secondaryCalendarType}}"
+			format-pattern="{{_formatPattern}}"
+			timestamp="{{_calendarTimestamp}}"
+			.selectionMode="{{_calendarSelectionMode}}"
+			.minDate="{{minDate}}"
+			.maxDate="{{maxDate}}"
+			@kengine-selected-dates-change="{{onSelectedDatesChange}}"
+			@kengine-show-month-press="{{onHeaderShowMonthPress}}"
+			@kengine-show-year-press="{{onHeaderShowYearPress}}"
+			?hide-week-numbers="{{hideWeekNumbers}}"
+			._currentPicker="{{_calendarCurrentPicker}}"
+		>
+			{{#each _calendarSelectedDates}}
+				<kengine-date value="{{this}}"></kengine-date>
+			{{/each}}
+		</kengine-calendar>
+
+		{{#unless phone}}
+			<span class="kengine-dt-picker-separator"></span>
+		{{/unless}}
+
+		<kengine-time-selection
+				id="{{_id}}-time-sel"
+				class="kengine-dt-time {{classes.dateTimeView}}"
+				value="{{_timeSelectionValue}}"
+				format-pattern="{{_formatPattern}}"
+				._currentSlider="{{_currentTimeSlider}}"
+				._calendarType="{{_primaryCalendarType}}"
+				@kengine-change="{{onTimeSelectionChange}}"
+				@kengine-slider-change="{{onTimeSliderChange}}"
+		></kengine-time-selection>
+	</div>
+{{/inline}}
+
+{{#*inline "footer"}}
+	<div slot="footer" class="kengine-dt-picker-footer {{classes.footer}}">
+		<kengine-button
+			id="ok"
+			class="kengine-dt-picker-action"
+			design="Emphasized"
+			?disabled="{{_submitDisabled}}"
+			@click="{{_submitClick}}"
+		>
+			{{btnOKLabel}}
+		</kengine-button>
+
+		<kengine-button
+			id="cancel"
+			class="kengine-dt-picker-action"
+			design="Transparent"
+			@click="{{_cancelClick}}"
+		>
+			{{btnCancelLabel}}
+		</kengine-button>
+	</div>
+{{/inline}}

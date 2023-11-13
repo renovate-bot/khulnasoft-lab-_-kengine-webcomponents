@@ -1,0 +1,8 @@
+@import "../base/ProgressIndicator-parameters.css";
+
+:root {
+    --_kengine_progress_indicator_value_state_error: var(--sapNegativeElementColor);
+    --_kengine_progress_indicator_value_state_warning: var(--sapCriticalElementColor);
+    --_kengine_progress_indicator_value_state_success: var(--sapPositiveElementColor);
+    --_kengine_progress_indicator_value_state_information: var(--sapHighlightColor);
+}

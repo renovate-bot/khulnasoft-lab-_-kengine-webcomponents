@@ -1,0 +1,17 @@
+.kengine-cp-dialog-content {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 1rem 0;
+}
+
+.kengine-cp-dialog-footer {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	margin: 0.1875rem 1rem;
+}
+
+.kengine-cp-dialog-footer [kengine-button]:first-child{
+	margin-right: 1rem;
+}

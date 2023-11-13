@@ -1,0 +1,38 @@
+@import "../base/ProgressIndicator-parameters.css";
+@import "./ProgressIndicatorLayout-parameters.css";
+
+:root {
+    --_kengine_progress_indicator_background_none: var(--sapProgress_Background);
+    --_kengine_progress_indicator_background_error: var(--sapProgress_NegativeBackground);
+    --_kengine_progress_indicator_background_warning: var(--sapProgress_CriticalBackground);
+    --_kengine_progress_indicator_background_success: var(--sapProgress_PositiveBackground);
+    --_kengine_progress_indicator_background_information: var(--sapProgress_InformationBackground);
+
+    --_kengine_progress_indicator_value_state_none: var(--sapProgress_Value_Background);
+    --_kengine_progress_indicator_value_state_error: var(--sapProgress_Value_NegativeBackground);
+    --_kengine_progress_indicator_value_state_warning: var(--sapProgress_Value_CriticalBackground);
+    --_kengine_progress_indicator_value_state_success: var(--sapProgress_Value_PositiveBackground);
+    --_kengine_progress_indicator_value_state_information: var(--sapProgress_Value_InformationBackground);
+
+    --_kengine_progress_indicator_value_state_none_border_color: var(--sapProgress_Value_BorderColor);
+    --_kengine_progress_indicator_value_state_error_border_color: var(--sapProgress_Value_NegativeBorderColor);
+    --_kengine_progress_indicator_value_state_warning_border_color: var(--sapProgress_Value_CriticalBorderColor);
+    --_kengine_progress_indicator_value_state_success_border_color: var(--sapProgress_Value_PositiveBorderColor);
+    --_kengine_progress_indicator_value_state_information_border_color: var(--sapProgress_Value_InformationBorderColor);
+
+    --_kengine_progress_indicator_value_state_error_icon_color: var(--sapProgress_Value_NegativeTextColor);
+    --_kengine_progress_indicator_value_state_warning_icon_color: var(--sapProgress_Value_CriticalTextColor);
+    --_kengine_progress_indicator_value_state_success_icon_color: var(--sapProgress_Value_PositiveTextColor);
+    --_kengine_progress_indicator_value_state_information_icon_color: var(--sapProgress_Value_InformationTextColor);
+
+    --_kengine_progress_indicator_border: none;
+    --_kengine_progress_indicator_border_color_error: var(--sapErrorBorderColor);
+    --_kengine_progress_indicator_border_color_warning: var(--sapWarningBorderColor);
+    --_kengine_progress_indicator_border_color_success: var(--sapSuccessBorderColor);
+    --_kengine_progress_indicator_border_color_information: var(--sapInformationBorderColor);
+
+    --_kengine_progress_indicator_color: var(--sapField_TextColor);
+    --_kengine_progress_indicator_bar_color: var(--sapProgress_TextColor);
+    --_kengine_progress_indicator_icon_size: var(--sapFontLargeSize);
+
+}

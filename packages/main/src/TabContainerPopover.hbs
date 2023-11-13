@@ -1,0 +1,21 @@
+<kengine-responsive-popover
+	id="{{_id}}-overflowMenu"
+	horizontal-align="Right"
+	placement-type="Bottom"
+	content-only-on-desktop
+	hide-arrow
+	_hide-header
+	class="kengine-tab-container-responsive-popover"
+>
+	<kengine-list mode="SingleSelect" separators="None" @kengine-item-click="{{_onOverflowListItemClick}}">
+		{{#each _overflowItems}}
+			{{overflowPresentation}}
+		{{/each}}
+	</kengine-list>
+	<div slot="footer" class="kengine-responsive-popover-footer">
+		<kengine-button
+			design="Transparent"
+			@click="{{_closeRespPopover}}"
+		>{{popoverCancelButtonText}}</kengine-button>
+	</div>
+</kengine-responsive-popover>

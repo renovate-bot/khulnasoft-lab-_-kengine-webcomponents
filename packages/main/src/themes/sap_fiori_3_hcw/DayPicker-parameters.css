@@ -1,0 +1,28 @@
+@import "../base/DayPicker-parameters.css";
+
+:root {
+	--_kengine_daypicker_item_border: none;
+	--_kengine_daypicker_item_selected_box_shadow: none;
+	--_kengine_daypicker_item_selected_background: var(--sapContent_Selected_Background);
+	--_kengine_daypicker_dayname_color: var(--sapContent_LabelColor);
+	--_kengine_daypicker_weekname_color: var(--sapContent_LabelColor);
+	--_kengine_daypicker_item_border_radius_focus_after: 0.25rem;
+	--_kengine_daypicker_item_border_radius_item: 0.25rem;
+	--_kengine_daypicker_item_selected_border: none;
+	--_kengine_daypicker_item_not_selected_focus_border: 0.125rem dotted var(--sapContent_FocusColor);
+	--_kengine_daypicker_item_selected_focus_color: var(--sapContent_ContrastFocusColor);
+	--_kengine_daypicker_item_selected_focus_width: 0.125rem;
+	--_kengine_daypicker_item_no_selected_inset: 0.0625rem;
+	--_kengine_daypicker_item_now_border_focus_after: 0.125rem dotted var(--sapList_SelectionBorderColor);
+	--_kengine_daypicker_item_now_border_radius_focus_after: 0.0625rem;
+	--_kengine_day_picker_item_selected_now_border: 0.1875rem solid var(--sapContent_ContrastFocusColor);
+	--_kengine_day_picker_item_selected_now_border_focus: 0.125rem dotted var(--sapContent_ContrastFocusColor);
+	--_kengine_day_picker_item_selected_now_border_radius_focus: 0.0625rem;
+	--_kengine_daypicker_item_border_radius: 0.25rem;
+	--_kengine_daypicker_item_selected_text_border: 0.0625rem solid var(--sapList_SelectionBorderColor);
+	--_kengine_daypicker_item_select_between_border: 1px solid var(--sapContent_Selected_ForegroundColor);
+	--_kengine_daypicker_item_now_selected_outline_offset: -0.3125rem;
+	--_kengine_daypicker_two_calendar_item_now_selected_border_width: 0.125rem;
+	--_kengine_daypicker_item_selected_text_border: none;
+	--_kengine_daypicker_two_calendar_item_now_selected_border_inset: 0.125rem;
+}

@@ -1,0 +1,53 @@
+@import "./FormComponents.css";
+@import "./Input.css";
+@import "./InputIcon.css";
+@import "./InvisibleTextStyles.css";
+
+:host {
+	min-width: calc(var(--_kengine_input_min_width) + (var(--_kengine-input-icons-count)*var(--_kengine_input_icon_width)));
+}
+
+:host([tokenizer-available]) {
+	min-width: calc(var(--_kengine_input_min_width) + (var(--_kengine-input-icons-count)*var(--_kengine_input_icon_width)) + var(--_kengine_input_tokenizer_min_width));
+}
+
+:host(:not([hidden])) {
+	display: inline-block;
+}
+
+.kengine-multi-combobox-root {
+	display: flex;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	border-radius: var(--_kengine_input_border_radius);
+}
+
+.kengine-multi-combobox-tokenizer {
+	min-width: var(--_kengine_input_tokenizer_min_width);
+	max-width: calc(100% - 3rem - var(--_kengine-input-icons-count) * var(--_kengine_input_icon_min_width));
+	border: none;
+	width: auto;
+	height: 100%;
+}
+
+:host([readonly]) .kengine-multi-combobox-tokenizer::part(n-more-text) {
+	color: var(--sapLinkColor);
+}
+
+.kengine-multi-combobox-tokenizer::part(n-more-text) {
+	padding-inline-end: var(--_kengine_input_inner_space_to_n_more_text);
+}
+
+[inner-input][inner-input-with-icon] {
+	padding: var(--_kengine_input_inner_padding_with_icon);
+}
+
+:host([tokenizer-available]) [inner-input] {
+	padding-inline-start: var(--_kengine_input_inner_space_to_tokenizer);
+}
+
+:host(:not([tokenizer-available])) .kengine-multi-combobox-tokenizer {
+	--_kengine_input_tokenizer_min_width: 0px;
+	width: var(--_kengine_input_tokenizer_min_width);
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>i18n</title>
+
+	<script src="../../bundle.esm.js" type="module"></script>
+
+</head>
+
+<body>
+
+	<script type="module">
+
+		const demo = async () => {
+			["de", "es", "fr", "en"].forEach(localeId => window["sap-ui-webcomponents-bundle"].registerI18nLoader("myApp", localeId, () => `./assets/messagebundle_${localeId}.properties`));
+
+			const bundle = await window["sap-ui-webcomponents-bundle"].getI18nBundle("myApp");
+
+			const pleaseWait = bundle.getText("PLEASE_WAIT");
+			console.log("Please wait in the current language is: ", pleaseWait);
+		};
+
+		demo();
+
+
+	</script>
+
+
+</body>
+</html>

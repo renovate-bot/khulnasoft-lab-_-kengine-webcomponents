@@ -1,0 +1,9 @@
+<div class="kengine-badge-root">
+	<slot name="icon"></slot>
+
+	{{#if hasText}}
+		<label class="kengine-badge-text"><bdi><slot></slot></bdi></label>
+	{{/if}}
+
+	<span class="kengine-hidden-text">{{badgeDescription}}</span>
+</div>

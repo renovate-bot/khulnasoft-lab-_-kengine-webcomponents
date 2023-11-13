@@ -1,0 +1,23 @@
+:host(:not([hidden])) {
+    display: inline-block;
+}
+
+.kengine-cal-root {
+    background: var(--sapList_Background);
+    box-sizing: border-box;
+    height: var(--_kengine_calendar_height);
+    width: var(--_kengine_calendar_width);
+    padding: var(--_kengine_calendar_top_bottom_padding) var(--_kengine_calendar_left_right_padding) 0;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+}
+
+.kengine-cal-root [kengine-calendar-header] {
+    height: var(--_kengine_calendar_header_height);
+    font-family: var(--_kengine_button_fontFamily);
+}
+
+.kengine-cal-root .kengine-cal-content {
+    padding: 0 var(--_kengine_calendar_left_right_padding) var(--_kengine_calendar_top_bottom_padding);
+}

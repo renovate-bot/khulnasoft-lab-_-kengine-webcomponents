@@ -1,0 +1,7 @@
+html, body, #content {
+    height: 100%;
+}
+
+.kengine1auto {
+    background-color: var(--sapBackgroundColor);
+}
