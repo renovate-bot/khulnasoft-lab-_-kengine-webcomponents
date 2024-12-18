@@ -1198,9 +1198,7 @@
     glob "^8.0.3"
 
 "@wdio/devtools-service@^7.19.7":
-  version "7.33.0"
-  resolved "https://registry.yarnpkg.com/@wdio/devtools-service/-/devtools-service-7.33.0.tgz#1f15ef80524348f2bd68c1551edf434d1cc1d9f7"
-  integrity sha512-eEkuzL1eH48kIN66PnIWAXyd6B0PMr7nvM3mPTFAPSxY3Dzigjsk6E1CCfXWnoJixBwAp8pRzOQCCXbtMsYQqw==
+  version "7.40.0"
   dependencies:
     "@babel/core" "^7.12.10"
     "@tracerbench/trace-event" "^7.0.0"
